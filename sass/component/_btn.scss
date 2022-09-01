@@ -1,0 +1,56 @@
+.btn-0 {
+    @include btn($primaryDark, #fff, $primaryDark, 8px 48px, 24px );
+    &:hover{
+        @include btn_hover($primaryA11y);
+    }
+    &:disabled {
+        @include btn_disabled($gray500);
+        cursor:default;
+    }
+    @include m(){
+        padding:rwd(8) rwd(48);
+        border-radius:rwd(24);
+        font-size: rwd(16);
+    
+    }
+}
+
+.btn-1 {
+    @include btn(#fff,$primaryDark, $primaryDark, 8px 48px, 24px);
+    &:hover{
+        @include btn_hover($primaryA11y,#fff,$primaryA11y);
+    }
+    &:disabled {
+        @include btn_disabled(#fff,$gray600,$gray600);
+        cursor:default;
+    }
+    @include m(){
+        padding:rwd(8) rwd(48);
+        border-radius:rwd(24);
+        font-size: rwd(16);
+    
+    }
+}
+
+.btn-2 {
+    @include btn($secondaryDark,$secondaryA11y,$secondaryA11y, 8px 48px,8px);
+    @include m(){
+        padding:rwd(8) rwd(48);
+        border-radius:rwd(8);
+        font-size: rwd(16);
+    
+    }
+}
+
+.btn-3 {
+    @include btn($secondaryLight,$secondaryA11y,$secondaryA11y, 8px 48px,8px);
+    @include m(){
+        padding:rwd(8) rwd(48);
+        border-radius:rwd(8);
+        font-size: rwd(16);
+    
+    }
+}
+
+
+

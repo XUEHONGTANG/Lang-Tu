@@ -1,0 +1,29 @@
+.input-text[type=text]{
+    @include input-text();
+
+}
+
+
+
+// input[type="text"]{
+//     font-size: $p;
+//     font-weight: 500;
+//     border: 0;
+//     outline: solid 1px $primaryDefault;
+//     border-radius: 6px;
+//     padding: 8px 12px;
+//     &::placeholder{
+//         color: $gray500;
+//         font-weight: 400;
+//         font-size: $p;
+//     }
+//     &:hover{
+//         outline: solid 2px $primaryDefault;
+//     }
+//     &.-error{
+//         outline: solid 2px red;
+//     }
+// }
+
+
+

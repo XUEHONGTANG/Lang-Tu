@@ -1,0 +1,90 @@
+// === 物件置中 ===
+@mixin box-center(){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+//  *** 手機板 ***
+@mixin m() {
+    @media screen and (max-width: 576px) {
+        @content;
+    }
+}
+@mixin t() {
+    @media screen and (max-width:$t){
+        @content;
+    }    
+}
+
+
+// ===  按鈕樣式 btn ===
+
+@mixin btn($bgc, $color:#fff, $border:null, $padding:$space1 $space6, $br:$space3){
+    background-color: $bgc;
+    color: $color;
+    border: solid 1px $border;
+    padding: $padding;
+    border-radius: $br;
+    font-size: 16px;
+    font-weight: $bold;
+    text-align: center;
+    transition: all .3s ease;
+    cursor: pointer;
+
+}
+
+@mixin btn_hover($bgc, $color:#fff, $border:null){
+    background-color: $bgc; 
+    color: $color;
+    border: solid 1px $border;
+}
+@mixin btn_disabled($bgc, $color:#fff, $border:null){
+    background-color: $bgc; 
+    color: $color;
+    border: solid 1px $border;
+}
+
+
+
+// === input ===
+@mixin input-text($w:null){
+    width:$w;
+    font-size: 16px;
+    font-weight: $regular;
+    border: 0;
+    outline: solid 1px $primaryDefault;
+    border-radius: vw(6);
+    padding: vw(5) vw(7);
+    &::placeholder{
+        color: $gray500;
+        font-weight: 400;
+        font-size: font-size(14);
+    }
+    &:hover{
+        outline: solid 2px $primaryDefault;
+    }
+    &.-error{
+        outline: solid 1px red;
+    }
+    @include m(){
+        font-size: rwd(16);
+        padding: rwd(4) rwd(4);
+    }
+}
+
+// === from 表單 ===
+
+
+// === card 卡片 ===
+
+@mixin card ($w, $s, $r ){
+    width: $w;
+    box-shadow: $s;
+    border-radius: $r;
+    background: #FFFFFF;
+    text-decoration: none;
+
+}
+

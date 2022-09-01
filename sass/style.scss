@@ -1,0 +1,135 @@
+// reset css
+@import "base/reset";
+@import "base/global";
+
+// base
+@import "base/font";
+@import "base/color";
+@import "base/other"
+;
+
+// mixin 函式
+@import "mixin/mixin";
+
+//component
+@import "component/btn";
+@import "component/input";
+@import "component/space";
+
+body {
+    font-family: "Noto Sans TC";
+    color: $gray900;
+    background-image: $bgi;
+    font-size: $bodyFontSize;
+    line-height: 1.6;
+}
+
+// 字型預設寫法1
+h1 {
+    font-size: $h1;
+}
+h2 {
+    font-size: $h2;
+}
+h3 {
+    font-size: $h3;
+}
+h4 {
+    font-size: $h4;
+}
+h5 {
+    font-size: $h5;
+}
+p {
+    font-size: $p;
+}
+
+
+.ex_shadow {
+    height: vw(425);
+    width: 1190px ;
+    background: #FFFFFF;
+    box-shadow: $shadow;
+    border-radius: $r25;
+    color: $secondaryDark;
+    text-decoration: none;
+    display: flex;
+    padding: $space5;
+
+    img {
+        width: vw(347);
+    }
+    .text_content {
+        padding: $space5;
+    }
+
+    .title {
+        font-size: $h2;
+        font-weight: bold;
+        color: $secondaryA11y;
+    }
+    .date {
+        font-size: $h5;
+        font-weight: medium;
+        color: $secondaryA11y;
+    }
+    .content {
+        font-size: $p;
+        font-weight: medium;
+        color: $secondaryA11y;
+    }
+
+    @include m() {
+   
+        }
+}
+
+.ex_shadow2{
+    @include card(300px , $shadow , $r25);
+    color: $secondaryDark;
+    display: flex;
+    padding: $space5;
+}
+
+// 字型預設寫法2
+// $font: (
+//   'h1': $h1,
+//   'h2': $h2,
+//   'h3': $h3,
+//   'h4': $h4,
+//   'h5': $h5,
+//   'p': $p,
+// );
+
+// @each $title, $size in $font {
+//   .#{$title} {
+//     font-size: $size;
+//    }
+// };
+
+// 老師筆記
+// h1,
+// h2,
+// h3 {
+//   &.bold {
+//     font-weight: bold;
+//   }
+//   &.medium {
+//     font-weight: 400;
+//   }
+//   &.thin {
+//     font-weight: 100;
+//   }
+// }
+
+// $w: (
+//   "bold": 900,
+//   "default": 400,
+//   "thin": 100,
+// );
+
+// @each $k, $v in $w {
+//   .#{$k} {
+//     font-weight: $v;
+//   }
+// }
