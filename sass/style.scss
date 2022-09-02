@@ -16,6 +16,12 @@
 @import "component/input";
 @import "component/space";
 
+//header
+@import "layout/header";
+
+//index
+@import "page/index";
+
 body {
     font-family: "Noto Sans TC";
     color: $gray900;

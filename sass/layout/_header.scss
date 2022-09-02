@@ -1,0 +1,51 @@
+.header_container {
+    .top_kv{
+        background-image: url(../images/header_bg.png);
+        &_bg{
+            z-index: -1;
+        }
+
+        &_city{
+     
+            
+            .header_city_l1{
+                position: absolute;
+                top:vw(95);
+                left: 0px;
+                width:vw(1035);
+            }
+  
+            .header_city_r1{
+                position: absolute;
+                top:vw(72);
+                width: vw(1060);
+                right: vw(-20);
+            }
+            .header_city_r2{
+                position: absolute;
+                right: 0.40625vw;
+                width: 52.7vw;
+                top:-1.8125vw;
+            }
+            .header_city_l2{
+                position: absolute;
+                left: 0px;
+                width: vw(1383);
+                top: vw(-67);
+            }
+   
+        }
+
+    
+    .cat{
+        position: absolute;
+    }
+    .dog{
+        position: absolute;
+    }
+
+
+
+    }
+}
+    
