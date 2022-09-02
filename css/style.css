@@ -1,0 +1,303 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.btn-0 {
+  background-color: #5695D2;
+  color: #fff;
+  border: solid 1px #5695D2;
+  padding: 8px 48px;
+  border-radius: 24px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.btn-0:hover {
+  background-color: #3165A5;
+  color: #fff;
+  border: solid 1px;
+}
+.btn-0:disabled {
+  background-color: #CCCCCC;
+  color: #fff;
+  border: solid 1px;
+  cursor: default;
+}
+@media screen and (max-width: 576px) {
+  .btn-0 {
+    padding: 1.3913043478vw 8.347826087vw;
+    border-radius: 4.1739130435vw;
+    font-size: 2.7826086957vw;
+  }
+}
+
+.btn-1 {
+  background-color: #fff;
+  color: #5695D2;
+  border: solid 1px #5695D2;
+  padding: 8px 48px;
+  border-radius: 24px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.btn-1:hover {
+  background-color: #3165A5;
+  color: #fff;
+  border: solid 1px #3165A5;
+}
+.btn-1:disabled {
+  background-color: #fff;
+  color: #909090;
+  border: solid 1px #909090;
+  cursor: default;
+}
+@media screen and (max-width: 576px) {
+  .btn-1 {
+    padding: 1.3913043478vw 8.347826087vw;
+    border-radius: 4.1739130435vw;
+    font-size: 2.7826086957vw;
+  }
+}
+
+.btn-2 {
+  background-color: #DBC0AF;
+  color: #8B725A;
+  border: solid 1px #8B725A;
+  padding: 8px 48px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+@media screen and (max-width: 576px) {
+  .btn-2 {
+    padding: 1.3913043478vw 8.347826087vw;
+    border-radius: 1.3913043478vw;
+    font-size: 2.7826086957vw;
+  }
+}
+
+.btn-3 {
+  background-color: #FFFAF3;
+  color: #8B725A;
+  border: solid 1px #8B725A;
+  padding: 8px 48px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+@media screen and (max-width: 576px) {
+  .btn-3 {
+    padding: 1.3913043478vw 8.347826087vw;
+    border-radius: 1.3913043478vw;
+    font-size: 2.7826086957vw;
+  }
+}
+
+.input-text[type=text] {
+  font-size: 16px;
+  font-weight: 400;
+  border: 0;
+  outline: solid 1px #4FA1F0;
+  border-radius: 0.3125vw;
+  padding: 0.2604166667vw 0.3645833333vw;
+}
+.input-text[type=text]::-moz-placeholder {
+  color: #CCCCCC;
+  font-weight: 400;
+  font-size: 0.7291666667vw;
+}
+.input-text[type=text]:-ms-input-placeholder {
+  color: #CCCCCC;
+  font-weight: 400;
+  font-size: 0.7291666667vw;
+}
+.input-text[type=text]::placeholder {
+  color: #CCCCCC;
+  font-weight: 400;
+  font-size: 0.7291666667vw;
+}
+.input-text[type=text]:hover {
+  outline: solid 2px #4FA1F0;
+}
+.input-text[type=text].-error {
+  outline: solid 1px red;
+}
+@media screen and (max-width: 576px) {
+  .input-text[type=text] {
+    font-size: 2.7826086957vw;
+    padding: 0.6956521739vw 0.6956521739vw;
+  }
+}
+
+.header_container .top_kv {
+  background-image: url(../images/header_bg.png);
+}
+.header_container .top_kv_bg {
+  z-index: -1;
+}
+.header_container .top_kv_city .header_city_l1 {
+  position: absolute;
+  top: 4.9479166667vw;
+  left: 0px;
+  width: 53.90625vw;
+}
+.header_container .top_kv_city .header_city_r1 {
+  position: absolute;
+  top: 3.75vw;
+  width: 55.2083333333vw;
+  right: -1.0416666667vw;
+}
+.header_container .top_kv_city .header_city_r2 {
+  position: absolute;
+  right: 0.40625vw;
+  width: 52.7vw;
+  top: -1.8125vw;
+}
+.header_container .top_kv_city .header_city_l2 {
+  position: absolute;
+  left: 0px;
+  width: 72.03125vw;
+  top: -3.4895833333vw;
+}
+.header_container .top_kv .cat {
+  position: absolute;
+}
+.header_container .top_kv .dog {
+  position: absolute;
+}
+
+body {
+  font-family: "Noto Sans TC";
+  color: #2D2D2D;
+  background-image: url(../images/ricepaper.jpg);
+  font-size: 0.8333333333vw;
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 2.0833333333vw;
+}
+
+h2 {
+  font-size: 1.6666666667vw;
+}
+
+h3 {
+  font-size: 1.25vw;
+}
+
+h4 {
+  font-size: 1.0416666667vw;
+}
+
+h5 {
+  font-size: 0.9375vw;
+}
+
+p {
+  font-size: 0.8333333333vw;
+}
+
+.ex_shadow {
+  height: 22.1354166667vw;
+  width: 1190px;
+  background: #FFFFFF;
+  box-shadow: 0 0 2.0833333333vw rgba(31, 32, 37, 0.1);
+  border-radius: 1.3020833333vw;
+  color: #DBC0AF;
+  text-decoration: none;
+  display: flex;
+  padding: 2.0833333333vw;
+}
+.ex_shadow img {
+  width: 18.0729166667vw;
+}
+.ex_shadow .text_content {
+  padding: 2.0833333333vw;
+}
+.ex_shadow .title {
+  font-size: 1.6666666667vw;
+  font-weight: bold;
+  color: #8B725A;
+}
+.ex_shadow .date {
+  font-size: 0.9375vw;
+  font-weight: medium;
+  color: #8B725A;
+}
+.ex_shadow .content {
+  font-size: 0.8333333333vw;
+  font-weight: medium;
+  color: #8B725A;
+}
+.ex_shadow2 {
+  width: 300px;
+  box-shadow: 0 0 2.0833333333vw rgba(31, 32, 37, 0.1);
+  border-radius: 1.3020833333vw;
+  background: #FFFFFF;
+  text-decoration: none;
+  color: #DBC0AF;
+  display: flex;
+  padding: 2.0833333333vw;
+}/*# sourceMappingURL=style.css.map */
