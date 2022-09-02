@@ -7,7 +7,12 @@
     <script src="main.js"></script>
 </head>
 <body>
-    @@include('./layout/header.html')
+    @@include('./layout/header.html',{
+      "大標題" : "浪浪新聞" ,
+      "英文標題" : "LANG LANG WAITS FOR HOME" ,
+      "前頁面" : "浪浪資訊" ,
+      "此頁面" : "動物認養申請書" ,
+    })
     <div class="content">首頁
       <section> section01</section>
       <section> section02</section>
