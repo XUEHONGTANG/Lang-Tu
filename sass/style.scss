@@ -23,7 +23,14 @@
 @import "page/index";
 @import "page/origin";
 @import "./page/waitsforhome";
+<<<<<<< HEAD
 @import "page/petpage";
+=======
+
+*{
+    box-sizing: border-box;
+}
+>>>>>>> dc1c6a85ad0e15f1149ba813d6e6ea70a27b838e
 
 body {
     font-family: "Noto Sans TC","Roboto";
