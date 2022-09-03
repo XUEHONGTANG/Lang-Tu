@@ -15,12 +15,14 @@
 @import "component/btn";
 @import "component/input";
 @import "component/space";
+@import "./page/waitsforhome";
 
 //header
 @import "layout/header";
 
 //index
 @import "page/index";
+@import "page/origin";
 
 body {
     font-family: "Noto Sans TC","Roboto";
