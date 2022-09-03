@@ -1,0 +1,238 @@
+header {
+
+    .header_container {
+        width: 100vw;
+        overflow: hidden;
+        .top_nav {
+            display: flex;
+            padding: $space5 $space8;
+            justify-content: space-between;
+            z-index: 30;
+
+            &_logo {
+                z-index: 30;
+                img {
+                    width: vw(186);
+                }
+            }
+            &_icon {
+                display: flex;
+                align-items: flex-start;
+                width: vw(158);
+                z-index: 30;
+                position: relative;
+                gap: $space3;
+                &_shop-button {
+                    cursor: pointer;
+                    overflow: hidden;
+                    width: vw(59);
+                    padding: vw(12);
+                    border: 0;
+                    background: none;
+                    fill: $primaryA11y;
+                    z-index: 30;
+
+                }
+                &_menu-button {
+                    cursor: pointer;
+                    position: relative;
+                    width: $space8;
+                    height: $space8;
+                    padding: 0;
+                    border: 0;
+                    border-radius: 50%;
+                    background: #fff;
+                    box-shadow: $shadow;
+                    color: $primaryA11y;
+                    z-index: 30;
+                    &:focus {
+                        outline: transparent;
+                    }
+
+                    &::after,
+                    &::before,
+                    &_bar {
+                        content: "";
+                        position: absolute;
+                        right: 0.8vw;
+                        width: $space4;
+                        border-top: vw(4) solid currentcolor;
+                    }
+
+                    &::before {
+                        transform: translateY(vw(-12.3));
+                    }
+
+                    &::after {
+                        transform: translateY(vw(12.3));
+                    }
+
+                }
+
+                /* before/after */
+                // .menu-button.is-active {
+                // 	color: white;
+                // }
+
+                // .menu-button.is-active::before {
+                // 	transform: rotate(40deg);
+                // }
+
+                // .menu-button.is-active::after {
+                // 	transform: rotate(-40deg);
+                // }
+
+                // .menu-button.is-active .bar {
+                // 	transform: translateX(50px);
+                // }
+
+                // /* timing */
+                // .menu-button.anima {
+                // 	transition: color .4s;
+                // }
+
+                // .menu-button.anima::before,
+                // .menu-button.anima::after,
+                // .menu-button.anima .bar {
+                // 	transition: transform .4s cubic-bezier(0.87, 0, 0.13, 1);
+                // }
+
+                // .menu-button.anima:not(.is-active) .bar {
+                // 	transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+                // }
+            }
+        }
+
+        .top_kv {
+            // position: relative;
+            overflow: hidden;
+            &_bg {
+                z-index: -1;
+                width: 100vw;
+            
+            }
+            &_cir {
+                position: absolute;
+                left: 36vw;
+                z-index: 5;
+                width: vw(541);
+                top: 3vw;
+
+            }
+            &_city {
+                &_l1 {
+                    position: absolute;
+                    top: vw(95);
+                    left: 0;
+                    width: vw(1035);
+                }
+                &_r1 {
+                    position: absolute;
+                    top: vw(72);
+                    width: vw(1060);
+                    right: 0;
+                }
+                &_r2 {
+                    position: absolute;
+                    right: 0;
+                    width: 50.7vw;
+                    top: -1.8125vw;
+                }
+                &_l2 {
+                    position: absolute;
+                    left: 0;
+                    width: vw(1383);
+                    top: vw(-67);
+                }
+                &_road {
+                    position: absolute;
+                    width: vw(1025);
+                    left: vw(319);
+                    top: vw(705);
+                }
+
+            }
+            &_a {
+                // position: absolute;
+                &_cat {
+                    position: absolute;
+                    left: vw(1062);
+                    top: vw(613);
+                    width: vw(398);
+                    z-index: 2;
+                }
+                &_dog {
+                    position: absolute;
+                    left: vw(1179);
+                    top: vw(487);
+                    width: vw(345);
+                }
+            }
+
+        &_t{
+            position:relative;
+            z-index: 30;
+
+            &-title{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 13px;
+              
+                h1{
+                    color: $primaryA11y;
+                    font-weight: $bold;
+                }
+
+                p{
+                    font-size: vw(22);
+                    color: $primaryDefault;
+                }
+            }
+            
+        }
+        
+        }
+        .top_kv_crumbs{
+            z-index: 31;
+            position: absolute;
+            display: flex;
+            color: $primaryA11y;
+            left: vw(1256);
+            top: vw(899);
+
+            img{
+                width: vw(65.65) ;
+                margin-right: $space1;
+                
+            }
+
+            &-text{  
+                border-radius: vw(27);
+                padding: 0 vw(25);
+              
+                background-color: #fff;
+                font-size: $h5;
+                align-items: center;
+
+                display: flex;
+
+                &_1{
+
+                }
+                span{
+                margin: $space1;
+
+                }
+
+                &_2{
+                    font-weight: $bold;
+                }
+
+            }
+            
+            
+        }
+    }
+}
