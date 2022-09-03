@@ -1,7 +1,8 @@
 header {
 
     .header_container {
-
+        width: 100%;
+        overflow: hidden;
         .top_nav {
             display: flex;
             padding: $space5 $space8;
@@ -104,6 +105,7 @@ header {
 
         .top_kv {
             // position: relative;
+            overflow: hidden;
             &_bg {
                 z-index: -1;
                 width: 100vw;
@@ -128,12 +130,12 @@ header {
                     position: absolute;
                     top: vw(72);
                     width: vw(1060);
-                    right: vw(-20);
+                    right: 0;
                 }
                 &_r2 {
                     position: absolute;
-                    right: 0.40625vw;
-                    width: 52.7vw;
+                    right: 0;
+                    width: 50.7vw;
                     top: -1.8125vw;
                 }
                 &_l2 {
@@ -192,5 +194,57 @@ header {
         }
         
         }
+        
+        .top_kv_crumbs{
+            z-index: 31;
+            position: absolute;
+            display: flex;
+            color: $primaryA11y;
+            left: vw(1256);
+            top: vw(899);
+            
+            &-2{    
+                z-index: 31;
+                position: absolute;
+                display: flex;
+                color: $primaryA11y;
+                
+                top: vw(366);
+            }
+
+    
+            img{
+                width: vw(65.65) ;
+                margin-right: $space1;
+                
+            }
+
+            &-text{  
+                border-radius: vw(27);
+                padding: 0 vw(25);
+              
+                background-color: #fff;
+                font-size: $h5;
+                align-items: center;
+
+                display: flex;
+
+                &_1{
+
+                }
+                span{
+                margin: $space1;
+
+                }
+
+                &_2{
+                    font-weight: $bold;
+                }
+
+            }
+            
+            
+    
+    }
     }
 }
