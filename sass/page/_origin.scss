@@ -167,5 +167,87 @@
         }
     }
 
+    .line2{
+        width: vw(300);
+        img{
+            margin: vw(100) 0 0 vw(500);
+        }
+    }
+
+    .dog3{
+        width: vw(140);
+        position: absolute;
+        top: vw(2000);
+        left: vw(800);
+    }
+
+    .cloud{
+        width: vw(190);
+        position: absolute;
+        top: vw(2000);
+        left: vw(1120);
+    }
+
+    .content{
+        width: vw(736);
+        height: vw(156);
+        margin: 0 auto;
+        background-color: $secondaryLight;
+        box-shadow: $shadow;
+        border-radius: $r25;
+        padding: vw(40) vw(125);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h3{
+            width: vw(486);
+            color: $gray800;
+            text-align: center;
+        }
+    }
+
+    .cat2{
+        width: vw(260);
+        margin-left: vw(900);
+    }
+
+    .bottom-wrapper{
+        display: flex;
+        margin-top: vw(438);
+        .smallHome{
+            position: absolute;
+            left: vw(750);
+            top: vw(3100);
+        }
+        .bottom-left{
+            flex: 3;
+        }
+        .bottom-right{
+            flex: 1;
+            align-self: center;
+            margin-left: vw(40);
+            h1{
+                color: $secondaryA11y;
+                font-weight: $bold;
+                margin-bottom: vw(32);
+            }
+            .p1{
+                color: $secondaryA11y;
+                margin-bottom: vw(32);
+            }
+            .p2{
+                color: $primaryA11y;
+            }
+        }
+    }
+    .footPrint{
+        width: vw(260);
+        margin-left: vw(900);
+    }
+    .dog4{
+        width: vw(290);
+        margin-left: vw(900);
+    }
+
 
 }
