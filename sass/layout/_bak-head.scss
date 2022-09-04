@@ -1,3 +1,4 @@
+//頁首
 .head{
     width: 100%;
     // height: vw(150);
@@ -6,5 +7,46 @@
         width: vw(141);
         padding: vw(5) 0;
         display: block;
+    }
+}
+
+//側邊欄位
+aside{
+    width: vw(291);
+    background-color: white;
+    margin: vw(104) 0 0 vw(80);
+    border-radius: vw(25);
+
+    ul{
+        // text-align: center;
+    }
+
+    li{
+        border-bottom: 1px solid $lineGray;
+        padding: vw(8) 0 0 vw(32);
+    }
+
+    ul > li:last-child{
+        border-bottom:  none;
+    }
+
+    li a{
+        text-decoration: none;
+        font-size: $h3;
+        color: #5695D2;
+        font-weight: $bold;
+    }
+
+    li i{
+        padding-left: vw(104);
+    }
+
+    ol{
+        background-color: $primaryDark;
+    }
+
+    ol li a{
+        color: white;
+        font-weight: $regular;
     }
 }
