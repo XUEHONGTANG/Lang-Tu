@@ -1,29 +1,47 @@
-.input-text[type=text]{
-    @include input-text();
+// input 系列都是樣板,自己版面可以自行定義變數,只要記得引用mixin @include即可
 
+// === 無標題文字輸入框 input-text
+
+// .input-text[type=text]{
+//     @include input-text(寬度);
+// }
+.input-text[type=text]{
+    @include input-text(vw(600));
 }
 
 
+// === 文字輸入框 input-text + label
 
-// input[type="text"]{
-//     font-size: $p;
-//     font-weight: 500;
-//     border: 0;
-//     outline: solid 1px $primaryDefault;
-//     border-radius: 6px;
-//     padding: 8px 12px;
-//     &::placeholder{
-//         color: $gray500;
-//         font-weight: 400;
-//         font-size: $p;
-//     }
-//     &:hover{
-//         outline: solid 2px $primaryDefault;
-//     }
-//     &.-error{
-//         outline: solid 2px red;
-//     }
+// .text-label{
+//     @include text-label(寬度,'標題','註解');
 // }
+
+// 範例: 只有標題
+// .text-label{
+//     @include text-label(vw(1200),'標題*');
+// }
+
+// 範例: 只有註解
+// .text-label{
+//     @include text-label(vw(1200),'','註解');
+// }
+
+// // 範例: 標題註解都有
+.text-label{
+    @include text-label(vw(1200),'標題*','註解文字');
+}
+
+// === 文字輸入框 input-text + label --end
+
+
+// === 搜尋欄 input-search
+
+// .search-wrapper{
+//     @include search-wrapper(寬度);
+// }
+.search-wrapper{
+    @include search-wrapper(vw(500));
+}
 
 
 

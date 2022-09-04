@@ -15,7 +15,6 @@
 @import "component/btn";
 @import "component/input";
 @import "component/space";
-@import "./page/waitsforhome";
 
 //header
 @import "layout/header";
@@ -24,6 +23,12 @@
 //index
 @import "page/index";
 @import "page/origin";
+@import "page/waitsforhome";
+@import "page/petpage";
+
+*{
+    box-sizing: border-box;
+}
 
 
 body {

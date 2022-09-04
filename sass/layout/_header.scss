@@ -12,6 +12,7 @@ header {
 
     .header_container {
         width: 100%;
+<<<<<<< HEAD
         height: 53vw;
         z-index: -1;
         position: relative;
@@ -19,6 +20,14 @@ header {
         @include m() {
             height: 100vh;
             // overflow: hidden;
+=======
+        overflow: hidden;
+        .top_nav {
+            display: flex;
+            padding: $space5 $space8;
+            justify-content: space-between;
+            z-index: 30;
+>>>>>>> dev
 
         }
         &2 {
@@ -228,6 +237,7 @@ header {
             }
 
         }
+<<<<<<< HEAD
 
     }
 
@@ -236,12 +246,18 @@ header {
         justify-content: center;
 
         .top_kv_crumbs {
+=======
+        
+        }
+        .top_kv_crumbs{
+>>>>>>> dev
             z-index: 31;
             position: absolute;
             margin: auto 0;
             display: flex;
             align-items: center;
             color: $primaryA11y;
+<<<<<<< HEAD
             top: 45.5625vw;
             right: 7vw;
             @include m() {
@@ -266,6 +282,12 @@ header {
 
             &_img {
                 width: vw(65.65);
+=======
+            left: vw(1256);
+            top: vw(899);
+            img{
+                width: vw(65.65) ;
+>>>>>>> dev
                 margin-right: $space1;
                 @include m() {
                     width: 59.39px;

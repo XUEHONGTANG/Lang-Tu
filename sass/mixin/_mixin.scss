@@ -8,7 +8,7 @@
 
 //  *** 手機板 ***
 @mixin m() {
-    @media screen and (max-width: 576px) {
+    @media screen and (max-width: 414px) {
         @content;
     }
 }
@@ -49,30 +49,117 @@
 
 
 // === input ===
+// 無標題文字輸入框 input-text
+
 @mixin input-text($w:null){
     width:$w;
-    font-size: 16px;
+    font-size: $p-px;
     font-weight: $regular;
     border: 0;
     outline: solid 1px $primaryDefault;
-    border-radius: vw(6);
-    padding: vw(5) vw(7);
+    border-radius: 6px;
+    padding: 5px 7px;
+    // box-sizing: border-box;
     &::placeholder{
         color: $gray500;
-        font-weight: 400;
-        font-size: font-size(14);
+        font-weight: $regular;
+        font-size: $p-px;
     }
     &:hover{
         outline: solid 2px $primaryDefault;
     }
     &.-error{
-        outline: solid 1px red;
+        outline: solid 1px $error;
     }
-    @include m(){
-        font-size: rwd(16);
-        padding: rwd(4) rwd(4);
+    // @include m(){
+    //     font-size: rwd(16);
+    //     padding: rwd(4) rwd(4);
+    // }
+}
+
+
+// 文字輸入框 input-text + label
+// rwd 待修改
+@mixin text-label($w:null,$title:'',$helptext:''){
+    @if ($title != '' and $helptext != ''){
+        height: 95px;
+    }@else if($title != ''){
+        height: 74px;
+    }@else if($helptext != ''){
+        height: 66px;
+    }
+    width: $w;
+    display: inline-block;
+    margin: 8px 0;
+    // color: $primaryA11y;
+    // font-size: $h5-px;
+    .input-textLabel[type=text]{
+        @include input-text($w);
+        margin: 8px 0;
+    }
+    // .-help-text{
+    //     font-size: $p-px-s;
+    //     color: $gray800;
+    // }
+    // .-error-text{
+    //     font-size: $p-px-s;
+    //     color: $error;
+    // }
+    &::before{
+        content: $title;
+        color: $primaryA11y;
+        font-size: $h5-px;
+    }
+    &::after{
+        content: $helptext;
+        font-size: $p-px-s;
+        color: $gray800;
+    }
+    &.-error{
+        outline: solid 1px $error;
     }
 }
+
+// 搜尋欄 input-search
+// rwd 待修改
+@mixin search-wrapper($w:null){
+    position: relative;
+    width: $w;
+    &:after {
+        position: absolute;
+        top: 5px;
+        left: 12px;
+        font-family: FontAwesome;
+        content: "\f002";
+        color: grey;
+        font-size: 12px;  
+        font-weight: $regular;
+    }
+    .input-search[type=search]{
+        width:$w;
+        font-size: $p-px;
+        font-weight: $regular;
+        border: 0;
+        outline: solid 1px $primaryDefault;
+        border-radius: 13px;
+        padding: 5px 12px 5px 32px;
+    
+        position: relative;
+        &::placeholder{
+            color: $gray500;
+            font-weight: $regular;
+            font-size: $p-px;
+        }
+        &:hover{
+            outline: solid 2px $primaryDefault;
+        }
+        // @include m(){
+        //     font-size: rwd(16);
+        //     padding: rwd(4) rwd(4);
+        // }
+    }
+}
+
 
 // === from 表單 ===
 
