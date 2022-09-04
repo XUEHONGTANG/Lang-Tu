@@ -8,7 +8,7 @@
 
 //  *** 手機板 ***
 @mixin m() {
-    @media screen and (max-width: 576px) {
+    @media screen and (max-width: 414px) {
         @content;
     }
 }
