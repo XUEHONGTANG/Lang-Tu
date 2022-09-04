@@ -19,10 +19,12 @@
 
 //header
 @import "layout/header";
+@import "layout/nav";
 
 //index
 @import "page/index";
 @import "page/origin";
+
 
 body {
     font-family: "Noto Sans TC","Roboto";
