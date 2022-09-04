@@ -1,11 +1,7 @@
 header {
 
     .header_container {
-<<<<<<< HEAD
         width: 100%;
-=======
-        width: 100vw;
->>>>>>> f22350c063425b8e60d3db136e878b1b75a46c28
         overflow: hidden;
         .top_nav {
             display: flex;
@@ -198,10 +194,6 @@ header {
         }
         
         }
-<<<<<<< HEAD
-        
-=======
->>>>>>> f22350c063425b8e60d3db136e878b1b75a46c28
         .top_kv_crumbs{
             z-index: 31;
             position: absolute;
@@ -209,21 +201,6 @@ header {
             color: $primaryA11y;
             left: vw(1256);
             top: vw(899);
-<<<<<<< HEAD
-            
-            &-2{    
-                z-index: 31;
-                position: absolute;
-                display: flex;
-                color: $primaryA11y;
-                
-                top: vw(366);
-            }
-
-    
-=======
-
->>>>>>> f22350c063425b8e60d3db136e878b1b75a46c28
             img{
                 width: vw(65.65) ;
                 margin-right: $space1;
@@ -253,13 +230,6 @@ header {
                 }
 
             }
-            
-            
-<<<<<<< HEAD
-    
-    }
-=======
         }
->>>>>>> f22350c063425b8e60d3db136e878b1b75a46c28
     }
 }
