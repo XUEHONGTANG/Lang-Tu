@@ -1,7 +1,24 @@
+$menu-bg:  linear-gradient(180deg, #316CA5 78.05%, rgba(141, 197, 235, 0) 97.87%);;
+$menu-color: #ffffff;
+$menu-font-size: 2.5rem;
+$menu-zindex: 1100;
+$hamburger-color: #fff;
+$hamburger-width: 50px;
+$hamburger-height: 50px;
+$hamburger-zindex: $menu-zindex + 10;
+
+
 header {
 
     .header_container {
         width: 100%;
+        height: 53vw;
+        z-index: -1;
+        position: relative;
+        // overflow: hidden;
+        @include m() {
+            height: 100vh;
+            // overflow: hidden;
         overflow: hidden;
         .top_nav {
             display: flex;
@@ -9,223 +26,285 @@ header {
             justify-content: space-between;
             z-index: 30;
 
-            &_logo {
-                z-index: 30;
-                img {
-                    width: vw(186);
+        }
+        &2 {
+            width: 100%;
+            height: 34vw;
+            z-index: -1;
+            position: relative;
+    
+            @include m() {
+                height:33vh;
+            }
+            // overflow: hidden;
+        }
+
+        &3{
+
+            @include m() {
+                height:43vh;
+            }
+        }
+    
+    }
+
+
+    .top_kv {
+        
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 100vh;
+
+     
+     
+        &_bg {
+            z-index: -4;
+            width: 100%;
+            position: absolute;
+            top: 0;
+
+        }
+
+        &_cir {
+            position: absolute;
+            z-index: -1;
+            width: vw(541);
+            top: -9vw;
+            @include m() {
+                width: rwd(400);
+                top: -19.7vw;
+
+            }
+
+        }
+        &_city {
+
+            &_l1 {
+                position: absolute;
+                top: vw(95);
+                left: 0;
+                width: vw(1035);
+                @include m() {
+                    display: none;
                 }
             }
-            &_icon {
-                display: flex;
-                align-items: flex-start;
-                width: vw(158);
-                z-index: 30;
+            &_r1 {
+                position: absolute;
+                top: vw(72);
+                width: vw(1060);
+                right: 0;
+                @include m() {
+                    width: 151.7vw;
+                    left: -33.7vw;
+                    top: 59.4vw;
+                }
+
+                &-2{
+                    @include m(){
+                        top: 20.7vw;
+                    }
+                }
+            }
+          
+
+
+            &_r2 {
+                position: absolute;
+                right: 0;
+                width: 50.7vw;
+                top: -1.8125vw;
+                @include m() {
+                    display: none;
+                }
+
+            }
+            &_l2 {
+                position: absolute;
+                left: 0;
+                width: vw(1383);
+                top: vw(-67);
+                @include m() {
+                    width: rwd(723);
+                    top: 44.7vw;
+                    // left: rwd(-231);
+                }
+
+            &-2{
+                @include m(){
+                    top: 16.7vw;
+                }
+            }
+
+                
+            }
+            &_road {
+                position: absolute;
+                width: vw(1025);
+                left: vw(319);
+                top: vw(705);
+            }
+            &_or3 {
+                z-index: 3;
+                width: 100%;
+                top: vw(330);
+                position: absolute;
+            }
+            &_or3p {
+                top: vw(19);
+                width: 100%;
+                position: absolute;
+
+            }
+        }
+        &_a {
+            @include m() {
                 position: relative;
-                gap: $space3;
-                &_shop-button {
-                    cursor: pointer;
-                    overflow: hidden;
-                    width: vw(59);
-                    padding: vw(12);
-                    border: 0;
-                    background: none;
-                    fill: $primaryA11y;
-                    z-index: 30;
-
+                top: 46vw;
+            }
+            // position: absolute;
+            &_cat {
+                position: absolute;
+                left: vw(1062);
+                top: vw(613);
+                width: vw(398);
+                z-index: 2;
+                @include m() {
+                    width: 254px;
+                    left: 38vw;
+                    top: 40.8vw;
                 }
-                &_menu-button {
-                    cursor: pointer;
-                    position: relative;
-                    width: $space8;
-                    height: $space8;
-                    padding: 0;
-                    border: 0;
-                    border-radius: 50%;
-                    background: #fff;
-                    box-shadow: $shadow;
-                    color: $primaryA11y;
-                    z-index: 30;
-                    &:focus {
-                        outline: transparent;
-                    }
+            }
+            &_dog {
+                position: absolute;
+                left: vw(1179);
+                top: vw(487);
+                width: vw(345);
 
-                    &::after,
-                    &::before,
-                    &_bar {
-                        content: "";
-                        position: absolute;
-                        right: 0.8vw;
-                        width: $space4;
-                        border-top: vw(4) solid currentcolor;
-                    }
-
-                    &::before {
-                        transform: translateY(vw(-12.3));
-                    }
-
-                    &::after {
-                        transform: translateY(vw(12.3));
-                    }
-
+                @include m() {
+                    width: 203px;
+                    left: 55.26vw;
                 }
-
-                /* before/after */
-                // .menu-button.is-active {
-                // 	color: white;
-                // }
-
-                // .menu-button.is-active::before {
-                // 	transform: rotate(40deg);
-                // }
-
-                // .menu-button.is-active::after {
-                // 	transform: rotate(-40deg);
-                // }
-
-                // .menu-button.is-active .bar {
-                // 	transform: translateX(50px);
-                // }
-
-                // /* timing */
-                // .menu-button.anima {
-                // 	transition: color .4s;
-                // }
-
-                // .menu-button.anima::before,
-                // .menu-button.anima::after,
-                // .menu-button.anima .bar {
-                // 	transition: transform .4s cubic-bezier(0.87, 0, 0.13, 1);
-                // }
-
-                // .menu-button.anima:not(.is-active) .bar {
-                // 	transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
-                // }
             }
         }
 
-        .top_kv {
-            // position: relative;
-            overflow: hidden;
-            &_bg {
-                z-index: -1;
-                width: 100vw;
-            
-            }
-            &_cir {
-                position: absolute;
-                left: 36vw;
-                z-index: 5;
-                width: vw(541);
-                top: 3vw;
-
-            }
-            &_city {
-                &_l1 {
-                    position: absolute;
-                    top: vw(95);
-                    left: 0;
-                    width: vw(1035);
-                }
-                &_r1 {
-                    position: absolute;
-                    top: vw(72);
-                    width: vw(1060);
-                    right: 0;
-                }
-                &_r2 {
-                    position: absolute;
-                    right: 0;
-                    width: 50.7vw;
-                    top: -1.8125vw;
-                }
-                &_l2 {
-                    position: absolute;
-                    left: 0;
-                    width: vw(1383);
-                    top: vw(-67);
-                }
-                &_road {
-                    position: absolute;
-                    width: vw(1025);
-                    left: vw(319);
-                    top: vw(705);
-                }
-
-            }
-            &_a {
-                // position: absolute;
-                &_cat {
-                    position: absolute;
-                    left: vw(1062);
-                    top: vw(613);
-                    width: vw(398);
-                    z-index: 2;
-                }
-                &_dog {
-                    position: absolute;
-                    left: vw(1179);
-                    top: vw(487);
-                    width: vw(345);
-                }
-            }
-
-        &_t{
-            position:relative;
+        &_t {
+            position: relative;
             z-index: 30;
 
-            &-title{
+            &-title {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 gap: 13px;
-              
-                h1{
-                    color: $primaryA11y;
-                    font-weight: $bold;
+                @include m() {
+                    position: relative;
+                    top: 103px;
                 }
 
-                p{
-                    font-size: vw(22);
+                h1 {
+                    color: $primaryA11y;
+                    font-weight: $bold;
+                    font-size: $h1;
+                    @include m() {
+                        font-size: 32px;
+
+                    }
+                }
+
+                p {
+                    font-size: font-size(22);
                     color: $primaryDefault;
+                    @include m() {
+                        font-size: 20px;
+                    }
+
+                }
+
+                &2 {
+                    h1 {
+                        color: $secondaryA11y;
+                    }
+
+                    p {
+                        color: $secondaryA11y;
+                    }
                 }
             }
-            
+
         }
+
+    }
+
+    .top_kv_crumbs-frame {
+        display: flex;
+        justify-content: center;
+
+        .top_kv_crumbs {
         
         }
         .top_kv_crumbs{
             z-index: 31;
             position: absolute;
+            margin: auto 0;
             display: flex;
+            align-items: center;
             color: $primaryA11y;
+            top: 45.5625vw;
+            right: 7vw;
+            @include m() {
+                width: 273.39px;
+                height: 47.37px;
+                left: rwd(113);
+                top: 761.7px;
+            }
+
+            &-2 {
+                z-index: 31;
+                position: absolute;
+                display: flex;
+                align-items: center;
+                color: $primaryA11y;
+                top: vw(366);
+
+                @include m(){
+                    top: 34.0625vw;
+                }
+            }
+
+            &_img {
+                width: vw(65.65);
             left: vw(1256);
             top: vw(899);
             img{
                 width: vw(65.65) ;
                 margin-right: $space1;
-                
+                @include m() {
+                    width: 59.39px;
+                }
             }
 
-            &-text{  
+            &-text {
                 border-radius: vw(27);
                 padding: 0 vw(25);
-              
                 background-color: #fff;
                 font-size: $h5;
                 align-items: center;
-
                 display: flex;
-
-                &_1{
-
-                }
-                span{
-                margin: $space1;
+                @include m(){
+                    font-size: rwd(20);
 
                 }
 
-                &_2{
+                // &_1{
+
+                // }
+                span {
+                    margin: $space1;
+
+                }
+                &_2 {
                     font-weight: $bold;
                 }
 
@@ -233,3 +312,11 @@ header {
         }
     }
 }
+
+}
+}
+
+
+
+
+

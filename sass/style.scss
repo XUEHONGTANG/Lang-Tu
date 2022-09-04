@@ -5,8 +5,7 @@
 // base
 @import "base/font";
 @import "base/color";
-@import "base/other"
-;
+@import "base/other";
 
 // mixin 函式
 @import "mixin/mixin";
@@ -19,6 +18,7 @@
 //header
 @import "layout/header";
 @import "layout/bak-head";
+@import "layout/nav";
 
 //index
 @import "page/index";
@@ -30,6 +30,7 @@
 *{
     box-sizing: border-box;
 }
+
 
 body {
     font-family: "Noto Sans TC","Roboto";
