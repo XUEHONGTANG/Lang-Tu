@@ -18,12 +18,14 @@
 
 //header
 @import "layout/header";
+@import "layout/bak-head";
 
 //index
 @import "page/index";
 @import "page/origin";
 @import "page/waitsforhome";
 @import "page/petpage";
+@import "page/bak";
 
 *{
     box-sizing: border-box;
