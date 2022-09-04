@@ -10,7 +10,19 @@
     .link1{
         width: vw(155);
         display: inline-block;
-    }
+        .btn-2{
+            display: none;
+        }
+        @include m(){
+                img{
+                    display: none;
+                }
+                .btn-2{
+                    display: block;
+                }
+            }
+        }
+    
 
     .link2{
         width: vw(155);
@@ -19,6 +31,15 @@
 
         &:hover{
             opacity: .6;
+        }
+
+        @include m(){
+            img{
+                display: none;
+            }
+            .btn-2{
+                display: block;
+            }
         }
     }
 
