@@ -1,0 +1,65 @@
+.application{
+    width: vw(1200);
+    margin: vw(580) auto;
+    background-color: #fff;
+    border-radius: $r25;
+    .application-tt{
+        padding: vw(40);
+        h2{
+            font-size: $h2;
+            color: $primaryDark;
+            font-weight: $bold;
+            margin-bottom: vw(16);
+            text-align: center;
+        }
+        h3{
+            font-size: $h3;
+            font-weight: $bold;
+            text-align: center;
+        }
+        p{
+            font-size: $h4;
+            font-weight: $bold;
+            line-height: 3.5;
+        }
+    .application-tt-in{
+        display: flex;
+        p{
+            font-size: $h4;
+            font-weight: $bold;
+        }
+        }
+    }
+    .application-input{
+        h3{
+            text-align: center;
+            font-size: $h2;
+            color: $primaryDark;
+            font-weight: $bold;
+        }
+    }
+    .application-md{
+        display: flex;
+    }
+    .application-lift{
+        // width: vw(500);
+        h1{
+            font-size: $h5;
+            color: $primaryDark;
+        }
+    }
+    .application-right{
+        // width: vw(500);
+        h1{
+            font-size: $h5;
+            color: $primaryDark;
+        }
+    }
+
+    .application-under{
+        text-align: center;
+        .btn-1{
+            margin: vw(20);
+        }
+    }
+}

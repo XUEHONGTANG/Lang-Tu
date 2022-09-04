@@ -1,8 +1,86 @@
 .petpage{
     width: vw(1200);
     margin: vw(580) auto;
+    
     .petpage-pp{
         display: flex;
+        margin-bottom: vw(80);
+        @include m(){
+            display: inline;
+            width: rwd(360);
+        }
+    }
+    .petpage-pp-big{
+        width: vw(628);
+        margin-right: vw(64);
+        @include m(){
+                width: rwd(360);
+                display: flex;
+                img{
+                    width: rwd(260);
+                    margin-right: rwd(32);
+                }
+        }
+    }
+    .petpage-pp-small{
+        width: vw(628);
+        display: flex;
+        margin-top: vw(24);
+        img{
+            width: vw(100);
+            margin-right: vw(32);
+        }
+        @include m(){
+            flex-direction: column;
+            img{
+                width: rwd(50);
+                margin-right: vw(0);
+                margin-bottom: rwd(8);
+            }
+        }
+    }
+    .petpage-tt-on{
+        margin: 0 auto;
+        margin-bottom: vw(16);
+        h1{
+            font-size: $h4;
+            color: $primaryDark;
+            font-weight: $bold;
+            margin-bottom: vw(16);
+        }
+        p{
+            margin-bottom: vw(8);
+            font-size: $p;
+            
+        }
+        
+    }
+    .petpage-tt-under{
+        text-align: center;
+        margin-top: vw(40);
+    }
+    .petpage-uu{
+        display: flex;
+        width: vw(1000);
+        background-color: #fff;
+        margin: 0 auto;
+        h1{
+            font-size: $h4;
+            font-weight: $bold;
+            margin: 0 vw(30);
+            align-self: center;
+        }
+        @include m(){
+            h1{
+                display: none;
+            }
+        }
+    }
+    .petpage-uu-right{
+        font-weight: $regular;
+        font-size: $p;
+        align-self: center;
+        padding: vw(40) 0;
     }
 
 
