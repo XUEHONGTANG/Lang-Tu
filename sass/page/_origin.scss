@@ -3,7 +3,7 @@
     margin: vw(580) auto;
     position: relative;
     @include m(){
-        width: rwd(404);
+        width: rwd(570);
     }
 
     img{
@@ -66,20 +66,22 @@
             width: vw(530);
             margin-bottom: vw(16);
             @include m(){
-                width: rwd(359);
+                // width: rwd(359);
+                width: 359px;
+                height: 427px;
                 background-color: #ffffff;
                 box-shadow: $shadow;
                 border-radius: rwd(25);
-                padding: rwd(24) rwd(16);
+                padding: 24px 16px;
             }
             h2{
                 font-size: $h2;
                 color: $secondaryA11y;
                 font-weight: $medium;
                 @include m(){
-                    font-size: $p;
+                    font-size: 16px;
                     font-weight: $regular;
-
+                    margin-bottom: 8px;
                 }
             }
             h1{
@@ -87,12 +89,15 @@
                 color: $primaryA11y;
                 font-weight: $bold;
                 @include m(){
-                    font-size: $h3;
+                    font-size: 24px;
                     font-weight: $medium;
                 }
             }
             .line{
                 margin: vw(48) 0;
+                @include m(){
+                    margin: 24px 0;
+                }
             }
             h3{
                 font-size: $h3;
@@ -100,14 +105,18 @@
                 font-weight: $medium;
                 margin-bottom: vw(32);
                 @include m(){
-                    font-size: $p;
+                    font-size: 16px;
                     font-weight: $bold;
+                    margin-bottom: 32px;
                 }
             }
             p{
                 font-size: $p;
                 color: $secondaryA11y;
                 font-weight: $regular;
+                @include m(){
+                    font-size: 16px;
+                }
             }
         }
     
@@ -122,8 +131,8 @@
                 z-index: 3;
                 width: vw(480);
                 @include m(){
-                    width: rwd(340);
-                    top: rwd(110);
+                    width: 250px;
+                    top: 80px;
                 }
             }
             .top-right2{
@@ -132,8 +141,8 @@
                 width: vw(474);
                 left: vw(750);
                 @include m(){
-                    width: rwd(338);
-                    left: rwd(50);
+                    width: 270px;
+                    left: 50px;
                 }
             }
             .top-right3{
@@ -142,8 +151,8 @@
                 width: vw(254);
                 top: vw(600);
                 @include m(){
-                    width: rwd(180);
-                    top: rwd(300);
+                    width: 130px;
+                    top: 215px;
                 }
             }
         }
@@ -152,7 +161,8 @@
     .line1{
         width: vw(338);
         @include m(){
-            width: rwd(163);
+            width: 163px;
+            margin-left: 20px;
         }
     }
 
@@ -170,7 +180,8 @@
         top: vw(1000);
         @include m(){
             width: rwd(178);
-            top: rwd(950);
+            top: 800px;
+            left: 230px;
         }
     }
 
@@ -179,6 +190,9 @@
         position: absolute;
         left: vw(1100);
         top: vw(800);
+        @include m(){
+            display: none;
+        }
     }
 
     .medium-wrapper{
@@ -203,7 +217,8 @@
                 left: vw(70);
                 @include m(){
                     width: rwd(300);
-                    left: rwd(80);
+                    left: 100px;
+                    top: 990px;
                 }
             }
             .medium-left2{
@@ -222,7 +237,7 @@
                 left: vw(200);
                 @include m(){
                     width: rwd(200);
-                    top: rwd(1320);
+                    top: 1100px;
                     left: rwd(120);
                 }
             }
@@ -233,9 +248,9 @@
                 top: vw(1750);
                 left: vw(200);
                 @include m(){
-                    width: rwd(252);
-                    top: rwd(1980);
-                    left: rwd(80);
+                    width: 252px;
+                    top: 1740px;
+                    left: 60px;
                 }
             }
         }
@@ -243,35 +258,56 @@
             width: vw(530);
             padding-top: vw(200);
             @include m(){
-                width: rwd(359);
+                width: 359px;
+                height: 427px;
                 background-color: #ffffff;
                 box-shadow: $shadow;
                 border-radius: rwd(25);
-                padding: rwd(23.5) rwd(16);
+                padding: 24px 16px;
             }
             h2{
                 font-size: $h2;
                 color: $secondaryA11y;
                 font-weight: $medium;
+                @include m(){
+                    font-size: 16px;
+                    margin-bottom: 8px;
+                    font-weight: $regular;
+                }
             }
             h1{
                 font-size: font-size(45);
                 color: $primaryA11y;
                 font-weight: $bold;
+                @include m(){
+                    font-size: 24px;
+                    font-weight: $medium;
+                }
             }
             .line{
                 margin: vw(48) 0;
+                @include m(){
+                    margin: 24px 0;
+                }
             }
             h3{
                 font-size: $h3;
                 color: $secondaryA11y;
                 font-weight: $medium;
                 margin-bottom: vw(32);
+                @include m(){
+                    font-size: 16px;
+                    font-weight: $bold;
+                    margin-bottom: 32px;
+                }
             }
             p{
                 font-size: $p;
                 color: $secondaryA11y;
                 font-weight: $regular;
+                @include m(){
+                    font-size: 16px;
+                }
             }
         }
     }
@@ -280,9 +316,9 @@
         width: vw(300);
         @include m(){
             position: absolute;
-            top: rwd(2750);
-            left: rwd(230);
-            width: rwd(140);
+            top: 2400px;
+            left: 200px;
+            width: 140px;
         }
         img{
             margin: vw(100) 0 0 vw(500);
@@ -298,7 +334,7 @@
         top: vw(2000);
         left: vw(800);
         @include m(){
-            top: rwd(2850);
+            top: 2510px;
             left: rwd(30);
             width: rwd(100);
         }
@@ -310,7 +346,7 @@
         top: vw(2000);
         left: vw(1120);
         @include m(){
-            top: rwd(2750);
+            top: 2400px;
             width: rwd(128);
             left: rwd(50);
         }
@@ -328,19 +364,19 @@
         justify-content: center;
         align-items: center;
         @include m(){
-            margin-top: rwd(358);
-            width: rwd(359);
-            height: rwd(76);
-            padding: rwd(12) rwd(18);
+            margin-top: rwd(500);
+            width: 359px;
+            height: 76px;
+            padding: 12px 18px;
         }
         h3{
             width: vw(486);
             color: $gray800;
             text-align: center;
             @include m(){
-                font-size: $p;
-                width: rwd(324);
-                height: rwd(52);
+                font-size: 16px;
+                width: 324px;
+                height: 52px;
             }
         }
     }
@@ -366,7 +402,7 @@
             left: vw(750);
             top: vw(3100);
             @include m(){
-                top: rwd(3070);
+                top: 2600px;
                 left: rwd(50);
                 width: rwd(120);
             }
@@ -382,12 +418,12 @@
             align-self: center;
             margin-left: vw(40);
             @include m(){
-                width: rwd(410);
-                height: rwd(769);
+                width: 350px;
+                height: 769px;
                 background-color: #ffffff;
                 box-shadow: $shadow;
                 border-radius: rwd(25);
-                padding: rwd(210) rwd(16);
+                padding: 100px 16px;
                 margin-left: 0;
             }
             h1{
@@ -395,7 +431,7 @@
                 font-weight: $bold;
                 margin-bottom: vw(32);
                 @include m(){
-                    font-size: $h2;
+                    font-size: 32px;
                     font-weight: $medium;
                 }
             }
@@ -403,11 +439,14 @@
                 color: $secondaryA11y;
                 margin-bottom: vw(32);
                 @include m(){
-
+                    font-size: 20px;
                 }
             }
             .p2{
                 color: $primaryA11y;
+                @include m(){
+                    font-size: 16px;
+                }
             }
         }
     }
@@ -416,7 +455,8 @@
         margin-left: vw(900);
         @include m(){
             position: absolute;
-            top: rwd(3080);
+            top: 2610px;
+            left: 100px;
             width: rwd(100);
         }
     }
@@ -424,8 +464,8 @@
         width: vw(290);
         margin-left: vw(900);
         @include m(){
-            // position: absolute;
-            // top: rwd(3080);
+            position: absolute;
+            top: 3000px;
             width: rwd(125);
         }
     }
