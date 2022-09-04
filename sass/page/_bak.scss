@@ -1,0 +1,49 @@
+.login{
+    width: vw(1200);
+    margin: vw(80) auto vw(64);
+    .bak_head{
+        width: 100%;
+        height: vw(100);
+        background-color: $primaryDark;
+        border-radius: vw(25) vw(25) 0 0;
+    
+        h1{
+            font-size: $h1;
+            text-align: center;
+            line-height: vw(100);
+            color: white;
+        }
+    }
+}
+
+.acc_pass{
+    background-color: white;
+    border-radius: 0 0 vw(25) vw(25);
+    height: vw(513);
+
+    .log{
+        margin: 0 auto;
+        width: vw(600);
+        padding-top: vw(80);
+        .tl{
+            width: auto;
+        }
+
+        .text-label{
+            &-1{
+                @include text-label(vw(1200),'帳號');
+            }
+    
+            &-2{
+                @include text-label(vw(1200),'密碼');
+            }
+        }
+    }
+
+   .btn{
+        width: vw(170);
+        margin: 0 auto;
+        padding-top: vw(32);
+    }
+
+}
