@@ -1,6 +1,9 @@
 .petpage{
     width: vw(1200);
     margin: vw(10) auto;
+    @include m(){
+        width: rwd(394);
+    }
     
     .petpage-pp{
         display: flex;
@@ -8,11 +11,16 @@
         @include m(){
             display: inline;
             width: rwd(360);
+            display: block;
+            margin: 0 auto;
         }
     }
     .petpage-pp-big{
         width: vw(628);
         margin-right: vw(64);
+        img{
+            width: vw(628);
+        }
         @include m(){
                 width: rwd(360);
                 display: flex;
@@ -58,6 +66,7 @@
     .petpage-tt-under{
         text-align: center;
         margin-top: vw(40);
+        
     }
     .petpage-uu{
         display: flex;
@@ -71,6 +80,7 @@
             align-self: center;
         }
         @include m(){
+            width: rwd(394);
             h1{
                 display: none;
             }
@@ -81,6 +91,9 @@
         font-size: $p;
         align-self: center;
         padding: vw(40) 0;
+        @include m(){
+            
+        }
     }
 
 

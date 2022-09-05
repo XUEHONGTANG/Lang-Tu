@@ -4,6 +4,9 @@
     background-color: #fff;
     border-radius: $r25;
     box-shadow: $shadow;
+    @include m(){
+        
+    }
     .application-tt{
         padding: vw(40);
         h2{
