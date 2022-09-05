@@ -1,8 +1,9 @@
 .application{
     width: vw(1200);
-    margin: vw(580) auto;
+    margin: vw(0) auto;
     background-color: #fff;
     border-radius: $r25;
+    box-shadow: $shadow;
     .application-tt{
         padding: vw(40);
         h2{
@@ -19,6 +20,7 @@
         }
         p{
             font-size: $h4;
+            // font-size: 12px;
             font-weight: $bold;
             line-height: 3.5;
         }

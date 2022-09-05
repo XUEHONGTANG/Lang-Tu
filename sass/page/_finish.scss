@@ -1,0 +1,20 @@
+.finish{
+        width: vw(1200);
+        margin: vw(0) auto;
+
+    .finish-top{
+        width: vw(1200);
+        img{
+            width: vw(800);
+            margin: 0 auto;
+            display: block;
+        }
+        h3{
+            font-size: $h3;
+            color: $secondaryA11y;
+            font-weight: $bold;
+            text-align: center;
+        }
+    }
+    
+}
