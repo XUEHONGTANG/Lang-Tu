@@ -57,6 +57,19 @@ function  Jsminify(){
 
 exports.uglify = Jsminify;
 
+const babel = require('gulp-babel');
+
+function babel5() {
+    return src('js/*.js')
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
+        .pipe(uglify())
+        .pipe(dest('dist/js'));
+}
+
+exports.js_update = babel5;
+
 //4.搬家
 function img_move(){
     return src(['images/*.*' , 'images/**/*.*']).pipe(dest('dist/images'))
@@ -74,6 +87,16 @@ function min_images(){
     ]))
     .pipe(dest('dist/images'))
 }
+
+ //clear old file
+ const clean = require('gulp-clean');
+
+ function clear() {
+    return src('dist' ,{ read: false ,allowEmpty: true })//不去讀檔案結構，增加刪除效率  / allowEmpty : 允許刪除空的檔案
+    .pipe(clean({force: true})); //強制刪除檔案 
+    }
+
+    exports.cls = clear;
 
 
  // 瀏覽器同步
@@ -94,3 +117,5 @@ function min_images(){
 
 //執行
 exports.default = series(parallel(includeHTML , sassstyle ,img_move , Jsminify) ,browser)
+exports.online = series(clear, parallel(includeHTML, sassstyle, min_images, babel5))
+

@@ -1,9 +1,9 @@
 .origin{
     width: vw(1200);
-    margin: vw(580) auto;
+    margin: 0 auto;
     position: relative;
     @include m(){
-        width: rwd(570);
+        width: rwd(394);
     }
 
     img{
@@ -12,7 +12,10 @@
 
     .link-wrapper{
         display: flex;
+        // justify-content: center;
+        @include m(){
         justify-content: center;
+        }
         .link1{
             text-decoration: none;
             .btn-2{
@@ -400,7 +403,7 @@
         .smallHome{
             position: absolute;
             left: vw(750);
-            top: vw(3100);
+            top: vw(3020);
             @include m(){
                 top: 2600px;
                 left: rwd(50);
