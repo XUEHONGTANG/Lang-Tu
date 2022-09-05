@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     @@include('./layout/head.html', {
-        "title" : "會員管理"
+        "title" : "商品管理"
     })
 </head>
 <body>
@@ -14,14 +14,14 @@
             <aside>
                 @@include('./layout/bak-aside.html')
             </aside>
-        
-            <!-- 右側欄位 -->
+
             <div class="right">
                 <!-- 標題 -->
-                <h2>會員管理</h2>
+                <h2>商品管理</h2>
     
                 <!-- 搜尋 -->
-                <div class="s1">
+                <div class="s1 s2">
+                    <input type="submit" class="add" value="新增">
                     <div class="search-wrapper">
                         <input type="search" class="input-search is" name="q" placeholder="search">
                     </div>
@@ -32,41 +32,30 @@
                     <thead class="tbh">
                         <tr>
                             <td>編號</td>
-                            <td>姓名</td>
-                            <td>帳號</td>
-                            <td>密碼</td>
-                            <td>信箱</td>
-                            <td>電話</td>
-                            <td>生日</td>
-                            <td>性別</td>
+                            <td>商品名稱</td>
+                            <td>成本</td>
+                            <td>售價</td>
+                            <td>庫存</td>
+                            <td>售出</td>
+                            <td>操作</td>
                         </tr>
                     </thead>
 
                     <tbody class="tbb">
                         <tr>
                             <td>001</td>
-                            <td>林宜蓁</td>
-                            <td>urusai1999</td>
-                            <td>urusai0227</td>
-                            <td>zxc1234@gmail.com</td>
-                            <td>0948375983</td>
-                            <td>1999/02/27</td>
-                            <td>女</td>
+                            <td>牽繩</td>
+                            <td>300</td>
+                            <td>600</td>
+                            <td>35</td>
+                            <td>20</td>
+                            <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a>&nbsp&nbsp<a href="#">下架</a></td>
                         </tr>
                     </tbody>
                 </table>
-
-
-
             </div>
-
-
         </main>
-        
-
-        
 
     </div>
-
 </body>
 </html>
