@@ -1,0 +1,205 @@
+.precautions{
+    width: vw(1200);
+    margin: vw(580) auto;
+    
+    .precautions-top{
+        text-align: center;
+        h2{
+            color: $secondaryA11y;
+            font-size: $h2;
+        }
+        h1{
+            color: $primaryA11y;
+            font-size: $h1;
+            font-weight: $bold;
+        }
+        @include m(){
+            h1{
+                margin-bottom: 16px;
+            }
+        }
+    }
+    .precautions-section{
+        display: flex;
+        flex-wrap: wrap;
+        // position: relative;
+        @include m(){
+            width: 360px;
+        }
+    }
+    .precautions-1{
+        width: vw(600);
+        img{
+            width: vw(495);
+        }
+        
+    }
+    .precautions-2{
+        width: vw(600);
+        text-align: center;
+        align-self: center;
+        h1{
+            font-size: $h3;
+            margin-bottom: vw(8);
+            font-weight: $bold;
+            color: $secondaryA11y;
+        }
+        h2{
+            font-size: $h4;
+            color: $secondaryA11y;
+        }
+        @include m(){
+            h1{
+                font-size: 12px;
+                
+            }
+            h2{
+                font-size: 12px;
+            }
+        }
+    }
+    .precautions-3{
+        width: vw(600);
+        align-self: center;
+        
+        h1{
+            font-size: $h3;
+            margin-bottom: vw(8);
+            font-weight: $bold;
+            color: $secondaryA11y;
+            width: vw(500);
+        }
+        h2{
+            font-size: $h4;
+            color: $secondaryA11y;
+            width: vw(500);
+        }
+        @include m(){
+            h1{
+                font-size: 12px;
+                
+            }
+            h2{
+                font-size: 12px;
+            }
+        }
+    }
+    .precautions-4{
+        width: vw(600);
+        height: vw(700);
+        .Vector1{
+            width: vw(338);
+            z-index: 10;
+            position: absolute;
+            left: vw(900);
+            top: vw(1450);
+        }
+        .home1{
+            width: vw(550);
+            z-index: 5;
+            position: absolute;
+            left: vw(1050);
+            top: vw(1500);
+        }
+        .home2{
+            width: vw(519);
+            z-index: 2;
+            position: absolute;
+            left: vw(1150);
+            top: vw(1600);
+        }
+        @include m(){
+            .Vector1{
+                left: 200px;
+                top: 416px;
+            }
+            .home1{
+                left: 225px;
+                top: 436px;
+            }
+            .home2{
+                left: 250px;
+                top: 450px;
+            }
+        }
+    }
+    .precautions-5{
+        width: vw(600);
+        img{
+            width: vw(519);
+        }
+    }
+    .precautions-6{
+        width: vw(600);
+        align-self: center;
+        text-align: center;
+        h1{
+            font-size: $h3;
+            margin-bottom: vw(8);
+            font-weight: $bold;
+            color: $secondaryA11y;
+        }
+        h2{
+            font-size: $h4;
+            color: $secondaryA11y;
+        }
+        @include m(){
+            h1{
+                font-size: 12px;
+                
+            }
+            h2{
+                font-size: 12px;
+            }
+        }
+    }
+    .precautions-7{
+        width: vw(600);
+        align-self: center;
+        h1{
+            font-size: $h3;
+            margin-bottom: vw(8);
+            font-weight: $bold;
+            color: $secondaryA11y;
+        }
+        @include m(){
+            h1{
+                font-size: 12px;
+                
+            }
+        }
+        
+    }
+    .precautions-8{
+        width: vw(600);
+        height: vw(700);
+        .home4{
+            z-index: 5;
+            position: absolute;
+            left: vw(1050);
+            top: vw(3000);
+            width: vw(550);
+        }
+        .home5{
+            z-index: 2;
+            position: absolute;
+            left: vw(1100);
+            top: vw(3000);
+            width: vw(550);
+        }
+        @include m(){
+            .home4{
+                left: 220px;
+                top: 770px;
+            }
+            .home5{
+                left: 225px;
+                top: 770px;
+            }
+        }
+        
+    }
+    .precautions-under{
+        text-align: center;
+    }
+}

@@ -1,0 +1,313 @@
+$menu-bg:  linear-gradient(180deg, #316CA5 78.05%, rgba(141, 197, 235, 0) 97.87%);;
+$menu-font-size: 20px;
+
+
+
+
+
+#menu {
+  background: $menu-bg;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  overflow: hidden;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  transition: all 0.7s ease-in-out;
+  visibility: hidden;
+  width: 100vw;
+  z-index: 29;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+    @include m(){
+      height: 107.5vh;
+    }
+
+    li {
+      animation-duration: 0.5s;
+      animation-fill-mode: both;
+    }
+  }
+
+  ul {
+    &:hover {
+      a {
+        opacity: 0.5;
+      }
+    }
+
+    a {
+      transition: opacity 0.3s ease-in-out;
+
+      &:hover {
+        opacity: 1;
+        color: #fff;
+      }
+    }
+  }
+
+  .main-nav {
+    position: relative;
+    top: 31.3vw;
+    transform: translateY(-50%);
+    @include m(){
+      transform: none;
+      top:270px;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 5vw;
+      @include m(){
+        width: 255px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        
+        margin: 0 auto;
+        }
+      }
+    
+
+    .menu{
+      
+     &-title {
+      color: #fff;;
+      display: block;
+      font-size: vw(28);
+      font-weight: $regular;
+      padding: 1rem 1rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      &:first {
+        padding-top: 0;
+      }
+      @include m(){
+        font-size: 18px;
+      }
+      }
+
+      & ol {
+        margin-top: vw(10);
+        & a {
+          color: #c3dfff;;
+          display: block;
+          text-decoration: none;
+          font-size: 1vw;  
+          @include m(){
+            font-size: 17.7px;
+          }
+
+          &:hover{
+            color: #fff;
+          }
+      }
+      }
+    }
+  }
+
+  .menu-footer {
+
+    left: 0;
+    position: absolute;
+    right: 0;
+    top:9.1vw;
+    @include m(){
+      top: 20.1vw;
+    }
+
+    .footer-nav-flex{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.9vw;
+  
+      & img{
+        width: 8vw;
+        @include m(){
+          padding-right: 20px;
+          width: 30vw;
+        }
+      }
+    }
+
+    ul {
+      display: inline-block;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      margin-left: vw(50);
+
+      li {
+        display: inline;
+        margin: 0 1rem;
+        @include m(){
+          font-size:  14px;
+        }
+      }
+    }
+
+    a {
+      color: #c3dfff;;
+      text-decoration: none;
+
+    }
+  }
+  
+}
+
+
+
+
+.top_nav {
+
+    display: flex;
+    padding: $space5 $space8;
+    justify-content: space-between;
+    z-index: 30;
+    @include m() {
+        // width: 100vw;
+        padding: rwd(27) rwd(64);
+    }
+
+    &_logo {
+        z-index: 20;
+      
+        img {
+            width: vw(186);
+            @include m() {
+                display: none;
+            }
+        }
+    }
+    &_icon {
+        display: flex;
+        align-items: flex-start;
+        width: vw(158);
+        z-index: 30;
+        position: relative;
+        gap: $space3;
+        @include m() {
+            width: 100%;
+            justify-content: flex-end;
+            gap: rwd(24);
+
+        }
+     
+
+        &_shop-button {
+            cursor: pointer;
+            overflow: hidden;
+            width: vw(59);
+            padding: vw(12);
+            border: 0;
+            background: none;
+            fill: $primaryA11y;
+            z-index: 30;
+            svg {
+                display: flex;
+            }
+            @include m() {
+                width: 48px;
+
+                svg {
+                    padding: 9px;
+                }
+            }
+        }
+
+        &_menu-button {
+            position: relative;
+            cursor: pointer;
+            width: $space8;
+            height: $space8;
+            padding: 0;
+            border: 0;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: $shadow;
+            color: $primaryA11y;
+            z-index: 30;
+            overflow: hidden;
+            
+            @include m() {
+                width: 48.5px;
+                height: 48.5px;
+            }
+            &:focus {
+                outline: transparent;
+            }
+
+            &::after,
+            &::before,
+            & .bar {
+                content: "";
+                position: absolute;
+                right: 0.8vw;
+                width: $space4;
+                border-top: vw(4) solid currentcolor;
+
+            }
+
+            @include m() {
+                &::after,
+                &::before,
+                & .bar  {
+                    right: 13px;
+                    width: 22px;
+                    border-top: 3px solid currentcolor;
+                }
+            }
+
+            &::before {
+                transform: translateY(vw(-12.3));
+                @include m() {
+                    transform: translateY(-9px);
+                }
+            }
+
+            &::after {
+                transform: translateY(vw(12.3));
+                @include m() {
+                    transform: translateY(9px);
+                }
+            }
+
+    &.active {
+          background-color: transparent;
+          transition:  0.2s ease-out;
+          color: #fff;
+          z-index: 100;
+
+          & .bar {
+            transform: translateX(50px);
+            transition: top 0.2s ease-out, transform 0.2s 0.2s ease-out;
+          }
+    
+          &:before, &:after {
+            transition: top 0.2s ease-out, transform 0.2s 0.2s ease-out;
+          }
+    
+          &:before {
+          
+            transform: rotate3d(0, 0, 1, -45deg);
+          }
+    
+          &:after {
+           
+            transform: rotate3d(0, 0, 1, 45deg);
+          }
+        
+        }
+      }
+     }
+    }
+
+  
+  

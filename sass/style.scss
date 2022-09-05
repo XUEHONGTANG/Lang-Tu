@@ -5,8 +5,7 @@
 // base
 @import "base/font";
 @import "base/color";
-@import "base/other"
-;
+@import "base/other";
 
 // mixin 函式
 @import "mixin/mixin";
@@ -18,19 +17,25 @@
 
 //header
 @import "layout/header";
+@import "layout/bak-head";
+@import "layout/nav";
 
 //index
 @import "page/index";
 @import "page/origin";
-@import "./page/waitsforhome";
-<<<<<<< HEAD
+@import "page/waitsforhome";
 @import "page/petpage";
-=======
+@import "page/precautions";
+@import "page/application";
+
+
+
+@import "page/bak";
 
 *{
     box-sizing: border-box;
 }
->>>>>>> dc1c6a85ad0e15f1149ba813d6e6ea70a27b838e
+
 
 body {
     font-family: "Noto Sans TC","Roboto";
@@ -96,7 +101,6 @@ p {
     }
 
     @include m() {
-   
         }
 }
 
