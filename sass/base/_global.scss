@@ -3,11 +3,7 @@ $vw_base: 1920;
 $vh_base: 1080;
 
 //RWD
-<<<<<<< HEAD
 $rwd_base: 576;
-=======
-$rwd_base: 575;
->>>>>>> QQBB
 
 // vw()中的参数，直接传像素值
 @function vw($px) {

@@ -1,6 +1,6 @@
 .precautions{
     width: vw(1200);
-    margin: vw(580) auto;
+    margin: vw(0) auto;
     
     .precautions-top{
         text-align: center;
@@ -92,21 +92,21 @@
             z-index: 10;
             position: absolute;
             left: vw(900);
-            top: vw(1450);
+            top: vw(1850);
         }
         .home1{
             width: vw(550);
             z-index: 5;
             position: absolute;
             left: vw(1050);
-            top: vw(1500);
+            top: vw(1900);
         }
         .home2{
             width: vw(519);
             z-index: 2;
             position: absolute;
             left: vw(1150);
-            top: vw(1600);
+            top: vw(2000);
         }
         @include m(){
             .Vector1{
