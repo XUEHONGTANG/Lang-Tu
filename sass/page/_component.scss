@@ -1,0 +1,13 @@
+aside {
+  width: vw(260);
+  button {
+    width: 100%;
+    text-align: center;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+  }
+}
