@@ -6,6 +6,10 @@ $vh_base: 1080;
 $rwd_base: 414;
 
 
+//FONT-SIZE
+// $fontsize_base: 1440;
+$fontsize_base: 1440;
+
 // vw()中的参数，直接传像素值
 @function vw($px) {
     @return calc($px / $vw_base) * 100vw;
@@ -15,14 +19,18 @@ $rwd_base: 414;
     @return calc($px / $rwd_base) * 100vw;
 
 }
+
+@function fz($px) {
+    @return calc($px / $fontsize_base) * 100vw;
+
+}
+
 // // 计算视口高度, vh()中的参数，直接传像素值
 // @function vh($px) {
 //     @return calc($px / $vh_base) * 100vh;
 // }
 
 // 字
-@function font-size($px) {
-    @return vw($px);
-}
+
 
 
