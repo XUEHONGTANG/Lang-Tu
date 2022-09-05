@@ -12,15 +12,6 @@ header {
         @include m() {
             height: 100vh;
             // overflow: hidden;
-<<<<<<< HEAD
-        overflow: hidden;
-        .top_nav {
-            display: flex;
-            padding: $space5 $space8;
-            justify-content: space-between;
-            z-index: 30;
-=======
->>>>>>> QQBB
 
         }
         &2 {
@@ -227,10 +218,6 @@ header {
                 }
             }
         }
-<<<<<<< HEAD
-
-=======
->>>>>>> QQBB
     }
 
     .top_kv_crumbs-frame {
@@ -239,12 +226,6 @@ header {
 
 
         .top_kv_crumbs {
-<<<<<<< HEAD
-        
-        }
-        .top_kv_crumbs{
-=======
->>>>>>> QQBB
             z-index: 31;
             position: absolute;
             margin: auto 0;
@@ -275,13 +256,6 @@ header {
 
             &_img {
                 width: vw(65.65);
-<<<<<<< HEAD
-            left: vw(1256);
-            top: vw(899);
-            img{
-                width: vw(65.65) ;
-=======
->>>>>>> QQBB
                 margin-right: $space1;
                 @include m() {
                     width: 59.39px;
@@ -316,8 +290,6 @@ header {
     }}
 }
 
-}
-}
 
 
 
