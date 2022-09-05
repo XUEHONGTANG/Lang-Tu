@@ -40,9 +40,12 @@
     }
     .application-md{
         display: flex;
+        margin: 0 auto;
+        width: vw(700);
     }
     .application-lift{
         // width: vw(500);
+        // margin-left: vw(40);
         h1{
             font-size: $h5;
             color: $primaryDark;
@@ -54,6 +57,10 @@
             font-size: $h5;
             color: $primaryDark;
         }
+    }
+    .application-text{
+        @include input-text(vw(350));
+        margin-right: vw(40);
     }
 
     .application-under{
