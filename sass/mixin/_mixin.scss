@@ -8,7 +8,11 @@
 
 //  *** 手機板 ***
 @mixin m() {
+<<<<<<< HEAD
     @media screen and (max-width: 576px) {
+=======
+    @media screen and (max-width: 575px) {
+>>>>>>> QQBB
         @content;
     }
 }
