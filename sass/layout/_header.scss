@@ -1,18 +1,10 @@
-$menu-bg:  linear-gradient(180deg, #316CA5 78.05%, rgba(141, 197, 235, 0) 97.87%);;
-$menu-color: #ffffff;
-$menu-font-size: 2.5rem;
-$menu-zindex: 1100;
-$hamburger-color: #fff;
-$hamburger-width: 50px;
-$hamburger-height: 50px;
-$hamburger-zindex: $menu-zindex + 10;
 
 
 header {
+    overflow: hidden;
 
     .header_container {
         width: 100%;
-<<<<<<< HEAD
         height: 53vw;
         z-index: -1;
         position: relative;
@@ -20,19 +12,11 @@ header {
         @include m() {
             height: 100vh;
             // overflow: hidden;
-=======
-        overflow: hidden;
-        .top_nav {
-            display: flex;
-            padding: $space5 $space8;
-            justify-content: space-between;
-            z-index: 30;
->>>>>>> dev
 
         }
         &2 {
             width: 100%;
-            height: 34vw;
+            height: 17vw;
             z-index: -1;
             position: relative;
     
@@ -51,15 +35,10 @@ header {
     
     }
 
-
     .top_kv {
-        
         position: relative;
-        overflow: hidden;
         width: 100%;
         height: 100vh;
-
-     
      
         &_bg {
             z-index: -4;
@@ -82,10 +61,10 @@ header {
 
         }
         &_city {
-
+          
             &_l1 {
                 position: absolute;
-                top: vw(95);
+                top: 0.7vw;
                 left: 0;
                 width: vw(1035);
                 @include m() {
@@ -94,9 +73,9 @@ header {
             }
             &_r1 {
                 position: absolute;
-                top: vw(72);
-                width: vw(1060);
-                right: 0;
+                top: -4.25vw;
+                width: 55vw;
+                left: 46vw;
                 @include m() {
                     width: 151.7vw;
                     left: -33.7vw;
@@ -126,7 +105,7 @@ header {
                 position: absolute;
                 left: 0;
                 width: vw(1383);
-                top: vw(-67);
+                top: -8.48vw;
                 @include m() {
                     width: rwd(723);
                     top: 44.7vw;
@@ -135,7 +114,7 @@ header {
 
             &-2{
                 @include m(){
-                    top: 16.7vw;
+                    top: 1.7vw;
                 }
             }
 
@@ -145,7 +124,7 @@ header {
                 position: absolute;
                 width: vw(1025);
                 left: vw(319);
-                top: vw(705);
+                top:32.71875vw;
             }
             &_or3 {
                 z-index: 3;
@@ -161,6 +140,8 @@ header {
             }
         }
         &_a {
+            position: relative;
+            top: -10vw;
             @include m() {
                 position: relative;
                 top: 46vw;
@@ -168,9 +149,9 @@ header {
             // position: absolute;
             &_cat {
                 position: absolute;
-                left: vw(1062);
-                top: vw(613);
-                width: vw(398);
+                left:55vw;
+                top: 31.5vw;
+                width: vw(340);
                 z-index: 2;
                 @include m() {
                     width: 254px;
@@ -180,9 +161,9 @@ header {
             }
             &_dog {
                 position: absolute;
-                left: vw(1179);
+                left: vw(1169);
                 top: vw(487);
-                width: vw(345);
+                width: vw(300);
 
                 @include m() {
                     width: 203px;
@@ -219,6 +200,7 @@ header {
                 p {
                     font-size: font-size(22);
                     color: $primaryDefault;
+                    text-transform: uppercase;
                     @include m() {
                         font-size: 20px;
                     }
@@ -235,36 +217,28 @@ header {
                     }
                 }
             }
-
         }
-<<<<<<< HEAD
-
     }
 
     .top_kv_crumbs-frame {
         display: flex;
         justify-content: center;
 
+
         .top_kv_crumbs {
-=======
-        
-        }
-        .top_kv_crumbs{
->>>>>>> dev
             z-index: 31;
             position: absolute;
             margin: auto 0;
             display: flex;
             align-items: center;
             color: $primaryA11y;
-<<<<<<< HEAD
             top: 45.5625vw;
             right: 7vw;
             @include m() {
-                width: 273.39px;
+                width: 63vw;
                 height: 47.37px;
-                left: rwd(113);
-                top: 761.7px;
+                left: 19.6vw;
+                top: 651px;
             }
 
             &-2 {
@@ -273,7 +247,7 @@ header {
                 display: flex;
                 align-items: center;
                 color: $primaryA11y;
-                top: vw(366);
+                top: 5.0625vw;
 
                 @include m(){
                     top: 34.0625vw;
@@ -282,12 +256,6 @@ header {
 
             &_img {
                 width: vw(65.65);
-=======
-            left: vw(1256);
-            top: vw(899);
-            img{
-                width: vw(65.65) ;
->>>>>>> dev
                 margin-right: $space1;
                 @include m() {
                     width: 59.39px;
@@ -318,8 +286,8 @@ header {
                 }
 
             }
-        }
-    }
+        
+    }}
 }
 
 
