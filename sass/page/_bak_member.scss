@@ -3,11 +3,19 @@
     //右側欄位
     .right{
         width: vw(1180);
+        // flex-grow: 1;
+        
+
+        // 搜尋
+        .s1{
+            // float:right;
+            padding: vw(16) 0 vw(16) vw(790);
+            
+        }
+
+        
+
+        
     }
 
-    // 搜尋
-    .s1{
-        float:right;
-        padding-top: vw(16) 0;
-    }
 }
