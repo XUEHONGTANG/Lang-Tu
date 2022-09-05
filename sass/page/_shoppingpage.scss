@@ -1,0 +1,30 @@
+.shoppingPageWrapper{
+  margin: 0 auto;
+  width: vw(1200);
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-areas:
+  "side main";
+  aside {
+      grid-area: side;
+      width: vw(290);
+      // border-radius: vw(25);
+      button {
+        width: 100%;
+        height: vw(60);
+        text-align: center;
+        font-size: $h3;
+        border: none;
+        cursor: pointer;
+      }
+      ul {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        li button{
+          background-color: #fff;
+        }
+      }
+    }
+    
+}
