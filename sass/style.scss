@@ -25,6 +25,11 @@
 @import "page/origin";
 @import "page/waitsforhome";
 @import "page/petpage";
+@import "page/precautions";
+@import "page/application";
+
+
+
 @import "page/bak";
 
 *{
@@ -96,7 +101,6 @@ p {
     }
 
     @include m() {
-   
         }
 }
 
