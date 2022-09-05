@@ -57,6 +57,19 @@ function  Jsminify(){
 
 exports.uglify = Jsminify;
 
+const babel = require('gulp-babel');
+
+function babel5() {
+    return src('js/*.js')
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
+        .pipe(uglify())
+        .pipe(dest('dist/js'));
+}
+
+exports.js_update = babel5;
+
 //4.搬家
 function img_move(){
     return src(['images/*.*' , 'images/**/*.*']).pipe(dest('dist/images'))
@@ -94,3 +107,5 @@ function min_images(){
 
 //執行
 exports.default = series(parallel(includeHTML , sassstyle ,img_move , Jsminify) ,browser)
+exports.online = series(clear, parallel(includeHTML, sassstyle, min_images, babel5))
+
