@@ -1,3 +1,13 @@
 main{
-    display: flex;
+
+    //右側欄位
+    .right{
+        width: vw(1180);
+    }
+
+    // 搜尋
+    .s1{
+        float:right;
+        padding-top: vw(16) 0;
+    }
 }

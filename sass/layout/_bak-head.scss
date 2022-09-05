@@ -11,42 +11,54 @@
 }
 
 //側邊欄位
-aside{
-    width: vw(291);
-    background-color: white;
-    margin: vw(104) 0 0 vw(80);
-    border-radius: vw(25);
+main{
+    display: flex;
 
-    ul{
-        // text-align: center;
+    aside{
+        width: vw(291);
+        background-color: white;
+        margin: vw(185) 0 0 vw(169);
+        border-radius: vw(25);
+    
+        ul{
+            // text-align: center;
+        }
+    
+        li{
+            border-bottom: 1px solid $lineGray;
+            padding: vw(8) 0 0 vw(32);
+        }
+    
+        ul > li:last-child{
+            border-bottom:  none;
+        }
+    
+        li a{
+            text-decoration: none;
+            font-size: $h3;
+            color: #5695D2;
+            font-weight: $bold;
+        }
+    
+        li i{
+            padding-left: vw(104);
+        }
+    
+        ol{
+            background-color: $primaryDark;
+        }
+    
+        ol li a{
+            color: white;
+            font-weight: $regular;
+        }
     }
 
-    li{
-        border-bottom: 1px solid $lineGray;
-        padding: vw(8) 0 0 vw(32);
-    }
-
-    ul > li:last-child{
-        border-bottom:  none;
-    }
-
-    li a{
-        text-decoration: none;
-        font-size: $h3;
-        color: #5695D2;
+    // 標題
+    h2{
+        font-size: $h2;
         font-weight: $bold;
-    }
-
-    li i{
-        padding-left: vw(104);
-    }
-
-    ol{
-        background-color: $primaryDark;
-    }
-
-    ol li a{
-        color: white;
-        font-weight: $regular;
+        color: $primaryDark;
+        padding: vw(64) 0 0 vw(112);
     }
 }
