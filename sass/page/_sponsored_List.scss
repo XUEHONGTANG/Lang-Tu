@@ -1,0 +1,110 @@
+.sponsored_List{
+    width: vw(1200);
+    margin: vw(0) auto;
+
+    @include m(){
+        width: rwd(394);
+    }
+    
+    .sponsored_List-ul{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .sponsored_List-li{
+        
+        flex-basis: vw(400);
+        margin-bottom: vw(20);
+        a{
+            text-decoration:none;
+        }
+        h3{
+            color: $primaryA11y;
+            margin-bottom: vw(10);
+            text-align: center;
+        }
+        @include m(){
+            
+        }
+    }
+    .sponsored_List-div{
+        width: vw(350);
+        background-color: #fff;
+        border-radius: $r25;
+        padding-top: vw(20);
+        padding-bottom: vw(10);
+        img{
+            width: vw(300);
+            display: block;
+            margin: 0 auto ;
+            // margin-top: vw(30);
+
+        }
+    }
+    .sponsored_List-border{
+        content: "";
+        height: 7px;
+        width: vw(300);
+        background-color: #0b0ff1;
+        margin: 0 auto;
+        // border: solid 5px ;
+        // border-image-source: linear-gradient(to right, #0b0ff1, #7a7a7a );
+        // border-image-slice: 1;
+        // border-radius: 50%;
+        border-radius: 30px;
+    }
+    
+    .sponsored_List-in{
+        display: flex;
+        margin: 0 vw(30);
+        // border-top: solid 5px ;
+        // border-image-source: linear-gradient(to right, #0b0ff1, #7a7a7a );
+        // border-image-slice: 1;
+        
+        .sponsored_List-svg{
+            margin-top: vw(20);
+        }
+        h4{
+            color: black;
+            font-weight: $bold;
+            margin-right: vw(80);
+            margin-top: vw(20);
+        }
+        p{
+            font-size: $p;
+            color: black;
+            display: block;
+            margin-top: vw(20);
+        }
+    }
+
+
+    ////////以下為頁碼 需修改 目前是意圖
+    .page-icon{
+        margin:20px 0;
+        font-size:0;
+        text-align:center;
+    }
+    
+    .page-icon a,.page-disabled,.page-next{
+        border:0px solid $primaryA11y;
+        border-radius:150px;
+        padding:4px 10px 5px;
+        font-size:14PX;
+        margin-right:10px;
+        font-weight: $bold;
+    }
+    
+    .page-icon a{
+        text-decoration:none;
+        color:$primaryA11y;
+    }
+    
+    .page-current{
+        color:$primaryA11y;
+        padding:4px 10px 5px;
+        font-size:14PX;
+        border:1px solid $primaryA11y;
+        border-radius:50%;
+    }
+
+}
