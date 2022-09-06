@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     @@include('./layout/head.html', {
-        "title" : "商品管理"
+        "title" : "贊助管理"
     })
 </head>
 <body>
@@ -17,17 +17,19 @@
 
             <div class="right">
                 <!-- 標題 -->
-                <h2>商品管理</h2>
+                <h2>贊助專案</h2>
     
+                
                 <div class="s1 s2">
-                    <!-- 新增 -->
-                    <form action="">
-                    <input type="submit" class="add" value="新增">
+                    <form action=""> <!-- 新增 -->
+                        <input type="submit" class="add" value="新增">
                     </form>
-                    <!-- 搜尋 -->
-                    <div class="search-wrapper">
-                        <input type="search" class="input-search is" name="q" placeholder="search">
-                    </div>
+
+                    <form action=""> <!-- 搜尋 -->
+                        <div class="search-wrapper">
+                            <input type="search" class="input-search is" name="q" placeholder="search">
+                        </div>
+                    </form>
                 </div>
 
                 <!-- 表格 -->
@@ -36,23 +38,23 @@
                         <thead class="tbh">
                             <tr>
                                 <td>編號</td>
-                                <td>商品名稱</td>
-                                <td>成本</td>
-                                <td>售價</td>
-                                <td>庫存</td>
-                                <td>售出</td>
+                                <td>專案名稱</td>
+                                <td>開始時間</td>
+                                <td>結束時間</td>
+                                <td>目標金額</td>
+                                <td>贊助人數</td>
                                 <td>操作</td>
                             </tr>
                         </thead>
     
                         <tbody class="tbb">
                             <tr>
-                                <td>GD001</td>
-                                <td>牽繩</td>
-                                <td>300</td>
-                                <td>600</td>
-                                <td>35</td>
-                                <td>20</td>
+                                <td>DP001</td>
+                                <td>浪毛孩不再飢餓</td>
+                                <td>22/03/01</td>
+                                <td>22/04/30</td>
+                                <td>500000</td>
+                                <td>100</td>
                                 <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a>&nbsp&nbsp<a href="#">下架</a></td>
                             </tr>
                         </tbody>

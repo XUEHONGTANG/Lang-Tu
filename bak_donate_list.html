@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     @@include('./layout/head.html', {
-        "title" : "預約領養管理"
+        "title" : "贊助管理"
     })
 </head>
 <body>
@@ -17,41 +17,46 @@
 
             <div class="right">
                 <!-- 標題 -->
-                <h2>預約領養管理</h2>
+                <h2>贊助紀錄</h2>
     
-                <!-- 搜尋 -->
-                <form action="">
-                    <div class="s1">
+                <div class="s1">
+                    <!-- 搜尋 -->
+                    <form action="">
                         <div class="search-wrapper">
                             <input type="search" class="input-search is" name="q" placeholder="search">
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
 
                 <!-- 表格 -->
                 <form action="">
                     <table class="tb">
                         <thead class="tbh">
                             <tr>
-                                <td>預約編號</td>
+                                <td>編號</td>
+                                <td>日期</td>
                                 <td>姓名</td>
                                 <td>電話</td>
-                                <td>人數</td>
-                                <td>寵物編號</td>
-                                <td>預約時間</td>
+                                <td>電子信箱</td>
+                                <td>捐款方式</td>
+                                <td>捐款金額</td>
+                                <td>審核狀態</td>
                             </tr>
                         </thead>
     
                         <tbody class="tbb">
                             <tr>
-                                <td>AD001</td>
-                                <td>林宜蓁</td>
-                                <td>0948375983</td>
-                                <td>1</td>
-                                <td>003</td>
-                                <td>22/03/01 10:00</td>
+                                <td>DN001</td>
+                                <td>22/03/13</td>
+                                <td>許懷文</td>
+                                <td>0936478421</td>
+                                <td>zxc123@gmail.com</td>
+                                <td>ATM轉帳</td>
+                                <td>5000</td>
+                                <td>已審核</td>
                             </tr>
                         </tbody>
+    
                     </table>
                 </form>
             </div>
