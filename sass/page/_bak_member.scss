@@ -3,11 +3,44 @@
     //右側欄位
     .right{
         width: vw(1180);
+        
+
+        // 搜尋
+        .s1{
+            // float:right;
+            padding: vw(16) 0 vw(16) vw(790);
+        }
+
+        .s2{
+            display: flex;
+            padding: 0;
+            padding-left: vw(112);
+            justify-content: space-between;
+            padding-top: vw(76);
+            padding-bottom: vw(16);
+            width: vw(1290);
+            .add{
+                width: vw(132);
+                height: vw(47);
+                font-size: vw(24);
+                color: white;
+                background-color: $primaryA11y;
+                border: none;
+                border-radius: vw(10);
+            }
+
+            .search-wrapper{
+                margin-left: vw(100);
+                flex-shrink: 0;
+            }
+        }
     }
 
-    // 搜尋
-    .s1{
-        float:right;
-        padding-top: vw(16) 0;
+
+    .tbb{
+        a{
+            text-decoration: none;
+            color: black;
+        }
     }
 }
