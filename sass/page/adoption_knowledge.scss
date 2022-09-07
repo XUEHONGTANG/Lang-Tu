@@ -5,7 +5,10 @@
         top: 150px;
         align-self: flex-start;
         margin-left: vw(150);
+        @include m(){
+            display: none;
 
+        }
         .item {
             margin-top: 20px;
             cursor: pointer;
@@ -26,6 +29,9 @@
     .adoption_knowledge{
         width: vw(1200);
         margin: 0 auto;
+        @include m(){
+            width: rwd(394);
+        }
         img{
             width: 100%;
             display: block;
@@ -45,38 +51,65 @@
                 width: 50%;
                 padding: vw(130) vw(50);
                 height: vw(600);
+                @include m(){
+                    height: rwd(180);
+                }
                 h2{
                     font-size: $h3;
                     font-weight: $bold;
                     color: $secondaryA11y;
+                    @include m(){
+                        font-size: rwd(14);
+                    }
                 }
                 .text{
                     font-size: $h4;
                     color: $secondaryA11y;
+                    @include m(){
+                        font-size: rwd(10);
+                    }
                 }
                 h3{
                     font-size: $p;
+                    @include m(){
+                        font-size: rwd(9);
+                    }
                 }
             }
         }
 
         .row-3{
+            @include m(){
+                margin-top: rwd(80);
+            }
             .content{
                 width: vw(800);
                 margin: 0 auto;
                 text-align: center;
                 margin-top: vw(94);
+                @include m(){
+                    width: rwd(300);
+                }
                 h1{
                     font-size: $h2;
                     color: $secondaryA11y;
+                    @include m(){
+                        font-size: rwd(12);
+                    }
                 }
                 .line{
                     border-bottom: 5px dashed $secondaryA11y;
                     margin-top: vw(24);
+                    @include m(){
+                        border-bottom: 1px dashed $secondaryA11y;
+                    }
                 }
                 h3{
                     font-size: $h4;
                     margin-top: vw(24);
+                    @include m(){
+                        font-size: rwd(12);
+                    }
                 }
                 }
                 .dog-pic-top{
@@ -84,6 +117,9 @@
                     justify-content: space-around;
                     height: vw(750);
                     margin-top: vw(80);
+                    @include m(){
+                        height: vw(1800);
+                    }
                     .dog-pic-top1{
                         align-self: flex-end;
                     }
@@ -96,6 +132,9 @@
                     justify-content: space-around;
                     height: vw(850);
                     margin-top: vw(80);
+                    @include m(){
+                        height: vw(1300);
+                    }
                     .dog-pic-bottom1{
                         align-self: flex-end;
                     }
@@ -108,6 +147,9 @@
                     justify-content: space-around;
                     height: vw(800);
                     margin-top: vw(80);
+                    @include m(){
+                        height: vw(1200);
+                    }
                     .cat-pic-top2{
                         align-self: flex-end;
                     }
@@ -116,6 +158,11 @@
                     display: flex;
                     justify-content: space-between;
                     margin: vw(80) 0;
+                    .cat-pic-bottom1{
+                        @include m(){
+                            margin-right: rwd(50);
+                        }
+                    }
                 }
         }
         .row-5{
@@ -125,14 +172,23 @@
                 h1{
                     font-size: $h2;
                     color: $secondaryA11y;
+                    @include m(){
+                        font-size: rwd(12);
+                    }
                 }
                 .line{
                     border-bottom: 5px dashed $secondaryA11y;
                     margin-top: vw(24);
+                    @include m(){
+                        border-bottom: 1px dashed $secondaryA11y;
+                    }
                 }
                 h3{
                     font-size: $h4;
                     margin-top: vw(24);
+                    @include m(){
+                        font-size: rwd(12);
+                    }
                 }
             }
         }
@@ -142,10 +198,16 @@
                 h2{
                     text-align: center;
                     font-size: $h2;
+                    @include m(){
+                        font-size: rwd(12);
+                    }
                 }
                 .line{
                     border-bottom: 5px dashed $secondaryA11y;
                     margin-top: vw(24);
+                    @include m(){
+                        border-bottom: 1px dashed $secondaryA11y;
+                    }
                 }
             }
             .content-wrapper{
@@ -160,9 +222,15 @@
                     height: vw(700);
                     .text{
                         font-weight: $bold;
+                        @include m(){
+                            font-size: rwd(12);
+                        }
                     }
                     h3{
                         font-size: $p;
+                        @include m(){
+                            font-size: rwd(9);
+                        }
                     }
                 }
             }
@@ -183,9 +251,15 @@
                     padding: vw(130) vw(50);
                     .text{
                         font-weight: $bold;
+                        @include m(){
+                            font-size: rwd(12);
+                        }
                     }
                     h3{
                         font-size: $p;
+                        @include m(){
+                            font-size: rwd(9);
+                        }
                     }
                 }
             }
