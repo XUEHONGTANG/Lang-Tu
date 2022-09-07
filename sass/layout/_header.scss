@@ -10,6 +10,7 @@ header {
 
         @include m() {
             height: 100vh;
+            overflow-x: hidden;
 
 
         }
@@ -19,6 +20,7 @@ header {
             position: relative;
             @include m(){
                 height:42vh;
+                overflow-x: hidden;
             }
             // overflow: hidden;
         }
@@ -27,6 +29,7 @@ header {
             height: 35vw;
             @include m() {
                 height:43vh;
+                overflow-x: hidden;
             }
         }
     
@@ -183,7 +186,7 @@ header {
                 h1 {
                     color: $primaryA11y;
                     font-weight: $bold;
-                    font-size: $h1;
+                    font-size: $h2;
                     @include m() {
                         font-size: 32px;
 
@@ -191,7 +194,7 @@ header {
                 }
 
                 p {
-                    font-size: font-size(22);
+                    font-size: font-size(18);
                     color: $primaryDefault;
                     text-transform: uppercase;
                     @include m() {
@@ -219,13 +222,13 @@ header {
 
 
         .top_kv_crumbs {
-            z-index: 31;
+            z-index: 3;
             position: absolute;
             margin: auto 0;
             display: flex;
             align-items: center;
             color: $primaryA11y;
-            top: 45.5625vw;
+            top: 45.5vw;
             right: 7vw;
             @include m() {
                 width: 63vw;
@@ -259,11 +262,11 @@ header {
                 border-radius: vw(27);
                 padding: 0 vw(25);
                 background-color: #fff;
-                font-size: $h5;
+                font-size: $p;
                 align-items: center;
                 display: flex;
                 @include m(){
-                    font-size: rwd(20);
+                    font-size: 15px;
 
                 }
 

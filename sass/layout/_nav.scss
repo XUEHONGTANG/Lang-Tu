@@ -113,7 +113,6 @@ $menu-font-size: 20px;
   }
 
   .menu-footer {
-
     left: 0;
     position: absolute;
     right: 0;
@@ -158,8 +157,9 @@ $menu-font-size: 20px;
       text-decoration: none;
 
     }
+   
   }
-  
+
 }
 
 
@@ -173,7 +173,7 @@ $menu-font-size: 20px;
     z-index: 30;
     @include m() {
         // width: 100vw;
-        padding: rwd(27) rwd(64);
+        padding: rwd(27) 5.5vw;
     }
 
     &_logo {
@@ -191,12 +191,15 @@ $menu-font-size: 20px;
         align-items: flex-start;
         width: vw(158);
         z-index: 30;
-        position: relative;
         gap: $space3;
+        position: fixed;
+        right: vw(55);
         @include m() {
             width: 100%;
             justify-content: flex-end;
-            gap: rwd(24);
+            gap: 25px;
+            height: 80px;
+          
 
         }
      
@@ -209,15 +212,17 @@ $menu-font-size: 20px;
             border: 0;
             background: none;
             fill: $primaryA11y;
+           
             z-index: 30;
             svg {
                 display: flex;
+                
             }
             @include m() {
                 width: 48px;
 
                 svg {
-                    padding: 9px;
+                    padding: 2px;
                 }
             }
         }
