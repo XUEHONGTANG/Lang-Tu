@@ -14,6 +14,7 @@
 @import "component/btn";
 @import "component/input";
 @import "component/space";
+@import "component/table";
 
 //header
 @import "layout/header";
@@ -35,6 +36,7 @@
 @import "page/finish";
 @import "page/bak";
 @import "page/bak_member";
+@import "page/sponsored_List";
 
 *{
     box-sizing: border-box;

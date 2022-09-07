@@ -1,0 +1,20 @@
+//表格
+.tb{
+    margin-left: vw(112);
+    width: 100%;
+    text-align: center;
+
+    .tbh{
+        background-color: $primaryDark;
+        height: vw(70);
+        color: white;
+        font-size: vw(22);
+        line-height: vw(70);
+    }
+
+    .tbb{
+        background-color: white;
+        font-size: vw(22);
+        line-height: vw(51);
+    }
+}

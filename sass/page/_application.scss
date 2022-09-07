@@ -5,7 +5,7 @@
     border-radius: $r25;
     box-shadow: $shadow;
     @include m(){
-        
+        width: rwd(394);
     }
     .application-tt{
         padding: vw(40);
@@ -15,24 +15,41 @@
             font-weight: $bold;
             margin-bottom: vw(16);
             text-align: center;
+            @include m(){
+                font-size: 24px;
+            }
         }
         h3{
             font-size: $h3;
             font-weight: $bold;
             text-align: center;
+            @include m(){
+                color: $secondaryA11y;
+                width: rwd(220);
+                display: block;
+                margin: 0 auto;
+            }
         }
         p{
             font-size: $h4;
             // font-size: 12px;
             font-weight: $bold;
             line-height: 3.5;
+            @include m(){
+                line-height: 2;
+                font-size: 16px;
+            }
         }
     .application-tt-in{
         display: flex;
-        p{
-            font-size: $h4;
-            font-weight: $bold;
-        }
+            p{
+                font-size: $h4;
+                font-weight: $bold;
+            }
+            @include m(){
+                font-size: 30px;
+                p{font-size: 16px;}
+            }
         }
     }
     .application-input{
@@ -42,18 +59,39 @@
             color: $primaryDark;
             font-weight: $bold;
         }
+        @include m(){
+            h3{
+                font-size: 24px;
+                margin-bottom: rwd(20);
+            }
+        }
     }
     .application-md{
         display: flex;
         margin: 0 auto;
         width: vw(700);
+        @include m(){
+            display: block;
+            width: rwd(394);
+            margin: 0 auto;
+        }
     }
+    
     .application-lift{
         // width: vw(500);
         // margin-left: vw(40);
         h1{
             font-size: $h5;
             color: $primaryDark;
+        }
+        @include m(){
+            h1{
+                width: rwd(350);
+                font-size: 16px;
+                display: block;
+                margin: 0 auto;
+                padding: rwd(10) 0;
+            }
         }
     }
     .application-right{
@@ -62,16 +100,44 @@
             font-size: $h5;
             color: $primaryDark;
         }
+        @include m(){
+            h1{
+                width: rwd(350);
+                font-size: 16px;
+                display: block;
+                margin: 0 auto;
+                padding: rwd(10) 0;
+            }
+        }
     }
     .application-text{
         @include input-text(vw(350));
         margin-right: vw(40);
+        @include m(){
+            @include input-text(rwd(350));
+            margin-right: vw(0);
+            display: block;
+            margin: 0 auto;
+        }
     }
 
     .application-under{
         text-align: center;
         .btn-1{
             margin: vw(20);
+        }
+        @include m(){
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row-reverse;
+            .btn-0{
+                margin: rwd(20) ;
+            }
+            .btn-1{
+                margin: rwd(20) ;
+            }
+            
         }
     }
 }

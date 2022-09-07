@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     @@include('./layout/head.html', {
-        "title" : "會員管理"
+        "title" : "贊助管理"
     })
 </head>
 <body>
@@ -14,20 +14,23 @@
             <aside>
                 @@include('./layout/bak-aside.html')
             </aside>
-        
-            <!-- 右側欄位 -->
+
             <div class="right">
                 <!-- 標題 -->
-                <h2>會員管理</h2>
+                <h2>贊助專案</h2>
     
-                <!-- 搜尋 -->
-                <form action="">
-                    <div class="s1">
+                
+                <div class="s1 s2">
+                    <form action=""> <!-- 新增 -->
+                        <input type="submit" class="add" value="新增">
+                    </form>
+
+                    <form action=""> <!-- 搜尋 -->
                         <div class="search-wrapper">
                             <input type="search" class="input-search is" name="q" placeholder="search">
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
 
                 <!-- 表格 -->
                 <form action="">
@@ -35,42 +38,31 @@
                         <thead class="tbh">
                             <tr>
                                 <td>編號</td>
-                                <td>姓名</td>
-                                <td>帳號</td>
-                                <td>密碼</td>
-                                <td>信箱</td>
-                                <td>電話</td>
-                                <td>生日</td>
-                                <td>性別</td>
+                                <td>專案名稱</td>
+                                <td>開始時間</td>
+                                <td>結束時間</td>
+                                <td>目標金額</td>
+                                <td>贊助人數</td>
+                                <td>操作</td>
                             </tr>
                         </thead>
     
                         <tbody class="tbb">
                             <tr>
-                                <td>MB001</td>
-                                <td>林宜蓁</td>
-                                <td>urusai1999</td>
-                                <td>urusai0227</td>
-                                <td>zxc1234@gmail.com</td>
-                                <td>0948375983</td>
-                                <td>1999/02/27</td>
-                                <td>女</td>
+                                <td>DP001</td>
+                                <td>浪毛孩不再飢餓</td>
+                                <td>22/03/01</td>
+                                <td>22/04/30</td>
+                                <td>500000</td>
+                                <td>100</td>
+                                <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a>&nbsp&nbsp<a href="#">下架</a></td>
                             </tr>
                         </tbody>
                     </table>
                 </form>
-
-
-
             </div>
-
-
         </main>
-        
-
-        
 
     </div>
-
 </body>
 </html>
