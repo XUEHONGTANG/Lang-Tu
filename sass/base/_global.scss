@@ -20,7 +20,7 @@ $fontsize_base: 1440;
 
 }
 
-@function fz($px) {
+@function font-size($px) {
     @return calc($px / $fontsize_base) * 100vw;
 
 }
