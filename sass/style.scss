@@ -6,6 +6,7 @@
 @import "base/font";
 @import "base/color";
 @import "base/other";
+@import "base/space";
 
 // mixin 函式
 @import "mixin/mixin";
@@ -13,7 +14,6 @@
 //component
 @import "component/btn";
 @import "component/input";
-@import "component/space";
 
 //header
 @import "layout/header";
