@@ -6,6 +6,7 @@
 @import "base/font";
 @import "base/color";
 @import "base/other";
+@import "base/space";
 
 // mixin 函式
 @import "mixin/mixin";
@@ -13,7 +14,6 @@
 //component
 @import "component/btn";
 @import "component/input";
-@import "component/space";
 @import "component/table";
 
 //header
@@ -34,6 +34,7 @@
 @import "page/adoption_knowledge.scss";
 @import "page/adoption_quiz.scss";
 @import "page/adoption_quiz2.scss";
+@import "page/shoppingpage";
 
 
 @import "page/finish";
@@ -44,6 +45,13 @@
 
 
 
+
+
+
+
+
+// 元件範例
+@import "page/for_component";
 
 
 
