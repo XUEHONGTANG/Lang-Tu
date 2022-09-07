@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html', {
+        "title" : "寵物管理"
+    })
+</head>
+<body>
+    <div class="wrapper">
+        @@include('./layout/bak-head.html')
+
+        <main class="bm">
+            <!-- 側邊欄位 -->
+            <aside>
+                @@include('./layout/bak-aside.html')
+            </aside>
+
+            <div class="right">
+                <!-- 標題 -->
+                <h2>寵物新增</h2>
+
+                <!-- 新增資訊 -->
+                <form action="">
+                    <div class="info">
+                        <div class="name">
+                            <span class="title">浪浪名稱</span>
+                            <input type="text">
+                        </div>
+                        
+                        <div class="type">
+                            <span class="title">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp種類</span>
+                            <select name="" id="">
+                                <option value="">狗</option>
+                                <option value="">貓</option>
+                            </select>
+
+                            <span class="title tt">類別</span>
+                            <select name="" id="">
+                                <option value="">大型犬</option>
+                                <option value="">中型犬</option>
+                                <option value="">小型犬</option>
+                            </select>
+                        </div>
+
+                        <div class="pic">
+                            <span class="title">浪浪圖片</span>
+                            <textarea name="" id="" cols="62" rows="10"></textarea>
+                            <input type="submit" value="瀏覽">
+                        </div>
+
+                        <div class="gender">
+                            <span class="title">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp性別</span>
+                            <input type="radio" name="gender"><span class="g1">公&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                            <input type="radio" name="gender"><span class="g2">母</span>
+                        </div>
+
+                        <div class="date">
+                            <span class="title">入園日期</span>
+                            <input type="date">
+                        </div>
+
+                        <div class="help">
+                            <span class="title">救援經過</span>
+                            <textarea name="" id="" cols="62" rows="10"></textarea>
+                        </div>
+
+                        <div class="vax">
+                            <span class="title">施打疫苗</span>
+                            <input type="radio" name="vax"><span class="v1">已施打&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                            <input type="radio" name="vax"><span class="v2">未施打</span>
+                        </div>
+
+                        <div class="fix">
+                            <span class="title">是否結紮</span>
+                            <input type="radio" name="fix"><span class="f1">已結紮&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                            <input type="radio" name="fix"><span class="f2">未結紮</span>
+                        </div>
+
+                        <div class="micor">
+                            <span class="title">植入晶片</span>
+                            <input type="radio" name="micor"><span class="m1">已植入&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                            <input type="radio" name="micor"><span class="m2">未植入</span>
+                        </div>
+
+                        <div class="send">
+                            <input type="submit" value="送出">
+                        </div>
+                    </div>
+                </form>
+    
+                
+
+                
+            </div>
+        </main>
+
+    </div>
+</body>
+</html>
