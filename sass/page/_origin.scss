@@ -1,74 +1,30 @@
-.origin{
+
+.origin {
     width: vw(1200);
     margin: 0 auto;
     position: relative;
-    @include m(){
+    @include m() {
         width: rwd(394);
     }
 
-    img{
+    img {
         width: 100%;
     }
 
-    .link-wrapper{
-        display: flex;
-        // justify-content: center;
-        @include m(){
-        justify-content: center;
-        }
-        .link1{
-            text-decoration: none;
-            .btn-2{
-                display: none;
-            }
-            @include m(){
-                    img{
-                        display: none;
-                    }
-                    .btn-2{
-                        display: block;
-                    }
-                }
-            }
-        
-
-        .link2{
-            margin-left: vw(80);
-            text-decoration: none;
-            .btn-3{
-                display: none;
-            }
-            @include m(){
-                img{
-                    display: none;
-                }
-                .btn-3{
-                    display: block;
-                }
-            }
-
-            &:hover{
-                opacity: .6;
-            }
-
-        }
-    }
-    
-
-    .top-wrapper{
+    .top-wrapper {
         display: flex;
         justify-content: space-between;
         margin-top: vw(165);
-        @include m(){
+        @include m() {
             flex-direction: column-reverse;
             align-items: center;
             margin-bottom: rwd(50);
         }
 
-        .top-left{
+        .top-left {
             width: vw(530);
             margin-bottom: vw(16);
-            @include m(){
+            @include m() {
                 // width: rwd(359);
                 width: 100%;
                 height: 427px;
@@ -77,288 +33,361 @@
                 border-radius: rwd(25);
                 padding: 24px 16px;
             }
+<<<<<<< HEAD
             h2{
                 font-size: $h3;
+=======
+            h2 {
+                font-size: $h2;
+>>>>>>> QQBB
                 color: $secondaryA11y;
                 font-weight: $medium;
-                @include m(){
+                @include m() {
                     font-size: 16px;
                     font-weight: $regular;
                     margin-bottom: 8px;
                 }
             }
+<<<<<<< HEAD
             h1{
                 font-size: $h2;
+=======
+            h1 {
+                font-size: font-size(45);
+>>>>>>> QQBB
                 color: $primaryA11y;
                 font-weight: $bold;
-                @include m(){
+                @include m() {
                     font-size: 24px;
                     font-weight: $medium;
                 }
             }
-            .line{
+            .line {
                 margin: vw(48) 0;
-                @include m(){
+                @include m() {
                     margin: 24px 0;
                 }
             }
-            h3{
+            h3 {
                 font-size: $h3;
                 color: $secondaryA11y;
                 font-weight: $medium;
                 margin-bottom: vw(32);
-                @include m(){
+                @include m() {
                     font-size: 16px;
                     font-weight: $bold;
                     margin-bottom: 32px;
                 }
             }
-            p{
+            p {
                 font-size: $p;
                 color: $secondaryA11y;
                 font-weight: $regular;
-                @include m(){
+                @include m() {
                     font-size: 16px;
                 }
             }
         }
-    
-        .top-right{
+
+        .top-right {
             width: vw(500);
-            @include m(){
+            @include m() {
                 width: rwd(359);
                 height: rwd(447);
             }
-            .top-right1{
+            .top-right1 {
                 position: absolute;
                 z-index: 3;
                 width: vw(480);
+<<<<<<< HEAD
                 @include m(){
                     width: 260px;
                     top: rwd(150);
                     left: rwd(80);
+=======
+                @include m() {
+                    width: 250px;
+                    top: 80px;
+>>>>>>> QQBB
                 }
             }
-            .top-right2{
+            .top-right2 {
                 position: absolute;
                 z-index: 2;
                 width: vw(474);
                 left: vw(750);
+<<<<<<< HEAD
                 @include m(){
                     width: 300px;
                     left: rwd(50);
                     top: rwd(120);
+=======
+                @include m() {
+                    width: 270px;
+                    left: 50px;
+>>>>>>> QQBB
                 }
             }
-            .top-right3{
+            .top-right3 {
                 position: absolute;
                 z-index: 1;
                 width: vw(254);
                 top: vw(600);
+<<<<<<< HEAD
                 @include m(){
                     width: 200px;
                     top: rwd(280);
                     left: rwd(80);
+=======
+                @include m() {
+                    width: 130px;
+                    top: 215px;
+>>>>>>> QQBB
                 }
             }
         }
     }
 
-    .line1{
+    .line1 {
         width: vw(338);
+<<<<<<< HEAD
         @include m(){
             width: 150px;
+=======
+        @include m() {
+            width: 163px;
+>>>>>>> QQBB
             margin-left: 20px;
         }
     }
 
-    .dog2{
+    .dog2 {
         width: vw(245);
         position: absolute;
         left: vw(500);
         top: vw(1200);
     }
 
-    .dog1{
+    .dog1 {
         width: vw(245);
         position: absolute;
         left: vw(900);
+<<<<<<< HEAD
         top: vw(1200);
         @include m(){
+=======
+        top: vw(1000);
+        @include m() {
+>>>>>>> QQBB
             width: rwd(178);
             top: rwd(1000);
             left: rwd(210);
         }
     }
 
-    .cat1{
+    .cat1 {
         width: vw(210);
         position: absolute;
         left: vw(1100);
         top: vw(800);
-        @include m(){
+        @include m() {
             display: none;
         }
     }
 
-    .medium-wrapper{
+    .medium-wrapper {
         display: flex;
         justify-content: space-between;
         margin-top: vw(120);
-        @include m(){
+        @include m() {
             flex-direction: column;
             align-items: center;
         }
 
-        .medium-left{
+        .medium-left {
             width: vw(530);
-            @include m(){
+            @include m() {
                 width: rwd(359);
                 height: rwd(447);
             }
-            .medium-left1{
+            .medium-left1 {
                 position: absolute;
                 width: vw(450);
                 z-index: 4;
                 left: vw(70);
-                @include m(){
+                @include m() {
                     width: rwd(300);
                     left: rwd(50);
                     top: rwd(1180);
                 }
             }
-            .medium-left2{
+            .medium-left2 {
                 position: absolute;
                 width: vw(533);
                 z-index: 3;
-                @include m(){
+                @include m() {
                     width: rwd(330);
                 }
             }
-            .medium-left3{
+            .medium-left3 {
                 position: absolute;
                 width: vw(290);
                 z-index: 1;
                 top: vw(1800);
                 left: vw(200);
-                @include m(){
+                @include m() {
                     width: rwd(200);
                     top: rwd(1400);
                     left: rwd(80);
                 }
             }
-            .medium-left4{
+            .medium-left4 {
                 position: absolute;
                 width: vw(330);
                 z-index: 2;
+<<<<<<< HEAD
                 top: vw(1900);
                 left: vw(190);
                 @include m(){
+=======
+                top: vw(1750);
+                left: vw(200);
+                @include m() {
+>>>>>>> QQBB
                     width: 252px;
                     top: rwd(2100);
                     left: rwd(70);
                 }
             }
         }
-        .medium-right{
+        .medium-right {
             width: vw(530);
             padding-top: vw(200);
+<<<<<<< HEAD
             @include m(){
                 width: 100%;
+=======
+            @include m() {
+                width: 359px;
+>>>>>>> QQBB
                 height: 427px;
                 background-color: #ffffff;
                 box-shadow: $shadow;
                 border-radius: rwd(25);
                 padding: 24px 16px;
             }
+<<<<<<< HEAD
             h2{
                 font-size: $h3;
+=======
+            h2 {
+                font-size: $h2;
+>>>>>>> QQBB
                 color: $secondaryA11y;
                 font-weight: $medium;
-                @include m(){
+                @include m() {
                     font-size: 16px;
                     margin-bottom: 8px;
                     font-weight: $regular;
                 }
             }
+<<<<<<< HEAD
             h1{
                 font-size: $h2;
+=======
+            h1 {
+                font-size: font-size(45);
+>>>>>>> QQBB
                 color: $primaryA11y;
                 font-weight: $bold;
-                @include m(){
+                @include m() {
                     font-size: 24px;
                     font-weight: $medium;
                 }
             }
-            .line{
+            .line {
                 margin: vw(48) 0;
-                @include m(){
+                @include m() {
                     margin: 24px 0;
                 }
             }
-            h3{
+            h3 {
                 font-size: $h3;
                 color: $secondaryA11y;
                 font-weight: $medium;
                 margin-bottom: vw(32);
-                @include m(){
+                @include m() {
                     font-size: 16px;
                     font-weight: $bold;
                     margin-bottom: 32px;
                 }
             }
-            p{
+            p {
                 font-size: $p;
                 color: $secondaryA11y;
                 font-weight: $regular;
-                @include m(){
+                @include m() {
                     font-size: 16px;
                 }
             }
         }
     }
 
-    .line2{
+    .line2 {
         width: vw(300);
-        @include m(){
+        @include m() {
             position: absolute;
             top: rwd(2830);
             left: 200px;
             width: 140px;
         }
-        img{
+        img {
             margin: vw(100) 0 0 vw(500);
-            @include m(){
+            @include m() {
                 margin: 0;
             }
         }
     }
 
-    .dog3{
+    .dog3 {
         width: vw(140);
         position: absolute;
+<<<<<<< HEAD
         top: vw(3200);
         left: vw(200);
         @include m(){
             top: rwd(2950);
+=======
+        top: vw(2000);
+        left: vw(800);
+        @include m() {
+            top: 2510px;
+>>>>>>> QQBB
             left: rwd(30);
             width: rwd(100);
         }
     }
 
-    .cloud{
+    .cloud {
         width: vw(190);
         position: absolute;
+<<<<<<< HEAD
         top: vw(2900);
         left: vw(600);
         @include m(){
             top: rwd(2830);
+=======
+        top: vw(2000);
+        left: vw(1120);
+        @include m() {
+            top: 2400px;
+>>>>>>> QQBB
             width: rwd(128);
             left: rwd(50);
         }
     }
 
-    .content{
+    .content {
         width: vw(736);
         height: vw(156);
         margin: 0 auto;
@@ -369,18 +398,30 @@
         display: flex;
         justify-content: center;
         align-items: center;
+<<<<<<< HEAD
         @include m(){
             margin-top: rwd(370);
             width: rwd(359);
             height: rwd(76);
             padding: rwd(12) rwd(18);
+=======
+        @include m() {
+            margin-top: rwd(500);
+            width: 359px;
+            height: 76px;
+            padding: 12px 18px;
+>>>>>>> QQBB
         }
-        h3{
+        h3 {
             width: vw(486);
             color: $gray800;
             text-align: center;
+<<<<<<< HEAD
             font-size: $h5;
             @include m(){
+=======
+            @include m() {
+>>>>>>> QQBB
                 font-size: 16px;
                 width: 324px;
                 height: 52px;
@@ -388,43 +429,54 @@
         }
     }
 
-    .cat2{
+    .cat2 {
         width: vw(260);
         margin-left: vw(900);
-        @include m(){
+        @include m() {
             display: none;
         }
     }
 
-    .bottom-wrapper{
+    .bottom-wrapper {
         display: flex;
         margin-top: vw(438);
-        @include m(){
+        @include m() {
             margin-top: rwd(60);
             flex-direction: column;
             height: rwd(1000);
         }
-        .smallHome{
+        .smallHome {
             position: absolute;
             left: vw(750);
+<<<<<<< HEAD
             top: vw(3240);
             @include m(){
                 top: rwd(3070);
+=======
+            top: vw(3020);
+            @include m() {
+                top: 2600px;
+>>>>>>> QQBB
                 left: rwd(50);
                 width: rwd(100);
             }
         }
-        .bottom-left{
+        .bottom-left {
             flex: 3;
+<<<<<<< HEAD
             @include m(){
                 padding: rwd(18);
+=======
+            @include m() {
+                margin-bottom: rwd(320);
+>>>>>>> QQBB
             }
         }
-        .bottom-right{
+        .bottom-right {
             flex: 1;
             align-self: center;
             margin-left: vw(40);
-            @include m(){
+            @include m() {
                 width: 350px;
                 height: 769px;
                 background-color: #ffffff;
@@ -433,49 +485,104 @@
                 padding: 100px 16px;
                 margin-left: 0;
             }
-            h1{
+            h1 {
                 color: $secondaryA11y;
                 font-weight: $bold;
                 margin-bottom: vw(32);
-                @include m(){
+                @include m() {
                     font-size: 32px;
                     font-weight: $medium;
                 }
             }
-            .p1{
+            .p1 {
                 color: $secondaryA11y;
                 margin-bottom: vw(32);
-                @include m(){
+                @include m() {
                     font-size: 20px;
                 }
             }
-            .p2{
+            .p2 {
                 color: $primaryA11y;
-                @include m(){
+                @include m() {
                     font-size: 16px;
                 }
             }
         }
     }
-    .footPrint{
+    .footPrint {
         width: vw(260);
         margin-left: vw(900);
-        @include m(){
+        @include m() {
             position: absolute;
             top: rwd(3100);
             left: rwd(75);
             width: rwd(100);
         }
     }
-    .dog4{
+    .dog4 {
         width: vw(290);
         margin-left: vw(900);
-        @include m(){
+        @include m() {
             position: absolute;
             top: rwd(3450);
             width: rwd(125);
         }
     }
 
+}
+
+//btn
+
+.link-wrapper {
+    display: flex;
+    transition: opacity 0.3s ease-in-out;
+    &:hover {
+        a {
+            opacity: 0.5;
+            transition: opacity 0.3s ease-in-out;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+    @include m() {
+        justify-content: center;
+    }
+    .link1 {
+        text-decoration: none;
+        .btn-2 {
+            display: none;
+        }
+        @include m() {
+            img {
+                display: none;
+            }
+            .btn-2 {
+                display: block;
+            }
+        }
+    }
+
+    .link2 {
+        margin-left: vw(80);
+        text-decoration: none;
+
+        .btn-3 {
+            display: none;
+        }
+        @include m() {
+            img {
+                display: none;
+            }
+            .btn-3 {
+                display: block;
+            }
+        }
+
+        &:hover {
+            opacity: 0.6;
+        }
+
+    }
 
 }

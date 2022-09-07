@@ -1,0 +1,9 @@
+.park_intro{
+    width: vw(1200);
+    margin: 0 auto;
+    position: relative;
+    @include m(){
+        width: rwd(394);
+    }
+
+    }
