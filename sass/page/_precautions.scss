@@ -10,7 +10,7 @@
         }
         h1{
             color: $primaryA11y;
-            font-size: $h1;
+            font-size: $h2;
             font-weight: $bold;
         }
         @include m(){
@@ -39,13 +39,13 @@
         text-align: center;
         align-self: center;
         h1{
-            font-size: $h3;
+            font-size: font-size(24);
             margin-bottom: vw(8);
             font-weight: $bold;
             color: $secondaryA11y;
         }
         h2{
-            font-size: $h4;
+            font-size: $p;
             color: $secondaryA11y;
         }
         @include m(){
@@ -63,14 +63,14 @@
         align-self: center;
         
         h1{
-            font-size: $h3;
+            font-size: font-size(24);
             margin-bottom: vw(8);
             font-weight: $bold;
             color: $secondaryA11y;
             width: vw(500);
         }
         h2{
-            font-size: $h4;
+            font-size: $p;
             color: $secondaryA11y;
             width: vw(500);
         }
@@ -92,34 +92,34 @@
             z-index: 10;
             position: absolute;
             left: vw(900);
-            top: vw(1850);
+            top: vw(1150);
         }
         .home1{
             width: vw(550);
             z-index: 5;
             position: absolute;
             left: vw(1050);
-            top: vw(1900);
+            top: vw(1200);
         }
         .home2{
             width: vw(519);
             z-index: 2;
             position: absolute;
             left: vw(1150);
-            top: vw(2000);
+            top: vw(1300);
         }
         @include m(){
             .Vector1{
                 left: 200px;
-                top: 416px;
+                top: 526px;
             }
             .home1{
                 left: 225px;
-                top: 436px;
+                top: 540px;
             }
             .home2{
                 left: 250px;
-                top: 450px;
+                top: 560px;
             }
         }
     }
@@ -157,7 +157,7 @@
         width: vw(600);
         align-self: center;
         h1{
-            font-size: $h3;
+            font-size: $h4;
             margin-bottom: vw(8);
             font-weight: $bold;
             color: $secondaryA11y;
@@ -177,24 +177,24 @@
             z-index: 5;
             position: absolute;
             left: vw(1050);
-            top: vw(3000);
+            top: vw(2600);
             width: vw(550);
         }
         .home5{
             z-index: 2;
             position: absolute;
             left: vw(1100);
-            top: vw(3000);
+            top: vw(2600);
             width: vw(550);
         }
         @include m(){
             .home4{
                 left: 220px;
-                top: 770px;
+                top: 890px;
             }
             .home5{
                 left: 225px;
-                top: 770px;
+                top: 890px;
             }
         }
         

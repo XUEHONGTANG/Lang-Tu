@@ -47,19 +47,33 @@
             }
         }
     }
+    .petpage-tt{
+        @include m(){
+            margin-right: rwd(50);
+            
+        }
+    }
     .petpage-tt-on{
         margin: 0 auto;
         margin-bottom: vw(16);
+        width: vw(572);
+        @include m(){
+            width: rwd(394);
+            h1{
+                margin-top: rwd(10);
+            }
+            p{
+                
+            }
+        }
         h1{
             font-size: $h4;
             color: $primaryDark;
             font-weight: $bold;
-            margin-bottom: vw(16);
         }
         p{
-            margin-bottom: vw(8);
-            font-size: $p;
-            
+            font-size: font-size(14);
+            line-height: 2;
         }
         
     }
@@ -74,9 +88,10 @@
         background-color: #fff;
         margin: 0 auto;
         h1{
-            font-size: $h4;
+            width: vw(160);
+            font-size: $h5;
             font-weight: $bold;
-            margin: 0 vw(30);
+            margin: 0 vw(20);
             align-self: center;
         }
         @include m(){
@@ -88,9 +103,12 @@
     }
     .petpage-uu-right{
         font-weight: $regular;
-        font-size: $p;
+        
         align-self: center;
-        padding: vw(40) 0;
+        padding: vw(20) 0;
+        p{
+            font-size: font-size(12);
+        }
         @include m(){
             
         }
