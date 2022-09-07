@@ -1,0 +1,31 @@
+.adoption_quiz{
+    width: vw(1080);
+    margin: 0 auto;
+    display: flex;
+    border: 1px solid $lineGray;
+    img{
+        display: block;
+        width: 100%;
+    }
+    .quiz1{
+        flex: 1;
+    }
+    .quiz_start{
+        flex: 1;
+        .content{
+            text-align: center;
+            margin-top: vw(160);
+            h2{
+                margin-bottom: vw(10);
+            }
+        }
+        .dog4{
+            margin-left: auto;
+            width: vw(300);
+        }
+        .quiz2{
+            margin-top: vw(160);
+            width: vw(170);
+        }
+    }
+}

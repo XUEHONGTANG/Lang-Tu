@@ -78,7 +78,7 @@
                 padding: 24px 16px;
             }
             h2{
-                font-size: $h2;
+                font-size: $h3;
                 color: $secondaryA11y;
                 font-weight: $medium;
                 @include m(){
@@ -88,7 +88,7 @@
                 }
             }
             h1{
-                font-size: font-size(45);
+                font-size: $h2;
                 color: $primaryA11y;
                 font-weight: $bold;
                 @include m(){
@@ -134,8 +134,9 @@
                 z-index: 3;
                 width: vw(480);
                 @include m(){
-                    width: 250px;
-                    top: 80px;
+                    width: 260px;
+                    top: rwd(150);
+                    left: rwd(80);
                 }
             }
             .top-right2{
@@ -144,8 +145,9 @@
                 width: vw(474);
                 left: vw(750);
                 @include m(){
-                    width: 270px;
-                    left: 50px;
+                    width: 300px;
+                    left: rwd(50);
+                    top: rwd(120);
                 }
             }
             .top-right3{
@@ -154,8 +156,9 @@
                 width: vw(254);
                 top: vw(600);
                 @include m(){
-                    width: 130px;
-                    top: 215px;
+                    width: 200px;
+                    top: rwd(280);
+                    left: rwd(80);
                 }
             }
         }
@@ -164,7 +167,7 @@
     .line1{
         width: vw(338);
         @include m(){
-            width: 163px;
+            width: 150px;
             margin-left: 20px;
         }
     }
@@ -173,18 +176,18 @@
         width: vw(245);
         position: absolute;
         left: vw(500);
-        top: vw(1000);
+        top: vw(1200);
     }
 
     .dog1{
         width: vw(245);
         position: absolute;
         left: vw(900);
-        top: vw(1000);
+        top: vw(1200);
         @include m(){
             width: rwd(178);
-            top: 800px;
-            left: 230px;
+            top: rwd(1000);
+            left: rwd(210);
         }
     }
 
@@ -220,8 +223,8 @@
                 left: vw(70);
                 @include m(){
                     width: rwd(300);
-                    left: 100px;
-                    top: 990px;
+                    left: rwd(50);
+                    top: rwd(1180);
                 }
             }
             .medium-left2{
@@ -236,24 +239,24 @@
                 position: absolute;
                 width: vw(290);
                 z-index: 1;
-                top: vw(1620);
+                top: vw(1800);
                 left: vw(200);
                 @include m(){
                     width: rwd(200);
-                    top: 1100px;
-                    left: rwd(120);
+                    top: rwd(1400);
+                    left: rwd(80);
                 }
             }
             .medium-left4{
                 position: absolute;
                 width: vw(330);
                 z-index: 2;
-                top: vw(1750);
-                left: vw(200);
+                top: vw(1900);
+                left: vw(190);
                 @include m(){
                     width: 252px;
-                    top: 1740px;
-                    left: 60px;
+                    top: rwd(2100);
+                    left: rwd(70);
                 }
             }
         }
@@ -261,7 +264,7 @@
             width: vw(530);
             padding-top: vw(200);
             @include m(){
-                width: 359px;
+                width: 100%;
                 height: 427px;
                 background-color: #ffffff;
                 box-shadow: $shadow;
@@ -269,7 +272,7 @@
                 padding: 24px 16px;
             }
             h2{
-                font-size: $h2;
+                font-size: $h3;
                 color: $secondaryA11y;
                 font-weight: $medium;
                 @include m(){
@@ -279,7 +282,7 @@
                 }
             }
             h1{
-                font-size: font-size(45);
+                font-size: $h2;
                 color: $primaryA11y;
                 font-weight: $bold;
                 @include m(){
@@ -319,7 +322,7 @@
         width: vw(300);
         @include m(){
             position: absolute;
-            top: 2400px;
+            top: rwd(2830);
             left: 200px;
             width: 140px;
         }
@@ -334,10 +337,10 @@
     .dog3{
         width: vw(140);
         position: absolute;
-        top: vw(2000);
-        left: vw(800);
+        top: vw(3200);
+        left: vw(200);
         @include m(){
-            top: 2510px;
+            top: rwd(2950);
             left: rwd(30);
             width: rwd(100);
         }
@@ -346,10 +349,10 @@
     .cloud{
         width: vw(190);
         position: absolute;
-        top: vw(2000);
-        left: vw(1120);
+        top: vw(2900);
+        left: vw(600);
         @include m(){
-            top: 2400px;
+            top: rwd(2830);
             width: rwd(128);
             left: rwd(50);
         }
@@ -367,15 +370,16 @@
         justify-content: center;
         align-items: center;
         @include m(){
-            margin-top: rwd(500);
-            width: 359px;
-            height: 76px;
-            padding: 12px 18px;
+            margin-top: rwd(370);
+            width: rwd(359);
+            height: rwd(76);
+            padding: rwd(12) rwd(18);
         }
         h3{
             width: vw(486);
             color: $gray800;
             text-align: center;
+            font-size: $h5;
             @include m(){
                 font-size: 16px;
                 width: 324px;
@@ -403,17 +407,17 @@
         .smallHome{
             position: absolute;
             left: vw(750);
-            top: vw(3020);
+            top: vw(3240);
             @include m(){
-                top: 2600px;
+                top: rwd(3070);
                 left: rwd(50);
-                width: rwd(120);
+                width: rwd(100);
             }
         }
         .bottom-left{
             flex: 3;
             @include m(){
-                margin-bottom: rwd(320);
+                padding: rwd(18);
             }
         }
         .bottom-right{
@@ -458,8 +462,8 @@
         margin-left: vw(900);
         @include m(){
             position: absolute;
-            top: 2610px;
-            left: 100px;
+            top: rwd(3100);
+            left: rwd(75);
             width: rwd(100);
         }
     }
@@ -468,7 +472,7 @@
         margin-left: vw(900);
         @include m(){
             position: absolute;
-            top: 3000px;
+            top: rwd(3450);
             width: rwd(125);
         }
     }

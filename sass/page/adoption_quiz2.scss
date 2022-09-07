@@ -1,0 +1,24 @@
+.adoption_quiz2{
+    width: vw(1080);
+    margin: 0 auto;
+    img{
+        display: block;
+        width: 100%;
+    }
+    .question{
+        text-align: center;
+        margin-top: vw(32);
+        .button{
+            display: flex;
+            justify-content: space-evenly;
+            width: vw(550);
+            margin: vw(32) auto;
+        }
+    }
+    .answer{
+        margin-top: vw(32);
+        p{
+            text-indent: vw(10);
+        }
+    }
+}
