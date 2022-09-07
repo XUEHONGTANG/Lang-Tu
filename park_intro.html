@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html', {
+        "title" : "浪浪園區"
+      })
+</head>
+<body>    
+    @@include('./layout/nav.html')
+
+<main class="park_intro">
+    <div class="link-wrapper">
+        <a href="#" class="link1">
+        <img src="images/Derrick/link1.png" alt="連結圖片">
+        <button class="btn-2">園區緣起</button>
+        </a>
+        <a href="#" class="link2">
+        <img src="images/Derrick/link2.png" alt="連結圖片">
+        <button class="btn-3">園區地圖</button>
+        </a>
+    </div>
+    
+    <div class="top_kv_t">
+        <div class="top_kv_t-title top_kv_t-title2">
+            <h1>浪浪園區</h1>
+            <p>Lang Lang PARK</p>
+            <img src="../images/header/header_circle.png" alt="" class="top_kv_t_cir">
+        </div>
+    </div>
+
+
+    <div class="park_intro-map">
+        <div class="park_intro-map-all">
+            <div class="bg">
+                <img src="./images/LangPARK/bg.png" alt="" class="bg-map">
+            </div>
+
+    </div>
+
+
+    
+
+    <div class="top_kv_crumbs-frame">
+        <div class="top_kv_crumbs">
+            <img src="../images/header/crumbs.png" alt="" class="top_kv_crumbs_img">
+            <div class="top_kv_crumbs-text">
+                <div class="top_kv_crumbs-text_1">@@前頁面</div><span>/</span>
+                <div class="top_kv_crumbs-text_2">@@此頁面</div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<!-- footer -->
+@@include('layout/footer.html')
+
+</body>
+
