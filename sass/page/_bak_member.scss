@@ -19,6 +19,8 @@
             padding-top: vw(76);
             padding-bottom: vw(16);
             width: vw(1290);
+
+            // 新增按鈕
             .add{
                 width: vw(132);
                 height: vw(47);
@@ -29,6 +31,7 @@
                 border-radius: vw(10);
             }
 
+            // 搜尋
             .search-wrapper{
                 margin-left: vw(100);
                 flex-shrink: 0;
@@ -36,11 +39,16 @@
         }
     }
 
-
+    //表格
     .tbb{
         a{
             text-decoration: none;
             color: black;
+        }
+
+        .list{
+            background-color: $gray600;
+            color: white;
         }
     }
 }

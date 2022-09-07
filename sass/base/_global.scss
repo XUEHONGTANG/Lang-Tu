@@ -7,7 +7,6 @@ $rwd_base: 414;
 
 
 //FONT-SIZE
-// $fontsize_base: 1440;
 $fontsize_base: 1440;
 
 // vw()中的参数，直接传像素值
@@ -25,12 +24,7 @@ $fontsize_base: 1440;
 
 }
 
-// // 计算视口高度, vh()中的参数，直接传像素值
-// @function vh($px) {
-//     @return calc($px / $vh_base) * 100vh;
-// }
 
-// 字
 
 
 
