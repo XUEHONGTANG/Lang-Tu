@@ -1,0 +1,87 @@
+main{
+    margin: 0 auto;
+  
+    // sidebar
+    .sidebarExsample {
+      width: vw(290);
+        h3{
+          font-weight: $bold;
+          text-align: center;
+          margin-bottom: vw(16);
+          color: $gray700;
+        }
+        button {
+          width: 100%;
+          // height: vw(60);
+          text-align: start;
+          font-size: $h3;
+          font-weight: $bold;
+          padding: vw(12) vw(32);
+          border: none;
+          cursor: pointer;
+          position: relative;
+  
+          &::after{
+            position: absolute;
+            font-family: FontAwesome;
+            content: '\f105';
+            font-size: $h4;
+            right: vw(32);
+            top: vw(20);
+            transition: .3s ease;
+          }
+        }
+        ul {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          box-shadow: $shadow;
+          border-radius: vw(20);
+          li button{
+            background-color: #fff;
+            color: $primaryDark;
+            &:hover{
+              background-color: $primaryDark;
+              color: #fff;
+            }
+          }
+          li button.turnRight::after{
+            transform: rotate(90deg);
+          }
+          li .show {
+            visibility: visible;
+            opacity: 1;
+            transition: visibility 0s linear 0s, opacity 1100ms;
+  
+          }
+        
+          li .hide {
+            visibility: hidden;
+            opacity: 0;
+            height: 0;
+            -moz-transition: height 2s ease;
+            -webkit-transition: height 2s ease;
+            -o-transition: height 2s ease;
+            transition: height 2s ease;
+          }
+          li ol li button{
+            background-color: #EBEBEB;
+            color: $gray600;
+            &:hover{
+              background-color: darken(#EBEBEB, 10);
+              color: $gray600;
+            }
+          }
+        }
+        ul > li:first-child  > button{
+          border-radius: vw(20) vw(20) 0px 0px;
+        }
+  
+        ul > li:last-child > button{
+          border-radius: 0px 0px vw(20) vw(20);
+        }
+      }
+    // sidebar end
+      
+  
+  }

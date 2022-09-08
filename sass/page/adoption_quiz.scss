@@ -3,6 +3,9 @@
     margin: 0 auto;
     display: flex;
     border: 1px solid $lineGray;
+    @include m(){
+        width: rwd(394);
+    }
     img{
         display: block;
         width: 100%;
@@ -15,8 +18,19 @@
         .content{
             text-align: center;
             margin-top: vw(160);
+            @include m(){
+                margin-top: rwd(80);
+            }
             h2{
                 margin-bottom: vw(10);
+                @include m(){
+                    font-size: rwd(12);
+                }
+            }
+            .btn-0{
+                @include m(){
+                    font-size: rwd(12);
+                }
             }
         }
         .dog4{

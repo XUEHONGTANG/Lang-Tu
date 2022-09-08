@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="https://unpkg.com/vue@2"></script>
     <title>index</title>
 </head>
 <body>
@@ -40,6 +41,10 @@
     <input type="search" class="input-search" name="q" placeholder="search">
     </div>
 
+    <br>
+    <br>
+    <br>
+    <br>
 
     <hr>
     <br>
@@ -48,7 +53,7 @@
     <br>
     <br>
  
-    <a href="" class="ex_shadow">
+    <a href="#" class="ex_shadow">
     <img src="./images/Mask group.png" alt="">
     <div class="text_content">
         <div class="title">小黃</div>
@@ -59,12 +64,110 @@
         </div>
     </a>
 
-    <a href="" class="ex_shadow2">
+    <a  class="ex_shadow2">
+
+
+        <main>
+
+              <div class="sidebarExsample" id="sidebarApp">
+                <ul>
+                  <li>
+                    <button class="accordion" @click="toggle(0)">汪汪選物</button>
+                    <ol :class="olClass">
+                      <li><button>汪汪罐頭</button></li>
+                      <li><button>汪汪飼料</button></li>
+                    </ol>
+                  </li>
+                  <li>
+                    <button class="accordion" @click="toggle(1)">喵喵選物</button>
+                    <ol :class="olClass">
+                      <li><button>喵喵罐頭</button></li>
+                      <li><button>喵喵飼料</button></li>
+                    </ol>
+                  </li>
+                  <li>
+                    <button>浪浪周邊</button>
+                  </li>
+                </ul>
+              </div>
+
+      
+            <!-- sidebar -->
+          </main>
+
+
+  
+
+
+
+
+
+
     <!-- 老師筆記 -->
     <!-- <h1 class="default"></h1>
     <h1 class="medium"></h1>
     <h1 class="bold"></h1>
     <h2 class="thin"></h2> -->
+    <script>
+        //   codepen參考: https://codepen.io/abdon-gahungu/pen/eYdxVmz?editors=1000
 
+          new Vue({
+              el: '#sidebarApp',
+              data:{
+                  isOpen: false,
+                  reactArr:[],
+                  olClass: 'hide',
+              },
+              mounted() {
+                let reactTotal = document.querySelectorAll('.hide')
+                // console.log(reactTotal);
+                reactTotal.forEach((item) => {
+                  this.reactArr.push(item)
+                  console.log(this.reactArr);
+                });
+              },
+              methods:{
+                toggle(order) {
+                      let length = this.reactArr.length,
+                      i = 0;
+                      // console.log(length);
+                      // console.log(this.reactArr[order]);
+
+                      if (this.isOpen === false) {
+                          // console.log(this.reactArr[order]);
+                          this.reactArr[order].classList.remove('hide');
+                          this.reactArr[order].classList.add('show');
+                          // console.log(this.reactArr[order].previousElementSibling);
+                          this.reactArr[order].previousElementSibling.classList.add('turnRight');
+                          this.isOpen = true;
+
+                          for (i; i < length; i++) {
+                              if (order != i) {
+                          this.reactArr[i].classList.remove('show');
+                          this.reactArr[i].classList.add('hide');
+                          this.reactArr[i].previousElementSibling.classList.remove('turnRight');
+                              }
+                          }
+                      }else if(this.isOpen === true && this.reactArr[order].classList.contains('hide') ){
+                        this.reactArr[order].classList.remove('hide');
+                        this.reactArr[order].classList.add('show');
+                        this.reactArr[order].previousElementSibling.classList.add('turnRight');
+                         
+                          for (i; i < length; i++) {
+                              if (order != i) {
+                          this.reactArr[i].classList.remove('show');
+                          this.reactArr[i].classList.add('hide');
+                          this.reactArr[i].previousElementSibling.classList.remove('turnRight');
+                              }
+                            }
+                      } else {
+                          this.reactArr[order].classList.remove('show');
+                          this.reactArr[order].classList.add('hide'); this.reactArr[order].previousElementSibling.classList.remove('turnRight');
+                          this.isOpen = false;
+                      }
+                  },
+              },
+          });
+    </script>
 </body>
 </html>
