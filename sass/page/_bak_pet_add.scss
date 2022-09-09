@@ -1,0 +1,126 @@
+.info{
+    padding: vw(65) 0 vw(65) vw(115) ;
+
+    .title{
+        font-size: vw(24);
+        font-weight: $bold;
+        padding-right: vw(40);
+    }
+
+    .name{
+        padding-bottom: vw(32);
+
+        input{
+            width: vw(600);
+            height: vw(40);
+            padding: vw(4) vw(4);
+            border: none;
+            border: 1px solid $primaryDefault;
+            border-radius: vw(5);
+            font-size: $p;
+        }
+    }
+
+    .type{
+        padding-bottom: vw(32);
+
+        .tt{
+            padding-left: vw(64);
+        }
+
+        select{
+            width: vw(168);
+            height: vw(40);
+            border: none;
+            border: 1px solid $primaryDefault;
+            border-radius: vw(5);
+        }
+    }
+
+    .pic{
+        display: flex;
+        padding-bottom: vw(32);
+
+        textarea{
+            border: none;
+            border: 1px solid $primaryDefault;
+        }
+
+        input{
+            width: vw(100);
+            height: vw(40);
+            background-color: $primaryDark;
+            border: none;
+            color: white;
+            border-radius: vw(50);
+            align-self: center;
+            margin-left: vw(16);
+        }
+    }
+
+    .gender{
+        padding-bottom: vw(32);
+
+        span{
+            font-size: vw(24);
+        }
+    }
+
+    .date{
+        padding-bottom: vw(32);
+
+        input{
+            width: vw(300);
+            height: vw(40);
+            border: none;
+            border: 1px solid $primaryDefault;
+            border-radius: vw(5);
+        }
+    }
+
+    .help{
+        display: flex;
+        padding-bottom: vw(32);
+
+        textarea{
+            border: none;
+            border: 1px solid $primaryDefault;
+        }
+    }
+
+    .vax{
+        padding-bottom: vw(32);
+
+        span{
+            font-size: vw(24);
+        }
+    }
+
+    .fix{
+        padding-bottom: vw(32);
+
+        span{
+            font-size: vw(24);
+        }
+    }
+
+    .micor{
+        padding-bottom: vw(32);
+
+        span{
+            font-size: vw(24);
+        }
+    }
+
+    .send{
+        text-align: center;
+        input{
+            width: vw(100);
+            height: vw(40);
+            background-color: $primaryDark;
+            border: none;
+            border-radius: vw(50);
+            color: white;
+        }
+    } 
+}
