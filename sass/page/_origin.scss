@@ -33,13 +33,8 @@
                 border-radius: rwd(25);
                 padding: 24px 16px;
             }
-<<<<<<< HEAD
             h2{
                 font-size: $h3;
-=======
-            h2 {
-                font-size: $h2;
->>>>>>> QQBB
                 color: $secondaryA11y;
                 font-weight: $medium;
                 @include m() {
@@ -48,13 +43,8 @@
                     margin-bottom: 8px;
                 }
             }
-<<<<<<< HEAD
             h1{
                 font-size: $h2;
-=======
-            h1 {
-                font-size: font-size(45);
->>>>>>> QQBB
                 color: $primaryA11y;
                 font-weight: $bold;
                 @include m() {
@@ -99,16 +89,10 @@
                 position: absolute;
                 z-index: 3;
                 width: vw(480);
-<<<<<<< HEAD
                 @include m(){
                     width: 260px;
                     top: rwd(150);
                     left: rwd(80);
-=======
-                @include m() {
-                    width: 250px;
-                    top: 80px;
->>>>>>> QQBB
                 }
             }
             .top-right2 {
@@ -116,16 +100,10 @@
                 z-index: 2;
                 width: vw(474);
                 left: vw(750);
-<<<<<<< HEAD
                 @include m(){
                     width: 300px;
                     left: rwd(50);
                     top: rwd(120);
-=======
-                @include m() {
-                    width: 270px;
-                    left: 50px;
->>>>>>> QQBB
                 }
             }
             .top-right3 {
@@ -133,16 +111,10 @@
                 z-index: 1;
                 width: vw(254);
                 top: vw(600);
-<<<<<<< HEAD
                 @include m(){
                     width: 200px;
                     top: rwd(280);
                     left: rwd(80);
-=======
-                @include m() {
-                    width: 130px;
-                    top: 215px;
->>>>>>> QQBB
                 }
             }
         }
@@ -150,13 +122,8 @@
 
     .line1 {
         width: vw(338);
-<<<<<<< HEAD
         @include m(){
             width: 150px;
-=======
-        @include m() {
-            width: 163px;
->>>>>>> QQBB
             margin-left: 20px;
         }
     }
@@ -172,13 +139,8 @@
         width: vw(245);
         position: absolute;
         left: vw(900);
-<<<<<<< HEAD
         top: vw(1200);
         @include m(){
-=======
-        top: vw(1000);
-        @include m() {
->>>>>>> QQBB
             width: rwd(178);
             top: rwd(1000);
             left: rwd(210);
@@ -245,15 +207,9 @@
                 position: absolute;
                 width: vw(330);
                 z-index: 2;
-<<<<<<< HEAD
                 top: vw(1900);
                 left: vw(190);
                 @include m(){
-=======
-                top: vw(1750);
-                left: vw(200);
-                @include m() {
->>>>>>> QQBB
                     width: 252px;
                     top: rwd(2100);
                     left: rwd(70);
@@ -263,26 +219,16 @@
         .medium-right {
             width: vw(530);
             padding-top: vw(200);
-<<<<<<< HEAD
             @include m(){
                 width: 100%;
-=======
-            @include m() {
-                width: 359px;
->>>>>>> QQBB
                 height: 427px;
                 background-color: #ffffff;
                 box-shadow: $shadow;
                 border-radius: rwd(25);
                 padding: 24px 16px;
             }
-<<<<<<< HEAD
             h2{
                 font-size: $h3;
-=======
-            h2 {
-                font-size: $h2;
->>>>>>> QQBB
                 color: $secondaryA11y;
                 font-weight: $medium;
                 @include m() {
@@ -291,13 +237,8 @@
                     font-weight: $regular;
                 }
             }
-<<<<<<< HEAD
             h1{
                 font-size: $h2;
-=======
-            h1 {
-                font-size: font-size(45);
->>>>>>> QQBB
                 color: $primaryA11y;
                 font-weight: $bold;
                 @include m() {
@@ -352,17 +293,10 @@
     .dog3 {
         width: vw(140);
         position: absolute;
-<<<<<<< HEAD
         top: vw(3200);
         left: vw(200);
         @include m(){
             top: rwd(2950);
-=======
-        top: vw(2000);
-        left: vw(800);
-        @include m() {
-            top: 2510px;
->>>>>>> QQBB
             left: rwd(30);
             width: rwd(100);
         }
@@ -371,17 +305,10 @@
     .cloud {
         width: vw(190);
         position: absolute;
-<<<<<<< HEAD
         top: vw(2900);
         left: vw(600);
         @include m(){
             top: rwd(2830);
-=======
-        top: vw(2000);
-        left: vw(1120);
-        @include m() {
-            top: 2400px;
->>>>>>> QQBB
             width: rwd(128);
             left: rwd(50);
         }
@@ -398,30 +325,18 @@
         display: flex;
         justify-content: center;
         align-items: center;
-<<<<<<< HEAD
         @include m(){
             margin-top: rwd(370);
             width: rwd(359);
             height: rwd(76);
             padding: rwd(12) rwd(18);
-=======
-        @include m() {
-            margin-top: rwd(500);
-            width: 359px;
-            height: 76px;
-            padding: 12px 18px;
->>>>>>> QQBB
         }
         h3 {
             width: vw(486);
             color: $gray800;
             text-align: center;
-<<<<<<< HEAD
             font-size: $h5;
             @include m(){
-=======
-            @include m() {
->>>>>>> QQBB
                 font-size: 16px;
                 width: 324px;
                 height: 52px;
@@ -448,28 +363,17 @@
         .smallHome {
             position: absolute;
             left: vw(750);
-<<<<<<< HEAD
             top: vw(3240);
             @include m(){
                 top: rwd(3070);
-=======
-            top: vw(3020);
-            @include m() {
-                top: 2600px;
->>>>>>> QQBB
                 left: rwd(50);
                 width: rwd(100);
             }
         }
         .bottom-left {
             flex: 3;
-<<<<<<< HEAD
             @include m(){
                 padding: rwd(18);
-=======
-            @include m() {
-                margin-bottom: rwd(320);
->>>>>>> QQBB
             }
         }
         .bottom-right {
