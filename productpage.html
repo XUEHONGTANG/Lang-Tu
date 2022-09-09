@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    @@include('./layout/head.html', { "title" : "浪浪商店" })
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <script src="https://unpkg.com/vue@2"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> -->
+  </head>
+
+  <body>
+    @@include('./layout/header_1.html',{ "大標題" : "浪浪商店" , "英文標題" :
+    "LANG LANG WAITS FOR HOME" , "前頁面" : "首頁" , "此頁面" : "浪浪商店" , })
+    <div id="productPageApp">
+      <div class="productPageDrop">
+        <div class="productPageWrapper">
+          <div class="productImageArea">
+            <div class="imgLarge">
+              <img src="./images/ff/pd-001.jpg" alt="product">
+            </div>
+            <ul class="imgSmall">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+          <div class="productInfo">
+            <h2>貓貓罐頭</h2>
+            <ul class="changePage">
+              <li>商品資訊</li>
+              <li>購物須知</li>
+              <li>寄送方式</li>
+            </ul>
+            <div class="textArea">
+
+            </div>
+            <div class="price">金額 NT.425</div>
+            <div class="num">現有庫存 12</div>
+            <div>
+              <div class="counter">
+                <button></button>
+                <input type="number">
+                <button></button>
+              </div>
+              <button class="btn-0">加入購物車</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    @@include('layout/footer.html')
+
+  </body>
+</html>
