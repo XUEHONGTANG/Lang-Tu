@@ -1,0 +1,55 @@
+.member_reservation{
+    width: vw(840);
+    height: vw(400);
+    background-color: #fff;
+    border-radius: $r25;
+    z-index: 28;
+    padding: vw(50);
+    @include m(){
+        width: rwd(350);
+        height: rwd(250);
+        margin: rwd(40) auto 0;
+        border-radius: rwd(25);
+    }
+    h3{
+        text-align: center;
+        color: $primaryA11y;
+        border-bottom: vw(1) solid $gray900;
+        padding-bottom: vw(24);
+        @include m(){
+            font-size: rwd(12);
+        }
+    }
+    table{
+        margin-top: vw(32);
+        thead{
+            th{
+                width: vw(300);
+                border-bottom: vw(1) solid $gray900;
+                padding-bottom: vw(24);
+                @include m(){
+                    font-size: rwd(12);
+                }
+            }
+        }
+        tbody{
+            tr{
+                td{
+                    text-align: center;
+                    padding-top: vw(24);
+                    @include m(){
+                        font-size: rwd(12);
+                    }
+                }
+                .btn-0{
+                    font-size: font-size(12);
+                    @include m(){
+                        font-size: rwd(12);
+                        width: rwd(70);
+                        padding: rwd(8);
+                    }
+                }
+            }
+        }
+    }
+}
