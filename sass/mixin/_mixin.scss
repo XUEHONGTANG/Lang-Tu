@@ -24,10 +24,10 @@
 @mixin btn($bgc, $color:#fff, $border:null, $padding:$space1 $space6, $br:$space3){
     background-color: $bgc;
     color: $color;
-    border: solid 1px $border;
+    border: solid vw(1) $border;
     padding: $padding;
     border-radius: $br;
-    font-size: 16px;
+    font-size: $p;
     font-weight: $bold;
     text-align: center;
     transition: all .3s ease;
@@ -38,12 +38,12 @@
 @mixin btn_hover($bgc, $color:#fff, $border:null){
     background-color: $bgc; 
     color: $color;
-    border: solid 1px $border;
+    border: solid vw(1) $border;
 }
 @mixin btn_disabled($bgc, $color:#fff, $border:null){
     background-color: $bgc; 
     color: $color;
-    border: solid 1px $border;
+    border: solid vw(1) $border;
 }
 
 
@@ -53,23 +53,23 @@
 
 @mixin input-text($w:null){
     width:$w;
-    font-size: $p-px;
+    font-size: $p;
     font-weight: $regular;
     border: 0;
-    outline: solid 1px $primaryDefault;
-    border-radius: 6px;
-    padding: 5px 7px;
+    outline: solid vw(1) $primaryDefault;
+    border-radius: vw(6);
+    padding: vw(5) vw(7);
     // box-sizing: border-box;
     &::placeholder{
         color: $gray500;
         font-weight: $regular;
-        font-size: $p-px;
+        font-size: $p;
     }
     &:hover{
-        outline: solid 2px $primaryDefault;
+        outline: solid vw(2) $primaryDefault;
     }
     &.-error{
-        outline: solid 1px $error;
+        outline: solid vw(1) $error;
     }
     // @include m(){
     //     font-size: rwd(16);
@@ -82,20 +82,20 @@
 // rwd 待修改
 @mixin text-label($w:null,$title:'',$helptext:''){
     @if ($title != '' and $helptext != ''){
-        height: 95px;
+        height: vw(95);
     }@else if($title != ''){
-        height: 74px;
+        height: vw(74);
     }@else if($helptext != ''){
-        height: 66px;
+        height: vw(66);
     }
     width: $w;
     display: inline-block;
-    margin: 8px 0;
+    margin: vw(8) 0;
     // color: $primaryA11y;
     // font-size: $h5-px;
     .input-textLabel[type=text]{
         @include input-text($w);
-        margin: 8px 0;
+        margin: vw(8) 0;
     }
     // .-help-text{
     //     font-size: $p-px-s;
@@ -108,15 +108,15 @@
     &::before{
         content: $title;
         color: $primaryA11y;
-        font-size: $h5-px;
+        font-size: $h5;
     }
     &::after{
         content: $helptext;
-        font-size: $p-px-s;
+        font-size: font-size(13);
         color: $gray800;
     }
     &.-error{
-        outline: solid 1px $error;
+        outline: solid vw(1) $error;
     }
 }
 
@@ -127,28 +127,28 @@
     width: $w;
     &:after {
         position: absolute;
-        top: 5px;
-        left: 12px;
+        top: vw(5);
+        left: vw(12);
         font-family: FontAwesome;
         content: "\f002";
         color: grey;
-        font-size: 12px;  
+        font-size: font-size(12);  
         font-weight: $regular;
     }
     .input-search[type=search]{
         width:$w;
-        font-size: $p-px;
+        font-size: $p;
         font-weight: $regular;
         border: 0;
-        outline: solid 1px $primaryDefault;
-        border-radius: 13px;
-        padding: 5px 12px 5px 32px;
+        outline: solid vw(1) $primaryDefault;
+        border-radius: vw(13);
+        padding: vw(5) vw(12) vw(5) vw(32);
     
         position: relative;
         &::placeholder{
             color: $gray500;
             font-weight: $regular;
-            font-size: $p-px;
+            font-size: $p;
         }
         &:hover{
             outline: solid 2px $primaryDefault;

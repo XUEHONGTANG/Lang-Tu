@@ -9,11 +9,19 @@
     .sponsored_List-ul{
         display: flex;
         flex-wrap: wrap;
+        @include m(){
+            display: block;
+            flex-wrap: nowrap;
+        }
     }
     .sponsored_List-li{
         
         flex-basis: vw(400);
         margin-bottom: vw(20);
+        @include m(){
+            width: rwd(394);
+            // font-size: rwd(24);
+        }
         a{
             text-decoration:none;
         }
@@ -21,10 +29,13 @@
             color: $primaryA11y;
             margin-bottom: vw(10);
             text-align: center;
+            font-size: $h5;
+            @include m(){
+                font-size: rwd(24);
+                
+            }
         }
-        @include m(){
-            
-        }
+        
     }
     .sponsored_List-div{
         width: vw(350);
@@ -32,11 +43,18 @@
         border-radius: $r25;
         padding-top: vw(20);
         padding-bottom: vw(10);
+        @include m(){
+            width: rwd(394);
+            margin-bottom: rwd(20);
+        }
         img{
             width: vw(300);
             display: block;
             margin: 0 auto ;
             // margin-top: vw(30);
+            @include m(){
+                width: rwd(360);
+            }
 
         }
     }
@@ -51,6 +69,10 @@
         // border-image-slice: 1;
         // border-radius: 50%;
         border-radius: 30px;
+        @include m(){
+            width: rwd(394);
+            margin: rwd(10) auto;
+        }
     }
     
     .sponsored_List-in{
@@ -66,14 +88,23 @@
         h4{
             color: black;
             font-weight: $bold;
-            margin-right: vw(80);
+            margin-right: vw(40);
             margin-top: vw(20);
+            font-size: $p;
+            @include m(){
+                font-size: rwd(16);
+                margin-right: rwd(190);
+            }
         }
         p{
             font-size: $p;
             color: black;
             display: block;
             margin-top: vw(20);
+            @include m(){
+                font-size: rwd(16);
+                
+            }
         }
     }
 

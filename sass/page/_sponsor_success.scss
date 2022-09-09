@@ -1,0 +1,56 @@
+.sponsor_success{
+    width: vw(1200);
+    margin: vw(0) auto;
+    font-weight: $regular;
+
+    .sponsor_success-on{
+        width: vw(1200);
+        margin: 0 auto;
+    }
+    img{
+        display: block;
+        margin: 0 auto;
+        width: vw(1000);
+    }
+    h1{
+        font-size: $h2;
+        font-weight: $bold;
+        margin-top: vw(20);
+        text-align: center;
+        @include m(){
+            
+        }
+        
+    }
+    h3{
+        font-size: $h3;
+        margin: vw(20) 0;
+        @include m(){
+            font-size:rwd(12);
+        }
+    }
+    p{
+        font-size: $h3;
+        margin: vw(20) 0;
+        @include m(){
+            font-size:rwd(12);
+        }
+    }
+    .sponsor_success-in{
+        display: flex;
+        margin: 0 auto;
+        width: vw(480);
+        @include m(){
+            width: rwd(180);
+            margin-bottom: rwd(20);
+        }
+    }
+    .sponsor_success-under{
+        text-align: center;
+        @include m(){
+            .btn-0{
+                font-size: rwd(10);
+            }
+        }
+    }
+}
