@@ -1,60 +1,254 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     @@include('./layout/head.html', {
-        "title" : "浪浪園區"
-      })
+    "title" : "浪浪園區"
+    })
 </head>
-<body>    
+
+<body>
     @@include('./layout/nav.html')
 
-<main class="park_intro">
-    <div class="link-wrapper">
-        <a href="#" class="link1">
-        <img src="images/Derrick/link1.png" alt="連結圖片">
-        <button class="btn-2">園區緣起</button>
-        </a>
-        <a href="#" class="link2">
-        <img src="images/Derrick/link2.png" alt="連結圖片">
-        <button class="btn-3">園區地圖</button>
-        </a>
-    </div>
-    
-    <div class="top_kv_t">
-        <div class="top_kv_t-title top_kv_t-title2">
-            <h1>浪浪園區</h1>
-            <p>Lang Lang PARK</p>
-            <img src="../images/header/header_circle.png" alt="" class="top_kv_t_cir">
-        </div>
-    </div>
-
-
-    <div class="park_intro-map">
-        <div class="park_intro-map-all">
-            <div class="bg">
-                <img src="./images/LangPARK/bg.png" alt="" class="bg-map">
-            </div>
-
-    </div>
-
-
-    
-
-    <div class="top_kv_crumbs-frame">
-        <div class="top_kv_crumbs">
-            <img src="../images/header/crumbs.png" alt="" class="top_kv_crumbs_img">
-            <div class="top_kv_crumbs-text">
-                <div class="top_kv_crumbs-text_1">@@前頁面</div><span>/</span>
-                <div class="top_kv_crumbs-text_2">@@此頁面</div>
+    <main class="park_intro">
+        <div class="top_kv_t">
+            <div class="top_kv_t-title top_kv_t-title2">
+                <h1>浪浪園區</h1>
+                <p>Lang Lang PARK</p>
+                <img src="../images/header/header_circle.png" alt="" class="top_kv_t_cir">
             </div>
         </div>
-    </div>
-</main>
+        <div class="park_intro-map">
+            <div class="park_intro-map-all">
+                <div class="bg">
+                    <img src="./images/LangPARK/bg.png" alt="" class="bg-map">
+                </div>
+                <div class="store">
+                    <img src="./images/LangPARK/map-store-2.png" alt="" class="store-p">
+                </div>
+                <div class="res">
+                    <img src="./images/LangPARK/map-rest-2.png" alt="" class="store-p">
+                </div>
+                <div class="med">
+                    <img src="./images/LangPARK/map-med-2.png" alt="" class="store-p">
+                </div>
+                <div class="cos">
+                    <img src="./images/LangPARK/map-cos.png" alt="" class="store-p">
+                </div>
+                <div class="dog">
+                    <img src="./images/LangPARK/map-g-d.png" alt="">
+                </div>
+                <div class="cat">
+                    <img src="./images/LangPARK/map-g-c.png" alt="">
+                </div>
+                <div class="ball">
+                    <img src="./images/LangPARK/map-g-ball.png" alt="">
+                </div>
 
 
-<!-- footer -->
-@@include('layout/footer.html')
+            </div>
+        </div>
 
+        <!-- btn -->
+        <div class="link-wrapper">
+            <a href="#" class="link1">
+                <img src="images/Derrick/link1.png" alt="連結圖片">
+                <button class="btn-2">園區緣起</button>
+            </a>
+            <a href="#" class="link2">
+                <img src="images/Derrick/link2.png" alt="連結圖片">
+                <button class="btn-3">園區地圖</button>
+            </a>
+        </div>
+
+        <!-- 1 -->
+        <section class="park_intro_rest">
+            <div class="grass08"><img src="./images/LangPARK/grass08.png" alt=""> </div>
+
+
+            <div class="rest">
+                <img src="./images/LangPARK/res.png" alt="" class="res1">
+                <img src="./images/LangPARK/map-rest-2.png" alt="" class="res2">
+            </div>
+            <!-- slider -->
+            <div class="all-cont rest-cont">
+                <div class="cont-slider">
+                    <div class="cont-slider_item"><img
+                            src="./images/LangPARK/3D+Coffee+Art+www.thetravelpockets.jpeg" alt="" class="res1"
+                            style="width: 40vw; "></div>
+                    <div class="cont-slider_item"><img
+                            src="./images/LangPARK/3D+Coffee+Art+www.thetravelpockets.jpeg" alt="" class="res1"
+                            style="width:40vw;"></div>
+                    <div class="cont-slider_item"><img
+                            src="./images/LangPARK/3D+Coffee+Art+www.thetravelpockets.jpeg" alt="" class="res1"
+                            style="width:40vw;"></div>
+                    <div class="cont-slider_item"><img
+                            src="./images/LangPARK/3D+Coffee+Art+www.thetravelpockets.jpeg" alt="" class="res1"
+                            style="width:40vw;"></div>
+                </div>
+                <div class="cont-slider-ui">
+                    <div id="js-cont-slider-arrows" class="cont-slider-ui-arrow">
+
+                        <button class="slick-prev" aria-label="Previous" type="button"
+                            style="display: none;">Previous</button>
+                        <button class="slick-next" aria-label="Next" type="button" style="display: none;">Next</button>
+                    </div>
+                </div>
+                <div class="retan retan-res">
+                    <h4>浪浪餐廳</h4>
+                    <span> </span>
+                    <p>提供適當的空間讓毛小孩運動紓壓，促進毛小孩的健康。</p>
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- 2 -->
+        <section class="park_intro_store">
+
+
+            <div class="store">
+                <img src="./images/LangPARK/store.png" alt="" class="store1">
+                <img src="./images/LangPARK/map-store-2.png" alt="" class="store2">
+            </div>
+              <!-- slider -->
+              <div class="all-cont store-cont">
+                    <div class="store-slider">
+                    <div class="cont-slider_item"><img
+                            src="./images/LangPARK/3D+Coffee+Art+www.thetravelpockets.jpeg" alt="" class="res1"
+                            style="width: 40vw; "></div>
+                    <div class="cont-slider_item"><img
+                            src="./images/LangPARK/3D+Coffee+Art+www.thetravelpockets.jpeg" alt="" class="res1"
+                            style="width:40vw;"></div>
+                    <div class="cont-slider_item"><img
+                            src="./images/LangPARK/3D+Coffee+Art+www.thetravelpockets.jpeg" alt="" class="res1"
+                            style="width:40vw;"></div>
+                    <div class="cont-slider_item"><img
+                            src="./images/LangPARK/3D+Coffee+Art+www.thetravelpockets.jpeg" alt="" class="res1"
+                            style="width:40vw;"></div>
+                </div>
+                <div class="cont-slider-ui">
+                    <div id="js-cont-slider-arrows2" class="cont-slider-ui-arrow2">
+
+                        <button class="slick-prev" aria-label="Previous" type="button"
+                            style="display: none;">Previous</button>
+                        <button class="slick-next" aria-label="Next" type="button" style="display: none;">Next</button>
+                    </div>
+                </div>
+         
+                <div class="retan">
+                    <h4>浪浪用品</h4>
+                    <span> </span>
+                    <p>販賣寵物相關物品。</p>
+                </div>
+            </div>
+        </section>
+        <!-- road -->
+        <div class="park_intro_road-bg">
+            <img src="./images/LangPARK/road.png" alt="" class="road">
+        </div>
+
+
+
+
+
+
+
+
+        <div class="top_kv_crumbs-frame">
+            <div class="top_kv_crumbs">
+                <img src="../images/header/crumbs.png" alt="" class="top_kv_crumbs_img">
+                <div class="top_kv_crumbs-text">
+                    <div class="top_kv_crumbs-text_1">園區緣起</div><span>/</span>
+                    <div class="top_kv_crumbs-text_2">園區介紹</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+ 
+
+
+
+    <!-- footer -->
+    <!-- @@include('layout/footer.html') -->
+    
+   <!-- slick -->
+
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script>
+        $('.cont-slider').slick({
+            appendArrows: "#js-cont-slider-arrows",
+            dots: false,
+            centerMode: 1,
+            slidesToShow: 1,
+            variableWidth: true,
+            swipeToSlide: true,
+            touchThreshold: 8,
+            autoplay: true,
+            autoplaySpeed: 2500,
+            pauseOnHover: false,
+            pauseOnFocus: false,
+
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 1
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 1
+                    }
+                }
+            ]
+        });
+
+        $('.store-slider').slick({
+            appendArrows: "#js-cont-slider-arrows2",
+            dots: false,
+            centerMode: 1,
+            slidesToShow: 1,
+            variableWidth: true,
+            swipeToSlide: true,
+            touchThreshold: 8,
+            autoplay: true,
+            autoplaySpeed: 2500,
+            pauseOnHover: false,
+            pauseOnFocus: false,
+
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 1
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 1
+                    }
+                }
+            ]
+        })
+
+    </script>
 </body>
-

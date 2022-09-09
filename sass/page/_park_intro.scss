@@ -1,9 +1,393 @@
-.park_intro{
+.park_intro {
     width: vw(1200);
     margin: 0 auto;
     position: relative;
-    @include m(){
+
+    @include m() {
         width: rwd(394);
     }
+    &-map {
+        position: relative;
+        top: -12vw;
+        right: -4vw;
+        img {
+            width: 100%;
+        }
+        &-all {
+            width: 65vw;
+            &::after,
+            &::before {
+                background-image: $cloud;
+                content: " ";
+                position: absolute;
+                width: 200px;
+                height: 150px;
+                background-repeat: no-repeat;
+            }
+            &::before {
+                position: absolute;
+                top: 513px;
+                right: -158px;
+                background-size: 116px;
+            }
+            &::after {
+                position: absolute;
+                top: 619px;
+                left: 16px;
+                background-size: 129px;
+            }
+
+            .store {
+                position: absolute;
+                top: 16vw;
+                right: 7vw;
+                width: 10vw;
+            }
+            .res {
+                position: absolute;
+                top: 8.6vw;
+                right: 21vw;
+                width: 15.6vw;
+            }
+            .med {
+                position: absolute;
+                top: 21vw;
+                right: 39.7vw;
+                width: 11vw;
+            }
+            .cos {
+                position: absolute;
+                top: 32.5vw;
+                right: 41.6vw;
+                width: 14.5vw;
+            }
+            .dog {
+                position: absolute;
+                top: 31vw;
+                right: 15vw;
+                width: 13.6vw;
+            }
+            .cat {
+                position: absolute;
+                top: 23vw;
+                right: 25vw;
+                width: 14vw;
+            }
+            .ball {
+                position: absolute;
+                top: 30vw;
+                right: 6.1vw;
+                width: 12.6vw;
+            }
+            .cloud {
+                position: absolute;
+                top: 28.6vw;
+                right: -6.9vw;
+                width: 7.9vw;
+            }
+
+        }
+    }
+    .top_kv_t {
+        position: absolute;
+        z-index: -1;
+        top: 5vw;
+        left: -2vw;
+    }
+
+    &_cir {
+        position: absolute;
+        z-index: -1;
+        width: 24.177083vw;
+        top: -7vw;
+    }
+    h1 {
+        font-size: 1.8vw;
+    }
+    .link-wrapper {
+        display: flex;
+        position: relative;
+        top: -260px;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+
+   ////////
+    &_rest {
+        position: relative;
+
+        &::after {
+            content: "";
+            background-image: $dog;
+            position: absolute;
+            top: -14vw;
+            z-index: 10;
+            display: block;
+            right: 17vw;
+            width: 15.5vw;
+            height: 11vw;
+            background-repeat: no-repeat;
+        }
+     
+        .rest {
+            position: relative;
+            .res1 {
+                position: absolute;
+                z-index: -1;
+                width: vw(373);
+                top: vw(48);
+            }
+            .res2 {
+                position: absolute;
+                top: vw(170);
+            }
+
+            &::after {
+                content: "";
+                background-image: $grass04;
+                position: absolute;
+                top: 28vw;
+                z-index: 10;
+                display: block;
+                right: 41vw;
+                width: 15vw;
+                height: 11vw;
+                background-repeat: no-repeat;
+            }
+            &::before {
+                content: "";
+                background-image: $cloud;
+                position: absolute;
+                top: 28vw;
+                z-index: 10;
+                right: 52vw;
+                width: vw(234);
+                height: cw(208);
+                background-repeat: no-repeat;
+                background-size: vw(113);
+            }
+
+        }
+        .grass08 {
+            position: relative;
+            width: vw(243);
+            left: 82px;
+        }
+    }
+
+    ///
+    &_store {
+        position: relative;
+          .store {
+            position: relative;
+            .store1 {
+                position: absolute;
+                z-index: -1;
+                width: 373px;
+                top: 48px;
+                right: vw(-69);
+            }
+            .store2 {
+                position: absolute;
+                top: 170px;
+                right: vw(109);
+            }
+
+            // &::after {
+            //     content: "";
+            //     background-image: $grass04;
+            //     position: absolute;
+            //     top: 28vw;
+            //     z-index: 10;
+            //     display: block;
+            //     right: 41vw;
+            //     width: 234px;
+            //     height: 208px;
+            //     background-repeat: no-repeat;
+            // }
+            // &::before {
+            //     content: "";
+            //     background-image: $cloud;
+            //     position: absolute;
+            //     top: 28vw;
+            //     z-index: 10;
+            //     right: 52vw;
+            //     width: 234px;
+            //     height: 200px;
+            //     background-repeat: no-repeat;
+            //     background-size: 113px;
+            // }
 
     }
+}
+    //bg road
+    &_road-bg {
+        position: absolute;
+        top: 34vw;
+        right: -1vw;
+        z-index: -3;
+
+        img {
+            width: 100%;
+        }
+    }
+
+}
+
+
+//內容
+    .all-cont {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 41vw;
+ 
+        &.rest-cont{
+            top: -12.8125vw;
+            right: -7.4479166667vw;
+            margin-left: auto;
+        }
+            
+        &.store-cont {
+            margin-left: 0;
+            width: 40vw;
+        }
+   }
+        .retan {
+            @include card (100%, $shadow, $r25);
+            padding: 2.4vw;
+            &-res {
+              &::before {
+                background-image: $grass07;
+                content: "";
+                position: absolute;
+                top: 35vw;
+                z-index: 10;
+                right: -3vw;
+                width: 15.5vw;
+                height: 14vw;
+                background-repeat: no-repeat;
+                background-size: 11.625vw;
+            }
+            &::after {
+                background-image: $ball;
+                content: "";
+                position: absolute;
+                top: 52vw;
+                z-index: 10;
+                right: 31vw;
+                width: 15.5vw;
+                height: 14vw;
+                background-repeat: no-repeat;
+                background-size: 11.625vw;
+            }
+        }
+
+            h4 {
+                color: $primaryA11y;
+                font-weight: $bold;
+            }
+            span {
+                position: relative;
+                background-image: $solid1;
+                background-size: 30.7vw;
+                padding: 15px;
+                display: block;
+                top: 13px;
+                background-repeat: no-repeat;
+
+            }
+
+    }
+
+
+
+
+    // slider
+    .cont-slider {
+        width: 40vw;
+    }
+
+    .cont-slider-ui {
+        margin: 17px;
+    }
+
+    .cont-slider-ui-arrow ,
+    .cont-slider-ui-arrow2 {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 102px;
+        margin-left: auto;
+
+
+
+        button {
+            position: relative;
+            width: 30px;
+            height: 14px;
+            padding: 0;
+            appearance: none;
+            border: 0;
+            outline: 0;
+            border-radius: 0;
+            overflow: hidden;
+            text-indent: 300px;
+            white-space: nowrap;
+            background: none;
+            &::before {
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+            }
+
+            &.slick-prev:hover::before {
+                width: 30px;
+                height: 14px;
+                content: "";
+                display: inline-block;
+                vertical-align: middle;
+                background: no-repeat center/contain;
+                background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2230%22%20height%3D%2214%22%20viewBox%3D%220%200%2030%2014%22%3E%20%3Cg%20id%3D%22ico_arw03%22%20transform%3D%22translate(-1297%20-5786)%22%3E%20%3Cg%20id%3D%22%E5%A4%9A%E8%A7%92%E5%BD%A2_18%22%20data-name%3D%22%E5%A4%9A%E8%A7%92%E5%BD%A2%2018%22%20transform%3D%22translate(1327%205786)%20rotate(90)%22%20fill%3D%22none%22%3E%20%3Cpath%20d%3D%22M5.771%2C1.755a1.5%2C1.5%2C0%2C0%2C1%2C2.458%2C0L12.348%2C7.64A1.5%2C1.5%2C0%2C0%2C1%2C11.119%2C10H2.881A1.5%2C1.5%2C0%2C0%2C1%2C1.652%2C7.64Z%22%20stroke%3D%22none%22%2F%3E%20%3Cpath%20d%3D%22M%206.999996662139893%203.487584114074707%20L%203.841315269470215%208.000000953674316%20L%2010.15868854522705%208.000000953674316%20L%206.999996662139893%203.487584114074707%20M%207.000003337860107%201.115691184997559%20C%207.465139389038086%201.115691184997559%207.930274486541748%201.328961372375488%208.228849411010742%201.755500793457031%20L%2012.34785938262939%207.639811038970947%20C%2013.04377937316895%208.633971214294434%2012.33255004882812%2010.00000095367432%2011.11901950836182%2010.00000095367432%20L%202.880979537963867%2010.00000095367432%20C%201.667449951171875%2010.00000095367432%200.9562196731567383%208.633971214294434%201.652139663696289%207.639811038970947%20L%205.771149635314941%201.755500793457031%20C%206.069729328155518%201.328961372375488%206.534866809844971%201.115691184997559%207.000003337860107%201.115691184997559%20Z%22%20stroke%3D%22none%22%20fill%3D%22%23e68a00%22%2F%3E%20%3C%2Fg%3E%20%3Cline%20id%3D%22%E7%B7%9A_1173%22%20data-name%3D%22%E7%B7%9A%201173%22%20x1%3D%2220%22%20transform%3D%22translate(1297%205793)%22%20fill%3D%22none%22%20stroke%3D%22%23e68a00%22%20stroke-width%3D%222%22%2F%3E%20%3C%2Fg%3E%3C%2Fsvg%3E");
+                transition: all 0.3s ease;
+            }
+            &.slick-next:hover::before {
+                width: 30px;
+                height: 14px;
+                content: "";
+                display: inline-block;
+                vertical-align: middle;
+                background: no-repeat center/contain;
+                background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2230%22%20height%3D%2214%22%20viewBox%3D%220%200%2030%2014%22%3E%20%3Cg%20id%3D%22ico_arw03%22%20transform%3D%22translate(-1297%20-5786)%22%3E%20%3Cg%20id%3D%22%E5%A4%9A%E8%A7%92%E5%BD%A2_18%22%20data-name%3D%22%E5%A4%9A%E8%A7%92%E5%BD%A2%2018%22%20transform%3D%22translate(1327%205786)%20rotate(90)%22%20fill%3D%22none%22%3E%20%3Cpath%20d%3D%22M5.771%2C1.755a1.5%2C1.5%2C0%2C0%2C1%2C2.458%2C0L12.348%2C7.64A1.5%2C1.5%2C0%2C0%2C1%2C11.119%2C10H2.881A1.5%2C1.5%2C0%2C0%2C1%2C1.652%2C7.64Z%22%20stroke%3D%22none%22%2F%3E%20%3Cpath%20d%3D%22M%206.999996662139893%203.487584114074707%20L%203.841315269470215%208.000000953674316%20L%2010.15868854522705%208.000000953674316%20L%206.999996662139893%203.487584114074707%20M%207.000003337860107%201.115691184997559%20C%207.465139389038086%201.115691184997559%207.930274486541748%201.328961372375488%208.228849411010742%201.755500793457031%20L%2012.34785938262939%207.639811038970947%20C%2013.04377937316895%208.633971214294434%2012.33255004882812%2010.00000095367432%2011.11901950836182%2010.00000095367432%20L%202.880979537963867%2010.00000095367432%20C%201.667449951171875%2010.00000095367432%200.9562196731567383%208.633971214294434%201.652139663696289%207.639811038970947%20L%205.771149635314941%201.755500793457031%20C%206.069729328155518%201.328961372375488%206.534866809844971%201.115691184997559%207.000003337860107%201.115691184997559%20Z%22%20stroke%3D%22none%22%20fill%3D%22%23e68a00%22%2F%3E%20%3C%2Fg%3E%20%3Cline%20id%3D%22%E7%B7%9A_1173%22%20data-name%3D%22%E7%B7%9A%201173%22%20x1%3D%2220%22%20transform%3D%22translate(1297%205793)%22%20fill%3D%22none%22%20stroke%3D%22%23e68a00%22%20stroke-width%3D%222%22%2F%3E%20%3C%2Fg%3E%3C%2Fsvg%3E");
+                transition: all 0.3s ease;
+            }
+
+            &.slick-prev::before {
+                width: 30px;
+                height: 14px;
+                content: "";
+                display: inline-block;
+                vertical-align: middle;
+                background: no-repeat center/contain;
+                background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2230%22%20height%3D%2214%22%20viewBox%3D%220%200%2030%2014%22%3E%20%3Cg%20id%3D%22ico_arw03%22%20transform%3D%22translate(-1297%20-5786)%22%3E%20%3Cg%20id%3D%22%E5%A4%9A%E8%A7%92%E5%BD%A2_18%22%20data-name%3D%22%E5%A4%9A%E8%A7%92%E5%BD%A2%2018%22%20transform%3D%22translate(1327%205786)%20rotate(90)%22%20fill%3D%22none%22%3E%20%3Cpath%20d%3D%22M5.771%2C1.755a1.5%2C1.5%2C0%2C0%2C1%2C2.458%2C0L12.348%2C7.64A1.5%2C1.5%2C0%2C0%2C1%2C11.119%2C10H2.881A1.5%2C1.5%2C0%2C0%2C1%2C1.652%2C7.64Z%22%20stroke%3D%22none%22%2F%3E%20%3Cpath%20d%3D%22M%206.999996662139893%203.487584114074707%20L%203.841315269470215%208.000000953674316%20L%2010.15868854522705%208.000000953674316%20L%206.999996662139893%203.487584114074707%20M%207.000003337860107%201.115691184997559%20C%207.465139389038086%201.115691184997559%207.930274486541748%201.328961372375488%208.228849411010742%201.755500793457031%20L%2012.34785938262939%207.639811038970947%20C%2013.04377937316895%208.633971214294434%2012.33255004882812%2010.00000095367432%2011.11901950836182%2010.00000095367432%20L%202.880979537963867%2010.00000095367432%20C%201.667449951171875%2010.00000095367432%200.9562196731567383%208.633971214294434%201.652139663696289%207.639811038970947%20L%205.771149635314941%201.755500793457031%20C%206.069729328155518%201.328961372375488%206.534866809844971%201.115691184997559%207.000003337860107%201.115691184997559%20Z%22%20stroke%3D%22none%22%20fill%3D%22%235a4a37%22%2F%3E%20%3C%2Fg%3E%20%3Cline%20id%3D%22%E7%B7%9A_1173%22%20data-name%3D%22%E7%B7%9A%201173%22%20x1%3D%2220%22%20transform%3D%22translate(1297%205793)%22%20fill%3D%22none%22%20stroke%3D%22%235a4a37%22%20stroke-width%3D%222%22%2F%3E%20%3C%2Fg%3E%3C%2Fsvg%3E");
+                transition: all 0.3s ease;
+                transform: rotate(180deg);
+
+            }
+            &.slick-next::before {
+                width: 30px;
+                height: 14px;
+                content: "";
+                display: inline-block;
+                vertical-align: middle;
+                background: no-repeat center/contain;
+                background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2230%22%20height%3D%2214%22%20viewBox%3D%220%200%2030%2014%22%3E%20%3Cg%20id%3D%22ico_arw03%22%20transform%3D%22translate(-1297%20-5786)%22%3E%20%3Cg%20id%3D%22%E5%A4%9A%E8%A7%92%E5%BD%A2_18%22%20data-name%3D%22%E5%A4%9A%E8%A7%92%E5%BD%A2%2018%22%20transform%3D%22translate(1327%205786)%20rotate(90)%22%20fill%3D%22none%22%3E%20%3Cpath%20d%3D%22M5.771%2C1.755a1.5%2C1.5%2C0%2C0%2C1%2C2.458%2C0L12.348%2C7.64A1.5%2C1.5%2C0%2C0%2C1%2C11.119%2C10H2.881A1.5%2C1.5%2C0%2C0%2C1%2C1.652%2C7.64Z%22%20stroke%3D%22none%22%2F%3E%20%3Cpath%20d%3D%22M%206.999996662139893%203.487584114074707%20L%203.841315269470215%208.000000953674316%20L%2010.15868854522705%208.000000953674316%20L%206.999996662139893%203.487584114074707%20M%207.000003337860107%201.115691184997559%20C%207.465139389038086%201.115691184997559%207.930274486541748%201.328961372375488%208.228849411010742%201.755500793457031%20L%2012.34785938262939%207.639811038970947%20C%2013.04377937316895%208.633971214294434%2012.33255004882812%2010.00000095367432%2011.11901950836182%2010.00000095367432%20L%202.880979537963867%2010.00000095367432%20C%201.667449951171875%2010.00000095367432%200.9562196731567383%208.633971214294434%201.652139663696289%207.639811038970947%20L%205.771149635314941%201.755500793457031%20C%206.069729328155518%201.328961372375488%206.534866809844971%201.115691184997559%207.000003337860107%201.115691184997559%20Z%22%20stroke%3D%22none%22%20fill%3D%22%235a4a37%22%2F%3E%20%3C%2Fg%3E%20%3Cline%20id%3D%22%E7%B7%9A_1173%22%20data-name%3D%22%E7%B7%9A%201173%22%20x1%3D%2220%22%20transform%3D%22translate(1297%205793)%22%20fill%3D%22none%22%20stroke%3D%22%235a4a37%22%20stroke-width%3D%222%22%2F%3E%20%3C%2Fg%3E%3C%2Fsvg%3E");
+                transition: all 0.3s ease;
+
+            }
+        }
+    }
+
+
+
