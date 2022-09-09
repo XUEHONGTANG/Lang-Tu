@@ -10,7 +10,7 @@ header {
 
         @include m() {
             height: 100vh;
-            overflow-x: hidden;
+            overflow: hidden;
 
 
         }
@@ -20,7 +20,7 @@ header {
             position: relative;
             @include m(){
                 height:42vh;
-                overflow-x: hidden;
+                overflow: hidden;
             }
             // overflow: hidden;
         }
@@ -29,7 +29,7 @@ header {
             height: 35vw;
             @include m() {
                 height:43vh;
-                overflow-x: hidden;
+                overflow: hidden;
             }
         }
     
