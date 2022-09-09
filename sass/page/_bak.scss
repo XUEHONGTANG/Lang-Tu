@@ -25,10 +25,7 @@
         margin: 0 auto;
         width: vw(600);
         padding-top: vw(80);
-        .tl{
-            width: auto;
-        }
-
+        
         .text-label{
             &-1{
                 @include text-label(vw(1200),'帳號');

@@ -52,9 +52,9 @@
     }
     h1{
         color: $secondaryA11y;
-        font-size: $h1;
+        font-size: $h2;
         font-weight: $bold;
-        padding-top: vw(40);
+        padding-top: vw(20);
         @include m(){
             padding-bottom: vw(40);
             text-align: center;
@@ -64,7 +64,7 @@
     }
     h4{
         color: $secondaryA11y;
-        font-size: $h4;
+        font-size: $h5;
         font-weight: $bold;
         padding-bottom: vw(8);
         @include m(){
@@ -74,9 +74,9 @@
         }
     }
     p{
-        font-size: $p;
-        text-indent : -85px ;
-        margin-left: 85px;
+        font-size: font-size(13);
+        text-indent : vw(-101) ;
+        margin-left: vw(105);
         color: black;
         @include m(){
             display: none;

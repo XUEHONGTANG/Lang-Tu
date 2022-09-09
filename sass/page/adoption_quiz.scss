@@ -1,0 +1,45 @@
+.adoption_quiz{
+    width: vw(1080);
+    margin: 0 auto;
+    display: flex;
+    border: 1px solid $lineGray;
+    @include m(){
+        width: rwd(394);
+    }
+    img{
+        display: block;
+        width: 100%;
+    }
+    .quiz1{
+        flex: 1;
+    }
+    .quiz_start{
+        flex: 1;
+        .content{
+            text-align: center;
+            margin-top: vw(160);
+            @include m(){
+                margin-top: rwd(80);
+            }
+            h2{
+                margin-bottom: vw(10);
+                @include m(){
+                    font-size: rwd(12);
+                }
+            }
+            .btn-0{
+                @include m(){
+                    font-size: rwd(12);
+                }
+            }
+        }
+        .dog4{
+            margin-left: auto;
+            width: vw(300);
+        }
+        .quiz2{
+            margin-top: vw(160);
+            width: vw(170);
+        }
+    }
+}
