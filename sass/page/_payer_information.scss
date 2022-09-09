@@ -1,0 +1,86 @@
+.payer_information{
+    width: vw(1200);
+    margin: vw(0) auto;
+    background-color: #fff;
+    border-radius: $r25;
+    @include m(){
+        width: rwd(394);
+    }
+    h1{
+        text-align: center;
+        font-size: $h3;
+        font-weight: bold;
+        padding: vw(40) 0;
+    }
+    .payer_information-top{
+        width: vw(1000);
+        margin: vw(0) auto;
+        @include m(){
+            width: rwd(360);
+        }
+    }
+    .payer_information-top-title{
+        background-color: $primaryLight;
+        border-radius: $r25;
+        
+        h2{
+            font-size: $h3;
+            padding: vw(10);
+        }
+    }
+    .payer_information-div1{
+        display: flex;
+        margin-left: vw(105);
+    }
+    .payer_information-div2{
+        display: flex;
+        margin-left: vw(80);
+    }
+    .payer_information-div3{
+        display: flex;
+        margin-left: vw(50);
+    }
+
+    h3{
+        font-size: $h4;
+        margin-right: vw(40);
+        text-align:right;
+        margin: vw(10) vw(40);
+        @include m(){
+            font-size: rwd(14);
+            margin-right: rwd(30);
+        }
+    }
+    p{
+        font-size: $h4;
+        margin: vw(10) 0;
+        @include m(){
+            font-size: rwd(14);
+        }
+    }
+    .payer_information-inder{
+        width: vw(1000);
+        margin: vw(0) auto;
+        @include m(){
+            width: rwd(360);
+        }
+    }
+
+    .payer_information-under{
+        width: vw(1000);
+        margin: vw(0) auto;
+        @include m(){
+            width: rwd(360);
+        }
+    }
+    .payer_information-btn{
+        text-align: center;
+        margin: vw(30);
+        .btn-1{
+            margin-right: vw(20);
+        }
+        @include m(){
+            
+        }
+    }
+}
