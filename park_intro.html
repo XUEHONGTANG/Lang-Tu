@@ -9,8 +9,9 @@
 </head>
 
 <body>
-    @@include('./layout/nav.html')
 
+    <section class="intro_wrapper">
+        @@include('./layout/nav.html')
     <main class="park_intro">
         <div class="top_kv_t">
             <div class="top_kv_t-title top_kv_t-title2">
@@ -24,25 +25,25 @@
                 <div class="bg">
                     <img src="./images/LangPARK/bg.png" alt="" class="bg-map">
                 </div>
-                <div class="store">
+                <div class="store c-anime-side">
                     <img src="./images/LangPARK/map-store-2.png" alt="" class="store-p">
                 </div>
                 <div class="res">
                     <img src="./images/LangPARK/map-rest-2.png" alt="" class="store-p">
                 </div>
-                <div class="med">
+                <div class="med c-anime-rotate2">
                     <img src="./images/LangPARK/map-med-2.png" alt="" class="store-p">
                 </div>
-                <div class="cos">
+                <div class="cos ">
                     <img src="./images/LangPARK/map-cos.png" alt="" class="store-p">
                 </div>
-                <div class="dog">
+                <div class="dog c-anime-balloon">
                     <img src="./images/LangPARK/map-g-d.png" alt="">
                 </div>
-                <div class="cat">
+                <div class="cat c-anime-rotate ">
                     <img src="./images/LangPARK/map-g-c.png" alt="">
                 </div>
-                <div class="ball">
+                <div class="ball c-anime-rotate2">
                     <img src="./images/LangPARK/map-g-ball.png" alt="">
                 </div>
 
@@ -103,8 +104,8 @@
         <!-- 2 -->
         <section class="park_intro_store">
             <div class="store">
-                <img src="./images/LangPARK/store.png" alt="" class="store1">
-                <img src="./images/LangPARK/map-store-2.png" alt="" class="store2">
+                <img src="./images/LangPARK/store.png" alt="" class="store1 ">
+                <img src="./images/LangPARK/map-store-2.png" alt="" class="store2 c-anime-side">
             </div>
             <!-- slider -->
             <div class="all-cont store-cont">
@@ -139,8 +140,8 @@
         <!-- 3 -->
         <section class="park_intro_med">
             <div class="med">
-                <img src="./images/LangPARK/med.png" alt="" class="med1">
-                <img src="./images/LangPARK/map-med-2.png" alt="" class="med2">
+                <img src="./images/LangPARK/med.png" alt="" class="med1 ">
+                <img src="./images/LangPARK/map-med-2.png" alt="" class="med2 c-anime-fluffy">
             </div>
             <!-- slider -->
             <div class="all-cont store-cont med-cont">
@@ -175,7 +176,7 @@
         <section class="park_intro_cos">
             <div class="cos">
                 <img src="./images/LangPARK/cos.png" alt="" class="cos1">
-                <img src="./images/LangPARK/map-cos.png" alt="" class="cos2">
+                <img src="./images/LangPARK/map-cos.png" alt="" class="cos2 c-anime-rotate">
             </div>
             <!-- slider -->
             <div class="all-cont store-cont cos-cont">
@@ -209,8 +210,8 @@
         <!-- 5 -->
         <section class="park_intro_grass">
             <div class="grass">
-                <img src="./images/LangPARK/map-g-d.png" alt="" class="grass1">
-                <img src="./images/LangPARK/map-g-c.png" alt="" class="grass2">
+                <img src="./images/LangPARK/map-g-d.png" alt="" class="grass1 c-anime-balloon">
+                <img src="./images/LangPARK/map-g-c.png" alt="" class="grass2 c-anime-rotate">
                 <img src="./images/LangPARK/gland 2.png " alt="" class="grass3">
             </div>
             <!-- slider -->
@@ -265,11 +266,11 @@
     </main>
 
 
-
-
-
     <!-- footer -->
     @@include('layout/footer.html')
+</section>
+
+
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="./js/park_intro.js"></script>
 </body>
