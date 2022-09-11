@@ -2,7 +2,7 @@
 $menu-font-size: 20px;
 .footer {
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 70vw;
     color: #c3dfff;
     background: linear-gradient(0deg, #3466A6 59.74%, rgba(141, 197, 235, 0) 94.85%);
@@ -131,7 +131,7 @@ $menu-font-size: 20px;
             top: 3.8020833333vw;
             justify-content: space-between;
             @include m() {
-                top: 15vw;
+                top: -1vw;
                 flex-direction: column;
                 justify-content: flex-end;
             }

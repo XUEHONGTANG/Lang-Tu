@@ -10,7 +10,7 @@ header {
 
         @include m() {
             height: 100vh;
-            overflow-x: hidden;
+            overflow: hidden;
 
 
         }
@@ -20,7 +20,7 @@ header {
             position: relative;
             @include m(){
                 height:42vh;
-                overflow-x: hidden;
+                overflow: hidden;
             }
             // overflow: hidden;
         }
@@ -29,13 +29,14 @@ header {
             height: 35vw;
             @include m() {
                 height:43vh;
-                overflow-x: hidden;
+                overflow: hidden;
             }
         }
     
     }
 
     .top_kv {
+
   
         &_bg {
             z-index: -4;
@@ -45,16 +46,7 @@ header {
 
         }
 
-        &_cir {
-            position: absolute;
-            z-index: -1;
-            width: vw(541);
-            top: -9vw;
-            @include m() {
-                width: rwd(400);
-                top: -19.7vw;
-            }
-        }
+      
         &_city {
             position: relative;
             top: 7vw;
@@ -168,122 +160,144 @@ header {
             }
         }
 
-        &_t {
-            position: relative;
-            z-index: 5;
+        // &_t {
+        //     position: relative;
+        //     z-index: 5;
 
-            &-title {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 13px;
-                @include m() {
-                    position: relative;
-                    top: 103px;
-                }
+        //     &-title {
 
-                h1 {
-                    color: $primaryA11y;
-                    font-weight: $bold;
-                    font-size: $h2;
-                    @include m() {
-                        font-size: 32px;
-
-                    }
-                }
-
-                p {
-                    font-size: font-size(18);
-                    color: $primaryDefault;
-                    text-transform: uppercase;
-                    @include m() {
-                        font-size: 20px;
-                    }
-
-                }
-
-                &2 {
-                    h1 {
-                        color: $secondaryA11y;
-                    }
-
-                    p {
-                        color: $secondaryA11y;
-                    }
-                }
-            }
-        }
+     
     }
 
-    .top_kv_crumbs-frame {
-        display: flex;
-        justify-content: center;
-
-
-        .top_kv_crumbs {
-            z-index: 3;
-            position: absolute;
-            margin: auto 0;
-            display: flex;
-            align-items: center;
-            color: $primaryA11y;
-            top: 45.5vw;
-            right: 7vw;
-            @include m() {
-                width: 63vw;
-                height: 47.37px;
-                left: 19.6vw;
-                top: 651px;
-            }
-
-            &-2 {
-                z-index: 31;
-                position: absolute;
-                display: flex;
-                align-items: center;
-                color: $primaryA11y;
-                top: 19vw;
-
-                @include m(){
-                    top: 44vw;
-                }
-            }
-
-            &_img {
-                width: vw(65.65);
-                margin-right: $space1;
-                @include m() {
-                    width: 59.39px;
-                }
-            }
-
-            &-text {
-                border-radius: vw(27);
-                padding: 0 vw(25);
-                background-color: #fff;
-                font-size: $p;
-                align-items: center;
-                display: flex;
-                @include m(){
-                    font-size: 15px;
-
-                }
-
-                // &_1{
-
-                // }
-                span {
-                    margin: $space1;
-
-                }
-                &_2 {
-                    font-weight: $bold;
-                }
-
-            }
-        
-    }}
+   
 }
 
 
+
+.top_kv_t {
+    position: relative;
+    z-index: 5;
+
+    &_cir {
+        position: absolute;
+        z-index: -1;
+        width: vw(541);
+        top: -9vw;
+        @include m() {
+            width: rwd(400);
+            top: -19.7vw;
+        }
+    }
+
+    &-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 13px;
+        @include m() {
+            position: relative;
+            top: 103px;
+        }
+
+        h1 {
+            color: $primaryA11y;
+            font-weight: $bold;
+            font-size: $h2;
+            @include m() {
+                font-size: 32px;
+
+            }
+        }
+
+        p {
+            font-size: font-size(18);
+            color: $primaryDefault;
+            text-transform: uppercase;
+            @include m() {
+                font-size: 20px;
+            }
+
+        }
+
+        &2 {
+            h1 {
+                color: $secondaryA11y;
+            }
+
+            p {
+                color: $secondaryA11y;
+            }
+        }
+    }
+}
+
+.top_kv_crumbs-frame {
+    display: flex;
+    justify-content: center;
+
+
+    .top_kv_crumbs {
+        z-index: 3;
+        position: absolute;
+        margin: auto 0;
+        display: flex;
+        align-items: center;
+        color: $primaryA11y;
+        top: 45.5vw;
+        right: 7vw;
+        @include m() {
+            width: 63vw;
+            height: 47.37px;
+            left: 19.6vw;
+            top: 651px;
+        }
+
+        &-2 {
+            z-index: 31;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            color: $primaryA11y;
+            top: 19vw;
+
+            @include m(){
+                top: 44vw;
+            }
+        }
+
+        &_img {
+            width: vw(65.65);
+            margin-right: $space1;
+            @include m() {
+                width: 59.39px;
+            }
+        }
+
+        &-text {
+            border-radius: vw(27);
+            padding: 0 vw(25);
+            background-color: #fff;
+            font-size: $p;
+            align-items: center;
+            display: flex;
+            @include m(){
+                font-size: 15px;
+
+            }
+
+            // &_1{
+
+            // }
+            span {
+                margin: $space1;
+
+            }
+            &_2 {
+                font-weight: $bold;
+            }
+
+        }
+    
+}
+}

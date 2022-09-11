@@ -1,0 +1,111 @@
+.donation_record{
+    width: vw(840);
+    height: vw(850);
+    background-color: #fff;
+    border-radius: $r25;
+    z-index: 28;
+    padding: vw(50);
+    @include m(){
+        width: rwd(350);
+        height: rwd(450);
+        margin: rwd(40) auto 0;
+        border-radius: rwd(25);
+    }
+    h3{
+        text-align: center;
+        color: $primaryA11y;
+        border-bottom: vw(1) solid $gray900;
+        padding-bottom: vw(24);
+        @include m(){
+            font-size: rwd(12);
+        }
+    }
+    table{
+        margin-top: vw(32);
+        thead{
+            th{
+                width: vw(300);
+                border-bottom: vw(1) solid $gray900;
+                padding-bottom: vw(24);
+                @include m(){
+                    font-size: rwd(12);
+                }
+            }
+        }
+        tbody{
+            tr{
+                td{
+                    text-align: center;
+                    padding-top: vw(24);
+                    @include m(){
+                        font-size: rwd(12);
+                    }
+                }
+                .btn-0{
+                    font-size: font-size(12);
+                }
+            }
+        }
+    }
+    h3{
+        margin-top: vw(50);
+        @include m(){
+            font-size: rwd(12);
+        }
+    }
+    h4{
+        text-align: center;
+        color: $primaryA11y;
+        margin: vw(32) 0;
+        @include m(){
+            font-size: rwd(12);
+        }
+    }
+    .button{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        @include m(){
+            flex-direction: column;
+        }
+        .btn-0{
+            width: vw(243);
+            font-size: font-size(12);
+            padding: vw(10) vw(10);
+            background-color: $primaryA11y;
+            @include m(){
+                font-size: rwd(9);
+                width: rwd(150);
+                padding: rwd(8) rwd(8);
+                margin: rwd(8) 0 rwd(8);
+            }
+        }
+        .btn-1{
+            width: vw(243);
+            font-size: font-size(12);
+            padding: vw(10) vw(10);
+            @include m(){
+                font-size: rwd(9);
+                width: rwd(150);
+                padding: rwd(8) rwd(8);
+                margin-bottom: rwd(8);
+            }
+        }
+    }
+    .btn{
+        text-align: center;
+        margin-top: vw(64);
+        .btn-0-1{
+            @include btn($primaryDark, #fff, $primaryDark);
+            font-size: font-size(12);
+            @include m(){
+                font-size: rwd(9);
+                width: rwd(80);
+                padding: rwd(8) rwd(8);
+            }
+        }
+        .btn-0-1:first-child{
+            margin-right: vw(16) ;
+        }
+    }
+}
