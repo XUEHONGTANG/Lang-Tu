@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    @@include('./layout/head.html', { "title" : "登入頁面" })
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <script src="https://unpkg.com/vue@2"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> -->
+  </head>
+
+  <body>
+    @@include('./layout/header_1.html',{ "大標題" : "登入頁面" , "英文標題" :
+    "LANG LANG Login" , "前頁面" : "首頁" , "此頁面" : "登入頁面" , })
+    <!-- <main> -->
+      <main class="loginPageWrapper" id="loginPageApp">
+        <ul>
+          <li @click="content='loginContent', selected = 1" :class="{'currentPage':selected === 1}"
+          >登入會員</li>
+          <li
+          @click="content='registerContent', selected = 2" :class="{'currentPage':selected === 2}"
+          >註冊會員</li>
+        </ul>
+
+        <section>
+          <span>
+            <button>使用 LINE 登入</button>
+            <button>使用 FB 登入</button>
+          </span>
+            <hr class="mainLine">
+            <div>
+              <h3>請輸入您的登入資訊</h3>
+
+              <label class="loginAccountLabel" name="loginAccount">
+                <input class="input-textLabel" type="text" placeholder="請輸入您的註冊e-mail" name="loginAccount">
+            </label>
+  
+              <label class="loginPasswordLabel" name="loginPassword">
+                <input class="input-textLabel" type="text" placeholder="請輸入您的密碼" name="loginPassword">
+            </label>
+  
+          </div>
+          <div>
+            <button class="btn-0">登入會員</button>
+            <button class="btn-1">忘記密碼</button>
+          </div>
+        </section>
+      </main>
+    <!-- </main> -->
+    @@include('layout/footer.html')
+
+    <script src="./js/login_page.js"></script>
+  </body>
+</html>

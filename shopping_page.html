@@ -12,9 +12,9 @@
 
   <body>
     @@include('./layout/header_1.html',{ "大標題" : "浪浪商店" , "英文標題" :
-    "LANG LANG WAITS FOR HOME" , "前頁面" : "首頁" , "此頁面" : "浪浪商店" , })
-    <main>
-      <div class="shoppingPageWrapper">
+    "LANG LANG SHOP" , "前頁面" : "首頁" , "此頁面" : "浪浪商店" , })
+    <!-- <main> -->
+      <main class="shoppingPageWrapper">
         <!-- sidebar -->
         <div class="sidebar" id="sidebarApp">
           <h3>商品類別</h3>
@@ -37,6 +37,8 @@
               <button>浪浪周邊</button>
             </li>
           </ul>
+          <img src="./images/ff/map04.png" alt="
+          Cartoon">
         </div>
         <!-- sidebar -->
 
@@ -68,15 +70,15 @@
               <i class="fa-solid fa-circle-chevron-right"></i>
             </li>
           </ul>
-
+          
         </div>
 
         <!-- main content end -->
 
-      </div>
-    </main>
+      </main>
+    <!-- </main> -->
     @@include('layout/footer.html')
 
-    <script src="./js/shoppingpage.js"></script>
+    <script src="./js/shopping_page.js"></script>
   </body>
 </html>
