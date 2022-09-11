@@ -8,11 +8,10 @@
   background-color: rgba(46, 46, 46, 0.6);
   transition: all 5s ease-in-out;
 
-  @include m(){
-    z-index: 0;
-    position:static;
-    // top: auto;
-    // left: auto;
+  @include m() {
+    position: static;
+    width: auto;
+    height: auto;
     background-color: rgba(46, 46, 46, 0);
   }
 
@@ -30,14 +29,17 @@
 
     display: flex;
 
-    
-    @include m(){
+    @include m() {
       display: flex;
-      z-index: 50;
+      flex-direction: column;
       width: rwd(394);
+      height: auto;
       position: static;
       left: auto;
       top: auto;
+      border-radius: rwd(10);
+
+      margin: 0 auto;
     }
 
     .productImageArea {
@@ -45,14 +47,28 @@
       // border: 1px solid $gray500;
       height: vw(836);
       width: vw(552);
+
+      @include m() {
+        margin: rwd(16);
+        width: rwd(362);
+        height: auto;
+      }
+
       .imgLarge {
         border: 1px solid $gray500;
         // background-color: $lineGray;
         width: 100%;
         height: vw(672);
         display: flex;
+
+        @include m() {
+          width: rwd(362);
+          height: rwd(362);
+        }
+
         img {
           width: 100%;
+          height: 100%;
           align-self: center;
         }
       }
@@ -62,12 +78,26 @@
         height: vw(140);
         display: flex;
         overflow: hidden;
+
+        @include m() {
+          width: 100%;
+          margin-top: rwd(16);
+          height: rwd(84);
+        }
+
         li {
           width: vw(140);
           height: vw(140);
           border: 1px solid $gray500;
           margin: 0 vw(12);
           flex-shrink: 0;
+
+          @include m() {
+            width: rwd(84);
+            height: rwd(84);
+            margin: 0 rwd(8);
+          }
+
           &:first-child {
             margin-left: 0;
           }
@@ -81,8 +111,21 @@
       width: vw(552);
       padding: $space4;
       position: relative;
+
+      @include m() {
+        height: auto;
+        width: rwd(362);
+        padding: 0;
+        margin: rwd(16);
+      }
+
       h2 {
         color: $primaryA11y;
+        @include m() {
+          font-size: rwd(24); 
+          text-align: center;
+          margin: rwd(16) 0;
+        }
       }
       .pageClose::after {
         position: absolute;
@@ -97,6 +140,10 @@
 
         content: "\00D7";
         color: $gray700;
+
+        @include m() {
+          display: none;
+        }
       }
       ul.changePageButton {
         display: flex;
@@ -114,10 +161,20 @@
           border-radius: vw(10) vw(10) 0 0;
 
           position: relative;
-          &:hover{
+
+          @include m() {
+          width: rwd(96);
+          height: rwd(48);
+
+          font-size: rwd(15);
+          line-height: rwd(48);
+          border-radius: rwd(10) rwd(10) 0 0;
+          }
+
+          &:hover {
             background-color: darken($gray500, 10%);
             color: #fff;
-           }
+          }
           cursor: pointer;
           &:first-child {
             left: 0px;
@@ -145,16 +202,27 @@
         border-right: 0;
         padding: $space1;
         overflow-y: scroll;
+        
+        @include m() {
+          height: rwd(512);
+          padding: rwd(8);
+          }
 
         /* 滾動卷軸 */
         &::-webkit-scrollbar {
           // 整個卷軸
           width: vw(16);
+          @include m() {
+          width: rwd(16);
+          }
         }
 
         &::-webkit-scrollbar-track {
           // 卷軸軌道區塊
           border: solid vw(16) transparent;
+          @include m() {
+          border: solid rwd(16) transparent;
+          }
         }
 
         &::-webkit-scrollbar-thumb {
@@ -162,14 +230,27 @@
           background-color: $gray500;
           border: vw(4) solid #fff;
           border-radius: vw(8);
+          @include m() {
+            border: rwd(4) solid #fff;
+          border-radius: rwd(8);
+          }
         }
       }
+
       h5 {
         margin: $space1 0;
         font-weight: $bold;
+        @include m() {
+          font-size: rwd(16);
+          margin: rwd(8) 0;
+        }
       }
       p {
         margin: $space1 0;
+        @include m() {
+          font-size: rwd(16);
+          margin: rwd(8) 0;
+        }
       }
       div {
         display: flex;
@@ -182,12 +263,24 @@
           height: vw(40);
           border: solid 1px $primaryDark;
           border-radius: vw(6);
+
+          @include m() {
+          width: rwd(120);
+          height: rwd(40);
+          border-radius: rwd(6);
+          }
+
           input[type="number"] {
             width: vw(40);
             border: none;
             outline: none;
             text-align: center;
             -moz-appearance: textfield;
+            
+            @include m() {
+              width: rwd(40);
+              }
+
             &::-webkit-inner-spin-button,
             ::-webkit-outer-spin-button {
               -webkit-appearance: none;
@@ -204,13 +297,32 @@
             background-color: transparent;
             border: 0;
             cursor: pointer;
+
+            @include m() {
+              width: rwd(40);
+              height: rwd(40);
+            }
+
             &:hover {
               background-color: $primaryDark;
+
+              @include m() {
+                background-color: rgba(255, 255, 255, 0);
+              }
+
               &.btn-minus::after {
                 color: #fff;
+
+                @include m() {
+                  color: $primaryDark;
+                }
               }
               &.btn-plus::after {
                 color: #fff;
+
+                @include m() {
+                  color: $primaryDark;
+                }
               }
             }
             &.btn-minus {
@@ -230,13 +342,34 @@
           }
         }
       }
-      button.btn-shopping{
+      button.btn-shopping {
         display: flex;
-        iconify-icon{
-            font-size: $h4;
-            margin-right: vw(8);
+
+        @include m() {
+          &:hover:disabled{
+            background-color: rgba(255, 255, 255, 0);
+          }
+        }
+
+        iconify-icon {
+          font-size: $h4;
+          margin-right: vw(8);
+
+          @include m() {
+            font-size: rwd(20);
+            margin-right: rwd(16);
+          }
         }
       }
+    }
+  }
+
+  button.btn-1{
+    display: none;
+
+    @include m(){
+      display: block;
+      margin: rwd(16) auto;
     }
   }
 }

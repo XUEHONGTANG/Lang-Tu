@@ -13,7 +13,7 @@
   <body>
     @@include('./layout/header_1.html',{ "大標題" : "浪浪商店" , "英文標題" :
     "LANG LANG WAITS FOR HOME" , "前頁面" : "首頁" , "此頁面" : "浪浪商店" , })
-    <div id="productPageApp">
+    <main id="productPageApp">
       <div class="productPageDrop" v-show="isShow" @click="isShow = false">
         <div class="productPageWrapper" @click.stop="isShow">
           <div class="productImageArea">
@@ -56,8 +56,12 @@
             </div>
           </div>
         </div>
+
+        <button class="btn-1" @click="isShow = false">
+          返回上一頁
+        </button>
       </div>
-    </div>
+    </main>
 
     @@include('layout/footer.html')
 
