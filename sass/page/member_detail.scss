@@ -1,0 +1,200 @@
+.member_center{
+    display: flex;
+    width: vw(1200);
+    margin: 0 auto;
+    z-index: 28;
+    @include m(){
+        width: rwd(394);
+        flex-direction: column;
+    }
+    .slidebar{
+        background-color: #fff;
+        border-radius: $r25;
+        z-index: 28;
+        width: vw(290);
+        height: vw(260);
+        text-align: center;
+        margin-right: vw(24);
+        @include m(){
+            width: rwd(310);
+            height: rwd(40);
+            margin: 0 auto;
+        }
+        ul{
+            @include m(){
+                display: flex;
+                justify-content: space-around;
+                height: rwd(40);
+                li:nth-child(1){
+                    background-color: $primaryDark;
+                    border-radius: rwd(10);
+                    a{
+                        color: #fff;
+                    }
+                }
+            }
+            li{
+                font-size: $h4;
+                line-height: vw(64);
+                border-bottom: vw(1) solid $lineGray;
+                    @include m(){
+                        width: rwd(78);
+                        line-height: rwd(40);
+                        border-bottom: none;
+                    }
+                a{
+                    text-decoration: none;
+                    color: $primaryA11y;
+                    line-height: vw(64);
+                    font-size: $h4;
+                    display: block;
+                    @include m(){
+                        font-size: rwd(12);
+                        line-height: rwd(40);
+                    }            
+                }
+            }
+            li:last-child{
+                border-bottom: none;
+            }
+        }
+    }
+    .member_detail{
+        width: vw(840);
+        height: vw(746);
+        background-color: #fff;
+        border-radius: $r25;
+        z-index: 28;
+        padding: vw(80) vw(50);
+        @include m(){
+            width: rwd(350);
+            height: rwd(250);
+            margin: rwd(40) auto 0;
+            border-radius: rwd(25);
+        }
+        h3{
+            margin-bottom: vw(32);
+            color: $primaryA11y;
+            @include m(){
+                font-size: rwd(12);
+            }
+        }
+        .text-label{
+            &-1{
+                @include text-label(vw(355),'姓名:');
+                @include m(){
+                    @include text-label(rwd(150),'姓名:');
+                    &::before{
+                        font-size: rwd(9);
+                    }
+                    margin-right: rwd(20);
+                }
+                .input-text[type=text]{
+                    @include input-text(vw(360));
+                    @include m(){
+                        @include input-text(rwd(150));
+                        border-radius: rwd(6);
+                        line-height: rwd(10);
+                    }
+                }
+            }
+            &-2{
+                @include text-label(vw(355),'性別:');
+                @include m(){
+                    @include text-label(rwd(150),'性別:');
+                    &::before{
+                        font-size: rwd(9);
+                    }
+                }
+                margin-left: vw(20);
+                .input-text[type=text]{
+                    @include input-text(vw(360));
+                    @include m(){
+                        @include input-text(rwd(150));
+                        border-radius: rwd(6);
+                        line-height: rwd(10);
+                    }
+                }
+            }
+            &-3{
+                @include text-label(vw(400),'電話:');
+                @include m(){
+                    margin-top: rwd(8);
+                    &::before{
+                        font-size: rwd(9);
+                    }
+                }
+                .input-text[type=text]{
+                    @include input-text(vw(740));
+                    @include m(){
+                        @include input-text(rwd(321));
+                        border-radius: rwd(6);
+                        line-height: rwd(10);
+                    }
+                }
+            }
+            &-4{
+                @include text-label(vw(600),'生日:');
+                @include m(){
+                    margin-top: rwd(8);
+                    &::before{
+                        font-size: rwd(9);
+                    }
+                }
+                .input-text[type=text]{
+                    @include input-text(vw(740));
+                    @include m(){
+                        @include input-text(rwd(321));
+                        border-radius: rwd(6);
+                        line-height: rwd(10);
+                    }
+                }
+            }
+            &-5{
+                @include text-label(vw(600),'電子郵件:');
+                @include m(){
+                    margin-top: rwd(8);
+                    &::before{
+                        font-size: rwd(9);
+                    }
+                }
+                .input-text[type=text]{
+                    @include input-text(vw(740));
+                    @include m(){
+                        @include input-text(rwd(321));
+                        border-radius: rwd(6);
+                        line-height: rwd(10);
+                    }
+                }
+            }
+            &-6{
+                @include text-label(vw(600),'密碼:');
+                @include m(){
+                    margin-top: rwd(8);
+                    &::before{
+                        font-size: rwd(9);
+                    }
+                }
+                .input-text[type=password]{
+                    @include input-text(vw(740));
+                    @include m(){
+                        @include input-text(rwd(321));
+                        border-radius: rwd(6);
+                        line-height: rwd(10);
+                    }
+                }
+            }
+        }
+        .btn{
+            text-align: right;
+            margin-top: vw(70);
+            .btn-0{
+                @include m(){
+                    width: rwd(90);
+                    font-size: rwd(8);
+                    padding: rwd(8);
+                }
+            }
+        }
+    }
+}
