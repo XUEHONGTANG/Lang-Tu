@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    @@include('./layout/head.html', { "title" : "浪浪商店" })
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script> -->
+    <script src="https://unpkg.com/vue@2"></script>
+  </head>
+
+  <body>
+    @@include('./layout/header_1.html',{ "大標題" : "浪浪商店" , "英文標題" :
+    "LANG LANG WAITS FOR HOME" , "前頁面" : "首頁" , "此頁面" : "購物車" , })
+    <!-- <main> -->
+        <main class="shoppingCartWrapper" id="shoppingCartApp">
+            <ul class="titleArea">
+                <li v-for="title in cartTitle" :class="{'currentPage': currentPage === title.id}">{{title.name}}</li>
+            </ul>
+            <div class="shoppingList">
+                <h3>訂單成立</h3>
+                <hr class="mainLine">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>商品</th>
+                            <th>單件價格</th>
+                            <th>數量</th>
+                            <th>小計</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for=" pd in cartList">
+                            <td><img :src="pd.img"></td>
+                            <td>{{pd.title}}</td>
+                            <td>{{pd.price}}</td>
+                            <td>
+                                <div class="counter">
+                                    <button class="btn-minus" @click="changeCounter(-1)"></button>
+                                    <input type="number" :value="counter">
+                                    <button class="btn-plus" @click="changeCounter(1)"></button>
+                                </div>
+                            </td>
+                            <td>NT$ {{pd.sum}}</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="payInfo">
+                    <span>
+                        <h4>運送方式：</h4>
+                        <input type="radio" value="60" name="deliveryFee">超商取貨 NT$ 60
+                    </span>
+                    <span>
+                        <input type="radio" value="100" name="deliveryFee">常溫宅配送貨 NT$ 100
+                    </span>
+                    <span>
+                        <h4>合計：</h4>
+                        <div class="totalCost">NT$ 700</div>
+                    </span>
+
+                
+                </div>
+                <span class="doubleLine"></span>
+                <div class="payWay">
+                    <span>
+                        <input type="radio" name="payWay" id="">綠界金流 - 第三方金流平台 (透過信用卡、WebATM、ATM轉帳付款)
+                    </span>
+                    <span>
+                        <input type="radio" name="payWay" id="">貨到付款 (收到貨時以現金付款)
+                    </span>
+                    <span>
+                        <input type="radio" name="payWay" id="">超商取貨付款 (全家超商取貨付款)
+                    </span>
+                </div>
+            </div>
+            <div class="formTitle">
+                <h3>填寫資料</h3>
+                <hr class="mainLine">
+            </div>
+
+            <!-- 左邊資料 -->
+            <div class="left-form">
+                <h4>帳單資訊</h4>
+                <hr class="mainLine">
+
+                <!-- 您的名字 -->
+                <label class="infoNameLabel" name="infoName">
+                    <input class="input-textLabel" type="text" placeholder="請輸入您的名字" name="infoName">
+                </label>
+
+                <!-- 地址 -->
+                <!-- <div class="twzipcode"></div> -->
+                <h5>寄送地址 (使用超商收貨者免填) (選填)</h5>
+                <span>
+                    <select>
+                        <option>縣市</option>
+                    </select>
+                    <select>
+                        <option>鄉鎮市區</option>
+                    </select>
+                    <input class="postalCode" type="text" placeholder="郵遞區號">
+                </span>
+                <input class="address" type="text" placeholder="請輸入您的住址">
+
+                <!-- 連絡電話 -->
+                <label class="infoPhoneLabel" name="infoName">
+                    <input class="input-textLabel" type="text" placeholder="請輸入您的電話" name="infoPhone">
+                </label>
+
+                 <!-- e-mail -->
+                 <label class="infoEmailLabel" name="infoName">
+                    <input class="input-textLabel" type="text" placeholder="請輸入您的e-mail" name="infoEmail">
+                </label>
+
+                <label for="invoice">索取發票方式:</label>
+                <select name="invoice" class="invoice" id="invoice">
+                    <option value="">索取紙本發票</option>
+                    <option value="">統一編號</option>
+                    <option value="">手機條碼</option>
+                </select>
+            </div>
+
+            <!-- 右邊資料 -->
+            <div class="right-form">
+                <div>
+                    <input type="checkbox">
+                    <h4>運送到不同地址?</h4>
+                </div>
+                <hr class="mainLine">
+
+                <!-- 收件人的名字 -->
+                <label class="otherNameLabel -disabled" name="otherName">
+                    <input class="input-textLabel" type="text" placeholder="請輸入收件人的名字" name="otherName" disabled>
+                </label>
+
+                <!-- 地址 -->
+                <!-- <div class="twzipcode"></div> -->
+                <h5>寄送地址 (使用超商收貨者免填) (選填)</h5>
+                <span>
+                    <select disabled>
+                        <option>縣市</option>
+                    </select>
+                    <select disabled>
+                        <option>鄉鎮市區</option>
+                    </select>
+                    <input class="otherPostalCode" type="text" placeholder="郵遞區號" disabled>
+                </span>
+                <input class="otherAddress" type="text" placeholder="請輸入收件者的住址" disabled>
+
+                <!-- 連絡電話 -->
+                <label class="otherPhoneLabel -disabled" name="otherName">
+                    <input class="input-textLabel" type="text" placeholder="請輸入收件者的電話" name="otherPhone" disabled>
+                </label>
+
+                <!-- 備註 -->
+                <label class="-disabled">備註:
+                    <textarea name="" id="" disabled></textarea>
+                </h5>
+                
+                
+            </div>
+
+            <div class="buttonArea">
+                <button class="btn-1">返回購物車</button>
+                <button class="btn-0">提交訂單</button>
+            </div>
+        </main>
+    <!-- </main> -->
+
+    @@include('layout/footer.html')
+
+   <script src="./js/shopping_cart.js"></script>
+  </body>
+</html>

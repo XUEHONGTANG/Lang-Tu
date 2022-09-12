@@ -18,6 +18,9 @@ $menu-font-size: 20px;
   visibility: hidden;
   width: 100vw;
   z-index: 29;
+  @include m(){
+    background:linear-gradient(180deg, #316CA5 85.05%, rgba(141, 197, 235, 0) 100.87%)
+  }
 
   &.open {
     opacity: 1;
@@ -55,7 +58,7 @@ $menu-font-size: 20px;
     transform: translateY(-50%);
     @include m(){
       transform: none;
-      top:270px;
+      top:246px;
     }
     ul {
       list-style: none;
@@ -219,7 +222,7 @@ $menu-font-size: 20px;
                 
             }
             @include m() {
-                width: 48px;
+                width: rwd(34);
 
                 svg {
                     padding: 2px;

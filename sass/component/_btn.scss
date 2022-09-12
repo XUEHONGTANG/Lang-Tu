@@ -8,7 +8,7 @@
         cursor:default;
     }
     @include m(){
-        padding:rwd(8) rwd(48);
+        padding:rwd(10) rwd(24);
         border-radius:rwd(24);
         font-size: rwd(16);
     
@@ -25,7 +25,7 @@
         cursor:default;
     }
     @include m(){
-        padding:rwd(8) rwd(48);
+        padding:rwd(10) rwd(24);
         border-radius:rwd(24);
         font-size: rwd(16);
     
@@ -35,7 +35,7 @@
 .btn-2 {
     @include btn($secondaryDark,$secondaryA11y,$secondaryA11y);
     @include m(){
-        padding:rwd(8) rwd(48);
+        padding:rwd(10) rwd(24);
         border-radius:rwd(8);
         font-size: rwd(16);
     
@@ -45,12 +45,9 @@
 .btn-3 {
     @include btn($secondaryLight,$secondaryA11y,$secondaryA11y);
     @include m(){
-        padding:rwd(8) rwd(48);
+        padding:rwd(10) rwd(24);
         border-radius:rwd(8);
         font-size: rwd(16);
     
     }
 }
-
-
-

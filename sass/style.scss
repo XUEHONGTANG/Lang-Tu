@@ -7,6 +7,7 @@
 @import "base/color";
 @import "base/other";
 @import "base/space";
+@import "base/animation";
 
 // mixin 函式
 @import "mixin/mixin";
@@ -27,6 +28,7 @@
 //index
 @import "page/index";
 @import "page/origin";
+@import "page/park_intro";
 @import "page/waitsforhome";
 @import "page/petpage";
 @import "page/precautions";
@@ -34,8 +36,23 @@
 @import "page/adoption_knowledge.scss";
 @import "page/adoption_quiz.scss";
 @import "page/adoption_quiz2.scss";
-@import "page/shoppingpage";
 
+@import "page/shopping_page";
+@import "page/shopping_cart";
+@import "page/product_page"; // for test
+@import "page/login_page";
+
+
+
+@import "page/adoption_knowledge";
+@import "page/adoption_quiz";
+@import "page/adoption_quiz2";
+// @import "page/shoppingpage";
+@import "page/member_detail";
+@import "page/member_reservation";
+@import "page/donation_record";
+@import "page/order_detail";
+@import "page/langNews";
 
 @import "page/finish";
 @import "page/bak";
@@ -53,6 +70,7 @@
 
 // 元件範例
 @import "page/for_component";
+
 
 
 
