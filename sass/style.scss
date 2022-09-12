@@ -33,14 +33,26 @@
 @import "page/petpage";
 @import "page/precautions";
 @import "page/application";
+@import "page/adoption_knowledge.scss";
+@import "page/adoption_quiz.scss";
+@import "page/adoption_quiz2.scss";
+
+@import "page/shopping_page";
+@import "page/shopping_cart";
+@import "page/product_page"; // for test
+@import "page/login_page";
+
+
+
 @import "page/adoption_knowledge";
 @import "page/adoption_quiz";
 @import "page/adoption_quiz2";
-@import "page/shoppingpage";
+// @import "page/shoppingpage";
 @import "page/member_detail";
 @import "page/member_reservation";
 @import "page/donation_record";
 @import "page/order_detail";
+@import "page/langNews";
 
 @import "page/finish";
 @import "page/bak";
@@ -49,6 +61,7 @@
 @import "page/sponsor_success";
 @import "page/payer_information";
 @import "page/sponsored_page";
+@import "page/sponsor_information";
 
 
 
