@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('./layout/head.html', {
+    "title" : "浪浪等家"
+    })
+</head>
+
+<body>
+    @@include('./layout/header_2.html',{
+    "大標題" : "浪浪等家" ,
+    "英文標題" : "LANG LANG WAITS FOR HOME" ,
+    "前頁面" : "浪浪募資" ,
+    "此頁面" : "贊助頁面" ,
+    })
+    <main class="sponsor_information">
+        <h1>【I got you 浪我罩你】線上訂閱中途計畫</h1>
+        <div class="sponsor_information-all">
+            <div class="sponsor_information-all-left">
+                <div class="sponsor_information-all-btnbig-in">
+                    <div class="sponsor_information-all-btnbig-top1">
+                        <div class="sponsor_information-all-btnbig-top-tt">
+                            <h3 class="ch1">每月 500 元</h3>
+                        </div>
+                            <img class="img-dog"  src="/images/Meteor/dogyellow.png" alt="">
+                            <img class="img-cat" src="/images/Meteor/catorenge.png" alt="">
+                    </div>
+                    <div class="sponsor_information-all-btnbig-inder">
+                        <h3 >方案一</h3>
+                        <h4>每月 NT$300</h4>
+                    </div>
+                    <div class="sponsor_information-all-btnbig-under">
+                        <p>已被贊助 621 次</p>
+                    </div>
+                </div>
+                <div class="sponsor_information-all-under">
+                    <div class="sponsor_information-all-inder1">
+                        <h5>選項金額</h5>
+                        <p>NT$300</p>
+                    </div>
+                    <hr>
+                    <div class="sponsor_information-all-inder2">
+                        <h5>總價</h5>
+                        <p>NT$300/每月</p>
+                    </div>
+                </div>
+            </div>
+            <div class="sponsor_information-all-right">
+                <label class="sponsor_information-label">
+                    <h1>飼養地點：</h1>
+                    <input class="sponsor_information-text" type="text" placeholder="">
+                </label>
+            </div>
+        </div>
+        
+        
+    </main>
+    @@include('layout/footer.html')
+</body>
+
+</html>

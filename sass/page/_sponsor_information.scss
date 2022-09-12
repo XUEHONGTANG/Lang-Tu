@@ -1,0 +1,94 @@
+.sponsor_information{
+    width: vw(1200);
+    margin: vw(0) auto;
+    h1{
+        text-align: center;
+        font-size: $h4;
+        color: $primaryA11y;
+        font-weight: $bold;
+        margin-bottom: vw(50);
+    }
+    .sponsor_information-all{
+        display: flex;
+        background-color: #fff;
+        border-radius: $r25;
+        .sponsor_information-all-left{
+            margin-top: vw(40);
+        }
+        .sponsor_information-all-under{
+            margin-top: vw(40);
+        }
+        .sponsor_information-all-inder1{
+            display: flex;
+        }
+        .sponsor_information-all-inder2{
+            display: flex;
+        }
+        h5{
+            font-size: $p;
+            font-weight: $shadow;
+            margin-right: vw(210);
+        }
+        p{
+            font-size: $p;
+            color: $primaryA11y;
+        }
+        
+    }
+    .sponsor_information-all-btnbig-in{
+        width: vw(373);
+        border: solid 1px ;
+        background-color: #fff;
+        border-radius: $r25;
+        height: vw(239);
+    }
+    .sponsor_information-all-btnbig-top1{
+        display: flex;
+        background-color: #DBC0AF;
+        margin: vw(20);
+        // height: vw(117);
+    }
+    .sponsor_information-all-btnbig-top2{
+        display: flex;
+        background-color: #B5E9FA;
+        margin: vw(20);
+    }
+    .sponsor_information-all-btnbig-top3{
+        display: flex;
+        background-color: #FFEDAC;
+        margin: vw(20);
+    }
+    .sponsor_information-all-btnbig-top-tt{
+        height: vw(38);
+        h3{
+            margin: vw(20);
+            color: #fff;
+            font-size: $h5;
+            width: vw(130);
+            text-align: center;
+        }
+        .ch1{
+            background-color: #B18D76;
+        }
+    }
+    .sponsor_information-all-btnbig-inder{
+        margin: 0 vw(20);
+        display: flex;
+        h3{
+            color: $secondaryA11y;
+            font-size: $h5;
+            margin-right: vw(40);
+        }
+        h4{
+            font-size: $h5;
+            font-weight: $bold;
+        }
+    }
+    .sponsor_information-all-btnbig-under{
+        p{
+            margin-left: vw(130);
+            width: vw(150);
+            background-color: #F4F4F5;
+        }
+    }
+}
