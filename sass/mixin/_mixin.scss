@@ -59,11 +59,21 @@
     outline: solid 1px $primaryDefault;
     border-radius: vw(6);
     padding: vw(5) vw(7);
-    // box-sizing: border-box;
+    
+    @include m(){
+        font-size: rwd(16);
+         border-radius: rwd(6);
+         padding: rwd(5) rwd(7);
+      }
+
     &::placeholder{
         color: $gray500;
         font-weight: $regular;
         font-size: $p;
+
+        @include m(){
+            font-size: rwd(16);
+          }
     }
     &:hover{
         outline: solid vw(2) $primaryDefault;
@@ -129,12 +139,18 @@
 
     @if ($title != '' and $errortext!= '' or $helptext != ''){
         height: vw(128);
+        @include m(){
+            height: rwd(88);
+        }
     }
-    // @else if($title != ''){
-    //     height: vw(74);
-    // }
+    // // @else if($title != ''){
+    // //     height: vw(74);
+    // // }
     @else if($helptext $errortext!= '' or $helptext != ''){
         height: vw(79);
+        @include m(){
+            height: rwd(62);
+        }
     }
 
     width: $w;
@@ -145,21 +161,37 @@
     .input-textLabel[type="text"] {
       @include input-text($w);
       margin: vw(8) 0;
+
+      @include m(){
+        margin: rwd(4) 0;
+      }
     }
     &::before {
       content: $title;
       color: $primaryA11y;
       font-size: $h5;
+
+      @include m(){
+        font-size: rwd(16);
+      }
     }
     &::after {
       content: $helptext;
       font-size: font-size(13);
       color: $gray800;
+
+      @include m(){
+        font-size: rwd(13);
+      }
     }
     &.-error::after {
         content: $errortext;
         font-size: font-size(13);
         color: $error;
+
+        @include m(){
+            font-size: rwd(13);
+          }
     }
     &.-disabled {
       &::before {
