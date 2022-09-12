@@ -1,9 +1,364 @@
+.index_wrapper{
+    img {
+        width: 100%;
+    }
 
+    &-content{   
+        margin: 0 auto;
+        overflow: hidden;
 
-.box{
-    margin: 0 auto;
-    width: 80vw;
-    height: 100vw;
+    }
+    p{
+        color: #515151;
+        line-height: 1.8;
+    }
+}  
 
-    background: #666;
+.index_1 {
+    width: 100vw;
+    height: 65vw;
+    position: relative;
+    background: #FFFBDE;
+    &-container {
+
+        top: vw(-250);
+        left: vw(191);
+        overflow:hidden;
+
+        .-hand {
+            position: absolute;
+            z-index: 4;
+            top: -20vw;
+            right: 1vw;
+            width: 81vw;
+        }
+        .-dog {
+            position: absolute;
+            top: -15vw;
+            width: 90vw;
+            right: -3vw;
+
+        }
+        .-logo {
+            position: absolute;
+            width: 13vw;
+            top: 5vw;
+            left: 64px;
+
+        }
+    }
 }
+
+.index_2{
+    z-index: 1;
+    position: relative;
+    top: -18vw;
+    
+    &-bg{
+        position: relative;
+        z-index: -1;
+    }
+   
+    &-cloud{
+ 
+        position:relative;
+
+       top:2px;
+        .cloud01{
+            position:absolute;
+            width: vw(794);
+            z-index: 4;
+            right: 0;
+        }
+        .cloud02{
+            position:absolute;
+            width: vw(878);
+            left:-200px;
+            z-index: 4;
+        }
+        .cloud03{
+            position:absolute;
+            width: 44.53125vw;
+            top: 37vw;
+            left: 0;
+            z-index: 4;
+        }
+        .cloud04{
+            position: absolute;
+            width: 54.4895833333vw;
+            top: 11.28125vw;
+            opacity: 60%;
+            right: 0;
+            z-index: 4;
+
+        }
+        .cloud05{
+            position: absolute;
+            top: vw(648);
+            left: vw(-130);
+            width: 31.6vw;
+            z-index: 4;
+        }
+        .star{
+            position: absolute;
+            top: 14.75vw;
+            left: -6vw;
+            width: 100vw;
+
+        }
+
+    }
+    &-moon{
+        position: absolute;
+        margin: 0 auto;
+        width: vw(322);
+        top: 50vw;
+        right: calc(50% - vw(322)/2);
+        z-index: 9;
+    }
+    &-city{
+        top: 38vw;
+        position:relative;
+        z-index: 9;
+
+         .right{
+            position:absolute;
+            left: 0;
+            width:vw(1154);
+            
+        }
+         .left{
+            position:absolute;
+            right:  0;
+            width: vw(1113);
+        }
+    }
+   
+    &-paper{
+        position:relative;
+        left: 49vw;
+        top: 83vw;
+        z-index: 10;
+        .-text{
+            position: absolute;
+            color: #fff;
+            z-index: 8;
+            top: 16vw;
+            right: calc(100vw - 32vw);
+            h5{
+                line-height: 3;
+            }
+            p{
+                font-size: font-size(14);
+                font-weight: $regular;
+                color: #fff;
+            }
+        }
+
+        .paper-range{
+            top:70vh;
+            position: relative;
+     
+        .paper01{
+            position:absolute;
+            width: vw(850);
+            z-index: 3;
+ 
+        }
+        .paper02{
+            position:absolute;
+            width: vw(740);
+            top: -85px;
+            z-index: 2;
+    
+
+        }
+        .paper03{
+            position:absolute;
+            width: vw(740);
+            top: 54px;
+            left: 91px;
+            z-index: 1;
+        
+        }
+        .paper04{
+            position:absolute; 
+            width: vw(740);
+            top: 166px;
+   
+        }
+           }
+
+    }
+
+    
+    // 轉場
+    
+    &-2{
+        position:relative;
+        top: 145vw;
+        .text{
+            position:absolute;
+            margin: 0 auto;
+            color: #FFFBDE;
+            right: calc(50% - 12vw);
+        }
+
+        .streetlight{
+            position:relative;
+            width: vw(1738);
+            left: calc(50vw - 39.6vw);
+            top: 20vw;
+            
+            .street{
+                position:absolute;
+
+            }
+            .light{
+                position: absolute;
+                width: 54.5vw;
+                right: 21.4vw;
+                top: 9.2vw;
+            }
+        }   
+        .assist{
+            position:relative;
+            width: vw(626);
+            top: 75vw;
+            left: calc(50vw - 15vw );;
+
+            .assist1{
+                position:absolute;
+            }
+            .assist2{
+                position:absolute;
+            }
+        }
+    }
+}
+    //happy
+
+    .index_3{
+            width: vw(1200);
+            margin: 0 auto;
+            position: relative;
+            top: -2vw;
+        
+            @include m() {
+                width: rwd(394);
+            }
+        &-text{
+            margin: 0 auto;
+            h3{
+                color: $primaryDefault;
+                text-align: center;
+            }
+        }
+        &-content{
+            display: grid;
+            grid-template-columns: 32vw 32vw;
+            grid-template-rows: 11vw;
+            padding-top: 7vw;
+            margin-bottom: 15vw;
+            justify-content: center;
+            align-items: center;
+            justify-items: center;
+            .happy1{
+               grid-area: 1;
+                
+            }
+            .happy2{
+                grid-area: 2;
+                grid-column: 2;
+            }
+            .happy3{
+                grid-area: 3;
+                &-text{
+                    grid-area: 3;
+                    grid-column: 2;
+                }
+            }
+            .happy4{
+                grid-area: 4;
+                grid-column: 2;
+                &-text{
+                    grid-area: 4;
+                    h5{
+                        color: $secondaryA11y;
+                        font-size: 1.45vw;
+                    }
+                }
+            }
+        }
+    }
+
+    .index_ending{
+            width: vw(1200);
+            margin: 0 auto;
+            position: relative;
+            height: 100vh;
+            top: -38vw;
+
+            @include m() {
+                width: rwd(394);
+            }
+            .ending-text{
+                position: absolute;
+                top: 10vw;
+                left: 7.6vw;
+                line-height: 1.8;
+                color: $secondaryA11y;
+            }
+            
+            .-grass{
+                position: absolute;
+                top: 12px;
+                z-index: 2;
+
+            }
+            .-peo{
+                position:absolute;
+                top:20px
+                
+            }
+            .-bg{
+                position:absolute;
+                z-index: -1;
+            }
+        }
+
+
+
+
+
+
+    
+        .svg{
+            position:absolute;
+            width: 43vw;
+            z-index: 4;
+            top: 87vw;
+             left: 8vw;
+            &-dog{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                opacity: 1;
+                transform: translateY(10px);
+                transition: opacity .6s ease, transform .6s ease;
+                display:block
+            }
+            &-cat{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                opacity: 1;
+                transform: translateY(10px);
+                transition: opacity .6s ease, transform .6s ease;
+                display:block;
+                top: 25vw;
+                left: 15vw;
+            }
+        }
+    
+        
