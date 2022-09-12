@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     @@include('./layout/head.html', {
-    "title" : "浪浪園區"
+    "title" : "園區介紹"
     })
 </head>
 
@@ -13,9 +12,20 @@
     <section class="intro_wrapper">
         @@include('./layout/nav.html')
     <main class="park_intro">
+
+        <div class="top_kv_crumbs-frame">
+            <!-- crumbs -->
+            <div class="top_kv_crumbs">
+                <img src="../images/header/crumbs.png" alt="" class="top_kv_crumbs_img">
+                <div class="top_kv_crumbs-text">
+                    <div class="top_kv_crumbs-text_1">園區緣起</div><span>/</span>
+                    <div class="top_kv_crumbs-text_2">園區介紹</div>
+                </div>
+            </div>
+        </div>
         <div class="top_kv_t">
             <div class="top_kv_t-title top_kv_t-title2">
-                <h1>浪浪園區</h1>
+                <h1>園區介紹</h1>
                 <p>Lang Lang PARK</p>
                 <img src="../images/header/header_circle.png" alt="" class="top_kv_t_cir">
             </div>
@@ -23,7 +33,7 @@
         <div class="park_intro-map">
             <div class="park_intro-map-all">
                 <div class="bg">
-                    <img src="./images/LangPARK/bg.png" alt="" class="bg-map">
+                    <img src="./images/LangPARK/intro-bg.png" alt="" class="bg-map">
                 </div>
                 <div class="store c-anime-side">
                     <img src="./images/LangPARK/map-store-2.png" alt="" class="store-p">
@@ -70,7 +80,7 @@
 
             <div class="rest">
                 <img src="./images/LangPARK/res.png" alt="" class="res1">
-                <img src="./images/LangPARK/map-rest-2.png" alt="" class="res2">
+                <img src="./images/LangPARK/map-rest-2.png" alt="" class="res2 c-anime-rotate">
             </div>
             <!-- slider -->
             <div class="all-cont rest-cont">
@@ -141,7 +151,7 @@
         <section class="park_intro_med">
             <div class="med">
                 <img src="./images/LangPARK/med.png" alt="" class="med1 ">
-                <img src="./images/LangPARK/map-med-2.png" alt="" class="med2 c-anime-fluffy">
+                <img src="./images/LangPARK/map-med-2.png" alt="" class="med2 c-anime-fluffy2-2 ">
             </div>
             <!-- slider -->
             <div class="all-cont store-cont med-cont">
@@ -248,21 +258,6 @@
         </div>
 
 
-
-
-
-
-
-
-        <div class="top_kv_crumbs-frame">
-            <div class="top_kv_crumbs">
-                <img src="../images/header/crumbs.png" alt="" class="top_kv_crumbs_img">
-                <div class="top_kv_crumbs-text">
-                    <div class="top_kv_crumbs-text_1">園區緣起</div><span>/</span>
-                    <div class="top_kv_crumbs-text_2">園區介紹</div>
-                </div>
-            </div>
-        </div>
     </main>
 
 
@@ -272,5 +267,5 @@
 
 
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="./js/park_intro.js"></script>
+    <script src="../js/park_intro.js"></script>
 </body>
