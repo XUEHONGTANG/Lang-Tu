@@ -5,6 +5,7 @@
     @@include('./layout/head.html', {
     "title" : "浪浪等家"
     })
+    <script src="https://unpkg.com/vue@2"></script>
 </head>
 
 <body>
@@ -47,44 +48,85 @@
                 </div>
             </div>
             <div class="sponsor_information-all-right">
-                <label class="sponsor_information-label" for="username">飼養地點</label>
-                <input class="input-text" type="text">
-                <br>
-                <label class="sponsor_information-label" for="nation">國籍別</label>
-                <input id="nation" type="radio" name="nation" value="本國籍">本國籍
-                <input id="nation" type="radio" name="nation" value="外國籍">外國籍
-                <br>
-                <label class="sponsor_information-label" for="username">身份證字號</label>
-                <input class="input-text" type="text">
-                <br>
-                <label class="sponsor_information-label" for="username">E-mail</label>
-                <input class="input-text" type="text">
-                <br>
-                <label class="sponsor_information-label" for="nation">性別</label>
-                <input id="nation" type="radio" name="nation" value="男">男
-                <input id="nation" type="radio" name="nation" value="女">女
-                <br>
-                <label class="sponsor_information-label" for="username">生日</label>
-                <input class="input-text" type="text">
-                <br>
-                <label class="sponsor_information-label" for="username">連絡電話</label>
-                <input class="input-text" type="text">
-                <br>
-                <label class="sponsor_information-label" for="username">連絡地址</label>
-                <input class="input-text" type="text">
-                <br>
-                <label class="sponsor_information-label" for="nation">捐款方式</label>
-                <input id="nation" type="radio" name="nation" value="Visa / Master / JCB">Visa / Master / JCB
-                <input id="nation" type="radio" name="nation" value="ATM轉帳">ATM轉帳
-                <input id="nation" type="radio" name="nation" value="超商繳款">超商繳款
-                <br>
+                <ul class="sponsor_information-right-top" id="sponsor_informationApp">
+                    <li v-for="title in cartTitle" :class="{'currentPage': currentPage === title.id}">{{title.name}}</li>
+                </ul>
+                <div class="sponsor_information-flex">
+                    <label class="sponsor_information-label" for="username">
+                        <h4>姓名</h4>
+                    <input class="input-text" type="text" name="username" id="username" placeholder="請填寫真實姓名">
+                    </label>
+                    <br>
+                    <label class="sponsor_information-label" for="tw">
+                        <h4>國籍別</h4>
+                    <input id="nation" type="radio" name="tw" value="本國籍"><p class="sponsor_information-p">本國籍</p>
+                    <input id="nation" type="radio" name="tw" value="外國籍"><p class="sponsor_information-p">外國籍</p>
+                    </label>
+                    <br>
+                    <label class="sponsor_information-label" for="idname">
+                        <h4>身份證字號</h4>
+                    <input class="input-text" type="text" id="idname" placeholder="境外人士請填寫護照號碼 Passport No.">
+                    </label>
+                    <br>
+                    <label class="sponsor_information-label" for="email">
+                        <h4>E-mail</h4>
+                    <input class="input-text" type="text" id="email">
+                    </label>
+                    <br>
+                    <label class="sponsor_information-label" for="sex">
+                        <h4>性別</h4>
+                    <input id="nation" type="radio" name="sex" value="男"><p class="sponsor_information-p">男</p>
+                    <input id="nation" type="radio" name="sex" value="女"><p class="sponsor_information-p">女</p>
+                    </label>
+                    <br>
+                    <label class="sponsor_information-label" for="birthday">
+                        <h4>生日</h4>
+                    <input class="input-text" type="text" id="birthday" placeholder="範例: 1999-10-10">
+                    </label>
+                    <br>
+                    <label class="sponsor_information-label" for="number">
+                        <h4>連絡電話</h4>
+                    <input class="input-text" type="text" id="number">
+                    </label>
+                    <br>
+
+                    <label class="sponsor_information-label2" for="address">
+                        <h4>連絡地址</h4>
+                    <input class="input-text2" type="text" id="address" placeholder="郵遞區號">
+                    <input class="input-text2" type="text" id="address" placeholder="縣市">
+                    <input class="input-text2" type="text" id="address" placeholder="區域">
+                    </label>
+                    <label class="sponsor_information-label3" for="number">
+                    <input class="input-text" type="text" id="address" placeholder="範例: 路街樓號">
+                    </label>    
+                    <br>
+                    <label class="sponsor_information-label" for="nation">
+                        <h4>捐款方式</h4>
+                    <input id="nation" type="radio" name="nation" value="Visa / Master / JCB"><p class="sponsor_information-p">Visa / Master / JCB</p> 
+                    <input id="nation" type="radio" name="nation" value="ATM轉帳"><p class="sponsor_information-p">ATM轉帳</p> 
+                    <input id="nation" type="radio" name="nation" value="超商繳款"><p class="sponsor_information-p">超商繳款</p> 
+                    </label>
+                    <br>
+                </div>
                 <div class="sponsor_information-under">
-                    <button class="btn-0">下一步</button>
+                    <a href="#"><button class="btn-0">下一步</button></a>
                 </div>
             </div>
         </div>
         
-        
+        <script>
+            new Vue({
+            el: '#sponsor_informationApp',
+            data:{
+                cartTitle:[
+                    {id:1,name:'捐款人資料'},
+                    {id:2,name:'收據資訊'},
+                    {id:3,name:'個資聲明'}],
+                },
+                currentPage: 1,
+                
+            })
+        </script>
     </main>
     @@include('layout/footer.html')
 </body>
