@@ -205,6 +205,7 @@ header {
             color: $primaryA11y;
             font-weight: $bold;
             font-size: $h2;
+            font-family:  'jf open 粉圓 1.1';
             @include m() {
                 font-size: 32px;
 
