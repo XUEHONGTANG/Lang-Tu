@@ -5,15 +5,33 @@
     box-shadow: $shadow;
     background-color: #fff;
 
+    @include m(){
+        width: rwd(394);
+        border-radius: rwd(10);
+    }
+
     hr.mainLine{
         border: solid vw(1) $primaryDark;
         margin: $space3 0;
+
+        @include m(){
+            border-top:none;
+            border-left: none;
+            border-right: none;
+            border-bottom: solid rwd(1) $primaryA11y;
+            margin: rwd(20) 0;
+        }
     }
 
      ul{
         display: flex;
         background-color: $primaryDark;
         border-radius: $r25 $r25 0 0;
+
+        @include m(){
+            border-radius: rwd(10) rwd(10) 0 0;
+        }
+
         li{
             z-index: 2;
             width: 50%;
@@ -26,6 +44,12 @@
             color: #fff;
             background-color: $primaryDark;
             
+            @include m(){
+                border-radius: rwd(10) rwd(10) 0 0;
+                padding: rwd(12) 0;
+                font-size: rwd(18);
+            }
+
             cursor: pointer;
             &.currentPage{
                 // z-index: 5;
@@ -36,6 +60,10 @@
      }
      section{
         padding: $space6 $space4;
+
+        @include m(){
+            padding: rwd(24) rwd(16);
+        }
         span{
             display: flex;
             justify-content: center;
@@ -55,6 +83,16 @@
                 @include box-center();
                 position: relative;
                 left: vw(-10);
+
+                @include m(){
+                    font-size: rwd(13);
+                    line-height: rwd(24);
+                    padding: rwd(8) rwd(24);
+                    margin: 0 rwd(8);
+                    border-radius: rwd(6);
+                    left: rwd(-6);
+                }
+
                 &:hover{
                  background-color: $primaryA11y;
                 }
@@ -67,6 +105,11 @@
                         color: #fff;
                         font-size: vw(40);
                         margin-right: $space1;
+
+                        @include m(){
+                            font-size: rwd(24);
+                            margin-right: rwd(8);
+                        }
                     }
                 }
                 &:nth-child(2) {
@@ -78,6 +121,11 @@
                         font-size: vw(40);
                         margin-right: $space1;
 
+                        @include m(){
+                            font-size: rwd(24);
+                            margin-right: rwd(8);
+                        }
+
                     }
                 }
             }
@@ -88,11 +136,20 @@
             width: vw(496);       
             margin: 0 auto;
 
+            @include m(){
+                width: rwd(362);    
+            }
+
             h3{
                 text-align: center;
                 font-weight: $bold;
                 color: $gray900;
                 margin-bottom: $space3;
+
+                @include m(){
+                    font-size: rwd(18); 
+                    margin-bottom: rwd(20);
+                }
     
             }
 
@@ -134,6 +191,14 @@
                     border-radius: vw(6);
                     padding: vw(5) vw(7);
                     color: $gray500;
+
+                    @include m(){
+                        margin-right: rwd(8);
+                        font-size: rwd(16);
+                        border-radius: rwd(6);
+                      padding: rwd(5) rwd(7);
+                    }
+
                     option{
                         color: $gray900;
                     }
@@ -150,6 +215,12 @@
                     border-radius: vw(6);
                     padding: vw(5) vw(7);
                     color: $gray500;
+
+                    @include m(){
+                        font-size: rwd(16);
+                        border-radius: rwd(6);
+                      padding: rwd(5) rwd(7);
+                    }
                     &.-error {
                     outline: solid 1px $error;
                     }
@@ -167,13 +238,30 @@
                 font-size: $h5;
                 color: $gray900;
                 font-weight: $bold;
+
+                @include m(){
+                    margin: 0;
+                    font-size: rwd(16);
+                }
                 input{
                     margin-right: $space1;
+
+                    @include m(){
+                        margin-right: rwd(8);
+                    }
                 }
             }
 
             button{
                 margin: $space2 0;
+
+                @include m(){
+                    margin: rwd(12) 0;
+                }
+
+                &:last-child{
+                    margin-bottom: 0;
+                }
             }
         }
     }

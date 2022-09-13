@@ -12,8 +12,10 @@
   </head>
 
   <body>
-    @@include('./layout/header_1.html',{ "大標題" : "浪浪商店" , "英文標題" :
-    "LANG LANG WAITS FOR HOME" , "前頁面" : "首頁" , "此頁面" : "購物車" , })
+    @@include('./layout/header_2.html',{
+        "前頁面" : "首頁" ,
+        "此頁面" : "購物車" ,
+      })
     <!-- <main> -->
         <main class="shoppingCartWrapper" id="shoppingCartApp">
             <ul class="titleArea">
@@ -140,7 +142,7 @@
 
                 <!-- 地址 -->
                 <!-- <div class="twzipcode"></div> -->
-                <h5>寄送地址 (使用超商收貨者免填) (選填)</h5>
+                <h5 class="-disabled">寄送地址 (使用超商收貨者免填) (選填)</h5>
                 <span>
                     <select disabled>
                         <option>縣市</option>

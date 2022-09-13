@@ -51,7 +51,25 @@ main.shoppingCartWrapper {
     "formTitle formTitle"
     "left right"
     "recipient recipient"
-    "button button";
+    ". button";
+
+    @include m(){
+      width: rwd(394);
+      border-radius: rwd(10);
+      padding: rwd(16);
+
+      grid-template-columns: 1fr;
+      /* 上下 */
+      grid-template-rows: repeat(7, auto);
+      grid-template-areas:
+        "title"
+        "list"
+        "formTitle"
+        "left"
+        "right"
+        "recipient"
+        "button";
+    }
 
   select {
     font-size: $p;
@@ -60,6 +78,13 @@ main.shoppingCartWrapper {
     border-radius: vw(6);
     padding: vw(5) vw(7);
     color: $gray500;
+
+    @include m(){
+      border-radius: rwd(6);
+      padding: rwd(5) rwd(7);
+      font-size: rwd(16);
+    }
+
     option{
         color: $gray900;
     }
@@ -84,23 +109,48 @@ main.shoppingCartWrapper {
       padding: $space4;
       color: $gray500;
       border-bottom: solid vw(3) $gray500;
+
+      @include m(){
+        font-size: rwd(20);
+        padding: rwd(16);
+        border-bottom: solid 3px $gray500;
+      }
+
       &.currentPage {
         color: $primaryDefault;
         border-bottom: solid vw(3) $primaryDefault;
+
+        @include m(){
+          border-bottom: solid 3px $primaryDefault;
+        }
       }
     }
   }
   hr.mainLine {
     border: solid vw(1) $primaryA11y;
+
+    @include m(){
+      border-top:none;
+      border-left: none;
+      border-right: none;
+      border-bottom: solid rwd(1) $primaryA11y;
+      margin-bottom: rwd(4);
+    }
   }
   .shoppingList {
     grid-area: list;
     h3 {
       color: $primaryA11y;
       text-align: center;
-      padding: $space4 0;
+      margin: $space4 0;
       letter-spacing: $space2;
       font-weight: $bold;
+
+      @include m(){
+        font-size: rwd(18);
+        margin: rwd(8) 0;
+        letter-spacing: rwd(8);
+      }
     }
     table {
       width: 100%;
@@ -110,6 +160,10 @@ main.shoppingCartWrapper {
         align-content: center;
         th:nth-child(1) {
           flex: 0 0 vw(150);
+
+          @include m(){
+            flex: 0 0 rwd(50);
+          }
         }
         th:nth-child(2) {
           flex: 1 0;
@@ -125,18 +179,32 @@ main.shoppingCartWrapper {
         }
         th:nth-child(6) {
           flex: 0 0 vw(50);
+
+          @include m(){
+            flex: 0 0 rwd(20);
+          }
         }
       }
       th {
         font-size: $h4;
         font-weight: $bold;
         color: $gray900;
-        padding-top: $space4;
+        margin-top: $space4;
+
+        @include m(){
+          font-size: rwd(13);
+          margin-top: rwd(8);
+        }
       }
       tbody {
         tr {
           padding: $space2 0;
           border-bottom: solid 1px $gray500;
+
+          @include m(){
+            padding: rwd(4) 0;
+          }
+
           &:nth-last-child(1) {
             border-bottom: solid 1px $gray800;
           }
@@ -146,11 +214,24 @@ main.shoppingCartWrapper {
             justify-content: center;
             font-size: $h4;
             color: $gray900;
+
+            @include m(){
+              font-size: rwd(13);
+            }
           }
           td:nth-child(1) {
             flex: 0 0 vw(150);
+
+            @include m(){
+              flex: 0 0 rwd(50);
+            }
+
             img {
               width: vw(140);
+
+              @include m(){
+                flex: 0 0 rwd(48);
+              }
             }
           }
           td:nth-child(2) {
@@ -170,12 +251,24 @@ main.shoppingCartWrapper {
               height: vw(40);
               border: solid 1px $primaryDark;
               border-radius: vw(6);
+
+              @include m(){
+                width: rwd(54);
+                height: rwd(24);
+                border-radius: rwd(6);
+              }
+
               input[type="number"] {
                 width: vw(40);
                 border: none;
                 outline: none;
                 text-align: center;
                 -moz-appearance: textfield;
+
+                @include m(){
+                  width: rwd(20);
+                  font-size: rwd(13);
+                }
                 &::-webkit-inner-spin-button,
                 ::-webkit-outer-spin-button {
                   -webkit-appearance: none;
@@ -192,27 +285,54 @@ main.shoppingCartWrapper {
                 background-color: transparent;
                 border: 0;
                 cursor: pointer;
-                &:hover {
-                  background-color: $primaryDark;
-                  &.btn-minus::after {
-                    color: #fff;
-                  }
-                  &.btn-plus::after {
-                    color: #fff;
-                  }
+
+                @include m(){
+                  width: rwd(17);
+                  height: rwd(24);
                 }
+                // &:hover {
+                //   background-color: $primaryDark;
+
+                //   @include m(){
+                //     background-color: #fff;
+                //   }
+                //   &.btn-minus::after {
+                //     color: #fff;
+
+                //     @include m(){
+                //       color: $primaryDark;
+                //     }
+                //   }
+                //   &.btn-plus::after {
+                //     color: #fff;
+
+                //     @include m(){
+                //       color: $primaryDark;
+                //     }
+                //   }
+                // }
                 &.btn-minus {
                   border-radius: vw(6) 0 0 vw(6);
+
+                  @include m(){
+                    border-radius: rwd(6) 0 0 rwd(6);
+                  }
                   &::after {
                     content: "\2212";
                     color: $primaryDark;
+                    @include box-center();
                   }
                 }
                 &.btn-plus {
                   border-radius: 0 vw(6) vw(6) 0;
+
+                  @include m(){
+                    border-radius: rwd(6) 0 0 rwd(6);
+                  }
                   &:after {
                     content: "\002B";
                     color: $primaryDark;
+                    @include box-center();
                   }
                 }
               }
@@ -223,6 +343,10 @@ main.shoppingCartWrapper {
           }
           td:nth-child(6) {
             flex: 0 0 vw(50);
+
+            @include m(){
+              flex: 0 0 rwd(20);
+            }
 
             @include box-center();
             &::after {
@@ -242,19 +366,40 @@ main.shoppingCartWrapper {
       // justify-content: flex-start;
       margin-left: auto;
       width: vw(700);
+
+      @include m(){
+        padding: rwd(8) 0;
+        width: rwd(324);
+      }
+
       span {
         display: flex;
         justify-content: flex-end;
         padding: $space2 0;
         margin-right: vw(112);
         font-size: $h4;
+
+        @include m(){
+          padding: rwd(8) 0;
+          margin-right: rwd(32);
+         font-size: rwd(13);
+        }  
+
         h4 {
           margin-right: auto;
           width: vw(135);
           text-align: end;
+
+          @include m(){
+            width: rwd(80);
+          }  
         }
         input[type="radio"] {
           margin-right: $space2;
+
+          @include m(){
+          margin-right: rwd(8);
+          }  
         }
       }
     }
@@ -264,6 +409,11 @@ main.shoppingCartWrapper {
       border-top: solid vw(1) $gray800;
       border-bottom: solid vw(1) $gray800;
       margin-bottom: $space2;
+
+      @include m(){
+        height: rwd(4);
+        margin-bottom: rwd(8);
+        }  
     }
     .payWay {
       display: flex;
@@ -271,8 +421,17 @@ main.shoppingCartWrapper {
       span {
         font-size: $h4;
         margin: $space1 0;
+
+        @include m(){
+          font-size: rwd(13);
+          margin: rwd(8) 0;
+          }  
         input[type="radio"] {
           margin-right: $space2;
+
+          @include m(){
+            margin-right: rwd(8);
+            }  
         }
       }
     }
@@ -282,18 +441,33 @@ main.shoppingCartWrapper {
     h3 {
       color: $primaryA11y;
       text-align: center;
-      padding: $space4 0;
+      margin: $space4 0;
       letter-spacing: $space2;
       font-weight: $bold;
+
+      @include m(){
+        font-size: rwd(18);
+        margin: rwd(8) 0;
+        letter-spacing: rwd(8);
+      }
     }
   }
   .left-form {
     grid-area: left;
-    margin: $space5 $space4 $space4 0;
+    margin: $space4 $space4 $space4 0;
+
+    @include m(){
+      margin:0;
+    }
 
     h4 {
       font-weight: $bold;
       color: $primaryA11y;
+
+      @include m(){
+        font-size: rwd(16);
+        margin: rwd(4) 0;
+      }
     }
     .infoNameLabel {
       @include inputLabel(100%, "您的名字*","請輸入姓名");
@@ -303,22 +477,45 @@ main.shoppingCartWrapper {
       color: $primaryA11y;
       font-size: $h5;
       margin-bottom: $space1;
+
+      @include m(){
+        font-size: rwd(16);
+        margin-bottom: rwd(8);
+      }
     }
     span {
       display: flex;
       width: 100%;
       justify-content: space-between;
       margin-bottom: $space1;
+
+      @include m(){
+        margin-bottom: rwd(8);
+      }
+
       select {
         width: vw(162);
+
+        @include m(){
+          width: rwd(116);
+          font-size: rwd(16);
+        }
       }
       .postalCode[type="text"] {
         @include input-text(vw(162));
+
+        @include m(){
+          width: rwd(116);
+        }
       }
     }
     .address[type="text"] {
       @include input-text(100%);
       margin-bottom: vw(28);
+
+      @include m(){
+        margin-bottom: rwd(24);
+      }
     }
 
     .infoPhoneLabel {
@@ -333,21 +530,42 @@ main.shoppingCartWrapper {
       font-size: $h5;
       margin-right: $space2;
       color: $primaryA11y;
+
+      @include m(){
+        font-size: rwd(16);
+         margin-right: rwd(8);
+      }
     }
   }
 
   .right-form {
     grid-area: right;
-    margin: $space5 0 $space4 $space4;
+    margin: $space4 0 $space4 $space4;
+
+    @include m(){
+      margin: 0;
+    }
 
     div {
+
+      @include m(){
+        margin: rwd(24) 0 rwd(4) 0;
+      }
       display: flex;
       input[type="checkbox"] {
         margin-right: $space2;
+
+        @include m(){
+          margin-right: rwd(8);
+        }
       }
       h4 {
         font-weight: $bold;
         color: $primaryA11y;
+
+        @include m(){
+          font-size: rwd(16);
+        }
       }
     }
 
@@ -359,22 +577,47 @@ main.shoppingCartWrapper {
       color: $primaryA11y;
       font-size: $h5;
       margin-bottom: $space1;
+      &.-disabled{
+        color: $gray600;
+    }
+
+      @include m(){
+        font-size: rwd(16);
+        margin-bottom: rwd(8);
+      }
     }
     span {
       display: flex;
       width: 100%;
       justify-content: space-between;
       margin-bottom: $space1;
+
+      @include m(){
+        margin-bottom: rwd(8);
+      }
       select {
         width: vw(162);
+
+        @include m(){
+          width: rwd(116);
+          font-size: rwd(16);
+        }
       }
       .otherPostalCode[type="text"] {
         @include input-text(vw(162));
+
+        @include m(){
+          width: rwd(116);
+        }
       }
     }
     .otherAddress[type="text"] {
       @include input-text(100%);
       margin-bottom: vw(28);
+
+      @include m(){
+        margin-bottom: rwd(24);
+      }
     }
 
     .otherPhoneLabel {
@@ -387,6 +630,13 @@ main.shoppingCartWrapper {
         &.-disabled{
             color: $gray600;
         }
+
+        @include m(){
+          font-size: rwd(16);
+           margin-right: rwd(8);
+        }
+
+
         textarea {
           width: 100%;
           height: vw(200);
@@ -420,6 +670,12 @@ main.shoppingCartWrapper {
             border: vw(4) solid #fff;
             border-radius: vw(8);
           }
+
+          @include m(){
+            height: rwd(200);
+            margin-top: rwd(8);
+            border-radius: rwd(6);
+          }
         }
     }
   }
@@ -429,28 +685,57 @@ main.shoppingCartWrapper {
       h3{
         color: $primaryA11y;
         text-align: center;
-        padding: $space4 0;
+        margin: $space4 0;
         letter-spacing: $space2;
         font-weight: $bold;
+
+        @include m(){
+          font-size: rwd(18);
+          margin: rwd(8) 0;
+          letter-spacing: rwd(8);
+        }
       }
       span{
         display: flex; 
+        @include m(){
+          flex-direction: column;
+     
+        }
         div:nth-child(1){
             width: vw(350);
-        } 
+
+            @include m(){
+              width: 100%;
+              font-size: rwd(13);
+            }
+           } 
         }
         div{
             font-size: $h4;
             padding: $space2 0;
+            @include m(){
+              width: 100%;
+              font-size: rwd(13);
+              padding: rwd(4) 0;
+            }
         }
   }
 
 
   .buttonArea {
     grid-area: button;
-    margin-left: auto;
+    // margin-left: auto;
+    // padding: vw(32);
+    margin: vw(32) auto 0 auto;
+    @include m(){
+      margin:rwd(32) auto 0 auto;
+    }
     button{
-        margin:$space4;
+        margin:0 $space4;
+
+        @include m(){
+          margin:0 rwd(16);
+        }
     }
   }
 }
