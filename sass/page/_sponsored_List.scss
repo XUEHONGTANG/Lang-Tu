@@ -5,6 +5,8 @@
     @include m(){
         width: rwd(394);
     }
+
+}
     
     .sponsored_List-ul{
         display: flex;
@@ -15,7 +17,7 @@
         }
     }
     .sponsored_List-li{
-        
+        list-style: none;
         flex-basis: vw(400);
         margin-bottom: vw(20);
         @include m(){
@@ -39,10 +41,12 @@
     }
     .sponsored_List-div{
         width: vw(350);
+        height: 100%;
         background-color: #fff;
         border-radius: $r25;
         padding-top: vw(20);
         padding-bottom: vw(10);
+        
         @include m(){
             width: rwd(394);
             margin-bottom: rwd(20);
@@ -138,4 +142,3 @@
         border-radius:50%;
     }
 
-}

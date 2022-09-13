@@ -120,17 +120,21 @@
         top: 38vw;
         position:relative;
         z-index: 9;
+   
 
          .right{
             position:absolute;
             left: 0;
             width:vw(1154);
+            opacity: 0;
             
         }
          .left{
             position:absolute;
             right:  0;
             width: vw(1113);
+            top: -11vw;
+            opacity: 0;
         }
     }
    
@@ -291,35 +295,42 @@
             }
         }
     }
-
     .index_ending{
-            width: vw(1200);
-            margin: 0 auto;
+
+            width: 100vw;
+            margin-bottom: 30vw;
             position: relative;
-            height: 100vh;
-            top: -38vw;
+            img{
+                width: 100%;
+            }
 
             @include m() {
                 width: rwd(394);
             }
             .ending-text{
                 position: absolute;
-                top: 10vw;
-                left: 7.6vw;
+                top: 16vw;
+                left: 17.6vw;
                 line-height: 1.8;
                 color: $secondaryA11y;
+                z-index: 10;
             }
+
             
             .-grass{
-                position: absolute;
-                top: 12px;
-                z-index: 2;
-
+                position:relative;
+                top: 20vw;
+                z-index: 10;
+                left:10vw;
+                height: 300px;
             }
+        
             .-peo{
-                position:absolute;
-                top:20px
-                
+                position:relative;
+                top:20vw;
+                left:10vw;
+                z-index: -1;
+                height: 700px;
             }
             .-bg{
                 position:absolute;
@@ -327,9 +338,49 @@
             }
         }
 
+///
+///  
+        .index-info{
+            width: vw(1200);
+            margin: 0 auto;
+            height: 100vh;
+            text-decoration: none;
 
+            &_text{
+                margin: 0 auto;
+                text-align: center;
+                color: $secondaryA11y;
+                margin-bottom: 4vw;
+            }
+            &-t{
+                font-weight: $medium;
+                padding-bottom: 1.3vw;
+                p{
+                    color: $secondaryA11y;
+                }
+            }
+        }
 
+        .index-info-list{
+            display: flex;
+            justify-content: center;
+            gap: 2vw;
 
+            .sponsored_List-in2{
+                display: inherit;
+                margin: 0 vw(30);
+                text-align: center;
+
+                h3{
+                    
+                    padding-top: 0.5vw;
+                }
+                
+             }
+
+        }
+
+    
 
 
     
@@ -361,4 +412,134 @@
             }
         }
     
-        
+// 
+
+
+
+
+.bird {
+	background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg);
+	background-size: auto 100%;
+	width: 88px;
+	height: 125px;
+	will-change: background-position;
+	animation-name: fly-cycle;
+	animation-timing-function: steps(10);
+	animation-iteration-count: infinite;
+ 
+
+	&--one {
+		animation-duration: 1s;
+		animation-delay: -0.5s;		
+	}
+	
+	&--two {
+		animation-duration: 0.9s;
+		animation-delay: -0.75s;
+	}
+
+}
+
+.bird-container {
+	position: absolute;
+	top: 23%;
+	left: -10%;
+	transform: scale(0) translateX(-10vw);
+	will-change: transform;
+    z-index: 10;
+	
+	animation-name: fly-right-one;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	
+	&--one {
+		animation-duration: 15s;
+		animation-delay: 3s;
+	}
+	
+	&--two {
+		animation-duration: 16s;
+		animation-delay: 5s;
+	}
+	
+}
+
+@keyframes fly-cycle {
+	
+	100% {
+		background-position: -900px 0;
+	}
+	
+}
+
+@keyframes fly-right-one {
+	
+	0% {
+		transform: scale(0.3) translateX(-10vw);
+	}
+	
+	10% {
+		transform: translateY(2vh) translateX(10vw) scale(0.4);
+	}
+	
+	20% {
+		transform: translateY(0vh) translateX(30vw) scale(0.5);
+	}
+	
+	30% {
+		transform: translateY(4vh) translateX(50vw) scale(0.6);
+	}
+	
+	40% {
+		transform: translateY(2vh) translateX(70vw) scale(0.6);
+	}
+	
+	50% {
+		transform: translateY(0vh) translateX(90vw) scale(0.6);
+	}
+	
+	60% {
+		transform: translateY(0vh) translateX(110vw) scale(0.6);
+	}
+	
+	100% {
+		transform: translateY(0vh) translateX(110vw) scale(0.6);
+	}
+	
+}
+
+@keyframes fly-right-two {
+	
+	0% {
+		transform: translateY(-2vh) translateX(-10vw) scale(0.5);
+	}
+	
+	10% {
+		transform: translateY(0vh) translateX(10vw) scale(0.4);
+	}
+	
+	20% {
+		transform: translateY(-4vh) translateX(30vw) scale(0.6);
+	}
+	
+	30% {
+		transform: translateY(1vh) translateX(50vw) scale(0.45);
+	}
+	
+	40% {
+		transform: translateY(-2.5vh) translateX(70vw) scale(0.5);
+	}
+	
+	50% {
+		transform: translateY(0vh) translateX(90vw) scale(0.45);
+	}
+	
+	51% {
+		transform: translateY(0vh) translateX(110vw) scale(0.45);
+	}
+	
+	100% {
+		transform: translateY(0vh) translateX(110vw) scale(0.45);
+	}
+	
+}
