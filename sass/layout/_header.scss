@@ -10,9 +10,7 @@ header {
 
         @include m() {
             height: 100vh;
-            overflow: hidden;
-
-
+    
         }
         &2 {
             width: 100%;
@@ -20,16 +18,15 @@ header {
             position: relative;
             @include m(){
                 height:42vh;
-                overflow: hidden;
+            
             }
-            // overflow: hidden;
         }
 
         &3{
             height: 35vw;
             @include m() {
                 height:43vh;
-                overflow: hidden;
+            
             }
         }
     
@@ -49,6 +46,7 @@ header {
       
         &_city {
             position: relative;
+            z-index: -1;
             top: 7vw;
             &_l1 {
                 position: absolute;
