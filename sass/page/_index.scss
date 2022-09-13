@@ -246,7 +246,17 @@
             width: vw(1200);
             margin: 0 auto;
             position: relative;
-            top: -2vw;
+            top: -2
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            vw;
         
             @include m() {
                 width: rwd(394);

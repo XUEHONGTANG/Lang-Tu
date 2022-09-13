@@ -1,37 +1,50 @@
+
 .sponsor_information{
     width: vw(1200);
     margin: vw(0) auto;
+    z-index: 35;
+
+    
     h1{
         text-align: center;
         font-size: $h4;
         color: $primaryA11y;
         font-weight: $bold;
         margin-bottom: vw(50);
+        z-index: 35;
     }
     .sponsor_information-all{
         display: flex;
         background-color: #fff;
         border-radius: $r25;
+        padding: vw(20);
         .sponsor_information-all-left{
             margin-top: vw(40);
+            z-index: 35;
+            margin-right: vw(50);
         }
         .sponsor_information-all-under{
             margin-top: vw(40);
+            z-index: 35;
         }
         .sponsor_information-all-inder1{
             display: flex;
+            z-index: 35;
         }
         .sponsor_information-all-inder2{
             display: flex;
+            z-index: 35;
         }
         h5{
             font-size: $p;
             font-weight: $shadow;
             margin-right: vw(210);
+            z-index: 35;
         }
         p{
             font-size: $p;
             color: $primaryA11y;
+            z-index: 35;
         }
         
     }
@@ -41,47 +54,58 @@
         background-color: #fff;
         border-radius: $r25;
         height: vw(239);
+        z-index: 35;
     }
     .sponsor_information-all-btnbig-top1{
         display: flex;
         background-color: #DBC0AF;
         margin: vw(20);
         // height: vw(117);
+        z-index: 35;
     }
     .sponsor_information-all-btnbig-top2{
         display: flex;
         background-color: #B5E9FA;
         margin: vw(20);
+        z-index: 35;
     }
     .sponsor_information-all-btnbig-top3{
         display: flex;
         background-color: #FFEDAC;
         margin: vw(20);
+        z-index: 35;
     }
     .sponsor_information-all-btnbig-top-tt{
         height: vw(38);
+        z-index: 35;
         h3{
             margin: vw(20);
             color: #fff;
             font-size: $h5;
             width: vw(130);
             text-align: center;
+            z-index: 35;
         }
         .ch1{
             background-color: #B18D76;
+            z-index: 35;
         }
     }
     .sponsor_information-all-btnbig-inder{
         margin: 0 vw(20);
         display: flex;
+        z-index: 35;
+        
         h3{
             color: $secondaryA11y;
             font-size: $h5;
             margin-right: vw(40);
+            z-index: 35;
         }
         h4{
             font-size: $h5;
             font-weight: $bold;
+            z-index: 35;
         }
     }
     .sponsor_information-all-btnbig-under{
@@ -89,6 +113,86 @@
             margin-left: vw(130);
             width: vw(150);
             background-color: #F4F4F5;
+            z-index: 35;
+        }
+    }
+    .sponsor_information-all-right{
+        z-index: 35;
+        width: vw(800);
+        
+        .sponsor_information-p{
+            font-size: vw(26);
+            color: black;
+            font-weight: $bold;
+        }
+        .sponsor_information-flex{
+            margin-top: vw(20);
+        }
+        .sponsor_information-right-top{
+            display: flex;
+            li {
+              width: 100%;
+              font-size: $h4;
+              font-weight: $bold;
+              text-align: center;
+              padding: $space4;
+              color: $gray500;
+              border-bottom: solid vw(3) $gray500;
+              .currentPage {
+                  color: $primaryA11y;
+                  border-bottom: solid vw(3) $primaryA11y;
+              }
+                }
+        }
+        .input-text{
+            @include input-text(vw(400));
+            margin-right: vw(0);
+            @include m(){
+                @include input-text(rwd(350));
+                margin-right: vw(0);
+                display: block;
+                margin: 0 auto;
+            }
+        }
+        .sponsor_information-label{
+            display: flex;
+            align-items: center;
+            h4{
+                text-align: right;
+                font-size: $h5;
+                width: vw(120);
+                margin-right: vw(20);
+                font-weight: $bold;
+            }
+        }
+        .sponsor_information-label2{
+            display: flex;
+            flex-wrap: wrap;
+            h4{
+                text-align: right;
+                font-size: $h5;
+                width: vw(120);
+                margin-right: vw(20);
+                font-weight: $bold;
+            }
+            .input-text2{
+                @include input-text(vw(150));
+                margin-right: vw(0);
+                @include m(){
+                    @include input-text(rwd(250));
+                    margin-right: vw(0);
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+        }
+        .sponsor_information-label3{
+            padding-left: vw(140);
+            font-weight: $bold;
+            .input-text{
+                margin: vw(20) 0;
+            }
+            
         }
     }
 }

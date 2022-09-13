@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html', {
+        "title" : "贊助專案管理"
+    })
+</head>
+<body>
+    <div class="wrapper">
+        @@include('./layout/bak-head.html')
+
+        <main class="bm">
+            <!-- 側邊欄位 -->
+            <aside>
+                @@include('./layout/bak-aside.html')
+            </aside>
+
+            <div class="right">
+                <!-- 標題 -->
+                <h2>贊助新增</h2>
+
+                <!-- 新增資訊 -->
+                <form action="">
+                    <div class="d_info">
+                        
+                        <!-- 贊助標題 -->
+                        <div class="dtitle">
+                            <span class="title">&nbsp&nbsp&nbsp&nbsp贊助標題</span>
+                            <input type="text">
+                        </div>
+                        
+                        <!-- 標題文案 -->
+                        <div class="copywriting">
+                            <span class="title">&nbsp&nbsp&nbsp&nbsp標題文案</span>
+                            <input type="text">
+                        </div>
+
+                        <!-- 日期 -->
+                        <div class="sedate">
+                            <div class="start">
+                                <span class="title">&nbsp&nbsp&nbsp&nbsp開始日期</span>
+                                <input type="date">
+                            </div>
+
+                            <div class="end">
+                                <span class="title in">結束日期</span>
+                                <input type="date">
+                            </div>
+                        </div>
+
+                        <!-- 圖片 -->
+                        <div class="pic">
+                            <span class="title">&nbsp&nbsp&nbsp&nbsp主題圖片</span>
+                            <textarea name="" id="" cols="50" rows="10"></textarea>
+                            <input type="submit" value="瀏覽">
+                        </div>
+
+                        <!-- 簡介標題 -->
+                        <div class="introduction">
+                            <span class="title">&nbsp&nbsp&nbsp&nbsp簡介標題</span>
+                            <input type="text">
+                        </div>
+
+                        <!-- 簡介文案 -->
+                        <div class="copywriting2">
+                            <span class="title">&nbsp&nbsp&nbsp&nbsp簡介文案</span>
+                            <textarea name="" id="" cols="62" rows="10"></textarea>
+                        </div>
+
+                        <!-- 客服文案 -->
+                        <div class="copywriting3">
+                            <span class="title">&nbsp&nbsp&nbsp&nbsp客服文案</span>
+                            <textarea name="" id="" cols="62" rows="10"></textarea>
+                        </div>
+
+                        <!-- 方案一標題 -->
+                        <div class="ptitle">
+                            <span class="title">方案一標題</span>
+                            <input type="text">
+                        </div>
+
+                        <!-- 方案一內文 -->
+                        <div class="pcontent">
+                            <span class="title">方案一內文</span>
+                            <textarea name="" id="" cols="62" rows="10"></textarea>
+                        </div>
+
+                        <!-- 方案二標題 -->
+                        <div class="ptitle">
+                            <span class="title">方案二標題</span>
+                            <input type="text">
+                        </div>
+
+                        <!-- 方案二內文 -->
+                        <div class="pcontent">
+                            <span class="title">方案二內文</span>
+                            <textarea name="" id="" cols="62" rows="10"></textarea>
+                        </div>
+
+                        <!-- 方案三標題 -->
+                        <div class="ptitle">
+                            <span class="title">方案三標題</span>
+                            <input type="text">
+                        </div>
+
+                        <!-- 方案三內文 -->
+                        <div class="pcontent">
+                            <span class="title">方案三內文</span>
+                            <textarea name="" id="" cols="62" rows="10"></textarea>
+                        </div>
+
+
+                        <!-- 送出重置鍵 -->
+                        <div class="btn">
+                            <div class="reset">
+                                <input type="submit" value="重置">
+                            </div>
+                            
+                            <div class="send">
+                                <input type="submit" value="送出">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+    
+                
+
+                
+            </div>
+        </main>
+
+    </div>
+</body>
+</html>
