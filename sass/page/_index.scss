@@ -19,11 +19,18 @@
     height: 65vw;
     position: relative;
     background: #FFFBDE;
-    &-container {
 
+    @include m() {
+        height: 98vh;
+    }
+    &-container {
         top: vw(-250);
         left: vw(191);
         overflow:hidden;
+
+        @include m() {
+            height: 98vh;
+        }
 
         .-hand {
             position: absolute;
@@ -31,13 +38,18 @@
             top: -20vw;
             right: 1vw;
             width: 81vw;
+            @include m() {
+                top: -7vw;
+                right: -72vw;
+                width: 200vw;
+            }
         }
         .-dog {
             position: absolute;
             top: -15vw;
             width: 90vw;
             right: -3vw;
-
+            
         }
         .-logo {
             position: absolute;
