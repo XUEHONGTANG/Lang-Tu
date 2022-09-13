@@ -1,0 +1,179 @@
+.d_info{
+    padding: vw(65) 0 vw(65) vw(115) ;
+
+    // 各欄位標題
+    .title{
+        font-size: vw(24);
+        font-weight: $bold;
+        padding-right: vw(40);
+    }
+
+    // 贊助標題
+    .dtitle{
+        padding-bottom: vw(32);
+
+        input{
+            width: vw(600);
+            height: vw(40);
+            padding: vw(4) vw(4);
+            border: none;
+            border: 1px solid $primaryDefault;
+            border-radius: vw(5);
+            font-size: $p;
+        }
+    }
+
+    // 標題文案
+    .copywriting{
+        padding-bottom: vw(32);
+
+        input{
+            width: vw(600);
+            height: vw(40);
+            padding: vw(4) vw(4);
+            border: none;
+            border: 1px solid $primaryDefault;
+            border-radius: vw(5);
+            font-size: $p;
+        }
+    }
+
+    // 日期
+    .sedate{
+        padding-bottom: vw(32);
+        display: flex;
+
+        input{
+            width: vw(213);
+            height: vw(40);
+            padding: vw(4) vw(4);
+            border: none;
+            border: 1px solid $primaryDefault;
+            border-radius: vw(5);
+            font-size: $p;
+        }
+
+        .end{
+             span{
+                margin-left: vw(32);
+             }
+        }
+    }
+
+    // 圖片
+    .pic{
+        padding-bottom: vw(32);
+        display: flex;
+
+        textarea{
+            border: none;
+            border: 1px solid $primaryDefault;
+        }
+
+        input{
+            width: vw(100);
+            height: vw(40);
+            background-color: $primaryDark;
+            border: none;
+            color: white;
+            border-radius: vw(50);
+            align-self: center;
+            margin-left: vw(16);
+        }
+    }
+
+    // 簡介標題
+    .introduction{
+        padding-bottom: vw(32);
+
+        input{
+            width: vw(600);
+            height: vw(40);
+            padding: vw(4) vw(4);
+            border: none;
+            border: 1px solid $primaryDefault;
+            border-radius: vw(5);
+            font-size: $p;
+        }
+    }
+
+    // 簡介文案
+    .copywriting2{
+        padding-bottom: vw(32);
+        display: flex;
+
+        textarea{
+            border: none;
+            border: 1px solid $primaryDefault;
+        }
+    }
+
+    // 客服文案
+    .copywriting3{
+        padding-bottom: vw(32);
+        display: flex;
+
+        textarea{
+            border: none;
+            border: 1px solid $primaryDefault;
+        }
+    }
+
+    // 各方案標題
+    .ptitle{
+        padding-bottom: vw(32);
+
+        input{
+            width: vw(600);
+            height: vw(40);
+            padding: vw(4) vw(4);
+            border: none;
+            border: 1px solid $primaryDefault;
+            border-radius: vw(5);
+            font-size: $p;
+        }
+    }
+
+    // 各方案內文
+    .pcontent{
+        padding-bottom: vw(32);
+        display: flex;
+
+        textarea{
+            border: none;
+            border: 1px solid $primaryDefault;
+        }
+    }
+
+    .btn{
+        display: flex;
+        justify-content: center;
+        padding-top: vw(64);
+        .send{
+            input{
+                width: vw(100);
+                height: vw(40);
+                background-color: $primaryDark;
+                border: none;
+                color: white;
+                border-radius: vw(50);
+                align-self: center;
+                margin-left: vw(24);
+            }
+        }
+    
+        .reset{
+            input{
+                width: vw(100);
+                height: vw(40);
+                background-color: $gray600;
+                border: none;
+                color: white;
+                border-radius: vw(50);
+                align-self: center;
+                margin-right: vw(24);
+            }
+        }
+    }
+
+}
