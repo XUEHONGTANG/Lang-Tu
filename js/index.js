@@ -119,7 +119,7 @@ delcity.forEach(section => {
             start: "top center",
             end: "350px center",
             autoAlpha: 0, 
-            markers:true,
+            // markers:true,
             onUpdate: self => progressTo(self.progress)
         }
     });
