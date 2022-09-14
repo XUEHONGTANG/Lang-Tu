@@ -45,7 +45,7 @@
                 <section class="sponsor_information-flex" v-if="currentPage == 1">
                     <label class="sponsor_information-label" for="username">
                         <h4>姓名</h4>
-                    <input class="input-text" type="text" name="username" id="username" placeholder="請填寫真實姓名">
+                    <input v-model="form.name" class="input-text" type="text" name="username" id="username" placeholder="請填寫真實姓名">
                     </label>
                     <br>
                     <div class="sponsor_information-label">
