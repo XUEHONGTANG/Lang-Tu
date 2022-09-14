@@ -1,19 +1,94 @@
 <!-- 側邊欄 -->
-    <ul>
-        <li><a href="#">會員管理<i class="fa-solid fa-angle-right"></i></a></li>
-        <li class="li1"><a href="#">寵物管理<i class="fa-solid fa-angle-right"></i></a></li>
-        <ol class="ol1">
-            <li><a href="#">浪浪資訊</a></li>
-            <li><a href="#">預約領養紀錄</a></li>
-        </ol>
+    
+    <div class="sidebarExsample1" id="sidebarApp">
+        <ul>
+            <li>
+                <button>會員管理</button>
+            </li>
+          <li>
+            <button class="accordion" @click="toggle(0)">寵物管理</button>
+            <ol :class="olClass">
+              <li><button>浪浪資訊</button></li>
+              <li><button>預約領養紀錄</button></li>
+            </ol>
+          </li>
+          <li>
+            <button>商品管理</button>
+          </li>
+          <li>
+            <button>訂單管理</button>
+          </li>
+          <li>
+            <button class="accordion" @click="toggle(1)">贊助管理</button>
+            <ol :class="olClass">
+              <li><button>贊助專案</button></li>
+              <li><button>贊助明細</button></li>
+            </ol>
+          </li>
+          <li>
+            <button>登出</button>
+          </li>
+        </ul>
+      </div>
 
-        <li><a href="#">商品管理</a></li>
-        <li><a href="#">訂單管理</a></li>
+    <script>
+        //   codepen參考: https://codepen.io/abdon-gahungu/pen/eYdxVmz?editors=1000
 
-        <li class="li2"><a href="#">贊助管理<i class="fa-solid fa-angle-right"></i></a></li>
-        <ol class="ol2">
-            <li><a href="#">贊助專案</a></li>
-            <li><a href="#">贊助明細</a></li>
-        </ol>
-        <li><a href="#">登出</a></li>
-    </ul>
+          new Vue({
+              el: '#sidebarApp',
+              data:{
+                  isOpen: false,
+                  reactArr:[],
+                  olClass: 'hide',
+              },
+              mounted() {
+                let reactTotal = document.querySelectorAll('.hide')
+                // console.log(reactTotal);
+                reactTotal.forEach((item) => {
+                  this.reactArr.push(item)
+                  console.log(this.reactArr);
+                });
+              },
+              methods:{
+                toggle(order) {
+                      let length = this.reactArr.length,
+                      i = 0;
+                      // console.log(length);
+                      // console.log(this.reactArr[order]);
+
+                      if (this.isOpen === false) {
+                          // console.log(this.reactArr[order]);
+                          this.reactArr[order].classList.remove('hide');
+                          this.reactArr[order].classList.add('show');
+                          // console.log(this.reactArr[order].previousElementSibling);
+                          this.reactArr[order].previousElementSibling.classList.add('turnRight');
+                          this.isOpen = true;
+
+                          for (i; i < length; i++) {
+                              if (order != i) {
+                          this.reactArr[i].classList.remove('show');
+                          this.reactArr[i].classList.add('hide');
+                          this.reactArr[i].previousElementSibling.classList.remove('turnRight');
+                              }
+                          }
+                      }else if(this.isOpen === true && this.reactArr[order].classList.contains('hide') ){
+                        this.reactArr[order].classList.remove('hide');
+                        this.reactArr[order].classList.add('show');
+                        this.reactArr[order].previousElementSibling.classList.add('turnRight');
+                         
+                          for (i; i < length; i++) {
+                              if (order != i) {
+                          this.reactArr[i].classList.remove('show');
+                          this.reactArr[i].classList.add('hide');
+                          this.reactArr[i].previousElementSibling.classList.remove('turnRight');
+                              }
+                            }
+                      } else {
+                          this.reactArr[order].classList.remove('show');
+                          this.reactArr[order].classList.add('hide'); this.reactArr[order].previousElementSibling.classList.remove('turnRight');
+                          this.isOpen = false;
+                      }
+                  },
+              },
+          });
+    </script>

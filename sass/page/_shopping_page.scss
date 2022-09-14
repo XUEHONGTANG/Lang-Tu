@@ -1,695 +1,704 @@
-.shoppingPageWrapper{
+.shoppingPageWrapper {
   margin: 0 auto;
   width: vw(1314);
   display: grid;
   grid-template-columns: vw(300) vw(1014);
-  grid-template-areas:
-  "side main";
+  grid-template-rows: auto auto;
+  grid-template-areas: 
+  ". search"
+  "side main"
+  ;
 
-  @include m(){
+  @include m() {
     width: rwd(394);
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto auto auto;
     grid-template-areas:
-    "side"
-    "main"
-    ;
+      "search"
+      "side"
+      "main";
   }
 
   // @include m(){}
 
-
   // sidebar
   .sidebar {
-    margin-top: $space6;
     grid-area: side;
+    // margin-top: $space6;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     width: vw(260);
 
-    @include m(){
+    @include m() {
       width: rwd(394);
     }
-      h3{
-        font-weight: $bold;
-        text-align: center;
-        margin-bottom: vw(16);
-        color: $gray700;
-        @include m(){
+    h3 {
+      font-weight: $bold;
+      text-align: center;
+      margin-bottom: vw(16);
+      color: $gray700;
+      @include m() {
         text-align: left;
         font-size: rwd(20);
-        }
-
       }
-      button {
-        width: 100%;
-        // height: vw(60);
-        text-align: start;
-        font-size: $h5;
-        font-weight: $bold;
-        padding: vw(12) vw(32);
-        border: none;
-        cursor: pointer;
-        position: relative;
+    }
+    button {
+      width: 100%;
+      // height: vw(60);
+      text-align: start;
+      font-size: $h5;
+      font-weight: $bold;
+      padding: vw(12) vw(32);
+      border: none;
+      cursor: pointer;
+      position: relative;
 
-        @include m(){
-          width: calc(rwd(394)/3);
-          padding: rwd(8) rwd(16);
+      @include m() {
+        width: calc(rwd(394) / 3);
+        padding: rwd(8) rwd(16);
+        font-size: rwd(13);
+      }
+
+      &::after {
+        position: absolute;
+        font-family: FontAwesome;
+        content: "\f105";
+        font-size: $p;
+        right: vw(32);
+        top: vw(18);
+        transition: 0.3s ease;
+        @include m() {
           font-size: rwd(13);
-        }
-
-
-        &::after{
-          position: absolute;
-          font-family: FontAwesome;
-          content: '\f105';
-          font-size: $p;
-          right: vw(32);
-          top: vw(18);
-          transition: .3s ease;
-          @include m(){
-          font-size: rwd(13);
-            right: rwd(16);
-            top: rwd(11);
-          }
-        }
-      }
-      ul {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        box-shadow: $shadow;
-        border-radius: vw(20);
-
-        @include m(){
-          display: flex;
-          flex-direction: row;
-          width: 100%;
-          border-radius: rwd(10);
-          box-shadow: none;
-        }
-
-        li button{
-          background-color: #fff;
-          color: $primaryDark;
-          &:hover{
-            background-color: $primaryDark;
-            color: #fff;
-            @include m(){
-            border-radius: rwd(10) rwd(10) 0 0;
-           }
-          }
-        }
-        li button.turnRight::after{
-          transform: rotate(90deg);
-        }
-        li .show {
-          visibility: visible;
-          opacity: 1;
-          transition: visibility 0s linear 0s, opacity 1100ms;
-
-        }
-      
-        li .hide {
-          visibility: hidden;
-          opacity: 0;
-          height: 0;
-          -moz-transition: height 2s ease;
-          -webkit-transition: height 2s ease;
-          -o-transition: height 2s ease;
-          transition: height 2s ease;
-        }
-        ol{
-          @include m(){
-            position:absolute;
-            z-index: 5;
-            }
-        }
-        li ol li button{
-          background-color: #EBEBEB;
-          color: $gray600;
-          // @include m(){
-          //   position: absolute;
-          //   }
-
-          &:hover{
-            background-color: darken(#EBEBEB, 10);
-            color: $gray600;
-          }
-        }
-        ol li:last-child button{
-          @include m(){
-          border-radius:  0 0 rwd(10) rwd(10);
-          }
-        }
-      }
-      ul > li:first-child  > button{
-        border-radius: vw(20) vw(20) 0px 0px;
-        @include m(){
-          border-radius: rwd(10) 0 0 rwd(10);
-          &:hover{
-          border-radius: rwd(10) rwd(10) 0 0; 
-          }
-        }
-      }
-
-      ul > li:last-child > button{
-        border-radius: 0px 0px vw(20) vw(20);
-
-        @include m(){
-          border-radius: 0 rwd(10) rwd(10) 0;
-          &:hover{
-            border-radius: rwd(10);
-            }
-        }
-      }
-
-      img{
-        margin-top: vw(80);
-        width: vw(225);
-        margin-left: auto;
-        @include m(){
-          display: none;
+          right: rwd(16);
+          top: rwd(11);
         }
       }
     }
+    ul {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      box-shadow: $shadow;
+      border-radius: vw(20);
+
+      @include m() {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        border-radius: rwd(10);
+        box-shadow: none;
+      }
+
+      li button {
+        background-color: #fff;
+        color: $primaryDark;
+        &:hover {
+          background-color: $primaryDark;
+          color: #fff;
+          @include m() {
+            border-radius: rwd(10) rwd(10) 0 0;
+          }
+        }
+      }
+      li button.turnRight::after {
+        transform: rotate(90deg);
+      }
+      li .show {
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 0s linear 0s, opacity 1100ms;
+      }
+
+      li .hide {
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+        -moz-transition: height 2s ease;
+        -webkit-transition: height 2s ease;
+        -o-transition: height 2s ease;
+        transition: height 2s ease;
+      }
+      ol {
+        @include m() {
+          position: absolute;
+          z-index: 5;
+        }
+      }
+      li ol li button {
+        background-color: #ebebeb;
+        color: $gray600;
+        // @include m(){
+        //   position: absolute;
+        //   }
+
+        &:hover {
+          background-color: darken(#ebebeb, 10);
+          color: $gray600;
+        }
+      }
+      ol li:last-child button {
+        @include m() {
+          border-radius: 0 0 rwd(10) rwd(10);
+        }
+      }
+    }
+    ul > li:first-child > button {
+      border-radius: vw(20) vw(20) 0px 0px;
+      @include m() {
+        border-radius: rwd(10) 0 0 rwd(10);
+        &:hover {
+          border-radius: rwd(10) rwd(10) 0 0;
+        }
+      }
+    }
+
+    ul > li:last-child > button {
+      border-radius: 0px 0px vw(20) vw(20);
+
+      @include m() {
+        border-radius: 0 rwd(10) rwd(10) 0;
+        &:hover {
+          border-radius: rwd(10);
+        }
+      }
+    }
+
+    img {
+      margin-top: vw(80);
+      width: vw(225);
+      margin-left: auto;
+      @include m() {
+        display: none;
+      }
+    }
+  }
   // sidebar end
 
+
+  .search-wrapper {
+    grid-area: search;
+    @include search-wrapper(vw(300));
+    margin-left: auto;
+    margin-right: vw(16);
+    margin-bottom: $space2;
+
+    @include m() {
+      margin: rwd(16) 0;
+      @include search-wrapper(100%);
+    }
+  }
   // main content
-  .mainContent{
+  .mainContent {
     grid-area: main;
     display: flex;
     flex-direction: column;
-    .search-wrapper{
-
-        @include search-wrapper(vw(300));
-        margin-left: auto;
-        margin-right: vw(16);
-
-        @include m(){
-          margin: rwd(16) 0;
-          @include search-wrapper(100%)
-        }
-    }
-    
-    span{
-      content:'';
+    span {
+      content: "";
       align-self: center;
       display: inline-block;
       height: vw(1);
       width: calc(100% - vw(32));
       background-color: $primaryDefault;
-      margin-top: $space2;
+      // margin-top: $space2;
       margin-bottom: $space4;
-      @include m(){
+      @include m() {
         display: none;
       }
     }
-    ul.productsContent{
+
+    ul.productsContent {
       display: flex;
       flex-wrap: wrap;
-      .pd-itembox{
+      .pd-itembox {
         display: flex;
         flex-direction: column;
         width: vw(306);
-        background-color: #FFFAF3;
+        background-color: #fffaf3;
         border-radius: $r25;
         margin: 0 $space2 $space5;
         cursor: pointer;
 
-        @include m(){
+        @include m() {
           width: rwd(185);
           border-radius: rwd(13);
           margin: rwd(12) rwd(6);
-          &:hover{
+          &:hover {
             display: none;
           }
         }
 
-        &:hover{
+        &:hover {
           box-shadow: $shadow;
-          background-image: url('../images/ff/material01.png');
+          background-image: url("../images/ff/material01.png");
           background-repeat: no-repeat;
           background-size: 20%;
           background-position: 90% 95%;
-          background-color: rgba(255, 255, 255, .6);
+          background-color: rgba(255, 255, 255, 0.6);
         }
-        img{
+        img {
           width: 100%;
           border-radius: $r25 $r25 0 0;
-          @include m(){
-          border-radius: rwd(13) rwd(13) 0 0;
+          @include m() {
+            border-radius: rwd(13) rwd(13) 0 0;
           }
         }
-        hr{
+        hr {
           width: 60%;
           border: dashed vw(1) $gray600;
-          @include m(){
+          @include m() {
             border: dashed rwd(2) $gray600;
           }
         }
-        h5{
+        h5 {
           @include box-center();
           margin-top: $space2;
           text-align: center;
           height: vw(77);
           font-weight: $bold;
           color: $primaryA11y;
-          @include m(){
+          @include m() {
             // height: rwd(40);
             height: rwd(52);
             font-size: rwd(16);
           }
         }
-        h4{
+        h4 {
           text-align: center;
           font-weight: $bold;
           color: $primaryA11y;
           margin-bottom: $space4;
-          @include m(){
+          @include m() {
             font-size: rwd(16);
             margin-bottom: rwd(16);
           }
         }
       }
     }
-    ul.pages{
+    ul.pages {
       display: flex;
       justify-content: center;
-      margin: rwd(16) 0;
-      li{
+      
+      @include m() {
+        margin: rwd(16) 0;
+      }
+      li {
         text-align: center;
         line-height: vw(40);
         font-size: $p;
-        color: $primaryA11y;;
+        color: $primaryA11y;
         width: vw(40);
         height: vw(40);
-        margin: 0 vw(8);
+        margin: 0 vw(16);
         cursor: pointer;
 
-        @include m(){
+        @include m() {
           line-height: rwd(32);
           width: rwd(32);
           height: rwd(32);
           margin: 0 rwd(8);
         }
       }
-      li.currentPage{
+      li.currentPage {
         color: $secondaryLight;
         background-color: $primaryA11y;
         border-radius: 50%;
       }
       li.previous,
-      li.next{
+      li.next {
         font-size: vw(18);
         color: $primaryDark;
         background-color: transparent;
-        @include m(){
+        @include m() {
           font-size: rwd(18);
         }
       }
     }
-
   }
 
+  // === productPage ===
 
-// === productPage ===
-
-.productPageDrop {
-  z-index: 40;
-  top: 0;
-  left: 0;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(46, 46, 46, 0.6);
-  transition: all 5s ease-in-out;
-
-  @include m() {
-    position: static;
-    width: auto;
-    height: auto;
-    background-color: rgba(46, 46, 46, 0);
-  }
-
-  .productPageWrapper {
-    z-index: 50;
-    width: vw(1200);
-    height: vw(900);
-    background-color: #fff;
-    border-radius: $r25;
-
-    transition: all 5s ease-in-out;
-    position: fixed;
-    left: calc(50% - vw(600));
-    top: calc(50% - vw(450));
-
-    display: flex;
+  .productPageDrop {
+    z-index: 40;
+    // top: 0;
+    // left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(46, 46, 46, 0.6);
+    // transition: all 5s ease-in-out;
 
     @include m() {
-      display: flex;
-      flex-direction: column;
-      width: rwd(394);
       height: auto;
-      position: static;
-      left: auto;
-      top: auto;
-      border-radius: rwd(10);
-
-      margin: 0 auto;
+      // background-color: rgba(46, 46, 46, 0);
+      // background-color: rgba(46, 46, 46, 0.6);
+      // background-image: $bgi;
     }
 
-    .productImageArea {
-      margin: $space4 $space2 $space4 $space4;
-      // border: 1px solid $gray500;
-      height: vw(836);
-      width: vw(552);
+    .productPageWrapper {
+      z-index: 50;
+      width: vw(1200);
+      height: vw(900);
+      background-color: #fff;
+      border-radius: $r25;
+
+      // transition: all 5s ease-in-out;
+      position: fixed;
+      left: calc(50% - vw(600));
+      top: calc(50% - vw(450));
+
+      display: flex;
 
       @include m() {
-        margin: rwd(16);
-        width: rwd(362);
-        height: auto;
-      }
-
-      .imgLarge {
-        border: 1px solid $gray500;
-        // background-color: $lineGray;
-        width: 100%;
-        height: vw(672);
         display: flex;
-
-        @include m() {
-          width: rwd(362);
-          height: rwd(362);
-        }
-
-        img {
-          width: 100%;
-          height: 100%;
-          align-self: center;
-        }
-      }
-      ul.imgSmall {
-        margin-top: vw(24);
-        width: 100%;
-        height: vw(140);
-        display: flex;
-        overflow: hidden;
-
-        @include m() {
-          width: 100%;
-          margin-top: rwd(16);
-          height: rwd(84);
-        }
-
-        li {
-          width: vw(140);
-          height: vw(140);
-          border: 1px solid $gray500;
-          margin: 0 vw(12);
-          flex-shrink: 0;
-
-          @include m() {
-            width: rwd(84);
-            height: rwd(84);
-            margin: 0 rwd(8);
-          }
-
-          &:first-child {
-            margin-left: 0;
-          }
-        }
-      }
-    }
-    .productInfo {
-      margin: $space4 $space4 $space4 $space2;
-      //   border: 1px solid $gray500;
-      height: vw(836);
-      width: vw(552);
-      padding: $space4;
-      position: relative;
-
-      @include m() {
+        flex-direction: column;
+        width: rwd(394);
         height: auto;
-        width: rwd(362);
-        padding: 0;
-        margin: rwd(16);
-      }
-
-      h2 {
-        color: $primaryA11y;
-        @include m() {
-          font-size: rwd(24); 
-          text-align: center;
-          margin: rwd(16) 0;
-        }
-      }
-      .pageClose::after {
-        position: absolute;
-        top: 0;
+        border-radius: rwd(10);
+        position: fixed;
+        top: 16px;
+        left: 0;
         right: 0;
-        width: vw(40);
-        height: vw(40);
-        font-size: vw(40);
-        line-height: vw(40);
-        text-align: center;
-        cursor: pointer;
+        bottom: 16px;
+        overflow-y: auto;
 
-        content: "\00D7";
-        color: $gray700;
+        margin: 0 auto;
+      }
+
+      .productImageArea {
+        margin: $space4 $space2 $space4 $space4;
+        // border: 1px solid $gray500;
+        height: vw(836);
+        width: vw(552);
 
         @include m() {
-          display: none;
+          margin: rwd(16);
+          width: rwd(362);
+          height: auto;
         }
-      }
-      ul.changePageButton {
-        display: flex;
-        li {
-          background-color: $gray500;
-          color: $gray700;
-          width: vw(118);
-          height: vw(48);
 
-          font-size: font-size(15);
-          text-align: center;
-          line-height: vw(48);
-          border: 1px solid #fff;
-          border-bottom: 0;
-          border-radius: vw(10) vw(10) 0 0;
-
-          position: relative;
+        .imgLarge {
+          border: 1px solid $gray500;
+          // background-color: $lineGray;
+          width: 100%;
+          height: vw(672);
+          display: flex;
 
           @include m() {
-          width: rwd(96);
-          height: rwd(48);
-
-          font-size: rwd(15);
-          line-height: rwd(48);
-          border-radius: rwd(10) rwd(10) 0 0;
+            width: rwd(362);
+            height: rwd(362);
           }
 
-          &:hover {
-            background-color: darken($gray500, 10%);
-            color: #fff;
+          img {
+            width: 100%;
+            height: 100%;
+            align-self: center;
           }
-          cursor: pointer;
-          &:first-child {
-            left: 0px;
-            z-index: 3;
+        }
+        ul.imgSmall {
+          margin-top: vw(24);
+          width: 100%;
+          height: vw(140);
+          display: flex;
+          overflow: hidden;
+
+          @include m() {
+            width: 100%;
+            margin-top: rwd(16);
+            height: rwd(84);
           }
-          &:nth-child(2) {
-            left: -8px;
-            z-index: 2;
-          }
-          &:last-child {
-            left: -16px;
-            z-index: 1;
-          }
-          &.highlight {
-            background-color: $primaryDark;
-            color: #e8f6f5;
-            z-index: 5;
+
+          li {
+            width: vw(140);
+            height: vw(140);
+            border: 1px solid $gray500;
+            margin: 0 vw(12);
+            flex-shrink: 0;
+
+            @include m() {
+              width: rwd(84);
+              height: rwd(84);
+              margin: 0 rwd(8);
+            }
+
+            &:first-child {
+              margin-left: 0;
+            }
+
+            img{
+              width: 100%;
+            }
           }
         }
       }
-      .textArea {
-        height: vw(512);
-        border: 1px solid $gray500;
-        border-left: 0;
-        border-right: 0;
-        padding: $space1;
-        overflow-y: scroll;
-        
+      .productInfo {
+        margin: $space4 $space4 $space4 $space2;
+        //   border: 1px solid $gray500;
+        height: vw(836);
+        width: vw(552);
+        padding: $space4;
+        position: relative;
+
         @include m() {
-          height: rwd(512);
-          padding: rwd(8);
-          }
+          height: auto;
+          width: rwd(362);
+          padding: 0;
+          margin: rwd(16);
+        }
 
-        /* 滾動卷軸 */
-        &::-webkit-scrollbar {
-          // 整個卷軸
-          width: vw(16);
+        h2 {
+          color: $primaryA11y;
           @include m() {
-          width: rwd(16);
-          }
-        }
-
-        &::-webkit-scrollbar-track {
-          // 卷軸軌道區塊
-          border: solid vw(16) transparent;
-          @include m() {
-          border: solid rwd(16) transparent;
-          }
-        }
-
-        &::-webkit-scrollbar-thumb {
-          // 卷軸滑塊
-          background-color: $gray500;
-          border: vw(4) solid #fff;
-          border-radius: vw(8);
-          @include m() {
-            border: rwd(4) solid #fff;
-          border-radius: rwd(8);
-          }
-        }
-      }
-
-      h5 {
-        margin: $space1 0;
-        font-weight: $bold;
-        @include m() {
-          font-size: rwd(16);
-          margin: rwd(8) 0;
-        }
-      }
-      p {
-        margin: $space1 0;
-        @include m() {
-          font-size: rwd(16);
-          margin: rwd(8) 0;
-        }
-      }
-      div {
-        display: flex;
-        justify-content: space-between;
-        margin-top: auto;
-        .counter {
-          align-self: center;
-
-          width: vw(120);
-          height: vw(40);
-          border: solid 1px $primaryDark;
-          border-radius: vw(6);
-
-          @include m() {
-          width: rwd(120);
-          height: rwd(40);
-          border-radius: rwd(6);
-          }
-
-          input[type="number"] {
-            width: vw(40);
-            border: none;
-            outline: none;
+            font-size: rwd(24);
             text-align: center;
-            -moz-appearance: textfield;
-            
-            @include m() {
-              width: rwd(40);
-              }
+            margin: rwd(16) 0;
+          }
+        }
+        .pageClose::after {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: vw(40);
+          height: vw(40);
+          font-size: vw(40);
+          line-height: vw(40);
+          text-align: center;
+          cursor: pointer;
 
-            &::-webkit-inner-spin-button,
-            ::-webkit-outer-spin-button {
-              -webkit-appearance: none;
-              margin: 0;
+          content: "\00D7";
+          color: $gray700;
+
+          @include m() {
+            display: none;
+          }
+        }
+        ul.changePageButton {
+          display: flex;
+          li {
+            background-color: $gray500;
+            color: $gray700;
+            width: vw(118);
+            height: vw(48);
+
+            font-size: font-size(15);
+            text-align: center;
+            line-height: vw(48);
+            border: 1px solid #fff;
+            border-bottom: 0;
+            border-radius: vw(10) vw(10) 0 0;
+
+            position: relative;
+
+            @include m() {
+              width: rwd(96);
+              height: rwd(48);
+
+              font-size: rwd(15);
+              line-height: rwd(48);
+              border-radius: rwd(10) rwd(10) 0 0;
             }
+
             &:hover {
-              outline: none;
+              background-color: darken($gray500, 10%);
+              color: #fff;
+            }
+            cursor: pointer;
+            &:first-child {
+              left: 0px;
+              z-index: 3;
+            }
+            &:nth-child(2) {
+              left: -8px;
+              z-index: 2;
+            }
+            &:last-child {
+              left: -16px;
+              z-index: 1;
+            }
+            &.highlight {
+              background-color: $primaryDark;
+              color: #e8f6f5;
+              z-index: 5;
             }
           }
-          button {
-            width: vw(40);
-            height: vw(40);
+        }
+        .textArea {
+          height: vw(512);
+          border: 1px solid $gray500;
+          border-left: 0;
+          border-right: 0;
+          padding: $space1;
+          overflow-y: scroll;
 
-            background-color: transparent;
-            border: 0;
-            cursor: pointer;
+          @include m() {
+            height: rwd(512);
+            padding: rwd(8);
+            font-size: rwd(13);
+          }
+
+          /* 滾動卷軸 */
+          &::-webkit-scrollbar {
+            // 整個卷軸
+            width: vw(16);
+            @include m() {
+              width: rwd(16);
+            }
+          }
+
+          &::-webkit-scrollbar-track {
+            // 卷軸軌道區塊
+            border: solid vw(16) transparent;
+            @include m() {
+              border: solid rwd(16) transparent;
+            }
+          }
+
+          &::-webkit-scrollbar-thumb {
+            // 卷軸滑塊
+            background-color: $gray500;
+            border: vw(4) solid #fff;
+            border-radius: vw(8);
+            @include m() {
+              border: rwd(4) solid #fff;
+              border-radius: rwd(8);
+            }
+          }
+        }
+
+        h5 {
+          margin: $space1 0;
+          font-weight: $bold;
+          @include m() {
+            font-size: rwd(16);
+            margin: rwd(8) 0;
+          }
+        }
+        p {
+          margin: $space1 0;
+          @include m() {
+            font-size: rwd(16);
+            margin: rwd(8) 0;
+          }
+        }
+        div {
+          display: flex;
+          justify-content: space-between;
+          margin-top: auto;
+          .counter {
+            align-self: center;
+
+            width: vw(120);
+            height: vw(40);
+            border: solid 1px $primaryDark;
+            border-radius: vw(6);
 
             @include m() {
-              width: rwd(40);
+              width: rwd(120);
               height: rwd(40);
+              border-radius: rwd(6);
             }
 
-            &:hover {
-              background-color: $primaryDark;
+            input[type="number"] {
+              width: vw(40);
+              border: none;
+              outline: none;
+              text-align: center;
+              -moz-appearance: textfield;
 
               @include m() {
-                background-color: rgba(255, 255, 255, 0);
+                width: rwd(40);
               }
 
-              &.btn-minus::after {
-                color: #fff;
+              &::-webkit-inner-spin-button,
+              ::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+              }
+              &:hover {
+                outline: none;
+              }
+            }
+            button {
+              width: vw(40);
+              height: vw(40);
+
+              background-color: transparent;
+              border: 0;
+              cursor: pointer;
+
+              @include m() {
+                width: rwd(40);
+                height: rwd(40);
+              }
+
+              &:hover {
+                background-color: $primaryDark;
 
                 @include m() {
+                  background-color: rgba(255, 255, 255, 0);
+                }
+
+                &.btn-minus::after {
+                  color: #fff;
+
+                  @include m() {
+                    color: $primaryDark;
+                  }
+                }
+                &.btn-plus::after {
+                  color: #fff;
+
+                  @include m() {
+                    color: $primaryDark;
+                  }
+                }
+              }
+              &.btn-minus {
+                border-radius: vw(6) 0 0 vw(6);
+                &::after {
+                  content: "\2212";
                   color: $primaryDark;
                 }
               }
-              &.btn-plus::after {
-                color: #fff;
-
-                @include m() {
+              &.btn-plus {
+                border-radius: 0 vw(6) vw(6) 0;
+                &:after {
+                  content: "\002B";
                   color: $primaryDark;
                 }
-              }
-            }
-            &.btn-minus {
-              border-radius: vw(6) 0 0 vw(6);
-              &::after {
-                content: "\2212";
-                color: $primaryDark;
-              }
-            }
-            &.btn-plus {
-              border-radius: 0 vw(6) vw(6) 0;
-              &:after {
-                content: "\002B";
-                color: $primaryDark;
               }
             }
           }
         }
-      }
-      button.btn-shopping {
-        display: flex;
-
-        @include m() {
-          &:hover:disabled{
-            background-color: rgba(255, 255, 255, 0);
-          }
-        }
-
-        iconify-icon {
-          font-size: $h4;
-          margin-right: vw(8);
+        button.btn-shopping {
+          display: flex;
 
           @include m() {
-            font-size: rwd(20);
-            margin-right: rwd(16);
+            &:hover:disabled {
+              background-color: rgba(255, 255, 255, 0);
+            }
           }
+
+          iconify-icon {
+            font-size: $h4;
+            margin-right: vw(8);
+
+            @include m() {
+              font-size: rwd(20);
+              margin-right: rwd(16);
+            }
+          }
+        }
+      }
+      button.btn-1 {
+        display: none;
+
+        @include m() {
+          display: block;
+          width: rwd(362);
+          margin:  rwd(32) rwd(16) rwd(16) rwd(16);
         }
       }
     }
   }
 
-  button.btn-1{
-    display: none;
-
-    @include m(){
-      display: block;
-      margin: rwd(16) auto;
-    }
-  }
-}
-
-  // main content end 
+  // main content end
 }

@@ -25,13 +25,16 @@ new Vue({
     counter: 1,
     currentPage: 1
   },
-  mounted() {
-    this.currentPage = 1;
-  },
   methods: {
     changeCounter(num) {
       this.counter += +num;
       this.counter > 1 ? this.counter : (this.counter = 1);
     },
+  },
+  mounted() {
+    this.currentPage = 1;
+  },
+  updated() {
+    $(".twzipcode").twzipcode();
   },
 });

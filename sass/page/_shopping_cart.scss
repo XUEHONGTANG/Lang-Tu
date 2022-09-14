@@ -1,36 +1,3 @@
-// @mixin inputLabel($w: null, $title: "",$errortext:"", $helptext: "") {
-//   width: $w;
-//   height: vw(117);
-//   display: inline-block;
-//   // margin: vw(8) 0;
-//   .input-textLabel[type="text"] {
-//     @include input-text($w);
-//     margin: vw(8) 0;
-//   }
-//   &::before {
-//     content: $title;
-//     color: $primaryA11y;
-//     font-size: $h5;
-//   }
-//   &::after {
-//     content: $helptext;
-//     font-size: font-size(13);
-//     color: $gray800;
-//   }
-//   &.-error {
-//     // outline: solid vw(1) $error;
-//     &::after {
-//       content: $errortext;
-//       font-size: font-size(13);
-//       color: $error;
-//     }
-//   }
-//   &.-disabled {
-//     &::before {
-//       color: $gray600;
-//     }
-//   }
-// }
 
 main.shoppingCartWrapper {
   margin: 0 auto;
@@ -495,32 +462,81 @@ main.shoppingCartWrapper {
           margin-bottom: rwd(8);
         }
       }
-      span {
-        display: flex;
+
+      .twzipcode{
         width: 100%;
-        justify-content: space-between;
         margin-bottom: $space1;
-  
+        display: flex;
+        justify-content: space-between;
         @include m(){
           margin-bottom: rwd(8);
         }
-  
-        select {
-          width: vw(162);
-  
+
+        &.-disabled{
+          input[type=text]{
+            outline: solid 1px $gray600;
+            color: $gray500;
+            &::placeholder{
+              color: $gray500;
+            }
+            &:hover{
+                outline: solid vw(2) $gray600;
+            }
+          }
+
+          select{
+            outline: solid 1px $gray600;
+            &::placeholder{
+              color: $gray600;
+            }
+            &:hover{
+                outline: solid vw(2) $gray600;
+            }
+          }
+        }
+
+        input[type=text]{
+          @include input-text(vw(162));
           @include m(){
             width: rwd(116);
             font-size: rwd(16);
           }
         }
-        .postalCode[type="text"] {
-          @include input-text(vw(162));
-  
+
+        select{
+          width: vw(162);
           @include m(){
             width: rwd(116);
+            font-size: rwd(16);
           }
         }
       }
+      // span {
+      //   width: 100%;
+      //   // display: flex;
+      //   // justify-content: space-between;
+      //   margin-bottom: $space1;
+
+      //   @include m(){
+      //     margin-bottom: rwd(8);
+      //   }
+
+      //   // select {
+      //   //   width: vw(162);
+  
+      //   //   @include m(){
+      //   //     width: rwd(116);
+      //   //     font-size: rwd(16);
+      //   //   }
+      //   // }
+      //   // .postalCode[type="text"] {
+      //   //   @include input-text(vw(162));
+  
+      //   //   @include m(){
+      //   //     width: rwd(116);
+      //   //   }
+      //   // }
+      // }
       .address[type="text"] {
         @include input-text(100%);
         margin-bottom: vw(28);
@@ -598,31 +614,56 @@ main.shoppingCartWrapper {
           margin-bottom: rwd(8);
         }
       }
-      span {
-        display: flex;
+
+      .twzipcode{
         width: 100%;
-        justify-content: space-between;
         margin-bottom: $space1;
-  
+        display: flex;
+        justify-content: space-between;
         @include m(){
           margin-bottom: rwd(8);
         }
-        select {
-          width: vw(162);
-  
+
+        &.-disabled{
+          input[type=text]{
+            outline: solid 1px $gray600;
+            color: $gray500;
+            &::placeholder{
+              color: $gray500;
+            }
+            &:hover{
+                outline: solid vw(2) $gray600;
+            }
+          }
+
+          select{
+            outline: solid 1px $gray600;
+            &::placeholder{
+              color: $gray600;
+            }
+            &:hover{
+                outline: solid vw(2) $gray600;
+            }
+          }
+        }
+
+        input[type=text]{
+          @include input-text(vw(162));
           @include m(){
             width: rwd(116);
             font-size: rwd(16);
           }
         }
-        .otherPostalCode[type="text"] {
-          @include input-text(vw(162));
-  
+
+        select{
+          width: vw(162);
           @include m(){
             width: rwd(116);
+            font-size: rwd(16);
           }
         }
       }
+
       .otherAddress[type="text"] {
         @include input-text(100%);
         margin-bottom: vw(28);
@@ -736,8 +777,6 @@ main.shoppingCartWrapper {
   
     .buttonArea {
       grid-area: button;
-      // margin-left: auto;
-      // padding: vw(32);
       margin: vw(32) auto 0 auto;
       display: flex;
       @include m(){
