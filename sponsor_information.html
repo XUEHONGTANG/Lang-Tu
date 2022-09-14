@@ -45,7 +45,7 @@
                 <section class="sponsor_information-flex" v-if="currentPage == 1">
                     <label class="sponsor_information-label" for="username">
                         <h4>姓名</h4>
-                    <input class="input-text" type="text" name="username" id="username" placeholder="請填寫真實姓名">
+                    <input v-model="form.name" class="input-text" type="text" name="username" id="username" placeholder="請填寫真實姓名">
                     </label>
                     <br>
                     <div class="sponsor_information-label">
@@ -127,6 +127,7 @@
                 </section>
 
                 <section class="receiptInfo" v-if="currentPage == 2">
+                
                     <div class="needReceipt">
                         <h4>*是否需要收據</h4>
                         <div class="receiptMethod">
@@ -190,7 +191,7 @@
 
                     <div class="sponsor_information-under">
                         <button class="btn-0" @click="currentPage = 2">上一步</button>
-                        <button class="btn-0">下一步</button>
+                        <button class="btn-0" onclick="location.href='payer_Information.html'">下一步</button>
                     </div>
                 </section>
 

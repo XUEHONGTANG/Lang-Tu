@@ -8,5 +8,9 @@ new Vue({
             ],
             
             currentPage: 1,
+
+            form:{
+                name: null,
+            }
         },
     })

@@ -57,7 +57,7 @@
             margin: 0 auto ;
             // margin-top: vw(30);
             @include m(){
-                width: rwd(360);
+                width: 100%;
             }
 
         }
@@ -74,7 +74,7 @@
         // border-radius: 50%;
         border-radius: 30px;
         @include m(){
-            width: rwd(394);
+            width: 100%;
             margin: rwd(10) auto;
         }
     }
@@ -97,7 +97,7 @@
             font-size: $p;
             @include m(){
                 font-size: rwd(16);
-                margin-right: rwd(190);
+                
             }
         }
         p{

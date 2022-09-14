@@ -6,19 +6,48 @@
     width: vw(1200);
     margin: 0 auto;
     position: relative;
+    --rwd-width: 53;
+    --rwd-height: 50;
+    h4{
+        font-size: 18px;
+    }
+    p{
+        font-size: 15px;
+    }
 
     @include m() {
         width: rwd(394);
     }
+
+.top_kv_crumbs-frame .top_kv_crumbs {
+    @include m(){
+        width: 63vw;
+        height: 47.37px;
+        left: 19.6vw;
+        top: 751px;
+    }
+}
     &-map {
         position: relative;
         top: -12vw;
         right: -4vw;
+      
         img {
             width: 100%;
         }
+        @include m(){
+            width: calc((63/var(--rwd-width)) * 100vw);
+            top: 73vw;
+            height: 204vw;
+            right: 16vw;
+        }
         &-all {
             width: 65vw;
+
+            @include m(){
+                width: calc((67/var(--rwd-width)) * 100vw);
+                // width: 122vw;
+            }
             &::after,
             &::before {
                 background-image: $cloud;
@@ -27,23 +56,42 @@
                 width: vw(200);
                 height: vw(150);
                 background-repeat: no-repeat;
-                animation: step-fluffy 7s steps(1) infinite
+                animation: step-fluffy 7s steps(1) infinite;
+
+                @include m(){
+                    width: 20vw;
+                    height: 9.8vw;
+                }
             }
 
             &::after{
-                animation: step-fluffy2 8s steps(1) infinite
+                animation: step-fluffy2 8s steps(1) infinite;
+             
+                
             }
             &::before {
                 position: absolute;
                 top: vw(513);
                 right:vw(-158);
                 background-size: vw(116);
+                
+                @include m(){
+                    top: -47vw;
+                    right: 11.7vw;
+                    background-size: 16vw;
+                }
             }
             &::after {
                 position: absolute;
                 top: vw(619);
+            
                 left: vw(16);
                 background-size: vw(129);
+                @include m(){
+                    top: -7.7vw;
+                    left: 26.8vw;
+                    background-size: 12.7vw;
+                }
             }
 
             .store {
@@ -51,42 +99,77 @@
                 top: 16vw;
                 right: 7vw;
                 width: 10vw;
+                @include m(){
+                    width: calc((10/var(--rwd-width)) * 100vw);
+                    right: calc((7/var(--rwd-width)) * 100vw);
+                    top: calc((16/var(--rwd-height)) * 100vw);
+                }
             }
             .res {
                 position: absolute;
                 top: 8.6vw;
                 right: 21vw;
                 width: 15.6vw;
+                @include m(){
+                    width: calc((15.6/var(--rwd-width)) * 100vw);
+                    right: calc((21/var(--rwd-width)) * 100vw);
+                    top: calc(( 8.6/var(--rwd-height)) * 100vw);
+                }
             }
             .med {
                 position: absolute;
                 top: 21vw;
                 right: 39.7vw;
                 width: 11vw;
+                @include m(){
+                    width: calc((11/var(--rwd-width)) * 100vw);
+                    right: calc((39.7/var(--rwd-width)) * 100vw);
+                    top: calc(( 21/var(--rwd-height)) * 100vw);
+                }
             }
             .cos {
                 position: absolute;
                 top: 32.5vw;
                 right: 41.6vw;
                 width: 14.5vw;
+                @include m(){
+                    width: calc((14.5/var(--rwd-width)) * 100vw);
+                    right: calc((41.6/var(--rwd-width)) * 100vw);
+                    top: calc(( 32.5/var(--rwd-height)) * 100vw);
+                }
             }
             .dog {
                 position: absolute;
                 top: 31vw;
                 right: 15vw;
                 width: 13.6vw;
+                @include m(){
+                    width: calc((13.6/var(--rwd-width)) * 100vw);
+                    right: calc((15/var(--rwd-width)) * 100vw);
+                    top: calc((31/var(--rwd-height)) * 100vw);
+                }
             }
             .cat {
                 position: absolute;
                 top: 23vw;
                 right: 25vw;
                 width: 14vw;
+                @include m(){
+                    width: calc((14/var(--rwd-width)) * 100vw);
+                    right: calc((25/var(--rwd-width)) * 100vw);
+                    top: calc(( 23/var(--rwd-height)) * 100vw);
+                }
             }
             .ball {
                 position: absolute;
                 top: 30vw;
-                right: 6.1vw;
+                right: 6vw;
                 width: 12.6vw;
+                @include m(){
+                    width: calc((12.6/var(--rwd-width)) * 100vw);
+                    right: calc((6/var(--rwd-width)) * 100vw);
+                    top: calc(( 30/var(--rwd-height)) * 100vw);
+                }
             }
             .cloud {
                 position: absolute;
@@ -102,16 +185,27 @@
         z-index: -1;
         top: 5vw;
         left: -2vw;
-    }
+        @include m(){
+            top: 10vw;
+            left: 33vw;
+
+        }
 
     &_cir {
         position: absolute;
         z-index: -1;
         width: 24.177083vw;
         top: -7vw;
+        @include m(){
+            width: 68vw;
+            top: -18vw;
+        }
     }
     h1 {
         font-size: 1.8vw;
+        @include m(){
+            font-size: 5.7vw;
+        }
     }
     .link-wrapper {
         display: flex;
@@ -119,7 +213,7 @@
         top: vw(-260);
         transition: opacity 0.3s ease-in-out;
     }
-
+}
     ////////
     &_rest {
         position: relative;
@@ -136,21 +230,42 @@
             height: 11vw;
             background-repeat: no-repeat;
             background-size: vw(200);
-            animation: step-fluffy 10s steps(1) infinite
+            animation: step-fluffy 10s steps(1) infinite;
+            @include m(){
+                top: -2vw;
+                right: 5vw;
+                width: 26.5vw;
+                height: 32vw;
+                background-size: 28vw;
+
+            }
         }
 
         .rest {
             position: relative;
+            @include m(){
+            width: 272px;
+            top: 444px;
+            }
             .res1 {
                 position: absolute;
                 z-index: -1;
                 width: vw(373);
                 top: vw(48);
+                @include m(){
+                    width:100%;
+
+                }
             }
             .res2 {
                 position: absolute;
                 top: vw(170);
                 width: 17vw;
+                @include m(){
+                    width: calc(26 / var(--rwd-width) * 100vw);
+                    top: 17.854167vw;
+                    
+                }
             }
 
             &::after {
@@ -196,22 +311,40 @@
     &_store {
         position: relative;
         top: vw(87);
+        @include m(){
+            top: 104.5vw;
+            height: 264vw;
+        }
+        
         .store {
             position: relative;
             top: vw(124);
             right: vw(-90);
+
+            @include m(){
+                top: 103.4vw;
+                right: -22.7vw;
+                width: 272px;
+            }
             .store1 {
                 position: absolute;
                 z-index: -1;
                 width: vw(373);
                 top: vw(48);
                 right: vw(-69);
+                @include m(){
+                    width: 100%;
+                }
             }
             .store2 {
                 position: absolute;
                 top: vw(170);
                 right: vw(109);
                 width: 11vw;
+                @include m(){
+                    width: calc(20 / var(--rwd-width) * 100vw);
+                    top: 17.854167vw;
+                }
             }
 
             &::after {
@@ -249,23 +382,40 @@
     ///
     &_med {
         position: relative;
-
+        @include m(){
+            top: 13.5vw;
+            height: 264vw;
+        }
         .med {
             position: relative;
             top: 6.45vw;
             right: -4.6vw;
+            @include m(){
+                top: 100.4vw;
+                right: -22.7vw;
+                width: 272px;
+            }
+
             .med1 {
                 position: absolute;
                 z-index: -1;
                 width: 21vw;
                 top: 17.5vw;
                 left: vw(-114);
+                @include m(){
+                    width: 100%;
+                }
             }
             .med2 {
                 position: absolute;
                 top: 24vw;
                 left: 5.4vw;
                 width: 11.8vw;
+                @include m(){
+                    width: calc(20 / var(--rwd-width) * 100vw);
+                    top: 46.854167000000004vw;
+                    left: 84px;
+                }
 
             }
 
@@ -290,23 +440,42 @@
     &_cos {
         position: relative;
         top: 37vw;
-
+        @include m(){
+            top: 13.5vw;
+            height: 264vw;
+        }
+        
         .cos {
             position: relative;
             top: -4.5vw;
             right: -54vw;
+            @include m(){
+                top: 100.4vw;
+                right: -22.7vw;
+                width: 272px;
+            }
             .cos1 {
                 position: absolute;
                 z-index: -1;
                 width: 21vw;
                 top: 17.5vw;
                 left: vw(-114);
+                @include m(){
+                    width: 100%;
+                }
+
             }
             .cos2 {
                 position: absolute;
                 top: 21.3vw;
                 left: -5.5vw;
                 width: 17.5vw;
+                @include m(){
+                    width: calc(20 / var(--rwd-width) * 100vw);
+                    top: 46.854167000000004vw;
+                    left: 84px;
+                }
+
             }
 
             &::before {
@@ -334,10 +503,19 @@
         top: 49vw;
         height: auto;
         margin-bottom: 77vw;
+        @include m(){
+            top: 13.5vw;
+            height: 264vw;
+        }
         .grass {
             position: relative;
             top: -4.5vw;
             right: -54vw;
+            @include m(){
+                top: 100.4vw;
+                right: -22.7vw;
+                width: 272px;
+            }
             .grass1 {
                 position: absolute;
                 z-index: -1;
@@ -345,6 +523,9 @@
                 top: 8.5vw;
                 left: -48vw;
                 z-index: 10;
+                @include m(){
+                    width: 100%;
+                }
             }
             .grass2 {
                 position: absolute;
@@ -352,6 +533,11 @@
                 left: -55.4vw;
                 width: 13.8vw;
                 z-index: 10;
+                @include m(){
+                    width: calc(20 / var(--rwd-width) * 100vw);
+                    top: 46.854167000000004vw;
+                    left: 84px;
+                }
             }
             .grass3 {
                 position: absolute;
@@ -387,45 +573,89 @@
         z-index: -3;
         height: 312vw;
         overflow: hidden;
+        
+        @include m(){
+            top: 165vw;
+            right: -16vw;
+            height: 358vw;
+            width: 410px;
+         }
 
         img {
             width: 100%;
         }
-    }
 
 }
-
+}
 //內容
 .all-cont {
     position: relative;
     display: flex;
     flex-direction: column;
     width: 41vw;
-
+    @include m(){
+        width: 86vw;    
+    }
+    img{
+       width:40vw;
+       @include m(){
+        width: 86vw;
+       }
+    }
     &.rest-cont {
         top: -13vw;
         right: -7vw;
         margin-left: auto;
+        @include m(){
+            top: 19vw;
+            margin: 0 auto;
+            right: 0;
+        }
     }
 
     &.store-cont {
         margin-left: 0;
         width: 40vw;
+        @include m(){
+            top: 17vw;
+            margin: 0 auto;
+            right: 0;
+            width: 86vw;
+        }
     }
 
     &.med-cont {
         top: 21vw;
         right: -7vw;
         margin-left: auto;
+        @include m(){
+            top: 19vw;
+            margin: 0 auto;
+            right: 0;
+            width: 86vw;
+        }
     }
     &.cos-cont {
         margin-left: 0;
         width: 40vw;
+        @include m(){
+            top: 19vw;
+            margin: 0 auto;
+            right: 0;
+            width: 86vw;
+        }
     }
     &.grass-cont {
         margin: 0 auto;
         width: 60vw;
         top: 21vw;
+        @include m(){
+            top: 19vw;
+            margin: 0 auto;
+            right: 0;
+            width: 86vw;
+        }
+
     }
 
 }
@@ -521,7 +751,7 @@
 
 // slider
 .cont-slider {
-    width: 40vw;
+    width: 86vw;
 }
 
 .cont-slider-ui {
