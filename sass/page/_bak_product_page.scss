@@ -1,287 +1,170 @@
+.bakProductPageWrapper {
+  width: vw(1200);
+  height: vw(900);
+  background-color: #fff;
+  border-radius: $r25;
 
-  .bakProductPageWrapper {
-    width: vw(1200);
-    height: vw(900);
-    background-color: #fff;
-    border-radius: $r25;
+  display: flex;
 
-    display: flex;
+  .productImageArea {
+    margin: $space4 $space2 $space4 $space4;
+    // border: 1px solid $gray500;
+    height: vw(836);
+    width: vw(552);
 
-    .productImageArea {
-      margin: $space4 $space2 $space4 $space4;
-      // border: 1px solid $gray500;
-      height: vw(836);
-      width: vw(552);
-
-
-      .imgLarge {
-        border: 1px solid $gray500;
-        // background-color: $lineGray;
-        width: 100%;
-        height: vw(672);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        
-        h5{
-          color: $primaryA11y;
-        }
-        input[type=image] {
-          width: 100%;
-          height: vw(550);
-          background-color: $gray500;
-        }
-        button.uploadImg{
-          margin: vw(8) vw(16) vw(8) auto;
-        }
-      }
-      ul.imgSmall {
-        margin-top: vw(24);
-        width: 100%;
-        height: vw(140);
-        display: flex;
-        overflow: hidden;
-
-
-        li {
-          width: vw(140);
-          height: vw(140);
-          border: 1px solid $gray500;
-          margin: 0 vw(12);
-          flex-shrink: 0;
-          background-color: $gray500;
-
-          &:first-child {
-            margin-left: 0;
-          }
-        }
-      }
-    }
-    .productInfo {
-      margin: $space4 $space4 $space4 $space2;
-      //   border: 1px solid $gray500;
-      height: vw(836);
-      width: vw(552);
-      padding: $space4;
-      position: relative;
-
-      
-      .bak-pd-info-name {
-        @include input-text(60%);
-      }
-     
-
-      ul.changePageButton {
-        display: flex;
-        li {
-          background-color: $gray500;
-          color: $gray700;
-          width: vw(118);
-          height: vw(48);
-
-          font-size: font-size(15);
-          text-align: center;
-          line-height: vw(48);
-          border: 1px solid #fff;
-          border-bottom: 0;
-          border-radius: vw(10) vw(10) 0 0;
-
-          position: relative;
-
-          &:first-child {
-            left: 0px;
-            z-index: 3;
-          }
-          &:nth-child(2) {
-            left: -8px;
-            z-index: 2;
-          }
-          &:last-child {
-            left: -16px;
-            z-index: 1;
-          }
-          &.highlight {
-            background-color: $primaryDark;
-            color: #e8f6f5;
-            z-index: 5;
-          }
-        }
-      }
-      .textArea {
-        width: 100%;
-        height: vw(450);
-        resize: none;
-        border: 0;
-        outline: solid 1px $primaryDefault;
-        border-radius: vw(6);
-        padding: $space1;
-        overflow-y: scroll;
-        
-        &:hover {
-          outline: solid vw(2) $primaryDefault;
-        }
-
-        /* 滾動卷軸 */
-        &::-webkit-scrollbar {
-          // 整個卷軸
-          width: vw(16);
-          @include m() {
-          width: rwd(16);
-          }
-        }
-
-        &::-webkit-scrollbar-track {
-          // 卷軸軌道區塊
-          border: solid vw(16) transparent;
-          @include m() {
-          border: solid rwd(16) transparent;
-          }
-        }
-
-        &::-webkit-scrollbar-thumb {
-          // 卷軸滑塊
-          background-color: $gray500;
-          border: vw(4) solid #fff;
-          border-radius: vw(8);
-          @include m() {
-            border: rwd(4) solid #fff;
-          border-radius: rwd(8);
-          }
-        }
-      }
+    .imgLarge {
+      border: 1px solid $gray500;
+      // background-color: $lineGray;
+      width: 100%;
+      height: vw(672);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
       h5 {
-        margin: $space1 0;
+        color: $primaryA11y;
+      }
+      img {
+        width: 100%;
+        height: vw(550);
+        background-color: $gray500;
+      }
+      input[type="file"] {
+        width: vw(250);
+        margin: vw(8) vw(16) vw(8) auto;
+      }
+    }
+    ul.imgSmall {
+      margin-top: vw(24);
+      width: 100%;
+      height: vw(140);
+      display: flex;
+      overflow: hidden;
+
+      li {
+        width: vw(140);
+        height: vw(140);
+        border: 1px solid $gray500;
+        margin: 0 vw(12);
+        flex-shrink: 0;
+        background-color: $gray500;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+  .productInfo {
+    margin: $space4 $space4 $space4 $space2;
+    //   border: 1px solid $gray500;
+    height: vw(836);
+    width: vw(552);
+    padding: 0 $space4;
+    position: relative;
+
+    label.bak-pd-info-name {
+      @include inputLabel(100%, "請輸入商品名稱*");
+    }
+    // .bak-pd-info-name {
+    //   @include input-text(60%);
+    // }
+
+    ul.changePageButton {
+      margin-top: $space1;
+      display: flex;
+      li {
+        background-color: $gray500;
+        color: $gray700;
+        width: vw(118);
+        height: vw(48);
+
+        font-size: font-size(15);
+        text-align: center;
+        line-height: vw(48);
+        border: 1px solid #fff;
+        border-bottom: 0;
+        border-radius: vw(10) vw(10) 0 0;
+
+        position: relative;
+
+        &:first-child {
+          left: 0px;
+          z-index: 3;
+        }
+        &:nth-child(2) {
+          left: -8px;
+          z-index: 2;
+        }
+        &:last-child {
+          left: -16px;
+          z-index: 1;
+        }
+        &.highlight {
+          background-color: $primaryDark;
+          color: #e8f6f5;
+          z-index: 5;
+        }
+      }
+    }
+
+    textarea {
+      width: 100%;
+      height: vw(450);
+      resize: none;
+      margin-top: $space1;
+      border-radius: vw(6);
+
+      border: 0;
+      outline: solid 1px $primaryDefault;
+      &:hover {
+        outline: solid vw(2) $primaryDefault;
+      }
+      &::placeholder {
+        color: $gray500;
+      }
+
+      /* 滾動卷軸 */
+      &::-webkit-scrollbar {
+        // 整個卷軸
+        width: vw(16);
+      }
+
+      &::-webkit-scrollbar-track {
+        // 卷軸軌道區塊
+        border: solid vw(16) transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        // 卷軸滑塊
+        background-color: $gray500;
+        border: vw(4) solid #fff;
+        border-radius: vw(8);
+      }
+    }
+
+    span {
+      display: flex;
+      margin: $space2 0;
+      h5 {
         font-weight: $bold;
-        @include m() {
-          font-size: rwd(16);
-          margin: rwd(8) 0;
-        }
+        margin-right: $space2;
       }
-      p {
-        margin: $space1 0;
-        @include m() {
-          font-size: rwd(16);
-          margin: rwd(8) 0;
-        }
+
+      .bak-pd-price[type="text"] {
+        @include input-text(vw(200));
       }
-      div {
-        display: flex;
-        justify-content: space-between;
-        margin-top: auto;
-        .counter {
-          align-self: center;
 
-          width: vw(120);
-          height: vw(40);
-          border: solid 1px $primaryDark;
-          border-radius: vw(6);
-
-          @include m() {
-          width: rwd(120);
-          height: rwd(40);
-          border-radius: rwd(6);
-          }
-
-          input[type="number"] {
-            width: vw(40);
-            border: none;
-            outline: none;
-            text-align: center;
-            -moz-appearance: textfield;
-            
-            @include m() {
-              width: rwd(40);
-              }
-
-            &::-webkit-inner-spin-button,
-            ::-webkit-outer-spin-button {
-              -webkit-appearance: none;
-              margin: 0;
-            }
-            &:hover {
-              outline: none;
-            }
-          }
-          button {
-            width: vw(40);
-            height: vw(40);
-
-            background-color: transparent;
-            border: 0;
-            cursor: pointer;
-
-            @include m() {
-              width: rwd(40);
-              height: rwd(40);
-            }
-
-            &:hover {
-              background-color: $primaryDark;
-
-              @include m() {
-                background-color: rgba(255, 255, 255, 0);
-              }
-
-              &.btn-minus::after {
-                color: #fff;
-
-                @include m() {
-                  color: $primaryDark;
-                }
-              }
-              &.btn-plus::after {
-                color: #fff;
-
-                @include m() {
-                  color: $primaryDark;
-                }
-              }
-            }
-            &.btn-minus {
-              border-radius: vw(6) 0 0 vw(6);
-              &::after {
-                content: "\2212";
-                color: $primaryDark;
-              }
-            }
-            &.btn-plus {
-              border-radius: 0 vw(6) vw(6) 0;
-              &:after {
-                content: "\002B";
-                color: $primaryDark;
-              }
-            }
-          }
-        }
-      }
-      button.btn-shopping {
-        display: flex;
-
-        @include m() {
-          &:hover:disabled{
-            background-color: rgba(255, 255, 255, 0);
-          }
-        }
-
-        iconify-icon {
-          font-size: $h4;
-          margin-right: vw(8);
-
-          @include m() {
-            font-size: rwd(20);
-            margin-right: rwd(16);
-          }
-        }
+      .bak-pd-num[type="text"] {
+        @include input-text(vw(200));
       }
     }
-  }
 
-  button.btn-1{
-    display: none;
-
-    @include m(){
-      display: block;
-      margin: rwd(16) auto;
+    div {
+      display: flex;
+      justify-content: end;
+      margin-top: auto;
+      // button.btn-0 {}
     }
   }
+}
