@@ -15,7 +15,7 @@
     "前頁面" : "浪浪募資" ,
     "此頁面" : "贊助頁面" ,
     })
-    <main class="sponsor_information">
+    <main class="sponsor_information" id="sponsor_informationApp">
         <h1>【I got you 浪我罩你】線上訂閱中途計畫</h1>
         <div class="sponsor_information-all">
             <div class="sponsor_information-all-left">
@@ -38,20 +38,20 @@
                 </div>
             </div>
             <div class="sponsor_information-all-right">
-                <ul class="sponsor_information-right-top" id="sponsor_informationApp">
+                <ul class="sponsor_information-right-top">
                     <li v-for="title in cartTitle" :class="{'currentPage': currentPage === title.id}">{{title.name}}</li>
                 </ul>
-                <div class="sponsor_information-flex">
+                <section class="sponsor_information-flex">
                     <label class="sponsor_information-label" for="username">
                         <h4>姓名</h4>
                     <input class="input-text" type="text" name="username" id="username" placeholder="請填寫真實姓名">
                     </label>
                     <br>
-                    <label class="sponsor_information-label" for="tw">
+                    <div class="sponsor_information-label">
                         <h4>國籍別</h4>
-                    <input id="nation" type="radio" name="tw" value="本國籍"><p class="sponsor_information-p">本國籍</p>
-                    <input id="nation" type="radio" name="tw" value="外國籍"><p class="sponsor_information-p">外國籍</p>
-                    </label>
+                    <label class="nation-label" for="nationTW"><input id="nationTW" type="radio" name="nation" value="本國籍">本國籍</label>
+                    <label class="nation-label" for="nationUS"><input id="nationUS" type="radio" name="nation" value="外國籍">外國籍</label>
+                    </div>
                     <br>
                     <label class="sponsor_information-label" for="idname">
                         <h4>身份證字號</h4>
@@ -65,8 +65,8 @@
                     <br>
                     <label class="sponsor_information-label" for="sex">
                         <h4>性別</h4>
-                    <input id="nation" type="radio" name="sex" value="男"><p class="sponsor_information-p">男</p>
-                    <input id="nation" type="radio" name="sex" value="女"><p class="sponsor_information-p">女</p>
+                    <label class="sex-label" for="male"><input id="male" type="radio" name="sex" value="男">男</label>
+                    <label class="sex-label" for="female"><input id="female" type="radio" name="sex" value="女">女</label>
                     </label>
                     <br>
                     <label class="sponsor_information-label" for="birthday">
@@ -90,21 +90,20 @@
                         <option>請選擇</option>
                     </select>
                     </label>
-                    <label class="sponsor_information-label3" for="number">
+                    <label class="sponsor_information-label3" for="address">
                     <input class="input-text" type="text" id="address" placeholder="範例: 路街樓號">
                     </label>    
                     <br>
                     <label class="sponsor_information-label" for="nation">
                         <h4>捐款方式</h4>
-                    <input id="nation" type="radio" name="nation" value="Visa / Master / JCB"><p class="sponsor_information-p">Visa / Master / JCB</p> 
-                    <input id="nation" type="radio" name="nation" value="ATM轉帳"><p class="sponsor_information-p">ATM轉帳</p> 
-                    <input id="nation" type="radio" name="nation" value="超商繳款"><p class="sponsor_information-p">超商繳款</p> 
+                    <label class="payment-label" for="creditcard"><input id="creditcard" type="radio" name="payment" value="Visa / Master / JCB">Visa / Master / JCB</label>
+                    <label class="payment-label" for="ATM"><input id="ATM" type="radio" name="payment" value="ATM轉帳">ATM轉帳</label>
+                    <label class="payment-label" for="shop"><input id="shop" type="radio" name="payment" value="超商繳款">超商繳款</label>
                     </label>
-                    <br>
-                </div>
-                <div class="sponsor_information-under">
-                    <a href="#"><button class="btn-0">下一步</button></a>
-                </div>
+                    <div class="sponsor_information-under">
+                        <button class="btn-0">下一步</button>
+                    </div>
+                </section>
             </div>
         </div>
         
@@ -116,8 +115,8 @@
                     {id:1,name:'捐款人資料'},
                     {id:2,name:'收據資訊'},
                     {id:3,name:'個資聲明'}],
+                    currentPage: 1,
                 },
-                currentPage: 1,
                 
             })
         </script>
