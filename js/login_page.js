@@ -19,7 +19,7 @@ const loginContent ={
 
     </div>
     <div>
-      <button class="btn-0">登入會員</button>
+    <a href="./member_detail.html" class="btn-0">登入會員</a>
       <button class="btn-1">忘記密碼</button>
     </div>
   </section>
@@ -30,8 +30,8 @@ const registerContent ={
     template:`
     <section>
           <span>
-            <button>使用 LINE 登入</button>
-            <button>使用 FB 登入</button>
+            <button>使用 LINE 註冊</button>
+            <button>使用 FB 註冊</button>
           </span>
             <hr class="mainLine">
             <div>
@@ -99,6 +99,6 @@ new Vue({
     components:{
         'loginContent': loginContent,
         'registerContent': registerContent
-    },
+  }
     
 })

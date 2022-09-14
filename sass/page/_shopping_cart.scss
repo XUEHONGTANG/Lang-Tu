@@ -54,7 +54,7 @@ main.shoppingCartWrapper {
     display: flex;
     li {
       width: 100%;
-      font-size: $h2;
+      font-size: $h3;
       font-weight: $bold;
       text-align: center;
       padding: $space4;
@@ -791,4 +791,9 @@ main.shoppingCartWrapper {
       }
     }
   }
+
+  a{
+    text-decoration:none;
+  }
+
 }

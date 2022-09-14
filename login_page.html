@@ -25,6 +25,8 @@
           @click="content='registerContent', selected = 2" :class="{'currentPage':selected === 2}"
           >註冊會員</li>
         </ul>
+        <br>
+        <!-- <a href="./member_detail.html" class="btn-0">登入會員</a> -->
 
         <component :is="content"></component>
       </main>
