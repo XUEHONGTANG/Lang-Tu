@@ -50,8 +50,14 @@
                     <br>
                     <div class="sponsor_information-label">
                         <h4>國籍別</h4>
-                    <label class="nation-label" for="nationTW"><input id="nationTW" type="radio" name="nation" value="本國籍"><p>本國籍</p></label>
-                    <label class="nation-label" for="nationUS"><input id="nationUS" type="radio" name="nation" value="外國籍"><p>外國籍</p></label>
+                    <label class="nation-label" for="nationTW">
+                        <input id="nationTW" type="radio" name="nation" value="本國籍">
+                        <p>本國籍</p>
+                    </label>
+                    <label class="nation-label" for="nationUS">
+                        <input id="nationUS" type="radio" name="nation" value="外國籍">
+                        <p>外國籍</p>
+                    </label>
                     </div>
                     <br>
                     <label class="sponsor_information-label" for="idname">
@@ -66,13 +72,18 @@
                     <br>
                     <label class="sponsor_information-label" for="sex">
                         <h4>性別</h4>
-                    <label class="sex-label" for="male"><input id="male" type="radio" name="sex" value="男"><p>男</p></label>
-                    <label class="sex-label" for="female"><input id="female" type="radio" name="sex" value="女"><p>女</p></label>
+                    <label class="sex-label" for="male"><input id="male" type="radio" name="sex" value="男">
+                        <p>男</p>
+                    </label>
+                    <label class="sex-label" for="female">
+                        <input id="female" type="radio" name="sex" value="女">
+                        <p>女</p>
+                    </label>
                     </label>
                     <br>
                     <label class="sponsor_information-label" for="birthday">
                         <h4>生日</h4>
-                    <input class="input-text" type="text" id="birthday" placeholder="範例: 1999-10-10">
+                        <input class="input-text" type="text" id="birthday" placeholder="範例: 1999-10-10">
                     </label>
                     <br>
                     <label class="sponsor_information-label" for="number">
@@ -83,23 +94,32 @@
 
                     <label class="sponsor_information-label2" for="address">
                         <h4>連絡地址</h4>
-                    <input class="input-text2" type="text" id="address" placeholder="郵遞區號">
-                    <select name="" id="">
-                        <option>請選擇</option>
-                    </select>
-                    <select name="" id="">
-                        <option>請選擇</option>
-                    </select>
+                        <input class="input-text2" type="text" id="address" placeholder="郵遞區號">
+                        <select name="" id="">
+                            <option>請選擇</option>
+                        </select>
+                        <select name="" id="">
+                            <option>請選擇</option>
+                        </select>
                     </label>
                     <label class="sponsor_information-label3" for="address">
-                    <input class="input-text" type="text" id="address" placeholder="範例: 路街樓號">
+                        <input class="input-text" type="text" id="address" placeholder="範例: 路街樓號">
                     </label>    
                     <br>
                     <label class="sponsor_information-label" for="nation">
                         <h4>捐款方式</h4>
-                    <label class="payment-label" for="creditcard"><input id="creditcard" type="radio" name="payment" value="Visa / Master / JCB"><p>Visa / Master / JCB</p></label>
-                    <label class="payment-label" for="ATM"><input id="ATM" type="radio" name="payment" value="ATM轉帳"><p>ATM轉帳</p></label>
-                    <label class="payment-label" for="shop"><input id="shop" type="radio" name="payment" value="超商繳款"><p>超商繳款</p></label>
+                    <label class="payment-label" for="creditcard">
+                        <input id="creditcard" type="radio" name="payment" value="Visa / Master / JCB">
+                        <p>Visa/Master/JCB</p>
+                    </label>
+                    <label class="payment-label" for="ATM">
+                        <input id="ATM" type="radio" name="payment" value="ATM轉帳">
+                        <p>ATM轉帳</p>
+                    </label>
+                    <label class="payment-label" for="shop">
+                        <input id="shop" type="radio" name="payment" value="超商繳款">
+                        <p>超商繳款</p>
+                    </label>
                     </label>
                     <div class="sponsor_information-under">
                         <button class="btn-0" @click="currentPage = 2">下一步</button>

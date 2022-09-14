@@ -7,6 +7,6 @@ new Vue({
                 {id:3,name:'個資聲明'}
             ],
             
-            currentPage: 2,
+            currentPage: 1,
         },
     })

@@ -20,8 +20,10 @@
         background-color: #fff;
         border-radius: $r25;
         padding: vw(20);
+        box-shadow: $shadow;
         @include m(){
             flex-direction: column;
+            border-radius: rwd(10);
         }
         .sponsor_information-all-left{
             flex: 1;
@@ -157,6 +159,14 @@
         }
         .sponsor_information-flex{
             margin-top: vw(20);
+            label{
+                h4{
+                    @include m(){
+                        text-align: right;
+                        padding-right: rwd(8);
+                    }
+                }
+            }
         }
         .sponsor_information-right-top{
             display: flex;
@@ -203,7 +213,9 @@
                 @include m(){
                     font-size: rwd(16);
                     width: rwd(100);
-                    text-align: left;
+                    // text-align: left;
+                    text-align: right;
+                    padding-right: rwd(8);
                 }
             }
             .nation-label {
