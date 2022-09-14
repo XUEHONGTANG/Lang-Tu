@@ -143,11 +143,14 @@
             height: rwd(88);
         }
     }
-    // // @else if($title != ''){
-    // //     height: vw(74);
-    // // }
+    @else if($title != ''){
+        height: vw(35);
+    @include m(){
+                height: rwd(28);
+            }
+    }
     @else if($helptext $errortext!= '' or $helptext != ''){
-        height: vw(79);
+        height: vw(90);
         @include m(){
             height: rwd(62);
         }
