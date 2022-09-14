@@ -148,33 +148,11 @@
       margin: $space2 0;
       h5 {
         font-weight: $bold;
-<<<<<<< HEAD
         margin-right: $space2;
       }
 
       .bak-pd-price[type="text"] {
         @include input-text(vw(200));
-=======
-        .pr{
-          @include input-text(60%);
-        }
-        @include m() {
-          font-size: rwd(16);
-          margin: rwd(8) 0;
-        }
-      }
-      p {
-        margin: $space1 0;
-        font-weight: $bold;
-        .nu{
-          @include input-text(60%);
-          margin-top: vw(16);
-        }
-        @include m() {
-          font-size: rwd(16);
-          margin: rwd(8) 0;
-        }
->>>>>>> dev
       }
 
       .bak-pd-num[type="text"] {
@@ -182,7 +160,6 @@
       }
     }
 
-<<<<<<< HEAD
     div {
       display: flex;
       justify-content: end;
@@ -191,5 +168,3 @@
     }
   }
 }
-=======
->>>>>>> dev
