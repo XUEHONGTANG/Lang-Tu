@@ -31,10 +31,16 @@
             <img src="/images/index/stars.png" alt="" class="star" id="star">
           </div>
           <div class="index_2-moon" id="moon" data-speed="0.8"><img src="images/index/moon.png" alt=""></div>
-          <div class="index_2-city">
-            <img src="images/header/header_city1.png" alt="" class="right" id="city-r">
-            <img src="images/header/header_city3.png" alt="" class="left" id="city-l">
+
+
+          <div class="index_2-city delayed-city" data-scrub="6">
+            <div id="cityContainer"><img src="images/header/header_city1.png" alt="" class="right" id="city-r"></div>
           </div>
+          <div class="index_2-city delayed-city" data-scrub="4">
+            <div id="cityContainer"><img src="images/header/header_city3.png" alt="" class="left" id="city-l"></div>
+          </div>
+
+
         </div>
 
         <div class="index_2-paper">
@@ -50,22 +56,22 @@
             </p>
           </div>
           <div class="paper-range">
-            <div id="del1" class="delayed-section" data-scrub="0.2">
+            <div id="del1" class="delayed-section" data-scrub="2">
               <div id="paperContainer">
                 <img src="images/index/paper01.png" alt="" class="paper01">
               </div>
             </div>
-            <div id="del2" class="delayed-section" data-scrub="0.9">
+            <div id="del2" class="delayed-section" data-scrub="7">
               <div id="paperContainer">
                 <img src="images/index/paper02.png" alt="" class="paper02">
               </div>
             </div>
-            <div id="del3" class="delayed-section" data-scrub="0.6">
+            <div id="del3" class="delayed-section" data-scrub="6">
               <div id="paperContainer">
                 <img src="images/index/paper03.png" alt="" class="paper03">
               </div>
             </div>
-            <div id="del4" class="delayed-section" data-scrub="0.8">
+            <div id="del4" class="delayed-section" data-scrub="4">
               <div id="paperContainer">
                 <img src="images/index/paper04.png" alt="" class="paper04">
               </div>
@@ -256,7 +262,7 @@
         <section class="index_2-2">
           <div class="text">
             <h5>但我還是想要尋找</h5>
-            <h1> <span class="txt-type" data-wait="3000" data-words='["屬於我的幸福....... "]'></span> </h1>
+            <h3> <span class="txt-type" data-wait="3000" data-words='["屬於我的幸福....... "]'></span> </h3>
 
           </div>
 
@@ -273,35 +279,35 @@
       </article>
 
       <article class="index_3">
-        <div class="index_3-text">
+        <div class="index_3-text gs_reveal">
           <h3>直到那一天....</h3>
         </div>
         <!-- grid -->
         <div class="index_3-content">
-          <div class="happy1">
+          <div class="happy1  gs_reveal gs_reveal_fromLeft">
             <img src="/images/index/happy03.png" alt="">
           </div>
-          <div class="happy1-text">
+          <div class="happy1-text gs_reveal">
             <p>遇到一群對我很好很好的人們，<br>
               他們照顧我、帶我看醫生，<br>
               是他們拯救孤獨、虛弱的我。</p>
           </div>
 
-          <div class="happy2">
+          <div class="happy2  gs_reveal gs_reveal_fromRight">
             <img src="/images/index/happy02.png" alt="">
           </div>
-          <div class="happy2-text">
+          <div class="happy2-text gs_reveal">
             <p>
               從那時候開始，
               我逐漸明白....
             </p>
           </div>
 
-          <div class="happy3">
+          <div class="happy3  gs_reveal gs_reveal_fromLeft">
             <img src="/images/index/happy04.png" alt="">
 
           </div>
-          <div class="happy3-text">
+          <div class="happy3-text gs_reveal">
             <p>
               我一定要用一輩子的時間與力氣讓他們開心，<br>
               而且要用盡一生去守護著他們，<br>
@@ -311,57 +317,112 @@
             </p>
           </div>
 
-          <div class="happy4">
+          <div class="happy4 gs_reveal gs_reveal_fromRight">
             <img src="/images/index/happy01.png" alt="">
           </div>
-          <div class="happy4-text">
+          <div class="happy4-text gs_reveal">
 
             <h5>因為他們就是我的最愛的家人。</h5>
           </div>
         </div>
       </article>
 
+
       <div class="ending_wrapper-content">
         <article class="index_ending">
-          <div class="ending-container" id="ending-1">
-            <div class="ending-text">
-              <h3>終於，</h3>
-              <p>我找到了一個充滿愛與溫暖的家，<br>
-                和愛我的人，<br>
-                原來那就是我的幸福。<br></p>
-
+          <div class="ending-text gs_reveal">
+            <h2>終於，</h2>
+            <p>我找到了一個充滿愛與溫暖的家，<br>
+              和愛我的人，<br>
+              原來那就是我的幸福。<br></p>
+          </div>
+          <!-- bird -->
+          <div class="bird-content">
+            <div class="bird-container bird-container--one">
+              <div class="bird bird--one"></div>
             </div>
-            <div data-depth="0.75" class="-grass"><img src="images/index/end=grass.png" alt=""></div>
-            <div data-depth="0.6" class="-peo"><img src="images/index/end.png" alt=""></div>
-            <div data-depth="0.3" class="-bg"><img src="images/index/end-bg.png" alt=""></div>
+
+            <div class="bird-container bird-container--two">
+              <div class="bird bird--two"></div>
+            </div>
+
+          </div>
+
+
+          <div class="ending-container" id="ending-1">
+            <div class="-bg" data-depth="0.2"><img src="images/index/end-bg.png" alt=""></div>
+            <div class="p-peo" data-depth="0.35">
+              <div class="-peo"><img src="images/index/end.png" alt=""></div>
+            </div>
+            <div class="p-grass" data-depth="0.3">
+              <div class="-grass"><img src="images/index/end=grass.png" alt=""></div>
+            </div>
+
           </div>
         </article>
       </div>
+
+
     </div>
 
 
 
-    <!-- <section class="index-info">
-      <div class="info_text"><h3>你也想貢獻一分心力嗎？</h3></div>
-      <div class="info_grid">
-        <div class="info-t1"><p>等家的浪浪＿</p></div>
-        <div class="info-t2"><p>贊助我們幫助浪浪＿</p></div>
-        <div class="info-t1-1">
-          <img src="/images/" alt="">
-          <h5>小黃</h5>
-          <p>收養日期:約2022/3月   性別:女生</p>
-        </div>
+    <section class="index-info">
+      <div class="index-info_text gs_reveal">
+        <h2>你也想貢獻一分心力嗎？</h2>
       </div>
-    </section> -->
+
+      <ul class="index-info-list gs_reveal">
+        <li class="sponsored_List-li">
+          <a href="">
+            <div class="index-info-t">
+              <p>等家的浪浪＿</p>
+            </div>
+            <div class="sponsored_List-div">
+              <img src="/images/index/index-info.png" alt="">
+              <div class="sponsored_List-in2">
+                <h3>小黃</h3>
+                <p>收養日期:約2022/3月<br>
+                  性別:女生</p>
+              </div>
+            </div>
+          </a>
+        </li>
+
+        <li class="sponsored_List-li">
+          <div class="index-info-t">
+            <p>贊助我們幫助浪浪＿</p>
+          </div>
+          <div class="sponsored_List-div">
+            <a href="#">
+              <img src="/images/Meteor/dogeat.png" alt="">
+              <h3>與浪共食｜浪毛孩不再飢餓</h3>
+              <div class="sponsored_List-border radius"></div>
+              <div class="sponsored_List-in">
+                <svg class="sponsored_List-svg" width="26" height="25" viewBox="0 0 26 25" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M17.4154 8.08398C16.1966 6.86523 14.6029 6.25065 12.9987 6.25065V12.5007L8.58203 16.9173C11.0195 19.3548 14.9779 19.3548 17.4258 16.9173C19.8633 14.4798 19.8633 10.5215 17.4154 8.08398ZM12.9987 2.08398C7.2487 2.08398 2.58203 6.75065 2.58203 12.5007C2.58203 18.2507 7.2487 22.9173 12.9987 22.9173C18.7487 22.9173 23.4154 18.2507 23.4154 12.5007C23.4154 6.75065 18.7487 2.08398 12.9987 2.08398ZM12.9987 20.834C8.39453 20.834 4.66536 17.1048 4.66536 12.5007C4.66536 7.89648 8.39453 4.16732 12.9987 4.16732C17.6029 4.16732 21.332 7.89648 21.332 12.5007C21.332 17.1048 17.6029 20.834 12.9987 20.834Z"
+                    fill="#2D2D2D" />
+                </svg>
+                <h4>剩下11小時</h4>
+                <p>NT$222,345</p>
+              </div>
+            </a>
+          </div>
+        </li>
+      </ul>
+
+    </section>
 
 
   </main>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+  @@include('layout/footer.html')
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
   <script src="/js/jquery.drawsvg.js"></script>
-  <script src="/js/index.js"></script>
+  <script src="/js/index.js"></script> -->
 
 
 

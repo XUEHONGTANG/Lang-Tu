@@ -3,16 +3,16 @@
 
 <head>
     @@include('./layout/head.html', {
-    "title" : "浪浪等家"
+    "title" : "浪浪募資"
     })
 </head>
 
 <body>
     @@include('./layout/header_1.html',{
-    "大標題" : "浪浪等家" ,
-    "英文標題" : "LANG LANG WAITS FOR HOME" ,
+    "大標題" : "浪浪募資" ,
+    "英文標題" : "Lang Lang Crowdfunding" ,
     "前頁面" : "首頁" ,
-    "此頁面" : "贊助列表" ,
+    "此頁面" : "浪浪募資" ,
     })
     <main class="sponsored_List">
         <div class="sponsored_List-top">
@@ -110,17 +110,26 @@
             </ul>
         </div>
         <div class="page-icon">
-            <span class="page-disabled"><</span>
-            <span class="page-current">1</span>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
-            <a href="#">7</a>
-            <a class="page-next" href="#">></a>
+            <ul class="pages" id="pageApp">
+                <li class="previous">
+                  <i class="fa-solid fa-circle-chevron-left"></i>
+                </li>
+                <li class="currentPage">1</li>
+                <li v-for="page in pages">{{page}}</li>
+                <li class="next">
+                  <i class="fa-solid fa-circle-chevron-right"></i>
+                </li>
+              </ul>
         </div>
     </main>
+    <script>
+        new Vue({
+        el: '#pageApp',
+        data:{
+          pages:['2','3','4']
+        },
+        })
+      </script>
     @@include('layout/footer.html')
 </body>
 

@@ -62,31 +62,50 @@
             h1{
                 margin-top: rwd(10);
             }
-            p{
-                
-            }
         }
         h1{
             font-size: $h4;
             color: $primaryDark;
             font-weight: $bold;
+            @include m(){
+                font-size: rwd(24);
+            }
         }
         p{
             font-size: font-size(14);
             line-height: 2;
+            @include m(){
+                font-size: rwd(16);
+            }
+        }
+
+        ul{
+            list-style: disc;
+            margin-left: vw(24);
+            li{
+                font-size: font-size(14);
+                line-height: 2;
+                @include m(){
+                    font-size: rwd(16);
+                }
+            }
         }
         
     }
     .petpage-tt-under{
         text-align: center;
         margin-top: vw(40);
+        @include m(){
+            padding-bottom: rwd(24);
+        }
         
     }
     .petpage-uu{
         display: flex;
-        width: vw(1000);
+        width: vw(1100);
         background-color: #fff;
         margin: 0 auto;
+        border-radius: $r25;
         h1{
             width: vw(160);
             font-size: $h5;
@@ -103,11 +122,18 @@
     }
     .petpage-uu-right{
         font-weight: $regular;
-        
+        font-size: vw(16);
         align-self: center;
         padding: vw(20) 0;
         p{
-            font-size: font-size(12);
+            font-size: font-size(16);
+        }
+
+        ul{
+            list-style: disc;
+            li{
+                margin-left: vw(24);
+            }
         }
         @include m(){
             

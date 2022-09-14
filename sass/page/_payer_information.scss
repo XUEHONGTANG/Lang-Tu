@@ -11,6 +11,9 @@
         font-size: $h3;
         font-weight: bold;
         padding: vw(40) 0;
+        @include m(){
+            font-size: rwd(18);
+        }
     }
     .payer_information-top{
         width: vw(1000);
@@ -22,10 +25,15 @@
     .payer_information-top-title{
         background-color: $primaryLight;
         border-radius: $r25;
-        
+        font-weight: $medium;
         h2{
             font-size: $h3;
             padding: vw(10);
+        }
+        @include m(){
+            h2{
+                font-size: rwd(16);
+            }
         }
     }
     .payer_information-div1{
@@ -46,6 +54,7 @@
         margin-right: vw(40);
         text-align:right;
         margin: vw(10) vw(40);
+        font-weight: $bold;
         @include m(){
             font-size: rwd(14);
             margin-right: rwd(30);
@@ -80,7 +89,12 @@
             margin-right: vw(20);
         }
         @include m(){
-            
+            .btn-1{
+                font-size: rwd(12);
+            }
+            .btn-0{
+                font-size: rwd(12);
+            }
         }
     }
 }

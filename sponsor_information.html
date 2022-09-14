@@ -5,6 +5,7 @@
     @@include('./layout/head.html', {
     "title" : "浪浪等家"
     })
+    <script src="https://unpkg.com/vue@2"></script>
 </head>
 
 <body>
@@ -19,20 +20,10 @@
         <div class="sponsor_information-all">
             <div class="sponsor_information-all-left">
                 <div class="sponsor_information-all-btnbig-in">
-                    <div class="sponsor_information-all-btnbig-top1">
-                        <div class="sponsor_information-all-btnbig-top-tt">
-                            <h3 class="ch1">每月 500 元</h3>
-                        </div>
-                            <img class="img-dog"  src="/images/Meteor/dogyellow.png" alt="">
-                            <img class="img-cat" src="/images/Meteor/catorenge.png" alt="">
-                    </div>
-                    <div class="sponsor_information-all-btnbig-inder">
-                        <h3 >方案一</h3>
-                        <h4>每月 NT$300</h4>
-                    </div>
-                    <div class="sponsor_information-all-btnbig-under">
-                        <p>已被贊助 621 次</p>
-                    </div>
+                    <div class="selection"><img src="images/Meteor/selection1.jpg" alt=""></div>
+                    <h5>方案一</h5>
+                    <p>每月 NT$300</p>
+                    <p class="sponsorTime">已被贊助 621 次</p>
                 </div>
                 <div class="sponsor_information-all-under">
                     <div class="sponsor_information-all-inder1">
@@ -47,14 +38,89 @@
                 </div>
             </div>
             <div class="sponsor_information-all-right">
-                <label class="sponsor_information-label">
-                    <h1>飼養地點：</h1>
-                    <input class="sponsor_information-text" type="text" placeholder="">
-                </label>
+                <ul class="sponsor_information-right-top" id="sponsor_informationApp">
+                    <li v-for="title in cartTitle" :class="{'currentPage': currentPage === title.id}">{{title.name}}</li>
+                </ul>
+                <div class="sponsor_information-flex">
+                    <label class="sponsor_information-label" for="username">
+                        <h4>姓名</h4>
+                    <input class="input-text" type="text" name="username" id="username" placeholder="請填寫真實姓名">
+                    </label>
+                    <br>
+                    <label class="sponsor_information-label" for="tw">
+                        <h4>國籍別</h4>
+                    <input id="nation" type="radio" name="tw" value="本國籍"><p class="sponsor_information-p">本國籍</p>
+                    <input id="nation" type="radio" name="tw" value="外國籍"><p class="sponsor_information-p">外國籍</p>
+                    </label>
+                    <br>
+                    <label class="sponsor_information-label" for="idname">
+                        <h4>身份證字號</h4>
+                    <input class="input-text" type="text" id="idname" placeholder="境外人士請填寫護照號碼 Passport No.">
+                    </label>
+                    <br>
+                    <label class="sponsor_information-label" for="email">
+                        <h4>E-mail</h4>
+                    <input class="input-text" type="text" id="email">
+                    </label>
+                    <br>
+                    <label class="sponsor_information-label" for="sex">
+                        <h4>性別</h4>
+                    <input id="nation" type="radio" name="sex" value="男"><p class="sponsor_information-p">男</p>
+                    <input id="nation" type="radio" name="sex" value="女"><p class="sponsor_information-p">女</p>
+                    </label>
+                    <br>
+                    <label class="sponsor_information-label" for="birthday">
+                        <h4>生日</h4>
+                    <input class="input-text" type="text" id="birthday" placeholder="範例: 1999-10-10">
+                    </label>
+                    <br>
+                    <label class="sponsor_information-label" for="number">
+                        <h4>連絡電話</h4>
+                    <input class="input-text" type="text" id="number">
+                    </label>
+                    <br>
+
+                    <label class="sponsor_information-label2" for="address">
+                        <h4>連絡地址</h4>
+                    <input class="input-text2" type="text" id="address" placeholder="郵遞區號">
+                    <select name="" id="">
+                        <option>請選擇</option>
+                    </select>
+                    <select name="" id="">
+                        <option>請選擇</option>
+                    </select>
+                    </label>
+                    <label class="sponsor_information-label3" for="number">
+                    <input class="input-text" type="text" id="address" placeholder="範例: 路街樓號">
+                    </label>    
+                    <br>
+                    <label class="sponsor_information-label" for="nation">
+                        <h4>捐款方式</h4>
+                    <input id="nation" type="radio" name="nation" value="Visa / Master / JCB"><p class="sponsor_information-p">Visa / Master / JCB</p> 
+                    <input id="nation" type="radio" name="nation" value="ATM轉帳"><p class="sponsor_information-p">ATM轉帳</p> 
+                    <input id="nation" type="radio" name="nation" value="超商繳款"><p class="sponsor_information-p">超商繳款</p> 
+                    </label>
+                    <br>
+                </div>
+                <div class="sponsor_information-under">
+                    <a href="#"><button class="btn-0">下一步</button></a>
+                </div>
             </div>
         </div>
         
-        
+        <script>
+            new Vue({
+            el: '#sponsor_informationApp',
+            data:{
+                cartTitle:[
+                    {id:1,name:'捐款人資料'},
+                    {id:2,name:'收據資訊'},
+                    {id:3,name:'個資聲明'}],
+                },
+                currentPage: 1,
+                
+            })
+        </script>
     </main>
     @@include('layout/footer.html')
 </body>

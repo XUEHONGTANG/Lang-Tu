@@ -5,6 +5,8 @@
     @include m(){
         width: rwd(394);
     }
+
+}
     
     .sponsored_List-ul{
         display: flex;
@@ -15,7 +17,7 @@
         }
     }
     .sponsored_List-li{
-        
+        list-style: none;
         flex-basis: vw(400);
         margin-bottom: vw(20);
         @include m(){
@@ -39,10 +41,12 @@
     }
     .sponsored_List-div{
         width: vw(350);
+        height: 100%;
         background-color: #fff;
         border-radius: $r25;
         padding-top: vw(20);
         padding-bottom: vw(10);
+        
         @include m(){
             width: rwd(394);
             margin-bottom: rwd(20);
@@ -62,7 +66,7 @@
         content: "";
         height: 7px;
         width: vw(300);
-        background-color: #0b0ff1;
+        background-color: $primaryA11y;
         margin: 0 auto;
         // border: solid 5px ;
         // border-image-source: linear-gradient(to right, #0b0ff1, #7a7a7a );
@@ -111,31 +115,46 @@
 
     ////////以下為頁碼 需修改 目前是意圖
     .page-icon{
-        margin:20px 0;
-        font-size:0;
-        text-align:center;
-    }
-    
-    .page-icon a,.page-disabled,.page-next{
-        border:0px solid $primaryA11y;
-        border-radius:150px;
-        padding:4px 10px 5px;
-        font-size:14PX;
-        margin-right:10px;
-        font-weight: $bold;
-    }
-    
-    .page-icon a{
-        text-decoration:none;
-        color:$primaryA11y;
-    }
-    
-    .page-current{
-        color:$primaryA11y;
-        padding:4px 10px 5px;
-        font-size:14PX;
-        border:1px solid $primaryA11y;
-        border-radius:50%;
-    }
+        
 
-}
+        ul.pages{
+            display: flex;
+            justify-content: center;
+            margin: rwd(16) 0;
+            li{
+              text-align: center;
+              line-height: vw(40);
+              font-size: $p;
+              color: $primaryA11y;;
+              width: vw(40);
+              height: vw(40);
+              margin: 0 vw(8);
+              cursor: pointer;
+      
+              @include m(){
+                line-height: rwd(32);
+                width: rwd(32);
+                height: rwd(32);
+                margin: 0 rwd(8);
+                font-size: rwd(18);
+              }
+            }
+            li.currentPage{
+              color: $secondaryLight;
+              background-color: $primaryA11y;
+              border-radius: 50%;
+            }
+            li.previous,
+            li.next{
+              font-size: vw(18);
+              color: $primaryDark;
+              background-color: transparent;
+              @include m(){
+                font-size: rwd(24);
+              }
+            }
+          }
+    }
+    
+    
+
