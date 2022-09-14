@@ -110,8 +110,8 @@
         display: flex;
         width: vw(1100);
         background-color: #fff;
+        border-radius: $r25;
         margin: 0 auto;
-        border-radius: vw(25);
         @include m(){
             width: rwd(350);
             padding-left: rwd(24);

@@ -166,8 +166,12 @@
             </div>
 
             <div class="buttonArea">
-                <button class="btn-1">返回購物車</button>
-                <button class="btn-0">提交訂單</button>
+                <button class="btn-1"
+                @click="content='page1', currentPage = 1"
+                >返回購物車</button>
+                <button class="btn-0"
+                @click="content='page3', currentPage = 3"
+                >提交訂單</button>
             </div>
         </main>
     <!-- </main> -->

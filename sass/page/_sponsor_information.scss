@@ -1,17 +1,13 @@
-
 .sponsor_information{
     width: vw(1200);
     margin: vw(0) auto;
-    z-index: 35;
 
-    
     h1{
         text-align: center;
         font-size: $h4;
         color: $primaryA11y;
         font-weight: $bold;
         margin-bottom: vw(50);
-        z-index: 35;
     }
     .sponsor_information-all{
         display: flex;
@@ -19,32 +15,20 @@
         border-radius: $r25;
         padding: vw(20);
         .sponsor_information-all-left{
+            flex: 1;
             margin-top: vw(40);
-            z-index: 35;
             margin-right: vw(50);
         }
         .sponsor_information-all-under{
             margin-top: vw(40);
-            z-index: 35;
         }
         .sponsor_information-all-inder1{
             display: flex;
-            z-index: 35;
+            justify-content: space-between
         }
         .sponsor_information-all-inder2{
             display: flex;
-            z-index: 35;
-        }
-        h5{
-            font-size: $p;
-            font-weight: $shadow;
-            margin-right: vw(210);
-            z-index: 35;
-        }
-        p{
-            font-size: $p;
-            color: $primaryA11y;
-            z-index: 35;
+            justify-content: space-between;
         }
         
     }
@@ -54,47 +38,38 @@
         background-color: #fff;
         border-radius: $r25;
         height: vw(239);
-        z-index: 35;
-    }
-    .sponsor_information-all-btnbig-top1{
-        display: flex;
-        background-color: #DBC0AF;
-        margin: vw(20);
-        // height: vw(117);
-        z-index: 35;
-    }
-    .sponsor_information-all-btnbig-top2{
-        display: flex;
-        background-color: #B5E9FA;
-        margin: vw(20);
-        z-index: 35;
-    }
-    .sponsor_information-all-btnbig-top3{
-        display: flex;
-        background-color: #FFEDAC;
-        margin: vw(20);
-        z-index: 35;
-    }
-    .sponsor_information-all-btnbig-top-tt{
-        height: vw(38);
-        z-index: 35;
-        h3{
-            margin: vw(20);
-            color: #fff;
+        padding: vw(16);
+
+        .selection{
+            width: vw(342);
+            img{
+                width: 100%;
+            }
+        }
+        h5{
+            display: inline-block;
+            margin: auto;
             font-size: $h5;
-            width: vw(130);
-            text-align: center;
-            z-index: 35;
         }
-        .ch1{
-            background-color: #B18D76;
-            z-index: 35;
+        p{
+            display: inline-block;
+            margin-left: vw(24);
+            font-size: $p;
+        }
+        .sponsorTime{
+            width: vw(120);
+            margin: auto;
+            font-size: font-size(12);
+            display: block;
+            margin-left: vw(90);
+            color: #333;
+            background-color: $lineGray;
         }
     }
+    
     .sponsor_information-all-btnbig-inder{
         margin: 0 vw(20);
         display: flex;
-        z-index: 35;
         
         h3{
             color: $secondaryA11y;
@@ -113,12 +88,10 @@
             margin-left: vw(130);
             width: vw(150);
             background-color: #F4F4F5;
-            z-index: 35;
         }
     }
     .sponsor_information-all-right{
-        z-index: 35;
-        width: vw(800);
+        flex: 2;
         
         .sponsor_information-p{
             font-size: vw(26);
@@ -138,14 +111,14 @@
               padding: $space4;
               color: $gray500;
               border-bottom: solid vw(3) $gray500;
-              .currentPage {
-                  color: $primaryA11y;
-                  border-bottom: solid vw(3) $primaryA11y;
+              &.currentPage {
+                  color: $primaryDefault;
+                  border-bottom: solid vw(3) $primaryDefault;
               }
                 }
         }
         .input-text{
-            @include input-text(vw(400));
+            @include input-text(vw(600));
             margin-right: vw(0);
             @include m(){
                 @include input-text(rwd(350));
@@ -164,10 +137,24 @@
                 margin-right: vw(20);
                 font-weight: $bold;
             }
+            .nation-label {
+                font-size: $p;
+                margin-right: vw(16);
+                font-weight: $bold;
+            }
+            .sex-label{
+                font-size: $p;
+                margin-right: vw(16);
+                font-weight: $bold;
+            }
+            .payment-label{
+                font-size: $p;
+                margin-right: vw(16);
+                font-weight: $bold;
+            }
         }
         .sponsor_information-label2{
             display: flex;
-            flex-wrap: wrap;
             h4{
                 text-align: right;
                 font-size: $h5;
@@ -176,14 +163,24 @@
                 font-weight: $bold;
             }
             .input-text2{
-                @include input-text(vw(150));
-                margin-right: vw(0);
+                @include input-text(vw(165));
+                margin-right: vw(16);
                 @include m(){
                     @include input-text(rwd(250));
                     margin-right: vw(0);
                     display: block;
                     margin: 0 auto;
                 }
+            }
+            select{
+                font-size: $p;
+                border: 0;
+                outline: solid 1px $primaryDefault;
+                border-radius: vw(6);
+                padding: vw(5) vw(7);
+                color: $gray500;
+                width: vw(201);
+                margin-right: vw(16);
             }
         }
         .sponsor_information-label3{
@@ -193,6 +190,10 @@
                 margin: vw(20) 0;
             }
             
+        }
+        .sponsor_information-under{
+            text-align: center;
+            margin: vw(24) 0;
         }
     }
 }
