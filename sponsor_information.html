@@ -15,7 +15,7 @@
     "前頁面" : "浪浪募資" ,
     "此頁面" : "贊助頁面" ,
     })
-    <main class="sponsor_information">
+    <main class="sponsor_information" id="sponsor_informationApp">
         <h1>【I got you 浪我罩你】線上訂閱中途計畫</h1>
         <div class="sponsor_information-all">
             <div class="sponsor_information-all-left">
@@ -38,20 +38,21 @@
                 </div>
             </div>
             <div class="sponsor_information-all-right">
-                <ul class="sponsor_information-right-top" id="sponsor_informationApp">
+                <ul class="sponsor_information-right-top">
                     <li v-for="title in cartTitle" :class="{'currentPage': currentPage === title.id}">{{title.name}}</li>
                 </ul>
-                <div class="sponsor_information-flex">
+
+                <section class="sponsor_information-flex" v-if="currentPage == 1">
                     <label class="sponsor_information-label" for="username">
                         <h4>姓名</h4>
                     <input class="input-text" type="text" name="username" id="username" placeholder="請填寫真實姓名">
                     </label>
                     <br>
-                    <label class="sponsor_information-label" for="tw">
+                    <div class="sponsor_information-label">
                         <h4>國籍別</h4>
-                    <input id="nation" type="radio" name="tw" value="本國籍"><p class="sponsor_information-p">本國籍</p>
-                    <input id="nation" type="radio" name="tw" value="外國籍"><p class="sponsor_information-p">外國籍</p>
-                    </label>
+                    <label class="nation-label" for="nationTW"><input id="nationTW" type="radio" name="nation" value="本國籍"><p>本國籍</p></label>
+                    <label class="nation-label" for="nationUS"><input id="nationUS" type="radio" name="nation" value="外國籍"><p>外國籍</p></label>
+                    </div>
                     <br>
                     <label class="sponsor_information-label" for="idname">
                         <h4>身份證字號</h4>
@@ -65,8 +66,8 @@
                     <br>
                     <label class="sponsor_information-label" for="sex">
                         <h4>性別</h4>
-                    <input id="nation" type="radio" name="sex" value="男"><p class="sponsor_information-p">男</p>
-                    <input id="nation" type="radio" name="sex" value="女"><p class="sponsor_information-p">女</p>
+                    <label class="sex-label" for="male"><input id="male" type="radio" name="sex" value="男"><p>男</p></label>
+                    <label class="sex-label" for="female"><input id="female" type="radio" name="sex" value="女"><p>女</p></label>
                     </label>
                     <br>
                     <label class="sponsor_information-label" for="birthday">
@@ -90,38 +91,103 @@
                         <option>請選擇</option>
                     </select>
                     </label>
-                    <label class="sponsor_information-label3" for="number">
+                    <label class="sponsor_information-label3" for="address">
                     <input class="input-text" type="text" id="address" placeholder="範例: 路街樓號">
                     </label>    
                     <br>
                     <label class="sponsor_information-label" for="nation">
                         <h4>捐款方式</h4>
-                    <input id="nation" type="radio" name="nation" value="Visa / Master / JCB"><p class="sponsor_information-p">Visa / Master / JCB</p> 
-                    <input id="nation" type="radio" name="nation" value="ATM轉帳"><p class="sponsor_information-p">ATM轉帳</p> 
-                    <input id="nation" type="radio" name="nation" value="超商繳款"><p class="sponsor_information-p">超商繳款</p> 
+                    <label class="payment-label" for="creditcard"><input id="creditcard" type="radio" name="payment" value="Visa / Master / JCB"><p>Visa / Master / JCB</p></label>
+                    <label class="payment-label" for="ATM"><input id="ATM" type="radio" name="payment" value="ATM轉帳"><p>ATM轉帳</p></label>
+                    <label class="payment-label" for="shop"><input id="shop" type="radio" name="payment" value="超商繳款"><p>超商繳款</p></label>
                     </label>
-                    <br>
-                </div>
-                <div class="sponsor_information-under">
-                    <a href="#"><button class="btn-0">下一步</button></a>
-                </div>
+                    <div class="sponsor_information-under">
+                        <button class="btn-0" @click="currentPage = 2">下一步</button>
+                    </div>
+                </section>
+
+                <section class="receiptInfo" v-if="currentPage == 2">
+                    <div class="needReceipt">
+                        <h4>*是否需要收據</h4>
+                        <div class="receiptMethod">
+                            <label class="receipt-label" for="no">
+                                <input id="no" type="radio" name="receipt" value="不需要(無抵稅需求/不用寄收據給我)"><p>不需要(無抵稅需求/不用寄收據給我)</p>
+                            </label>
+                            <br>
+                            <label class="receipt-label" for="onlypaper">
+                                <input id="onlypaper" type="radio" name="receipt" value="需要(請寄紙本收據給我)"><p>需要(請寄紙本收據給我)</p>
+                            </label>
+                            <br>
+                            <label class="receipt-label" for="onlyelectronic">
+                                <input id="onlyelectronic" type="radio" name="receipt" value="需要(請寄電子收據給我)"><p>需要(請寄電子收據給我)</p>
+                            </label>
+                        </div>
+                    </div>
+                    <label class="text-label-1">
+                        <h4>*收據抬頭</h4>
+                        <input class="input-text" type="text">
+                        <button class="btn-1">同捐款人姓名</button>
+                    </label>
+                    <label class="text-label-2">
+                        <h4>*身份證/統一編號</h4>
+                        <input class="input-text" type="text">
+                        <button class="btn-1">同捐款人身分證</button>
+                    </label>
+                    
+                    <div class="receiptPublic">
+                        <h4>*公開徵信錄</h4>
+                        <div class="receiptPublicOrnot">
+                            <label class="receiptPublic-label" for="public">
+                                <input id="public" type="radio" name="receipt" value="公開"><p>公開</p>
+                            </label>
+                            <br>
+                            <label class="receiptPublic-label" for="noPublic">
+                                <input id="noPublic" type="radio" name="receipt" value="不同意公開"><p>不同意公開</p>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>( 依據「財團法人法」第25條規定，除捐款者事先表示反對外，
+                            浪途中途之家需主動公開捐贈者捐款相關資料。
+                            若您不希望公開您的資訊，煩請選擇「不同意公開」)</p>
+                    </div>
+                    <div class="sponsor_information-under">
+                        <button class="btn-0" @click="currentPage = 1">上一步</button>
+                        <button class="btn-0" @click="currentPage = 3">下一步</button>
+                    </div>
+                </section>
+
+                <section class="personalInfo" v-if="currentPage == 3">
+                    <div class="content">
+                        <p>感謝您的愛心捐款，浪途中途之家向您取得之個人資料，包含個人姓名、電話、信用卡及電子郵件地址等，
+                            將僅限使用於本會捐款服務與管理、募款徵信、會務活動等使用。
+                            本會遵守個人資料保護法與公益勸募條例之規定，妥善保護您的個人資訊。
+                            於此前提下，您同意浪途中途之家得於法律許可之範圍內處理及利用相關資料以提供資訊或服務，
+                            而您可依法得就您提供的個人資料向本會請求查詢、閱覽、提供複本、補充或更正、停止及刪除。
+                            請您於上班時間以電話或傳真與本會聯繫。</p>
+                    </div>
+                    <label for="agree"><input id="agree" type="checkbox"><p>我已詳閱並同意</p></label>
+
+                    <div class="sponsor_information-under">
+                        <button class="btn-0" @click="currentPage = 2">上一步</button>
+                        <button class="btn-0">下一步</button>
+                    </div>
+                </section>
+
+
+
+
+
+
+
+
+
+
             </div>
         </div>
         
-        <script>
-            new Vue({
-            el: '#sponsor_informationApp',
-            data:{
-                cartTitle:[
-                    {id:1,name:'捐款人資料'},
-                    {id:2,name:'收據資訊'},
-                    {id:3,name:'個資聲明'}],
-                },
-                currentPage: 1,
-                
-            })
-        </script>
     </main>
+    <script src="js/sponsor.js"></script>
     @@include('layout/footer.html')
 </body>
 
