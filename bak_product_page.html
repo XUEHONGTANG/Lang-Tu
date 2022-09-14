@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    @@include('./layout/head.html', { "title" : "浪浪商店" })
+    @@include('./layout/head.html', {
+      "title" : "新增商品"
+  })
   </head>
 
   <body>
- 
+    <div class="wrapper">
+      @@include('./layout/bak-head.html')
+
+      <main class="bm">
+        <aside>
+          @@include('./layout/bak-aside.html')
+        </aside>
         <div class="bakProductPageWrapper">
           <div class="productImageArea">
             <div class="imgLarge">
@@ -26,7 +34,7 @@
             <label class="bak-pd-info-name" for="bak-pd-info-name">
               <input class="input-textLabel" type="text" placeholder="請輸入商品名稱" name="bak-pd-info-name">
             </label>
-
+    
             <ul class="changePageButton">
               <li class="highlight" 
               >商品資訊</li>
@@ -48,6 +56,10 @@
             </div>
           </div>
         </div>
+      </main>
+
+    </div>
+ 
 
 
 
