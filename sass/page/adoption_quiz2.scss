@@ -1,6 +1,7 @@
 .adoption_quiz2{
     width: vw(1080);
     margin: 0 auto;
+    background-color: #fff;
     @include m(){
         width: rwd(394);
     }
@@ -30,6 +31,7 @@
     }
     .answer{
         margin-top: vw(90);
+        padding: 0 vw(32);
         p{
             text-indent: vw(20);
             @include m(){
@@ -40,6 +42,7 @@
     .next{
         text-align: right;
         margin-top: vw(30);
+        padding: vw(32);
         @include m(){
             margin-top: rwd(30);
         }

@@ -95,7 +95,9 @@
             margin-right: vw(40);
             margin-top: vw(20);
             font-size: $p;
+            width: vw(120);
             @include m(){
+                width: rwd(120);
                 font-size: rwd(16);
                 
             }

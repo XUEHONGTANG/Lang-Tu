@@ -440,6 +440,7 @@
 .link-wrapper {
     display: flex;
     transition: opacity 0.3s ease-in-out;
+    width: vw(500);
     &:hover {
         a {
             opacity: 0.5;

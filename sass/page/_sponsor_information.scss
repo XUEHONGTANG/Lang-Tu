@@ -340,6 +340,11 @@
                 }
             }
         }
+        .sponsor_information-under{
+            .btn-0{
+                margin-right: vw(16);
+            }
+        }
 
         .text-label{
             
@@ -459,6 +464,11 @@
             @include m(){
                 font-size: rwd(12);
                 margin-bottom: rwd(16);
+            }
+        }
+        .sponsor_information-under{
+            .btn-0{
+                margin-right: vw(16);
             }
         }
     }
