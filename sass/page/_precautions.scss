@@ -1,7 +1,9 @@
 .precautions{
     width: vw(1200);
     margin: vw(0) auto;
-    
+    @include m(){
+        margin-top: rwd(80);
+    }
     .precautions-top{
         text-align: center;
         h2{
@@ -110,16 +112,16 @@
         }
         @include m(){
             .Vector1{
-                left: 200px;
-                top: 526px;
+                left: rwd(200);
+                top: rwd(650);
             }
             .home1{
-                left: 225px;
-                top: 540px;
+                left: rwd(220);
+                top: rwd(670);
             }
             .home2{
-                left: 250px;
-                top: 560px;
+                left: rwd(230);
+                top: rwd(680);
             }
         }
     }
@@ -189,12 +191,12 @@
         }
         @include m(){
             .home4{
-                left: 220px;
-                top: 890px;
+                left: rwd(220);
+                top: rwd(1000);
             }
             .home5{
-                left: 225px;
-                top: 890px;
+                left: rwd(230);
+                top: rwd(1000);
             }
         }
         
