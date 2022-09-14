@@ -1,6 +1,9 @@
 .sponsor_information{
     width: vw(1200);
     margin: vw(0) auto;
+    @include m(){
+        width: rwd(394);
+    }
 
     h1{
         text-align: center;
@@ -8,27 +11,61 @@
         color: $primaryA11y;
         font-weight: $bold;
         margin-bottom: vw(50);
+        @include m(){
+            font-size: rwd(20);
+        }
     }
     .sponsor_information-all{
         display: flex;
         background-color: #fff;
         border-radius: $r25;
         padding: vw(20);
+        @include m(){
+            flex-direction: column;
+        }
         .sponsor_information-all-left{
             flex: 1;
             margin-top: vw(40);
             margin-right: vw(50);
+            @include m(){
+                margin: auto;
+            }
         }
         .sponsor_information-all-under{
             margin-top: vw(40);
+            @include m(){
+                margin: rwd(32) 0;
+            }
         }
         .sponsor_information-all-inder1{
             display: flex;
-            justify-content: space-between
+            justify-content: space-between;
+            
+            h5{
+                @include m(){
+                    font-size: rwd(16);
+                }
+            }
+            p{
+                @include m(){
+                    font-size: rwd(16);
+                }
+            }
         }
         .sponsor_information-all-inder2{
             display: flex;
             justify-content: space-between;
+
+            h5{
+                @include m(){
+                    font-size: rwd(16);
+                }
+            }
+            p{
+                @include m(){
+                    font-size: rwd(16);
+                }
+            }
         }
         
     }
@@ -39,9 +76,18 @@
         border-radius: $r25;
         height: vw(239);
         padding: vw(16);
+        @include m(){
+            width: rwd(373);
+            height: rwd(239);
+        }
 
         .selection{
             width: vw(342);
+            @include m(){
+                width: rwd(342);
+                margin-left: rwd(10);
+                margin-bottom: rwd(16);
+            }
             img{
                 width: 100%;
             }
@@ -50,11 +96,17 @@
             display: inline-block;
             margin: auto;
             font-size: $h5;
+            @include m(){
+                font-size: rwd(16);
+            }
         }
         p{
             display: inline-block;
             margin-left: vw(24);
             font-size: $p;
+            @include m(){
+                font-size: rwd(16);
+            }
         }
         .sponsorTime{
             width: vw(120);
@@ -64,6 +116,11 @@
             margin-left: vw(90);
             color: #333;
             background-color: $lineGray;
+            @include m(){
+                width: rwd(120);
+                font-size: rwd(16);
+                margin-top: rwd(16);
+            }
         }
     }
     
@@ -111,6 +168,10 @@
               padding: $space4;
               color: $gray500;
               border-bottom: solid vw(3) $gray500;
+              @include m(){
+                font-size: rwd(16);
+                margin-bottom: rwd(16);
+              }
               &.currentPage {
                   color: $primaryDefault;
                   border-bottom: solid vw(3) $primaryDefault;
@@ -121,7 +182,7 @@
             @include input-text(vw(600));
             margin-right: vw(0);
             @include m(){
-                @include input-text(rwd(350));
+                @include input-text(rwd(275));
                 margin-right: vw(0);
                 display: block;
                 margin: 0 auto;
@@ -130,27 +191,53 @@
         .sponsor_information-label{
             display: flex;
             align-items: center;
+            @include m(){
+                margin-bottom: rwd(16);
+            }
             h4{
                 text-align: right;
                 font-size: $h5;
                 width: vw(120);
                 margin-right: vw(20);
                 font-weight: $bold;
+                @include m(){
+                    font-size: rwd(16);
+                    width: rwd(100);
+                    text-align: left;
+                }
             }
             .nation-label {
                 font-size: $p;
                 margin-right: vw(16);
                 font-weight: $bold;
+                p{
+                    display: inline;
+                    @include m(){
+                        font-size: rwd(12);
+                    }
+                }
             }
             .sex-label{
                 font-size: $p;
                 margin-right: vw(16);
                 font-weight: $bold;
+                p{
+                    display: inline;
+                    @include m(){
+                        font-size: rwd(12);
+                    }
+                }
             }
             .payment-label{
                 font-size: $p;
                 margin-right: vw(16);
                 font-weight: $bold;
+                p{
+                    display: inline;
+                    @include m(){
+                        font-size: rwd(12);
+                    }
+                }
             }
         }
         .sponsor_information-label2{
@@ -161,15 +248,19 @@
                 width: vw(120);
                 margin-right: vw(20);
                 font-weight: $bold;
+                @include m(){
+                    font-size: rwd(16);
+                    width: rwd(100);
+                    text-align: left;
+                }
             }
             .input-text2{
                 @include input-text(vw(165));
                 margin-right: vw(16);
                 @include m(){
-                    @include input-text(rwd(250));
-                    margin-right: vw(0);
-                    display: block;
-                    margin: 0 auto;
+                    @include input-text(rwd(110));
+                    margin: 0 rwd(10) 0 rwd(5);
+                    margin-bottom: rwd(16);
                 }
             }
             select{
@@ -181,19 +272,182 @@
                 color: $gray500;
                 width: vw(201);
                 margin-right: vw(16);
+
+                @include m(){
+                    width: rwd(70);
+                    margin-right: rwd(10);
+                    margin-bottom: rwd(16);
+                }
             }
-        }
-        .sponsor_information-label3{
+        }   
+    }
+    .sponsor_information-label3{
             padding-left: vw(140);
             font-weight: $bold;
             .input-text{
                 margin: vw(20) 0;
+                @include m(){
+                    margin-left: rwd(108);
+                }
             }
             
-        }
-        .sponsor_information-under{
+    }
+    .sponsor_information-under{
             text-align: center;
             margin: vw(24) 0;
+    }
+    .receiptInfo{
+        margin-top: vw(16);
+        @include m(){
+            margin-bottom: rwd(16);
+        }
+        .needReceipt{
+            display: flex;
+            margin-bottom: vw(16);
+            @include m(){
+                margin-bottom: rwd(16);
+            }
+            h4{
+                flex: 1;
+                font-weight: $bold;
+                @include m(){
+                    font-size: rwd(12);
+                }
+            }
+            .receiptMethod{
+                flex: 2;
+                font-size: $p;
+                margin-left: vw(40);
+                
+                p{
+                    display: inline-block;
+                    font-size: $p;
+                    @include m(){
+                        font-size: rwd(12);
+                    }
+                }
+            }
+        }
+
+        .text-label{
+            
+            &-1{
+                display: flex;
+                justify-content: space-between;
+                margin-top: vw(32);
+                @include m(){
+                    margin-bottom: rwd(16);
+                }
+                h4{
+                    font-weight: $bold;
+                    @include m(){
+                        font-size: rwd(12);
+                    }
+                }
+                .btn-1{
+                    padding: vw(8);
+                    font-size: vw(16);
+                    @include m(){
+                        font-size: rwd(12);
+                    }
+                }
+                .input-text[type=text]{
+                    @include input-text(vw(250));
+                    margin-left: vw(72);
+                    @include m(){
+                        @include input-text(rwd(130));
+                        margin-left: rwd(88);
+                    }
+                }
+            }
+            &-2{
+                display: flex;
+                justify-content: space-between;
+                margin-top: vw(32);
+                @include m(){
+                    margin-bottom: rwd(16);
+                }
+                h4{
+                    font-weight: $bold;
+                    @include m(){
+                        font-size: rwd(12);
+                    }
+                }
+                .btn-1{
+                    padding: vw(8);
+                    font-size: vw(16);
+                    @include m(){
+                        font-size: rwd(12);
+                    }
+                }
+                .input-text[type=text]{
+                    @include input-text(vw(250));
+                    @include m(){
+                        @include input-text(rwd(130));
+                        margin-left: rwd(49);
+                    }
+                }
+            }
+        }
+
+        .receiptPublic{
+            display: flex;
+            margin-top: vw(32);
+
+            h4{
+                flex: 1;
+                font-weight: $bold;
+                    @include m(){
+                        font-size: rwd(12);
+                }
+            }
+            .receiptPublicOrnot{
+                flex: 2;
+                margin-left: vw(45);
+                font-size: $p;
+                @include m(){
+                    margin-bottom: rwd(16);
+                }
+                p{
+                    font-size: $p;
+                    display: inline-block;
+                    @include m(){
+                        font-size: rwd(12);
+                    }
+                }
+            }
+        }
+        .content{
+            margin-top: vw(32);
+            @include m(){
+                margin-bottom: rwd(16);
+            }
+            p{
+                width: vw(450);
+                margin-left: vw(270);
+                @include m(){
+                    width: rwd(300);
+                    font-size: rwd(12);
+                }
+            }
+
+        }
+    }
+
+    .personalInfo{
+        .content{
+            padding: vw(16);
+            @include m(){
+                margin-bottom: rwd(16);
+            }
+        }
+        p{
+            font-size: $p;
+            display: inline-block;
+            @include m(){
+                font-size: rwd(12);
+                margin-bottom: rwd(16);
+            }
         }
     }
 }
