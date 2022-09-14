@@ -4,6 +4,7 @@
     font-weight: $regular;
     @include m(){
         width: rwd(394);
+        margin-top: rwd(80);
     }
     .sponsor_success-on{
         width: vw(1200);
