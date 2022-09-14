@@ -4,8 +4,8 @@
     height: vw(900);
     background-color: #fff;
     border-radius: $r25;
-
     display: flex;
+    margin: vw(65) 0 vw(65) vw(115) ;
 
     .productImageArea {
       margin: $space4 $space2 $space4 $space4;
@@ -68,6 +68,7 @@
       
       .bak-pd-info-name {
         @include input-text(60%);
+        margin-bottom: vw(16);
       }
      
 
@@ -153,6 +154,9 @@
       h5 {
         margin: $space1 0;
         font-weight: $bold;
+        .pr{
+          @include input-text(60%);
+        }
         @include m() {
           font-size: rwd(16);
           margin: rwd(8) 0;
@@ -160,6 +164,11 @@
       }
       p {
         margin: $space1 0;
+        font-weight: $bold;
+        .nu{
+          @include input-text(60%);
+          margin-top: vw(16);
+        }
         @include m() {
           font-size: rwd(16);
           margin: rwd(8) 0;
