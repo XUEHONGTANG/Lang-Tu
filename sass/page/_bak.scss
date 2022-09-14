@@ -32,7 +32,10 @@
             }
     
             &-2{
-                @include text-label(vw(1200),'密碼');
+                @include text-label(vw(600),'密碼:');
+                .input-text[type=password]{
+                    @include input-text(vw(600));
+                }
             }
         }
     }

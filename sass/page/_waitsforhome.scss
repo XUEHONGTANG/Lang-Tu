@@ -1,6 +1,9 @@
 .waitsforhome{
     width: vw(1200);
     margin: 0 auto;
+    @include m(){
+        width: rwd(394);
+    }
 
     a{
         text-decoration: none;
@@ -27,7 +30,7 @@
         font-size: 0;
         padding: vw(40) 0;
         @include m(){
-            
+            width: rwd(350);
         }
         
     }
@@ -56,10 +59,9 @@
         font-weight: $bold;
         padding-top: vw(20);
         @include m(){
-            padding-bottom: vw(40);
+            padding: vw(40);
             text-align: center;
             font-size: vw(120);
-            padding-top: vw(16);
         }
     }
     h4{
@@ -70,6 +72,7 @@
         @include m(){
             text-align: center;
             letter-spacing:1px;
+            font-size: vw(64);
 
         }
     }
