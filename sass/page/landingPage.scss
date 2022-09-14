@@ -1,0 +1,34 @@
+.landingPage{
+    width: vw(1200);
+    margin: vw(150) auto;
+
+    .logo{
+        text-align: center;
+    }
+
+    .wrapper{
+        display: flex;
+        justify-content: space-around;
+        margin-top: vw(120);
+        a{
+            display: inline-block;
+            text-decoration: none;
+            color: $primaryA11y;
+            width: vw(200);
+            height: vw(200);
+            background-color: #fff;
+            border-radius: 50%;
+            p{
+                line-height: vw(200);
+                text-align: center;
+                font-size: $h2;
+            }
+
+            &:hover{
+                background-color: $secondaryDark;
+                color: #fff;
+            }
+        }
+
+    }
+}
