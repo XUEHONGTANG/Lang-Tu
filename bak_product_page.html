@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    @@include('./layout/head.html', { "title" : "浪浪商店" })
+    @@include('./layout/head.html', {
+      "title" : "新增商品"
+  })
   </head>
 
   <body>
- 
+    <div class="wrapper">
+      @@include('./layout/bak-head.html')
+
+      <main class="bm">
+        <aside>
+          @@include('./layout/bak-aside.html')
+        </aside>
         <div class="bakProductPageWrapper">
           <div class="productImageArea">
             <div class="imgLarge">
               <h5>請放入商品圖片:</h5>
-              <input type="image">
-              <button class="btn-0 uploadImg">上傳圖片</button>
+              <img src="">
+              <input type="file">
+              <!-- <button class="btn-0 uploadImg">上傳圖片</button> -->
             </div>
             <ul class="imgSmall">
               <li></li>
@@ -22,25 +31,35 @@
             </ul>
           </div>
           <div class="productInfo">
-            <label for="bak-pd-info-name"> 請輸入商品名稱
-              <input class="bak-pd-info-name" type="text" placeholder="請輸入商品名稱" name="bak-pd-info-name">
+            <label class="bak-pd-info-name" for="bak-pd-info-name">
+              <input class="input-textLabel" type="text" placeholder="請輸入商品名稱" name="bak-pd-info-name">
             </label>
-
+    
             <ul class="changePageButton">
               <li class="highlight" 
               >商品資訊</li>
               <li >購物須知</li>
               <li >寄送方式</li>
             </ul>
-            <input type="text" class="textArea"></input>
-            <h5 class="price">金額 NT.425</h5>
-            <p class="num">現有庫存 12</p>
+            <textarea placeholder="請輸入商品資訊"></textarea>
+            <span>
+              <h5>金額 NT$</h5>
+              <input class="bak-pd-price" type="text">
+            </span>
+            <span>
+              <h5>現有庫存</h5>
+              <input class="bak-pd-num" type="text">
+            </span>
             <div>
               <div></div>
               <button class="btn-0">儲存商品資訊</button>
             </div>
           </div>
         </div>
+      </main>
+
+    </div>
+ 
 
 
 

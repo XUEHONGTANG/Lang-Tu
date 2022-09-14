@@ -8,9 +8,12 @@ new Vue({
             ],
             
             currentPage: 1,
+<<<<<<< HEAD
 
             form:{
                 name: null,
             }
+=======
+>>>>>>> efe393de92e0b90256d58cdd382eeab0c4692aac
         },
     })

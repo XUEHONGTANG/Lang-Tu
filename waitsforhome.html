@@ -5,6 +5,10 @@
     @@include('./layout/head.html', {
     "title" : "浪浪等家"
     })
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
 </head>
 
 <body>
@@ -16,13 +20,31 @@
     })
     
     <main class="waitsforhome">
-        <div>
-
-        </div>
+            <div class="sidebarExsample" id="sidebarApp">
+                <ul>
+                    <li>
+                        <button class="accordion" @click="toggle(0)">貓貓</button>
+                        <ol :class="olClass">
+                            <li><button>棕色</button></li>
+                            <li><button>花色</button></li>
+                            <li><button>黑色</button></li>
+                            <li><button>白色</button></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <button class="accordion" @click="toggle(1)">狗狗</button>
+                        <ol :class="olClass">
+                            <li><button>小型犬</button></li>
+                            <li><button>中型犬</button></li>
+                            <li><button>大型犬</button></li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
         <div>
             <ul class="">
-                <a href="#">
-                    <li class="">
+                <a href="petpage.html">
+                    <li class="waitsforhome-li">
                         <div class="home-1">
                             <div class="dogpp">
                                 <img src="./images/Meteor/dog1.png" alt="">
@@ -39,8 +61,8 @@
                         </div>
                     </li>
                 </a>
-                <a href="#">
-                    <li>
+                <a href="petpage.html">
+                    <li class="waitsforhome-li">
                         <div class="home-1">
                             <div class="dogpp">
                                 <img src="./images/Meteor/dog2.png" alt="">
@@ -57,8 +79,8 @@
                         </div>
                     </li>
                 </a>
-                <a href="#">
-                    <li>
+                <a href="petpage.html">
+                    <li class="waitsforhome-li">
                         <div class="home-1">
                             <div class="dogpp">
                                 <img src="./images/Meteor/dog3.png" alt="">
@@ -77,19 +99,86 @@
                 </a>
             </ul>
             <div class="page-icon">
-                <span class="page-disabled"><</span>
-                <span class="page-current">1</span>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <a href="#">7</a>
-                <a class="page-next" href="#">></a>
+                <ul class="pages" id="pageApp">
+                    <li class="previous">
+                      <i class="fa-solid fa-circle-chevron-left"></i>
+                    </li>
+                    <li class="currentPage">1</li>
+                    <li v-for="page in pages">{{page}}</li>
+                    <li class="next">
+                      <i class="fa-solid fa-circle-chevron-right"></i>
+                    </li>
+                  </ul>
             </div>
         </div>
     </main>
     @@include('layout/footer.html')
+
+    <script>
+        new Vue({
+        el: '#pageApp',
+        data:{
+          pages:['2','3','4']
+        },
+        })
+        new Vue({
+              el: '#sidebarApp',
+              data:{
+                  isOpen: false,
+                  reactArr:[],
+                  olClass: 'hide',
+              },
+              mounted() {
+                let reactTotal = document.querySelectorAll('.hide')
+                // console.log(reactTotal);
+                reactTotal.forEach((item) => {
+                  this.reactArr.push(item)
+                  console.log(this.reactArr);
+                });
+              },
+              methods:{
+                toggle(order) {
+                      let length = this.reactArr.length,
+                      i = 0;
+                      // console.log(length);
+                      // console.log(this.reactArr[order]);
+
+                      if (this.isOpen === false) {
+                          // console.log(this.reactArr[order]);
+                          this.reactArr[order].classList.remove('hide');
+                          this.reactArr[order].classList.add('show');
+                          // console.log(this.reactArr[order].previousElementSibling);
+                          this.reactArr[order].previousElementSibling.classList.add('turnRight');
+                          this.isOpen = true;
+
+                          for (i; i < length; i++) {
+                              if (order != i) {
+                          this.reactArr[i].classList.remove('show');
+                          this.reactArr[i].classList.add('hide');
+                          this.reactArr[i].previousElementSibling.classList.remove('turnRight');
+                              }
+                          }
+                      }else if(this.isOpen === true && this.reactArr[order].classList.contains('hide') ){
+                        this.reactArr[order].classList.remove('hide');
+                        this.reactArr[order].classList.add('show');
+                        this.reactArr[order].previousElementSibling.classList.add('turnRight');
+                         
+                          for (i; i < length; i++) {
+                              if (order != i) {
+                          this.reactArr[i].classList.remove('show');
+                          this.reactArr[i].classList.add('hide');
+                          this.reactArr[i].previousElementSibling.classList.remove('turnRight');
+                              }
+                            }
+                      } else {
+                          this.reactArr[order].classList.remove('show');
+                          this.reactArr[order].classList.add('hide'); this.reactArr[order].previousElementSibling.classList.remove('turnRight');
+                          this.isOpen = false;
+                      }
+                  },
+              },
+          });
+    </script>
 </body>
 
 </html>

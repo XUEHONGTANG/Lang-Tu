@@ -1,7 +1,9 @@
 .sponsored_page{
     width: vw(1200);
     margin: vw(0) auto;
-    z-index: 80;
+    background-color: #fff;
+    padding: vw(25);
+    border-radius: $r25;
     @include m(){
         width: rwd(394);
     }
@@ -27,6 +29,7 @@
             font-weight: $bold;
             @include m(){
                 font-size: rwd(12);
+                margin: rwd(16) 0;
             }
         }
         h3{
@@ -42,6 +45,7 @@
             font-weight: $bold;
             @include m(){
                 font-size: rwd(12);
+                margin: rwd(16) 0;
             }
         }
         .sponsored_page-top-border{
@@ -51,6 +55,9 @@
             background-color: $primaryA11y;
             margin: vw(30) auto;
             border-radius: 30px;
+            @include m(){
+                width: rwd(300);
+            }
 
         }
     }
@@ -59,13 +66,16 @@
         a{
             text-decoration: none;
             color: black;
+            line-height: vw(35);
             @include m(){
                 font-size: rwd(12);
             }
             p{
                 margin-right: vw(20);
+                line-height: vw(35);
                 @include m(){
                     font-size: rwd(12);
+                    line-height: rwd(43);
                 }
             }
         }
@@ -128,6 +138,8 @@
                 height: vw(239);
                 padding: vw(16);
                 margin-top: vw(16);
+                display: block;
+                text-decoration: none;
                 @include m(){
                     height: rwd(239);
                 }
@@ -141,12 +153,16 @@
                 h5{
                     display: inline-block;
                     margin: auto;
+                    color: $secondaryA11y;
+                    font-weight: $bold;
                     @include m(){
                         font-size: rwd(16);
                     }
                 }
                 p{
                     display: inline-block;
+                    color: $gray900;
+                    font-weight: $bold;
                     margin-left: vw(24);
                     @include m(){
                         font-size: rwd(16);

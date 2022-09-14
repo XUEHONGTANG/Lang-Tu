@@ -10,54 +10,151 @@
     }
 }
 
-//側邊欄位
-.bm{
-    display: flex;
-
-    aside{
-        width: vw(291);
-        // background-color: white;
-        margin: vw(185) 0 0 vw(169);
-        border-radius: vw(25);
-        overflow: hidden;
-    
-        li{
-            background-color: white;
-            border-bottom: 1px solid $lineGray;
-            padding: vw(8) 0 0 vw(32);
-        }
-    
-        ul > li:last-child{
-            border-bottom:  none;
-            border-radius: 0 0 vw(25) vw(25);
-        }
-    
-        li a{
-            text-decoration: none;
-            font-size: $h4;
-            color: #5695D2;
+    .bm{
+        display: flex;
+        // 標題
+        h2{
+            font-size: $h3;
             font-weight: $bold;
+            color: $primaryDark;
+            padding: vw(64) 0 0 vw(112);
         }
-    
-        li i{
-            padding-left: vw(104);
-        }
-    
-        ol li{
-            background-color: $primaryDark;
-        }
-    
-        ol li a{
-            color: white;
-            font-weight: $regular;
-        }
-    }
+        .sidebarExsample1 {
+            margin: vw(185) 0 0 vw(169);
+            grid-area: side;
+            display: flex;
+            flex-direction:column;
+            width: vw(291);
+        
+            @include m(){
+              width: rwd(394);
+            }
+              h3{
+                font-weight: $bold;
+                text-align: center;
+                margin-bottom: vw(16);
+                color: $gray700;
+                @include m(){
+                text-align: left;
+                font-size: rwd(20);
+                }
+        
+              }
+              button {
+                width: 100%;
+                // height: vw(60);
+                text-align: start;
+                font-size: $h5;
+                font-weight: $bold;
+                padding: vw(12) vw(32);
+                border: none;
+                cursor: pointer;
+                position: relative;
+        
+                @include m(){
+                  width: calc(rwd(394)/3);
+                  padding: rwd(8) rwd(16);
+                  font-size: rwd(13);
+                }
+        
+                }
 
-    // 標題
-    h2{
-        font-size: $h3;
-        font-weight: $bold;
-        color: $primaryDark;
-        padding: vw(64) 0 0 vw(112);
+            .accordion::after{
+              position: absolute;
+              font-family: FontAwesome;
+              content: '\f105';
+              font-size: $p;
+              right: vw(32);
+              top: vw(18);
+              transition: .3s ease;
+              @include m(){
+              font-size: rwd(13);
+                right: rwd(16);
+                top: rwd(11);
+              }
+            }
+              ul {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                box-shadow: $shadow;
+                border-radius: vw(20);
+        
+                @include m(){
+                  display: flex;
+                  flex-direction: row;
+                  width: 100%;
+                  border-radius: rwd(10);
+                  box-shadow: none;
+                }
+        
+                li button{
+                  background-color: #fff;
+                  color: $primaryDark;
+                  &:hover{
+                    background-color: $primaryDark;
+                    color: #fff;
+                    @include m(){
+                    border-radius: rwd(10) rwd(10) 0 0;
+                   }
+                  }
+                }
+                li button.turnRight::after{
+                  transform: rotate(90deg);
+                }
+                li .show {
+                  visibility: visible;
+                  opacity: 1;
+                  transition: visibility 0s linear 0s, opacity 1100ms;
+        
+                }
+              
+                li .hide {
+                  visibility: hidden;
+                  opacity: 0;
+                  height: 0;
+                  -moz-transition: height 2s ease;
+                  -webkit-transition: height 2s ease;
+                  -o-transition: height 2s ease;
+                  transition: height 2s ease;
+                }
+                ol{
+                  @include m(){
+                    position:absolute;
+                    z-index: 5;
+                    }
+                }
+                li ol li button{
+                  background-color: #EBEBEB;
+                  color: $gray600;
+                  // @include m(){
+                  //   position: absolute;
+                  //   }
+        
+                  &:hover{
+                    background-color: darken(#EBEBEB, 10);
+                    color: $gray600;
+                  }
+                }
+                ol li:last-child button{
+                  @include m(){
+                  border-radius:  0 0 rwd(10) rwd(10);
+                  }
+                }
+              }
+              ul > li:first-child  > button{
+                border-radius: vw(20) vw(20) 0px 0px;
+                @include m(){
+                  border-radius: rwd(10) 0 0 rwd(10);
+                  &:hover{
+                  border-radius: rwd(10) rwd(10) 0 0; 
+                  }
+                }
+              }
+        
+              ul > li:last-child > button{
+                border-radius: 0px 0px vw(20) vw(20);
+              }
+        }
+
     }
-}

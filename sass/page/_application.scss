@@ -25,7 +25,7 @@
             text-align: center;
             @include m(){
                 color: $secondaryA11y;
-                width: rwd(220);
+                font-size: rwd(14);
                 display: block;
                 margin: 0 auto;
             }
@@ -52,6 +52,131 @@
             }
         }
     }
+    .application-book{
+        
+        .application-book-0{
+            width: vw(400);
+            margin: 0 auto;
+            @include m(){
+                width: rwd(394);
+                margin: 0 auto;
+            }
+        }
+        
+        h3{
+            text-align: center;
+            font-size: $h2;
+            color: $primaryDark;
+            font-weight: $bold;
+        }
+        h1{
+            font-size: $h5;
+            color: $primaryDark;
+            line-height: 2;
+        }
+        @include m(){
+            h3{
+                font-size: rwd(18);
+                margin-bottom: rwd(10);
+                
+            }
+            h1{
+                font-size: rwd(18);
+                color: $primaryDark;
+                line-height: 2;
+                display: block;
+                margin: 0 auto;
+                width: rwd(350);
+            }
+        }
+        .application-book-1{
+            display: inline-block;
+            margin-right: vw(16);
+            @include m(){
+                display: block;
+                margin: 0 auto;
+            }
+            .application-text{
+                @include input-text(vw(250));
+                @include m(){
+                    @include input-text(rwd(350));
+                    margin-right: vw(0);
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+            
+        }
+        .application-book-2{
+            display: inline-block;
+            @include m(){
+                display: block;
+                margin: 0 auto;
+            }
+            select {
+                width: vw(100);
+                font-size: $p;
+                border: 0;
+                outline: solid 1px $primaryDefault;
+                border-radius: vw(6);
+                padding: vw(5) vw(7);
+                @include m(){
+                    width: rwd(350);
+                    border-radius: rwd(6);
+                    padding: rwd(5) rwd(7);
+                    font-size: rwd(16);
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+            option{
+                color: $gray900;
+            }
+            &:disabled {
+              outline: solid 1px $gray600;
+            }
+        }
+        .application-book-3{
+            .application-text{
+                @include input-text(vw(380));
+                @include m(){
+                    @include input-text(rwd(350));
+                    margin-right: vw(0);
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+        }
+        .application-book-4{
+            margin-bottom: vw(40);
+            select {
+                margin-right: vw(16);
+                width: vw(180);
+                font-size: $p;
+                border: 0;
+                outline: solid 1px $primaryDefault;
+                border-radius: vw(6);
+                padding: vw(5) vw(7);
+                @include m(){
+                    width: rwd(350);
+                    border-radius: rwd(6);
+                    padding: rwd(5) rwd(7);
+                    font-size: rwd(16);
+                    display: block;
+                    margin: 0 auto;
+                    margin-bottom: rwd(20);
+                }
+            }
+            option{
+                color: $gray900;
+                
+            }
+            &:disabled {
+              outline: solid 1px $gray600;
+            }
+        }
+
+    }
     .application-input{
         h3{
             text-align: center;
@@ -61,8 +186,9 @@
         }
         @include m(){
             h3{
-                font-size: $h4;
-                margin-bottom: rwd(20);
+                font-size: rwd(18);
+                margin-bottom: rwd(10);
+                
             }
         }
     }
@@ -93,6 +219,16 @@
                 padding: rwd(10) 0;
             }
         }
+        .application-text{
+            @include input-text(vw(350));
+            margin-right: vw(40);
+            @include m(){
+                @include input-text(rwd(350));
+                margin-right: vw(0);
+                display: block;
+                margin: 0 auto;
+            }
+        }
     }
     .application-right{
         // width: vw(500);
@@ -109,15 +245,14 @@
                 padding: rwd(10) 0;
             }
         }
-    }
-    .application-text{
-        @include input-text(vw(350));
-        margin-right: vw(40);
-        @include m(){
-            @include input-text(rwd(350));
-            margin-right: vw(0);
-            display: block;
-            margin: 0 auto;
+        .application-text{
+            @include input-text(vw(350));
+            @include m(){
+                @include input-text(rwd(350));
+                margin-right: vw(0);
+                display: block;
+                margin: 0 auto;
+            }
         }
     }
 
