@@ -42,33 +42,17 @@ main.shoppingCartWrapper {
 
   display: grid;
   /* 左右 */
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   /* 上下 */
-  grid-template-rows: repeat(6, auto);
+  grid-template-rows: repeat(2, auto);
   grid-template-areas:
-    "title title"
-    "list list"
-    "formTitle formTitle"
-    "left right"
-    "recipient recipient"
-    ". button";
+    "title"
+    "section";
 
     @include m(){
       width: rwd(394);
       border-radius: rwd(10);
       padding: rwd(16);
-
-      grid-template-columns: 1fr;
-      /* 上下 */
-      grid-template-rows: repeat(7, auto);
-      grid-template-areas:
-        "title"
-        "list"
-        "formTitle"
-        "left"
-        "right"
-        "recipient"
-        "button";
     }
 
   select {
@@ -137,605 +121,635 @@ main.shoppingCartWrapper {
       margin-bottom: rwd(4);
     }
   }
-  .shoppingList {
-    grid-area: list;
-    h3 {
-      color: $primaryA11y;
-      text-align: center;
-      margin: $space4 0;
-      letter-spacing: $space2;
-      font-weight: $bold;
+
+  section{
+    grid-area: section;
+    display: grid;
+    /* 左右 */
+    grid-template-columns: 1fr 1fr;
+    /* 上下 */
+    grid-template-rows: repeat(5 , auto);
+    grid-template-areas:
+      "list list"
+      "formTitle formTitle"
+      "left right"
+      "recipient recipient"
+      ". button";
 
       @include m(){
-        font-size: rwd(18);
-        margin: rwd(8) 0;
-        letter-spacing: rwd(8);
-      }
-    }
-    table {
-      width: 100%;
-      tr {
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        th:nth-child(1) {
-          flex: 0 0 vw(150);
-
-          @include m(){
-            flex: 0 0 rwd(50);
-          }
-        }
-        th:nth-child(2) {
-          flex: 1 0;
-        }
-        th:nth-child(3) {
-          flex: 1 0;
-        }
-        th:nth-child(4) {
-          flex: 1 0;
-        }
-        th:nth-child(5) {
-          flex: 1 0;
-        }
-        th:nth-child(6) {
-          flex: 0 0 vw(50);
-
-          @include m(){
-            flex: 0 0 rwd(20);
-          }
-        }
-      }
-      th {
-        font-size: $h4;
-        font-weight: $bold;
-        color: $gray900;
-        margin-top: $space4;
-
-        @include m(){
-          font-size: rwd(13);
-          margin-top: rwd(8);
-        }
-      }
-      tbody {
-        tr {
-          padding: $space2 0;
-          border-bottom: solid 1px $gray500;
-
-          @include m(){
-            padding: rwd(4) 0;
-          }
-
-          &:nth-last-child(1) {
-            border-bottom: solid 1px $gray800;
-          }
-          td {
-            align-self: center;
-            display: flex;
-            justify-content: center;
-            font-size: $h4;
-            color: $gray900;
-
-            @include m(){
-              font-size: rwd(13);
-            }
-          }
-          td:nth-child(1) {
-            flex: 0 0 vw(150);
-
-            @include m(){
-              flex: 0 0 rwd(50);
-            }
-
-            img {
-              width: vw(140);
-
-              @include m(){
-                flex: 0 0 rwd(48);
-              }
-            }
-          }
-          td:nth-child(2) {
-            flex: 1 0;
-            padding: 0 $space1;
-          }
-          td:nth-child(3) {
-            flex: 1 0;
-          }
-          td:nth-child(4) {
-            flex: 1 0;
-            .counter {
-              display: flex;
-              align-self: center;
-
-              width: vw(120);
-              height: vw(40);
-              border: solid 1px $primaryDark;
-              border-radius: vw(6);
-
-              @include m(){
-                width: rwd(54);
-                height: rwd(24);
-                border-radius: rwd(6);
-              }
-
-              input[type="number"] {
-                width: vw(40);
-                border: none;
-                outline: none;
-                text-align: center;
-                -moz-appearance: textfield;
-
-                @include m(){
-                  width: rwd(20);
-                  font-size: rwd(13);
-                }
-                &::-webkit-inner-spin-button,
-                ::-webkit-outer-spin-button {
-                  -webkit-appearance: none;
-                  margin: 0;
-                }
-                &:hover {
-                  outline: none;
-                }
-              }
-              button {
-                width: vw(40);
-                height: vw(40);
-
-                background-color: transparent;
-                border: 0;
-                cursor: pointer;
-
-                @include m(){
-                  width: rwd(17);
-                  height: rwd(24);
-                }
-                // &:hover {
-                //   background-color: $primaryDark;
-
-                //   @include m(){
-                //     background-color: #fff;
-                //   }
-                //   &.btn-minus::after {
-                //     color: #fff;
-
-                //     @include m(){
-                //       color: $primaryDark;
-                //     }
-                //   }
-                //   &.btn-plus::after {
-                //     color: #fff;
-
-                //     @include m(){
-                //       color: $primaryDark;
-                //     }
-                //   }
-                // }
-                &.btn-minus {
-                  border-radius: vw(6) 0 0 vw(6);
-
-                  @include m(){
-                    border-radius: rwd(6) 0 0 rwd(6);
-                  }
-                  &::after {
-                    content: "\2212";
-                    color: $primaryDark;
-                    @include box-center();
-                  }
-                }
-                &.btn-plus {
-                  border-radius: 0 vw(6) vw(6) 0;
-
-                  @include m(){
-                    border-radius: rwd(6) 0 0 rwd(6);
-                  }
-                  &:after {
-                    content: "\002B";
-                    color: $primaryDark;
-                    @include box-center();
-                  }
-                }
-              }
-            }
-          }
-          td:nth-child(5) {
-            flex: 1 0;
-          }
-          td:nth-child(6) {
-            flex: 0 0 vw(50);
-
-            @include m(){
-              flex: 0 0 rwd(20);
-            }
-
-            @include box-center();
-            &::after {
-              cursor: pointer;
-              content: "\00D7";
-              color: $gray700;
-            }
-          }
-        }
-      }
-    }
-    .payInfo {
-      padding: $space2 0;
-      display: flex;
-      flex-direction: column;
-      // align-content:flex-end;
-      // justify-content: flex-start;
-      margin-left: auto;
-      width: vw(700);
-
-      @include m(){
-        padding: rwd(8) 0;
-        width: rwd(324);
+        grid-template-columns: 1fr;
+        /* 上下 */
+        grid-template-rows: repeat(6, auto);
+        grid-template-areas:
+          "list"
+          "formTitle"
+          "left"
+          "right"
+          "recipient"
+          "button";
       }
 
-      span {
-        display: flex;
-        justify-content: flex-end;
-        padding: $space2 0;
-        margin-right: vw(112);
-        font-size: $h4;
-
-        @include m(){
-          padding: rwd(8) 0;
-          margin-right: rwd(32);
-         font-size: rwd(13);
-        }  
-
-        h4 {
-          margin-right: auto;
-          width: vw(135);
-          text-align: end;
-
-          @include m(){
-            width: rwd(80);
-          }  
-        }
-        input[type="radio"] {
-          margin-right: $space2;
-
-          @include m(){
-          margin-right: rwd(8);
-          }  
-        }
-      }
-    }
-    span.doubleLine {
-      display: flex;
-      height: vw(12);
-      border-top: solid vw(1) $gray800;
-      border-bottom: solid vw(1) $gray800;
-      margin-bottom: $space2;
-
-      @include m(){
-        height: rwd(4);
-        margin-bottom: rwd(8);
-        }  
-    }
-    .payWay {
-      display: flex;
-      flex-direction: column;
-      span {
-        font-size: $h4;
-        margin: $space1 0;
-
-        @include m(){
-          font-size: rwd(13);
-          margin: rwd(8) 0;
-          }  
-        input[type="radio"] {
-          margin-right: $space2;
-
-          @include m(){
-            margin-right: rwd(8);
-            }  
-        }
-      }
-    }
-  }
-  .formTitle {
-    grid-area: formTitle;
-    h3 {
-      color: $primaryA11y;
-      text-align: center;
-      margin: $space4 0;
-      letter-spacing: $space2;
-      font-weight: $bold;
-
-      @include m(){
-        font-size: rwd(18);
-        margin: rwd(8) 0;
-        letter-spacing: rwd(8);
-      }
-    }
-  }
-  .left-form {
-    grid-area: left;
-    margin: $space4 $space4 $space4 0;
-
-    @include m(){
-      margin:0;
-    }
-
-    h4 {
-      font-weight: $bold;
-      color: $primaryA11y;
-
-      @include m(){
-        font-size: rwd(16);
-        margin: rwd(4) 0;
-      }
-    }
-    .infoNameLabel {
-      @include inputLabel(100%, "您的名字*","請輸入姓名");
-    }
-
-    h5 {
-      color: $primaryA11y;
-      font-size: $h5;
-      margin-bottom: $space1;
-
-      @include m(){
-        font-size: rwd(16);
-        margin-bottom: rwd(8);
-      }
-    }
-    span {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-      margin-bottom: $space1;
-
-      @include m(){
-        margin-bottom: rwd(8);
-      }
-
-      select {
-        width: vw(162);
-
-        @include m(){
-          width: rwd(116);
-          font-size: rwd(16);
-        }
-      }
-      .postalCode[type="text"] {
-        @include input-text(vw(162));
-
-        @include m(){
-          width: rwd(116);
-        }
-      }
-    }
-    .address[type="text"] {
-      @include input-text(100%);
-      margin-bottom: vw(28);
-
-      @include m(){
-        margin-bottom: rwd(24);
-      }
-    }
-
-    .infoPhoneLabel {
-      @include inputLabel(100%, "您的電話*","請輸入電話");
-    }
-
-    .infoEmailLabel {
-      @include inputLabel(100%, "您的e-mail*","請輸入e-mail");
-    }
-
-    label {
-      font-size: $h5;
-      margin-right: $space2;
-      color: $primaryA11y;
-
-      @include m(){
-        font-size: rwd(16);
-         margin-right: rwd(8);
-      }
-    }
-  }
-
-  .right-form {
-    grid-area: right;
-    margin: $space4 0 $space4 $space4;
-
-    @include m(){
-      margin: 0;
-    }
-
-    div {
-
-      @include m(){
-        margin: rwd(24) 0 rwd(4) 0;
-      }
-      display: flex;
-      input[type="checkbox"] {
-        margin-right: $space2;
-
-        @include m(){
-          margin-right: rwd(8);
-        }
-      }
-      h4 {
-        font-weight: $bold;
-        color: $primaryA11y;
-
-        @include m(){
-          font-size: rwd(16);
-        }
-      }
-    }
-
-    label.otherNameLabel {
-      @include inputLabel(100%, "收件人的名字*","請輸入名字");
-    }
-
-    h5 {
-      color: $primaryA11y;
-      font-size: $h5;
-      margin-bottom: $space1;
-      &.-disabled{
-        color: $gray600;
-    }
-
-      @include m(){
-        font-size: rwd(16);
-        margin-bottom: rwd(8);
-      }
-    }
-    span {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-      margin-bottom: $space1;
-
-      @include m(){
-        margin-bottom: rwd(8);
-      }
-      select {
-        width: vw(162);
-
-        @include m(){
-          width: rwd(116);
-          font-size: rwd(16);
-        }
-      }
-      .otherPostalCode[type="text"] {
-        @include input-text(vw(162));
-
-        @include m(){
-          width: rwd(116);
-        }
-      }
-    }
-    .otherAddress[type="text"] {
-      @include input-text(100%);
-      margin-bottom: vw(28);
-
-      @include m(){
-        margin-bottom: rwd(24);
-      }
-    }
-
-    .otherPhoneLabel {
-      @include inputLabel(100%, "您的電話*","請輸入電話");
-    }
-
-    label{
-        font-size: $h5;
-        color: $primaryA11y;
-        &.-disabled{
-            color: $gray600;
-        }
-
-        @include m(){
-          font-size: rwd(16);
-           margin-right: rwd(8);
-        }
-
-
-        textarea {
-          width: 100%;
-          height: vw(200);
-          resize: none;
-          margin-top: $space1;
-          border-radius: vw(6);
-    
-          border: 0;
-          outline: solid 1px $primaryDefault;
-          &:hover {
-            outline: solid vw(2) $primaryDefault;
-          }
-          &:disabled {
-            outline: solid 1px $gray600;
-          }
-    
-          /* 滾動卷軸 */
-          &::-webkit-scrollbar {
-            // 整個卷軸
-            width: vw(16);
-          }
-    
-          &::-webkit-scrollbar-track {
-            // 卷軸軌道區塊
-            border: solid vw(16) transparent;
-          }
-    
-          &::-webkit-scrollbar-thumb {
-            // 卷軸滑塊
-            background-color: $gray500;
-            border: vw(4) solid #fff;
-            border-radius: vw(8);
-          }
-
-          @include m(){
-            height: rwd(200);
-            margin-top: rwd(8);
-            border-radius: rwd(6);
-          }
-        }
-    }
-  }
-
-  .recipientInfo{
-      grid-area: recipient;
-      h3{
+    .shoppingList {
+      grid-area: list;
+      h3 {
         color: $primaryA11y;
         text-align: center;
         margin: $space4 0;
         letter-spacing: $space2;
         font-weight: $bold;
-
+  
         @include m(){
           font-size: rwd(18);
           margin: rwd(8) 0;
           letter-spacing: rwd(8);
         }
       }
-      span{
-        display: flex; 
-        @include m(){
-          flex-direction: column;
-     
-        }
-        div:nth-child(1){
-            width: vw(350);
-
+      table {
+        width: 100%;
+        tr {
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          th:nth-child(1) {
+            flex: 0 0 vw(150);
+  
             @include m(){
-              width: 100%;
-              font-size: rwd(13);
+              flex: 0 0 rwd(50);
             }
-           } 
-        }
-        div{
-            font-size: $h4;
-            padding: $space2 0;
+          }
+          th:nth-child(2) {
+            flex: 1 0;
+          }
+          th:nth-child(3) {
+            flex: 1 0;
+          }
+          th:nth-child(4) {
+            flex: 1 0;
+          }
+          th:nth-child(5) {
+            flex: 1 0;
+          }
+          th:nth-child(6) {
+            flex: 0 0 vw(50);
+  
             @include m(){
-              width: 100%;
-              font-size: rwd(13);
+              flex: 0 0 rwd(20);
+            }
+          }
+        }
+        th {
+          font-size: $h4;
+          font-weight: $bold;
+          color: $gray900;
+          margin-top: $space4;
+  
+          @include m(){
+            font-size: rwd(13);
+            margin-top: rwd(8);
+          }
+        }
+        tbody {
+          tr {
+            padding: $space2 0;
+            border-bottom: solid 1px $gray500;
+  
+            @include m(){
               padding: rwd(4) 0;
             }
+  
+            &:nth-last-child(1) {
+              border-bottom: solid 1px $gray800;
+            }
+            td {
+              align-self: center;
+              display: flex;
+              justify-content: center;
+              font-size: $h4;
+              color: $gray900;
+  
+              @include m(){
+                font-size: rwd(13);
+              }
+            }
+            td:nth-child(1) {
+              flex: 0 0 vw(150);
+  
+              @include m(){
+                flex: 0 0 rwd(50);
+              }
+  
+              img {
+                width: vw(140);
+  
+                @include m(){
+                  flex: 0 0 rwd(48);
+                }
+              }
+            }
+            td:nth-child(2) {
+              flex: 1 0;
+              padding: 0 $space1;
+            }
+            td:nth-child(3) {
+              flex: 1 0;
+            }
+            td:nth-child(4) {
+              flex: 1 0;
+              .counter {
+                display: flex;
+                align-self: center;
+  
+                width: vw(120);
+                height: vw(40);
+                border: solid 1px $primaryDark;
+                border-radius: vw(6);
+  
+                @include m(){
+                  width: rwd(54);
+                  height: rwd(24);
+                  border-radius: rwd(6);
+                }
+  
+                input[type="number"] {
+                  width: vw(40);
+                  border: none;
+                  outline: none;
+                  text-align: center;
+                  -moz-appearance: textfield;
+  
+                  @include m(){
+                    width: rwd(20);
+                    font-size: rwd(13);
+                  }
+                  &::-webkit-inner-spin-button,
+                  ::-webkit-outer-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                  }
+                  &:hover {
+                    outline: none;
+                  }
+                }
+                button {
+                  width: vw(40);
+                  height: vw(40);
+  
+                  background-color: transparent;
+                  border: 0;
+                  cursor: pointer;
+  
+                  @include m(){
+                    width: rwd(17);
+                    height: rwd(24);
+                  }
+                  // &:hover {
+                  //   background-color: $primaryDark;
+  
+                  //   @include m(){
+                  //     background-color: #fff;
+                  //   }
+                  //   &.btn-minus::after {
+                  //     color: #fff;
+  
+                  //     @include m(){
+                  //       color: $primaryDark;
+                  //     }
+                  //   }
+                  //   &.btn-plus::after {
+                  //     color: #fff;
+  
+                  //     @include m(){
+                  //       color: $primaryDark;
+                  //     }
+                  //   }
+                  // }
+                  &.btn-minus {
+                    border-radius: vw(6) 0 0 vw(6);
+  
+                    @include m(){
+                      border-radius: rwd(6) 0 0 rwd(6);
+                    }
+                    &::after {
+                      content: "\2212";
+                      color: $primaryDark;
+                      @include box-center();
+                    }
+                  }
+                  &.btn-plus {
+                    border-radius: 0 vw(6) vw(6) 0;
+  
+                    @include m(){
+                      border-radius: rwd(6) 0 0 rwd(6);
+                    }
+                    &:after {
+                      content: "\002B";
+                      color: $primaryDark;
+                      @include box-center();
+                    }
+                  }
+                }
+              }
+            }
+            td:nth-child(5) {
+              flex: 1 0;
+            }
+            td:nth-child(6) {
+              flex: 0 0 vw(50);
+  
+              @include m(){
+                flex: 0 0 rwd(20);
+              }
+  
+              @include box-center();
+              &::after {
+                cursor: pointer;
+                content: "\00D7";
+                color: $gray700;
+              }
+            }
+          }
         }
-  }
-
-
-  .buttonArea {
-    grid-area: button;
-    // margin-left: auto;
-    // padding: vw(32);
-    margin: vw(32) auto 0 auto;
-    @include m(){
-      margin:rwd(32) auto 0 auto;
-    }
-    button{
-        margin:0 $space4;
-
+      }
+      .payInfo {
+        padding: $space2 0;
+        display: flex;
+        flex-direction: column;
+        // align-content:flex-end;
+        // justify-content: flex-start;
+        margin-left: auto;
+        width: vw(700);
+  
         @include m(){
-          margin:0 rwd(16);
+          padding: rwd(8) 0;
+          width: rwd(324);
         }
+  
+        span {
+          display: flex;
+          justify-content: flex-end;
+          padding: $space2 0;
+          margin-right: vw(112);
+          font-size: $h4;
+  
+          @include m(){
+            padding: rwd(8) 0;
+            margin-right: rwd(32);
+           font-size: rwd(13);
+          }  
+  
+          h4 {
+            margin-right: auto;
+            width: vw(135);
+            text-align: end;
+  
+            @include m(){
+              width: rwd(80);
+            }  
+          }
+          input[type="radio"] {
+            margin-right: $space2;
+  
+            @include m(){
+            margin-right: rwd(8);
+            }  
+          }
+        }
+      }
+      span.doubleLine {
+        display: flex;
+        height: vw(12);
+        border-top: solid vw(1) $gray800;
+        border-bottom: solid vw(1) $gray800;
+        margin-bottom: $space2;
+  
+        @include m(){
+          height: rwd(4);
+          margin-bottom: rwd(8);
+          }  
+      }
+      .payWay {
+        display: flex;
+        flex-direction: column;
+        span {
+          font-size: $h4;
+          margin: $space1 0;
+  
+          @include m(){
+            font-size: rwd(13);
+            margin: rwd(8) 0;
+            }  
+          input[type="radio"] {
+            margin-right: $space2;
+  
+            @include m(){
+              margin-right: rwd(8);
+              }  
+          }
+        }
+      }
+    }
+    .formTitle {
+      grid-area: formTitle;
+      h3 {
+        color: $primaryA11y;
+        text-align: center;
+        margin: $space4 0;
+        letter-spacing: $space2;
+        font-weight: $bold;
+  
+        @include m(){
+          font-size: rwd(18);
+          margin: rwd(8) 0;
+          letter-spacing: rwd(8);
+        }
+      }
+    }
+    .left-form {
+      grid-area: left;
+      margin: $space4 $space4 $space4 0;
+  
+      @include m(){
+        margin:0;
+      }
+  
+      h4 {
+        font-weight: $bold;
+        color: $primaryA11y;
+  
+        @include m(){
+          font-size: rwd(16);
+          margin: rwd(4) 0;
+        }
+      }
+      .infoNameLabel {
+        @include inputLabel(100%, "您的名字*","請輸入姓名");
+      }
+  
+      h5 {
+        color: $primaryA11y;
+        font-size: $h5;
+        margin-bottom: $space1;
+  
+        @include m(){
+          font-size: rwd(16);
+          margin-bottom: rwd(8);
+        }
+      }
+      span {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: $space1;
+  
+        @include m(){
+          margin-bottom: rwd(8);
+        }
+  
+        select {
+          width: vw(162);
+  
+          @include m(){
+            width: rwd(116);
+            font-size: rwd(16);
+          }
+        }
+        .postalCode[type="text"] {
+          @include input-text(vw(162));
+  
+          @include m(){
+            width: rwd(116);
+          }
+        }
+      }
+      .address[type="text"] {
+        @include input-text(100%);
+        margin-bottom: vw(28);
+  
+        @include m(){
+          margin-bottom: rwd(24);
+        }
+      }
+  
+      .infoPhoneLabel {
+        @include inputLabel(100%, "您的電話*","請輸入電話");
+      }
+  
+      .infoEmailLabel {
+        @include inputLabel(100%, "您的e-mail*","請輸入e-mail");
+      }
+  
+      label {
+        font-size: $h5;
+        margin-right: $space2;
+        color: $primaryA11y;
+  
+        @include m(){
+          font-size: rwd(16);
+           margin-right: rwd(8);
+        }
+      }
+    }
+  
+    .right-form {
+      grid-area: right;
+      margin: $space4 0 $space4 $space4;
+  
+      @include m(){
+        margin: 0;
+      }
+  
+      div {
+  
+        @include m(){
+          margin: rwd(24) 0 rwd(4) 0;
+        }
+        display: flex;
+        input[type="checkbox"] {
+          margin-right: $space2;
+  
+          @include m(){
+            margin-right: rwd(8);
+          }
+        }
+        h4 {
+          font-weight: $bold;
+          color: $primaryA11y;
+  
+          @include m(){
+            font-size: rwd(16);
+          }
+        }
+      }
+  
+      label.otherNameLabel {
+        @include inputLabel(100%, "收件人的名字*","請輸入名字");
+      }
+  
+      h5 {
+        color: $primaryA11y;
+        font-size: $h5;
+        margin-bottom: $space1;
+        &.-disabled{
+          color: $gray600;
+      }
+  
+        @include m(){
+          font-size: rwd(16);
+          margin-bottom: rwd(8);
+        }
+      }
+      span {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: $space1;
+  
+        @include m(){
+          margin-bottom: rwd(8);
+        }
+        select {
+          width: vw(162);
+  
+          @include m(){
+            width: rwd(116);
+            font-size: rwd(16);
+          }
+        }
+        .otherPostalCode[type="text"] {
+          @include input-text(vw(162));
+  
+          @include m(){
+            width: rwd(116);
+          }
+        }
+      }
+      .otherAddress[type="text"] {
+        @include input-text(100%);
+        margin-bottom: vw(28);
+  
+        @include m(){
+          margin-bottom: rwd(24);
+        }
+      }
+  
+      .otherPhoneLabel {
+        @include inputLabel(100%, "您的電話*","請輸入電話");
+      }
+  
+      label{
+          font-size: $h5;
+          color: $primaryA11y;
+          &.-disabled{
+              color: $gray600;
+          }
+  
+          @include m(){
+            font-size: rwd(16);
+             margin-right: rwd(8);
+          }
+  
+  
+          textarea {
+            width: 100%;
+            height: vw(200);
+            resize: none;
+            margin-top: $space1;
+            border-radius: vw(6);
+      
+            border: 0;
+            outline: solid 1px $primaryDefault;
+            &:hover {
+              outline: solid vw(2) $primaryDefault;
+            }
+            &:disabled {
+              outline: solid 1px $gray600;
+            }
+      
+            /* 滾動卷軸 */
+            &::-webkit-scrollbar {
+              // 整個卷軸
+              width: vw(16);
+            }
+      
+            &::-webkit-scrollbar-track {
+              // 卷軸軌道區塊
+              border: solid vw(16) transparent;
+            }
+      
+            &::-webkit-scrollbar-thumb {
+              // 卷軸滑塊
+              background-color: $gray500;
+              border: vw(4) solid #fff;
+              border-radius: vw(8);
+            }
+  
+            @include m(){
+              height: rwd(200);
+              margin-top: rwd(8);
+              border-radius: rwd(6);
+            }
+          }
+      }
+    }
+  
+    .recipientInfo{
+        grid-area: recipient;
+        h3{
+          color: $primaryA11y;
+          text-align: center;
+          margin: $space4 0;
+          letter-spacing: $space2;
+          font-weight: $bold;
+  
+          @include m(){
+            font-size: rwd(18);
+            margin: rwd(8) 0;
+            letter-spacing: rwd(8);
+          }
+        }
+        span{
+          display: flex; 
+          @include m(){
+            flex-direction: column;
+       
+          }
+          div:nth-child(1){
+              width: vw(350);
+  
+              @include m(){
+                width: 100%;
+                font-size: rwd(13);
+              }
+             } 
+          }
+          div{
+              font-size: $h4;
+              padding: $space2 0;
+              @include m(){
+                width: 100%;
+                font-size: rwd(13);
+                padding: rwd(4) 0;
+              }
+          }
+    }
+  
+  
+    .buttonArea {
+      grid-area: button;
+      // margin-left: auto;
+      // padding: vw(32);
+      margin: vw(32) auto 0 auto;
+      display: flex;
+      @include m(){
+        margin:rwd(32) auto 0 auto;
+      }
+      button{
+          margin:0 $space4;
+  
+          @include m(){
+            margin:0 rwd(16);
+          }
+      }
     }
   }
 }

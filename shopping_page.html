@@ -8,6 +8,8 @@
     />
     <script src="https://unpkg.com/vue@2"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.0/iconify-icon.min.js"></script>
+
   </head>
 
   <body>
@@ -16,9 +18,9 @@
       "此頁面" : "浪浪商店" ,
     })
     <!-- <main> -->
-      <main class="shoppingPageWrapper">
+      <main id="shoppingApp" class="shoppingPageWrapper">
         <!-- sidebar -->
-        <div class="sidebar" id="sidebarApp">
+        <div class="sidebar">
           <h3>商品類別</h3>
           <ul>
             <li>
@@ -50,8 +52,8 @@
             <input type="search" class="input-search" name="q" placeholder="search">
           </div>
           <span></span>
-          <ul class="productsContent" id="productsApp">
-            <li v-for="item in products" class="pd-itembox">
+          <ul class="productsContent">
+            <li v-for="item in products" class="pd-itembox" @click="isShow = true">
               <img src="./images/ff/pd-001.jpg" alt="pd-001">
               <h5>
                 <!-- 貓貓罐頭貓貓罐頭<br>
@@ -62,7 +64,7 @@
               <h4>NT 425</h4>
             </li>
           </ul>
-          <ul class="pages" id="pageApp">
+          <ul class="pages">
             <li class="previous">
               <i class="fa-solid fa-circle-chevron-left"></i>
             </li>
@@ -73,6 +75,61 @@
             </li>
           </ul>
           
+          <!--  v-if="isShow"
+                v-show="isShow" 皆可,但v-show 是要一個function -->
+            <div class="productPageDrop"
+               v-if="isShow"
+                @click="isShow = false"
+                >
+              <div class="productPageWrapper" @click.stop="isShow">
+                <div class="productImageArea">
+                  <div class="imgLarge">
+                    <img src="./images/ff/pd-001.jpg" alt="product">
+                  </div>
+                  <ul class="imgSmall">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                  </ul>
+                </div>
+                <div class="productInfo">
+                  <h2>貓貓罐頭</h2>
+                  <div class="pageClose" @click="isShow = false"></div>
+                  <ul class="changePageButton">
+                    <li @click="content='productContent', selected = 1" :class="{'highlight':selected === 1}"
+                    >商品資訊</li>
+                    <li @click="content='shoppingInfo', selected = 2" :class="{'highlight':selected === 2}"
+                    >購物須知</li>
+                    <li @click="content='deliveryMethod', selected = 3" :class="{'highlight':selected === 3}"
+                    >寄送方式</li>
+                  </ul>
+                  <component :is="content">
+                  <!-- <div class="textArea"></div> -->
+                  </component>
+                  <h5 class="price">金額 NT.425</h5>
+                  <p class="num">現有庫存 12</p>
+                  <div>
+                    <div class="counter">
+                      <button class="btn-minus" @click="changeCounter(-1)"></button>
+                      <input type="number" :value="counter">
+                      <button class="btn-plus" @click="changeCounter(1)"></button>
+                    </div>
+                    <button class="btn-0 btn-shopping">
+                      <iconify-icon icon="eva:shopping-cart-fill"></iconify-icon>
+                      加入購物車</button>
+                  </div>
+                </div>
+              </div>
+      
+              <button class="btn-1" @click="isShow = false">
+                返回上一頁
+              </button>
+            </div>
+   
+      
+
         </div>
 
         <!-- main content end -->
