@@ -41,6 +41,7 @@
 @import "page/shopping_cart";
 @import "page/product_page"; // for test
 @import "page/login_page";
+@import "page/landingPage";
 
 
 
@@ -86,7 +87,7 @@
 
 
 body {
-    font-family: "Noto Sans TC","Roboto";
+    font-family: "Roboto","Noto Sans TC";
     color: $gray900;
     background-image: $bgi;
     font-size: $bodyFontSize;
