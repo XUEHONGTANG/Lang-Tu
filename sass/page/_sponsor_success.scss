@@ -45,11 +45,27 @@
     }
     .sponsor_success-in{
         display: flex;
+        align-items: center;
         margin: 0 auto;
-        width: vw(480);
+        width: vw(680);
         @include m(){
-            width: rwd(180);
+            width: rwd(320);
             margin-bottom: rwd(20);
+        }
+
+        .sponsor_success-left{
+            margin-left:vw(64);
+            flex: 1;
+            @include m(){
+                margin-left:rwd(40);
+            }
+        }
+        .sponsor_success-right{
+            margin-left:vw(32);
+            flex: 2;
+            @include m(){
+                margin-left:rwd(32);
+            }
         }
     }
     .sponsor_success-under{
