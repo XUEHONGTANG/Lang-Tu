@@ -205,7 +205,7 @@ ScrollTrigger.create({
 const tl = gsap.timeline({
     scrollTrigger: {
         trigger: ".assist",
-        start: "center bottom",
+        start: "center center",
         end: "center top",
         ease: "transform 2s ease-out,opacity 0.5s ease"
     }
