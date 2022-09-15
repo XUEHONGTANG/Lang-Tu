@@ -237,7 +237,7 @@
                 width: 26.5vw;
                 height: 32vw;
                 background-size: 28vw;
-
+                
             }
         }
 
@@ -280,6 +280,9 @@
                 height: 11vw;
                 background-repeat: no-repeat;
                 background-size: 12.8vw;
+                @include m(){
+                    display: none;
+                }
             }
             &::before {
                 content: "";
@@ -293,6 +296,15 @@
                 background-repeat: no-repeat;
                 background-size: vw(113);
                 animation: step-fluffy 10s steps(1) infinite;
+                @include m(){
+                    top: 64vw;
+                    z-index: 10;
+                    right: 20vw;
+                    width: 22vw;
+                    height: 10.8vw;
+                    background-size: 17vw;
+                }
+         
             }
 
         }
@@ -359,7 +371,10 @@
                 height: vw(208);
                 background-repeat: no-repeat;
                 background-size: 14.4vw;
-                animation: step-balloon 5s steps(1) infinite
+                animation: step-balloon 5s steps(1) infinite;
+                @include m(){
+                    display: none;
+                }
             }
 
             &::before {
@@ -374,6 +389,14 @@
                 height: vw(208);
                 background-repeat: no-repeat;
                 background-size: vw(190);
+                @include m(){
+                    top: 276px;
+                    right: 35vw;
+                    width: 39.5vw;
+                    height: 32vw;
+                    background-size: 34.625vw;
+                    z-index: -1;
+                }
             }
 
         }
@@ -450,7 +473,7 @@
             top: -4.5vw;
             right: -54vw;
             @include m(){
-                top: 100.4vw;
+                top: 35vw;
                 right: -22.7vw;
                 width: 272px;
             }
@@ -471,9 +494,9 @@
                 left: -5.5vw;
                 width: 17.5vw;
                 @include m(){
-                    width: calc(20 / var(--rwd-width) * 100vw);
-                    top: 46.854167000000004vw;
-                    left: 84px;
+                    width: calc(25 / var(--rwd-width) * 100vw);
+                    top: 38vw;
+                    left: 26px;
                 }
 
             }
@@ -490,12 +513,16 @@
                 height: 10.8vw;
                 background-repeat: no-repeat;
                 background-size: vw(196);
+                @include m(){
+                    top: -378px;
+                    right: 45vw;
+                    width: 38.5vw;
+                    height: 30.8vw;
+                    background-size: 39vw;
+                }
             }
         }
     }
-
-    
-
 
     ///
     &_grass {
@@ -503,16 +530,18 @@
         top: 49vw;
         height: auto;
         margin-bottom: 77vw;
+  
         @include m(){
             top: 13.5vw;
-            height: 264vw;
+            height: 58vw;
         }
         .grass {
             position: relative;
             top: -4.5vw;
             right: -54vw;
+            
             @include m(){
-                top: 100.4vw;
+                top: -106vw;
                 right: -22.7vw;
                 width: 272px;
             }
@@ -524,7 +553,9 @@
                 left: -48vw;
                 z-index: 10;
                 @include m(){
-                    width: 100%;
+                    width: 161px;
+                    left: -19px;
+                
                 }
             }
             .grass2 {
@@ -535,8 +566,8 @@
                 z-index: 10;
                 @include m(){
                     width: calc(20 / var(--rwd-width) * 100vw);
-                    top: 46.854167000000004vw;
-                    left: 84px;
+                    top: 27vw;
+                    left: -8px;
                 }
             }
             .grass3 {
@@ -544,9 +575,13 @@
                 top: -7.7vw;
                 left: -57.5vw;
                 width: 34.5vw;
+                @include m(){
+                    top: -16.7vw;
+                    left: -23.5vw;
+                    width: 101.5vw;
+                
+                }
             }
-            
-
             &::before {
                 content: "";
                 background-image: $grass03;
@@ -576,9 +611,9 @@
         
         @include m(){
             top: 165vw;
-            right: -16vw;
-            height: 358vw;
-            width: 410px;
+            right: -25vw;
+            height: 852vw;
+            width: 738px;
          }
 
         img {
@@ -598,8 +633,10 @@
     }
     img{
        width:40vw;
+
        @include m(){
         width: 86vw;
+        height: auto;
        }
     }
     &.rest-cont {
@@ -639,7 +676,7 @@
         margin-left: 0;
         width: 40vw;
         @include m(){
-            top: 19vw;
+            top: -27vw;
             margin: 0 auto;
             right: 0;
             width: 86vw;
@@ -649,13 +686,16 @@
         margin: 0 auto;
         width: 60vw;
         top: 21vw;
+        img{
+            width: 60vw;
+        }
         @include m(){
-            top: 19vw;
+            top: -10vw;
             margin: 0 auto;
             right: 0;
             width: 86vw;
         }
-
+        
     }
 
 }
@@ -689,6 +729,13 @@
             height: 14vw;
             background-repeat: no-repeat;
             background-size: 11.625vw;
+            @include m(){
+                top: 79vw;
+                right: -3vw;
+                width: 30.5vw;
+                height: 28vw;
+                background-size: 27.625vw;
+            }
         }
         &::after {
             background-image: $ball;
@@ -701,6 +748,13 @@
             height: 14vw;
             background-repeat: no-repeat;
             background-size: 11.625vw;
+            @include m(){
+                top: 145vw;
+                right: -3vw;
+                width: 39.5vw;
+                height: 46vw;
+                background-size: 34.625vw;
+            }
         }
     }
 
@@ -716,6 +770,12 @@
             height: 14vw;
             background-repeat: no-repeat;
             background-size: 11.625vw;
+            @include m(){
+                top: 165vw;
+                width: 20.5vw;
+                height: 23vw;
+                background-size: 20.625vw;
+            }
         }
     }
 
@@ -731,6 +791,14 @@
             height: 14vw;
             background-repeat: no-repeat;
             background-size: 13.625vw;
+            @include m(){
+                top: 82vw;
+                right: 59vw;
+                width: 37.5vw;
+                height: 76.8vw;
+                background-size: 35vw;
+               
+            }
         }
         &::after {
             background-image: $foot;
@@ -744,14 +812,23 @@
             height: 11vw;
             background-repeat: no-repeat;
             background-size: 10.625vw;
+            @include m(){
+                 top: -38vw;
+                 z-index: 10;
+                 width: 25.5vw;
+                 height: 27vw;
+                 background-size: 32.625vw;
+            }
         }
     }
-
 }
 
 // slider
 .cont-slider {
-    width: 86vw;
+    width: 40vw;
+    @include m(){
+        width: 86vw;
+    }
 }
 
 .cont-slider-ui {
