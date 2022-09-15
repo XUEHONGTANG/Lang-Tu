@@ -106,11 +106,11 @@
     z-index: 1;
     position: relative;
     top: -18vw;
-    background-image: url("/images/index/index-bg.png");
+    background-image: url("../images/index/index-bg.png");
     height: 262vw;
 
     @include m() {
-        background-image: url("/images/index/rwdbg.png");
+        background-image: url("../images/index/rwdbg.png");
         height: 791vw;
     }
 
