@@ -21,6 +21,9 @@
             font-size: 5.25vw;
         }
     }
+    .top_nav_logo img {
+        display: none;
+    }
 }
 
 .index_1 {
@@ -37,6 +40,9 @@
     .-logo{
         position: absolute;
         z-index: 10;
+        top: 8vw;
+        right: 82.6vw;
+        width: 15vw;
         @include m(){
             width: 147px;
             top: 493px;
@@ -378,6 +384,7 @@
             }
             .assist1 {
                 position: absolute;
+                opacity: 0;
             }
             .assist2 {
                 position: absolute;
@@ -402,6 +409,7 @@
         h5 {
             color: $primaryDefault;
             text-align: center;
+            font-size: $h2;
         }
     }
     &-content {
@@ -496,7 +504,7 @@
 
     .-peo {
         position: relative;
-        top: 80px;
+        top: 242px;
         left: 10vw;
         z-index: -1;
         height: 700px;

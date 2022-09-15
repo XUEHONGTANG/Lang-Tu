@@ -29,7 +29,7 @@
                     settings: {
                         arrows: false,
                         centerMode: true,
-                        centerPadding: '20px',
+                        centerPadding: '10px',
                         slidesToShow: 1
                     }
                 }
@@ -170,7 +170,7 @@
                     settings: {
                         arrows: false,
                         centerMode: true,
-                        centerPadding: '40px',
+                        centerPadding: '0px',
                         slidesToShow: 1
                     }
                 }
