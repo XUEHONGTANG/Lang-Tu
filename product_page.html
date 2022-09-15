@@ -6,27 +6,90 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@7/swiper-bundle.min.css">
     <script src="https://unpkg.com/vue@2"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.0/iconify-icon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@7/swiper-bundle.min.js"></script>
+    <style>
+      /* html,
+      body {
+        position: relative;
+        height: 100%;
+      }
+
+      body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      } 
+
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+         Center slide text vertically
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }*/
+    </style>
   </head>
 
   <body>
     @@include('./layout/header_1.html',{ "大標題" : "浪浪商店" , "英文標題" :
     "LANG LANG WAITS FOR HOME" , "前頁面" : "首頁" , "此頁面" : "浪浪商店" , })
     <main id="productPageApp">
-      <div class="productPageDrop" v-show="isShow" @click="isShow = false">
+      <div class="productPageDropForTest" v-if="isShow" @click="isShow = false">
         <div class="productPageWrapper" @click.stop="isShow">
           <div class="productImageArea">
             <div class="imgLarge">
-              <img src="./images/ff/pd-001.jpg" alt="product">
+              <img :src="imgList[currentSrc].imgSrc" alt="product">
             </div>
-            <ul class="imgSmall">
+            <!-- <ul class="imgSmall">
               <li></li>
               <li></li>
               <li></li>
               <li></li>
               <li></li>
-            </ul>
+            </ul> -->
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+                <div
+                v-for="(pic, picIndex) in imgList"
+                :key="picIndex"
+                class="swiper-slide"
+                >
+                  <img :src="pic.imgSrc" @click="currentSrc=picIndex,changePic()">
+                </div>
+                <!-- <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div> -->
+              </div>
+            </div>
           </div>
           <div class="productInfo">
             <h2>貓貓罐頭</h2>
@@ -250,6 +313,8 @@
       };
 
 
+    
+
 
       new Vue({
         el:'#productPageApp',
@@ -257,21 +322,76 @@
           content:'productContent',
           selected: 1,
           counter:1,
-          isShow:true
+          isShow:true,
+          currentSrc: 0,
+          imgList:[
+            {
+            imgSrc:'./images/ff/pd-001-1.jpg'
+            },
+            {
+            imgSrc:'./images/ff/pd-001-2.jpg'
+            },
+            {
+            imgSrc:'./images/ff/pd-001-3.jpg'
+            },
+            {
+            imgSrc:'./images/ff/pd-001-4.jpg'
+            },
+            {
+            imgSrc:'./images/ff/pd-001-5.jpg'
+            },
+            {
+            imgSrc:'./images/ff/pd-001-6.jpg'
+            },
+            {
+            imgSrc:'./images/ff/pd-001-7.jpg'
+            },
+            {
+            imgSrc:'./images/ff/pd-001-8.jpg'
+            },
+            {
+            imgSrc:'./images/ff/pd-001-9.jpg'
+            },
+            {
+            imgSrc:'./images/ff/pd-001-10.jpg'
+            },
+          ]
         },
         components:{
           'productContent': productContent,
           'shoppingInfo': shoppingInfo,
-          'deliveryMethod':deliveryMethod
+          'deliveryMethod':deliveryMethod,
+          // 'Swiper': Swiper
         },
         methods: {
           changeCounter(num){
             this.counter += +num;
 				  this.counter > 1 ? this.counter : this.counter = 1;
+          },
+          changePic(){
+           console.log(this.currentSrc); 
           }
         },
-
+        mounted() {
+          const swiper = new Swiper(".mySwiper", {
+                slidesPerView: 3,
+                spaceBetween: 16,
+                slidesPerGroup: 3,
+                loop: false,
+                loopFillGroupWithBlank: false,
+                pagination: {
+                  el: ".swiper-pagination",
+                  clickable: true,
+                },
+                // navigation: {
+                // nextEl: ".swiper-button-next",
+                // prevEl: ".swiper-button-prev",
+                // },
+          });
+        }
       })
+ 
+
       
     </script>
   </body>

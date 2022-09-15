@@ -1,4 +1,4 @@
-.productPageDrop {
+.productPageDropForTest {
   z-index: 40;
   top: 0;
   left: 0;
@@ -68,41 +68,87 @@
 
         img {
           width: 100%;
-          height: 100%;
           align-self: center;
         }
       }
-      ul.imgSmall {
+
+      
+      .swiper{
         margin-top: vw(24);
         width: 100%;
-        height: vw(140);
-        display: flex;
-        overflow: hidden;
-
-        @include m() {
-          width: 100%;
-          margin-top: rwd(16);
-          height: rwd(84);
-        }
-
-        li {
-          width: vw(140);
-          height: vw(140);
-          border: 1px solid $gray500;
-          margin: 0 vw(12);
-          flex-shrink: 0;
+        cursor: grab;
+        // height: 100%;
 
           @include m() {
-            width: rwd(84);
+            width: 100%;
+            margin-top: rwd(16);
             height: rwd(84);
-            margin: 0 rwd(8);
           }
+        .swiper-wrapper{
+          height: vw(140);
 
-          &:first-child {
-            margin-left: 0;
+          .swiper-slide{
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+
+          }
+          .swiper-slide img{
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+
+            @include m() {
+              width: rwd(84);
+              height: rwd(84);
+              margin: 0 rwd(8);
+            }
           }
         }
       }
+
+      // ul.imgSmall {
+      //   margin-top: vw(24);
+      //   width: 100%;
+      //   height: vw(140);
+      //   display: flex;
+      //   overflow: hidden;
+
+      //   @include m() {
+      //     width: 100%;
+      //     margin-top: rwd(16);
+      //     height: rwd(84);
+      //   }
+
+      //   li {
+      //     width: vw(140);
+      //     height: vw(140);
+      //     border: 1px solid $gray500;
+      //     margin: 0 vw(12);
+      //     flex-shrink: 0;
+
+      //     @include m() {
+      //       width: rwd(84);
+      //       height: rwd(84);
+      //       margin: 0 rwd(8);
+      //     }
+
+      //     &:first-child {
+      //       margin-left: 0;
+      //     }
+      //   }
+      // }
     }
     .productInfo {
       margin: $space4 $space4 $space4 $space2;
