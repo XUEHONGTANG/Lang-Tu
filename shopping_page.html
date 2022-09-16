@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     @@include('./layout/head.html', { "title" : "浪浪商店" })
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@7/swiper-bundle.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@7/swiper-bundle.min.css"
+    />
     <!-- <script src="https://unpkg.com/vue@2"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@7/swiper-bundle.min.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.0/iconify-icon.min.js"></script>
@@ -13,7 +16,6 @@
     "浪浪商店" , })
     <!-- <main> -->
     <main id="shoppingApp" class="shoppingPageWrapper">
-      
       <!-- sidebar -->
       <div class="sidebar">
         <h3>商品類別</h3>
@@ -60,6 +62,7 @@
           <li
             v-for="item in products"
             class="pd-itembox"
+            @touchend.stop.prevent="isShow = true"
             @click="isShow = true"
           >
             <img src="./images/ff/pd-001-1.jpg" alt="pd-001" />
@@ -82,13 +85,9 @@
             <i class="fa-solid fa-circle-chevron-right"></i>
           </li>
         </ul>
-
       </div>
 
-
-      <div class="productPageDrop" 
-            v-show="isShow" 
-            @click="isShow = false">
+      <div class="productPageDrop" v-show="isShow" @click="isShow = false">
         <div class="productPageWrapper" @click.stop="isShow">
           <div class="productImageArea">
             <div class="imgLarge">
@@ -101,8 +100,8 @@
                   v-for="(pic, picIndex) in imgList"
                   :key="picIndex"
                   class="swiper-slide"
-                  >
-                    <img :src="pic.imgSrc" @click="currentSrc=picIndex">
+                >
+                  <img :src="pic.imgSrc" @click="currentSrc=picIndex" />
                 </div>
                 <!-- <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div> -->
@@ -151,12 +150,9 @@
             </div>
           </div>
 
-          <button class="btn-1" @click="isShow = false">
-            返回上一頁
-          </button>
+          <button class="btn-1" @click="isShow = false">返回上一頁</button>
         </div>
       </div>
- 
 
       <!-- main content end -->
     </main>
