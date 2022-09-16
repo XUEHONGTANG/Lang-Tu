@@ -1,19 +1,32 @@
 .finish{
         width: vw(1200);
         margin: vw(0) auto;
+        @include m(){
+            width: rwd(394);
+        }
 
     .finish-top{
         width: vw(1200);
+        @include m(){
+            width: rwd(394);
+            margin: 0 auto rwd(32);
+        }
         img{
             width: vw(800);
             margin: 0 auto;
             display: block;
+            @include m(){
+                text-align: center;
+            }
         }
         h3{
             font-size: $h3;
             color: $secondaryA11y;
             font-weight: $bold;
             text-align: center;
+            @include m(){
+                font-size: rwd(18);
+            }
         }
     }
     .finish-under{

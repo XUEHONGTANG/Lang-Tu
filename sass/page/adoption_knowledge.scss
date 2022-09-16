@@ -55,27 +55,28 @@
                 padding: vw(130) vw(50);
                 height: vw(600);
                 @include m(){
-                    height: rwd(180);
+                    height: rwd(250);
+                    padding: 0 rwd(16);
                 }
                 h2{
                     font-size: $h3;
                     font-weight: $bold;
                     color: $secondaryA11y;
                     @include m(){
-                        font-size: rwd(14);
+                        font-size: rwd(18);
                     }
                 }
                 .text{
                     font-size: $h4;
                     color: $secondaryA11y;
                     @include m(){
-                        font-size: rwd(10);
+                        font-size: rwd(16);
                     }
                 }
                 h3{
                     font-size: $p;
                     @include m(){
-                        font-size: rwd(9);
+                        font-size: rwd(14);
                     }
                 }
             }
@@ -91,13 +92,13 @@
                 text-align: center;
                 margin-top: vw(94);
                 @include m(){
-                    width: rwd(300);
+                    width: rwd(350);
                 }
                 h1{
                     font-size: $h2;
                     color: $secondaryA11y;
                     @include m(){
-                        font-size: rwd(12);
+                        font-size: rwd(18);
                     }
                 }
                 .line{
@@ -111,7 +112,7 @@
                     font-size: $h4;
                     margin-top: vw(24);
                     @include m(){
-                        font-size: rwd(12);
+                        font-size: rwd(16);
                     }
                 }
                 }
@@ -173,11 +174,14 @@
                 margin: vw(80) auto;
                 text-align: center;
                 width: vw(800);
+                @include m(){
+                    width: rwd(350);
+                }
                 h1{
                     font-size: $h2;
                     color: $secondaryA11y;
                     @include m(){
-                        font-size: rwd(12);
+                        font-size: rwd(18);
                     }
                 }
                 .line{
@@ -191,7 +195,7 @@
                     font-size: $h4;
                     margin-top: vw(24);
                     @include m(){
-                        font-size: rwd(12);
+                        font-size: rwd(16);
                     }
                 }
             }
@@ -200,11 +204,14 @@
             .title{
                 margin: vw(80) auto;
                 width: vw(800);
+                @include m(){
+                    width: rwd(350);
+                }
                 h2{
                     text-align: center;
                     font-size: $h2;
                     @include m(){
-                        font-size: rwd(12);
+                        font-size: rwd(18);
                     }
                 }
                 .line{
@@ -225,16 +232,19 @@
                     width: 50%;
                     padding: vw(220) vw(50);
                     height: vw(700);
+                    @include m(){
+                        padding: rwd(16) rwd(8);
+                    }
                     .text{
                         font-weight: $bold;
                         @include m(){
-                            font-size: rwd(12);
+                            font-size: rwd(18);
                         }
                     }
                     h3{
                         font-size: $p;
                         @include m(){
-                            font-size: rwd(9);
+                            font-size: rwd(14);
                         }
                     }
                 }
@@ -257,13 +267,13 @@
                     .text{
                         font-weight: $bold;
                         @include m(){
-                            font-size: rwd(12);
+                            font-size: rwd(18);
                         }
                     }
                     h3{
                         font-size: $p;
                         @include m(){
-                            font-size: rwd(9);
+                            font-size: rwd(14);
                         }
                     }
                 }

@@ -12,7 +12,8 @@
     "前頁面" : "關於浪浪" ,
     "此頁面" : "領養知識問答" ,
   })
-    <main class="adoption_quiz">
+    <main id="adoptionQuizApp" class="adoption_quiz">
+        <section v-if="currentPage == 1" class="start">
         <div class="quiz1">
             <img src="./images/Derrick/quiz1.jpg" alt="">
         </div>
@@ -20,12 +21,51 @@
             <div class="dog4"><img src="./images/Derrick/dog4.png" alt=""></div>
             <div class="content">
                 <h2>關於浪浪的大小事</h2>
-                <button class="btn-0" onclick="location.href='./adoption_quiz2.html'">開始測驗</button>
+                <button @click="currentPage = 2" class="btn-0">開始測驗</button>
             </div>
             <div class="quiz2"><img src="./images/Derrick/quiz2.jpg" alt=""></div>
         </div>
+    </section>
+
+    <section v-if="currentPage == 2" class="quiz1">
+        <img src="./images/Derrick/quiz3.jpg" alt="">
+        <div class="question">
+            <h3>1.毛小孩能不能吃人類的食物呢?</h3>
+            <div class="button">
+                <button class="btn-0">可以</button>
+                <i class="fa-solid fa-circle-xmark"></i>
+                <button class="btn-0">不可以</button>
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+        </div>
+        <div class="answer">
+            <p> A：毛小孩不應該吃人類的食物，正確來說是調理給人吃的食物。<br><br>想像一下：你坐下來吃晚飯，覺得有些凝視著你。從桌子下面，您可以瞥見牠們的眼睛，悄悄地乞求您只品嚐一種人類食物，作為牠們的主人，您可能會想給他吃一點也無妨，但是這種行為可能會在許多方面對牠們造成危險。<br><br>以下食物也不能食用，可能會有不適甚至致死的情況<br>
+                1. 蔥、蒜、韭菜、洋蔥<br>
+                2. 生雞蛋<br>
+                3. 葡萄、葡萄乾<br>
+                4. 巧克力<br>
+                5. 櫻桃<br>
+                6. 洋菇<br>
+                7. 花椰菜<br>
+                8. 骨頭(咬了會碎的骨頭都不要，可能會刺傷)<br>
+               除了上述之外還很多，因此最好統一就是不要給狗吃人類的食物，如果你打算給予鮮食或是生食，請僅以肉類即可。
+            </p>
+        </div>
+        <div class="next"><button class="btn-0">下一題</button></div>
+    </section>
+
+
+
+
+
+    <section class="quiz2"></section>
+    <section class="quiz3"></section>
+    <section class="quiz4"></section>
+    <section class="quiz5"></section>
+    <section class="quiz6"></section>
     </main>
     @@include('layout/footer.html')
     
+    <script src="./js/adoption_quiz.js"></script>
 </body>
 </html>
