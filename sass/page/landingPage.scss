@@ -1,9 +1,16 @@
 .landingPage{
     width: vw(1200);
     margin: vw(150) auto;
+    @include m(){
+        width: rwd(394);
+    }
 
     .logo{
         text-align: center;
+        margin-right: vw(16);
+        @include m(){
+            margin-right: rwd(16);
+        }
     }
 
     .wrapper{
@@ -18,10 +25,18 @@
             height: vw(200);
             background-color: #fff;
             border-radius: 50%;
+            @include m(){
+                width: rwd(150);
+                height: rwd(150);
+            }
             p{
                 line-height: vw(200);
                 text-align: center;
                 font-size: $h2;
+                @include m(){
+                    line-height: rwd(150);
+                    font-size: rwd(32);
+                }
             }
 
             &:hover{

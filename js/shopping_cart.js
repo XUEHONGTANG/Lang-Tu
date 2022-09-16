@@ -10,7 +10,7 @@ new Vue({
     ],
     cartList: [
       {
-        img: "./images/ff/pd-001.jpg",
+        img: "./images/ff/pd-001-1.jpg",
         title: "貓貓罐罐",
         price: "NT$300",
         sum: 300,
@@ -23,7 +23,7 @@ new Vue({
       },
     ],
     counter: 1,
-    currentPage: 1
+    currentPage: 1,
   },
   methods: {
     changeCounter(num) {
