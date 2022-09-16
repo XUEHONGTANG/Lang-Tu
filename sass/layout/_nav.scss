@@ -192,34 +192,28 @@ $menu-font-size: 20px;
     &_icon {
         display: flex;
         align-items: flex-start;
-        width: vw(158);
         z-index: 30;
         gap: $space3;
         position: fixed;
         right: vw(55);
+        z-index: 30;
         @include m() {
             width: 100%;
             justify-content: flex-end;
-            gap: 25px;
-            height: 80px;
-          
-
+            gap: 20px;
+            height: auto;
+            align-items: center;
         }
-     
 
         &_shop-button {
             cursor: pointer;
             overflow: hidden;
             width: vw(59);
-            padding: vw(12);
             border: 0;
             background: none;
             fill: $primaryA11y;
-           
-            z-index: 30;
             svg {
-                display: flex;
-                
+                display: flex;         
             }
             @include m() {
                 width: rwd(34);

@@ -7,7 +7,7 @@ $menu-font-size: 20px;
     color: #c3dfff;
     background: linear-gradient(0deg, #3466A6 59.74%, rgba(141, 197, 235, 0) 94.85%);
     @include m() {
-        height: 100vh;
+        height: 183vw;
         background: linear-gradient(0deg, #3466A6 77%, rgba(141, 197, 235, 0) 100%);
     }
     a {
@@ -15,7 +15,7 @@ $menu-font-size: 20px;
         color: #c3dfff;
         text-decoration: none;
         &:hover {
-            color: #3466A6;
+            color: #ffffff;
         }
     }
 
@@ -94,7 +94,7 @@ $menu-font-size: 20px;
             align-items: flex-end;
             gap: 40px;
             justify-content: space-between;
-            img{
+            img {
                 width: 100%;
                 height: auto;
             }
@@ -107,7 +107,6 @@ $menu-font-size: 20px;
         &_flex {
 
             .mouse {
-                padding: 25px 0 0;
                 position: absolute;
                 right: 43px;
                 top: -9px;
@@ -122,7 +121,7 @@ $menu-font-size: 20px;
 
                 &:hover {
                     transform: translateY(-5px);
-                    color: #3466A6;
+                    color: #fff;
                     transition: 0.25s cubic-bezier(.215, .61, .355, 1) 0s;
 
                 }
@@ -132,7 +131,7 @@ $menu-font-size: 20px;
             display: flex;
             align-items: flex-end;
             position: relative;
-            top: 3.8020833333vw;
+            top: 3.8vw;
             justify-content: space-between;
             @include m() {
                 top: -1vw;
@@ -170,17 +169,14 @@ $menu-font-size: 20px;
 
             .fb i {
                 font-size: 20px;
-                width: clamp(20px, 5.3vw, 35px);
-                height: clamp(20px, 5.3vw, 35px);
                 :before {
                     content: "\f09a";
-                    width: 200px;
                 }
             }
 
             .ins i {
-                width: clamp(18px, 4.8vw, 31.5px);
-                height: clamp(18px, 4.8vw, 31.5px);
+                font-size: 20px;
+
             }
 
         }
