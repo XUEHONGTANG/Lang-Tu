@@ -3,6 +3,7 @@
     margin: vw(0) auto;
     @include m(){
         margin-top: rwd(80);
+        width: rwd(394);
     }
     .precautions-top{
         text-align: center;
@@ -17,7 +18,11 @@
         }
         @include m(){
             h1{
-                margin-bottom: 16px;
+                margin-bottom: rwd(16);
+                font-size: rwd(16);
+            }
+            h2{
+                font-size: rwd(24);
             }
         }
     }
@@ -26,13 +31,20 @@
         flex-wrap: wrap;
         // position: relative;
         @include m(){
-            width: 360px;
+            width: rwd(394);
+            margin: 0 auto;
         }
     }
     .precautions-1{
         width: vw(600);
         img{
             width: vw(495);
+        }
+        @include m(){
+            width: 50%;
+            padding-left: rwd(48);
+            padding-top: rwd(80);
+            margin-bottom: rwd(80);
         }
         
     }
@@ -58,6 +70,8 @@
             h2{
                 font-size: 12px;
             }
+            width: 50%;
+            
         }
     }
     .precautions-3{
@@ -69,21 +83,26 @@
             margin-bottom: vw(8);
             font-weight: $bold;
             color: $secondaryA11y;
-            width: vw(500);
+            
         }
         h2{
             font-size: $p;
             color: $secondaryA11y;
-            width: vw(500);
+            
         }
         @include m(){
             h1{
                 font-size: 12px;
-                
+                padding: 0 rwd(20);
+                width: rwd(200);
             }
             h2{
                 font-size: 12px;
+                padding: 0 rwd(20);
+                width: rwd(200);
             }
+            width: 50%;
+            margin-bottom: rwd(80);
         }
     }
     .precautions-4{
@@ -112,23 +131,29 @@
         }
         @include m(){
             .Vector1{
-                left: rwd(200);
-                top: rwd(650);
+                left: rwd(220);
+                top: rwd(870);
             }
             .home1{
-                left: rwd(220);
-                top: rwd(670);
+                left: rwd(240);
+                top: rwd(890);
             }
             .home2{
-                left: rwd(230);
-                top: rwd(680);
+                left: rwd(250);
+                top: rwd(910);
             }
+            width: 50%;
         }
     }
     .precautions-5{
         width: vw(600);
         img{
             width: vw(519);
+        }
+        @include m(){
+            width: 50%;
+            padding-left: rwd(48);
+            margin-bottom: rwd(40);
         }
     }
     .precautions-6{
@@ -153,6 +178,7 @@
             h2{
                 font-size: 12px;
             }
+            width: 50%;
         }
     }
     .precautions-7{
@@ -167,8 +193,9 @@
         @include m(){
             h1{
                 font-size: 12px;
-                
+                padding: 0 rwd(20);
             }
+            width: 50%;
         }
         
     }
@@ -192,12 +219,13 @@
         @include m(){
             .home4{
                 left: rwd(220);
-                top: rwd(1000);
+                top: rwd(1330);
             }
             .home5{
                 left: rwd(230);
-                top: rwd(1000);
+                top: rwd(1330);
             }
+            width: 50%;
         }
         
     }
