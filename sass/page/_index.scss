@@ -31,10 +31,12 @@
     height: 65vw;
     position: relative;
     background: #FFFBDE;
+            // padding-top: 61px;
+
     @include m() {
         height: 88vh;
         margin-bottom: -193px;
-        padding-top: 61px;
+        // padding-top: 61px;
     }
 
     .-logo{
@@ -66,6 +68,8 @@
             height: 98vh;
             left: 4vw;
             top: -26vw;
+            overflow:inherit;
+
         }
 
         .-hand {
@@ -500,6 +504,9 @@
         z-index: 10;
         left: 10vw;
         height: 300px;
+        @include m(){
+            top: 228px;
+        }
     }
 
     .-peo {
@@ -508,6 +515,9 @@
         left: 10vw;
         z-index: -1;
         height: 700px;
+        @include m(){
+            top: 240px;
+        }
     }
     .-bg {
         position: absolute;
