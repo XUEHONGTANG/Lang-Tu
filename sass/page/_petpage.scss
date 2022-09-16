@@ -19,14 +19,14 @@
         width: vw(628);
         margin-right: vw(64);
         img{
-            width: vw(628);
+            width: 100%;
         }
         @include m(){
                 width: rwd(360);
-                display: flex;
+                // display: flex;
                 img{
-                    width: rwd(260);
-                    margin-left: rwd(16);
+                    // width: rwd(260);
+                    margin-left: rwd(8);
                 }
         }
     }
@@ -34,17 +34,16 @@
         width: vw(628);
         display: flex;
         margin-top: vw(24);
+        
         img{
             width: vw(100);
             margin-right: vw(32);
         }
         @include m(){
-            flex-direction: column;
+            // flex-direction: column;
             img{
-                width: rwd(50);
-                // margin-bottom: rwd(8);
-                padding-left: rwd(16);
-                padding-bottom: rwd(13);
+                width: rwd(60);
+                
             }
         }
     }

@@ -5,6 +5,7 @@
     @@include('./layout/head.html', {
     "title" : "浪浪等家"
     })
+    <!-- <script src="https://unpkg.com/vue@2"></script> -->
 </head>
 
 <body>
@@ -14,16 +15,19 @@
     "前頁面" : "浪浪等家" ,
     "此頁面" : "寵物頁面" ,
     })
-    <main class="petpage">
+    <main class="petpage" id="petPageApp">
         <div class="petpage-pp">
             <ul class="petpage-pp-big">
-                <img src="./images/Meteor/dog4.png" alt="" class="petpage-pp-rwd">
+                <li>
+                <img :src="imgList[petimg]"  alt="" class="petpage-pp-rwd">
+                </li>
                 <li class="petpage-pp-small">
-                    <img src="./images/Meteor/dog5.png" alt="">
-                    <img src="./images/Meteor/dog6.png" alt="">
-                    <img src="./images/Meteor/dog7.png" alt="">
-                    <img src="./images/Meteor/dog8.png" alt="">
-                    <img src="./images/Meteor/dog9.png" alt="">
+                    <!-- <img src="./images/Meteor/dog5.png" alt="" >
+                    <img src="./images/Meteor/dog6.png" alt="" >
+                    <img src="./images/Meteor/dog7.png" alt="" >
+                    <img src="./images/Meteor/dog8.png" alt="" >
+                    <img src="./images/Meteor/dog9.png" alt="" > -->
+                    <img v-for="(pic, picIndex) in imgList" :src="pic" @click="petimg = picIndex"> 
                 </li>
             </ul>
             <div class="petpage-tt">
@@ -70,6 +74,8 @@
         
     </main>
     @@include('layout/footer.html')
+
+    <script src="./js/petpage.js"></script>
 </body>
 
 </html>
