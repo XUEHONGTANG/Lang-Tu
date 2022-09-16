@@ -102,27 +102,22 @@ $menu-font-size: 20px;
 
         &_flex {
 
+         
             .mouse {
-                padding: 25px 0 0;
-                position: absolute;
-                right: 43px;
-                top: -9px;
-                font-weight: 700;
-                font-size: 1.8rem;
-                line-height: 1;
-                white-space: nowrap;
-                writing-mode: vertical-rl;
-                cursor: pointer;
-                transform: translateY(0px);
-                transition: transform 0.25s cubic-bezier(.215, .61, .355, 1) 0s;
-
-                &:hover {
-                    transform: translateY(-5px);
-                    color: #3466A6;
-                    transition: 0.25s cubic-bezier(.215, .61, .355, 1) 0s;
-
-                }
-            }
+               padding: 25px 0 0;
+               position: absolute;
+               right: 43px;
+               top: -9px;
+               font-weight: 700;
+               font-size: 1.8rem;
+               line-height: 1;
+               white-space: nowrap;
+               writing-mode: vertical-rl;
+                
+              cursor: pointer;
+              transform: translateY(0px);
+              transition: transform 0.25s cubic-bezier(.215, .61, .355, 1) 0s;
+                
         }
         &_f {
             display: flex;
