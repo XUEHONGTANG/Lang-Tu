@@ -1,7 +1,7 @@
 .adoption_quiz{
     width: vw(1080);
     margin: 0 auto;
-    display: flex;
+    // display: flex;
     border: 1px solid $lineGray;
     @include m(){
         width: rwd(394);
@@ -12,6 +12,9 @@
     }
     .quiz1{
         flex: 1;
+    }
+    .start{
+        display: flex;
     }
     .quiz_start{
         flex: 1;
@@ -40,6 +43,72 @@
         .quiz2{
             margin-top: vw(160);
             width: vw(170);
+        }
+    }
+
+    .quiz1{
+        width: vw(1080);
+        margin: 0 auto;
+        background-color: #fff;
+        @include m(){
+            width: rwd(394);
+        }
+        img{
+            display: block;
+            width: 100%;
+        }
+        .question{
+            text-align: center;
+            margin-top: vw(32);
+            h3{
+                @include m(){
+                    font-size: rwd(20);
+                }
+            }
+            .button{
+                display: flex;
+                // justify-content: space-around;
+                align-items: center;
+                width: vw(500);
+                margin: vw(64) auto;
+                .btn-0{
+                    margin-right: vw(32);
+                }
+                .fa-circle-xmark{
+                    font-size: vw(40);
+                    color: red;
+                    margin-right: vw(32);
+                    visibility: hidden;
+                }
+                .fa-circle-check{
+                    font-size: vw(40);
+                    color: green;
+                    visibility: hidden;
+                }
+                @include m(){
+                    width: rwd(400);
+                    font-size: rwd(5);
+                    margin: rwd(32) auto;
+                }
+            }
+        }
+        .answer{
+            margin-top: vw(90);
+            padding: 0 vw(32);
+            p{
+                text-indent: vw(20);
+                @include m(){
+                    font-size: rwd(12);
+                }
+            }
+        }
+        .next{
+            text-align: right;
+            margin-top: vw(30);
+            padding: vw(32);
+            @include m(){
+                margin-top: rwd(30);
+            }
         }
     }
 }

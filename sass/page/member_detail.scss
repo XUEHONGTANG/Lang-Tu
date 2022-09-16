@@ -16,7 +16,7 @@
         text-align: center;
         margin-right: vw(24);
         @include m(){
-            width: rwd(310);
+            width: rwd(394);
             height: rwd(40);
             margin: 0 auto;
         }
@@ -27,7 +27,7 @@
                 height: rwd(40);
                 li:nth-child(1){
                     background-color: $primaryDark;
-                    border-radius: rwd(10);
+                    border-radius: $r25;
                     a{
                         color: #fff;
                     }
@@ -38,7 +38,7 @@
                 line-height: vw(64);
                 border-bottom: vw(1) solid $lineGray;
                     @include m(){
-                        width: rwd(78);
+                        width: rwd(100);
                         line-height: rwd(40);
                         border-bottom: none;
                     }
@@ -49,7 +49,7 @@
                     font-size: $h4;
                     display: block;
                     @include m(){
-                        font-size: rwd(12);
+                        font-size: rwd(18);
                         line-height: rwd(40);
                     }            
                 }
@@ -67,8 +67,8 @@
         z-index: 28;
         padding: vw(80) vw(50);
         @include m(){
-            width: rwd(350);
-            height: rwd(250);
+            width: rwd(394);
+            height: rwd(470);
             margin: rwd(40) auto 0;
             border-radius: rwd(25);
         }
@@ -76,23 +76,23 @@
             margin-bottom: vw(32);
             color: $primaryA11y;
             @include m(){
-                font-size: rwd(12);
+                font-size: rwd(24);
             }
         }
         .text-label{
             &-1{
                 @include text-label(vw(355),'姓名:');
                 @include m(){
-                    @include text-label(rwd(150),'姓名:');
+                    @include text-label(rwd(170),'姓名:');
                     &::before{
-                        font-size: rwd(9);
+                        font-size: rwd(18);
                     }
                     margin-right: rwd(20);
                 }
                 .input-text[type=text]{
                     @include input-text(vw(360));
                     @include m(){
-                        @include input-text(rwd(150));
+                        @include input-text(rwd(180));
                         border-radius: rwd(6);
                         line-height: rwd(10);
                     }
@@ -101,16 +101,16 @@
             &-2{
                 @include text-label(vw(355),'性別:');
                 @include m(){
-                    @include text-label(rwd(150),'性別:');
+                    @include text-label(rwd(170),'性別:');
                     &::before{
-                        font-size: rwd(9);
+                        font-size: rwd(18);
                     }
                 }
                 margin-left: vw(20);
                 .input-text[type=text]{
                     @include input-text(vw(360));
                     @include m(){
-                        @include input-text(rwd(150));
+                        @include input-text(rwd(180));
                         border-radius: rwd(6);
                         line-height: rwd(10);
                     }
@@ -121,13 +121,14 @@
                 @include m(){
                     margin-top: rwd(8);
                     &::before{
-                        font-size: rwd(9);
+                        font-size: rwd(18);
                     }
+                    margin-top: rwd(16);
                 }
                 .input-text[type=text]{
                     @include input-text(vw(740));
                     @include m(){
-                        @include input-text(rwd(321));
+                        @include input-text(rwd(373));
                         border-radius: rwd(6);
                         line-height: rwd(10);
                     }
@@ -138,13 +139,14 @@
                 @include m(){
                     margin-top: rwd(8);
                     &::before{
-                        font-size: rwd(9);
+                        font-size: rwd(18);
                     }
+                    margin-top: rwd(16);
                 }
                 .input-text[type=text]{
                     @include input-text(vw(740));
                     @include m(){
-                        @include input-text(rwd(321));
+                        @include input-text(rwd(373));
                         border-radius: rwd(6);
                         line-height: rwd(10);
                     }
@@ -155,13 +157,14 @@
                 @include m(){
                     margin-top: rwd(8);
                     &::before{
-                        font-size: rwd(9);
+                        font-size: rwd(18);
                     }
+                    margin-top: rwd(16);
                 }
                 .input-text[type=text]{
                     @include input-text(vw(740));
                     @include m(){
-                        @include input-text(rwd(321));
+                        @include input-text(rwd(373));
                         border-radius: rwd(6);
                         line-height: rwd(10);
                     }
@@ -172,13 +175,14 @@
                 @include m(){
                     margin-top: rwd(8);
                     &::before{
-                        font-size: rwd(9);
+                        font-size: rwd(18);
                     }
+                    margin-top: rwd(16);
                 }
                 .input-text[type=password]{
                     @include input-text(vw(740));
                     @include m(){
-                        @include input-text(rwd(321));
+                        @include input-text(rwd(373));
                         border-radius: rwd(6);
                         line-height: rwd(10);
                     }
@@ -190,9 +194,10 @@
             margin-top: vw(70);
             .btn-0{
                 @include m(){
-                    width: rwd(90);
-                    font-size: rwd(8);
+                    width: rwd(120);
+                    font-size: rwd(16);
                     padding: rwd(8);
+                    margin-top: rwd(16);
                 }
             }
         }

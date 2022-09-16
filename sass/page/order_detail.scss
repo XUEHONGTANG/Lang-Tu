@@ -6,10 +6,11 @@
     z-index: 28;
     padding: vw(50);
     @include m(){
-        width: rwd(350);
-        height: rwd(500);
+        width: rwd(394);
+        height: rwd(800);
         margin: rwd(40) auto 0;
         border-radius: rwd(25);
+        padding: rwd(4);
     }
     h3{
         text-align: center;
@@ -17,7 +18,7 @@
         border-bottom: vw(1) solid $gray900;
         padding-bottom: vw(24);
         @include m(){
-            font-size: rwd(12);
+            font-size: rwd(18);
         }
     }
     .detail-title{
@@ -26,7 +27,7 @@
         border-bottom: vw(1) solid $gray900;
         padding: vw(24) 0;
         @include m(){
-            font-size: rwd(12);
+            font-size: rwd(18);
         }
     }
     table{
@@ -36,8 +37,9 @@
                 width: vw(300);
                 border-bottom: vw(1) solid $gray900;
                 padding-bottom: vw(32);
+                font-size: $p;
                 @include m(){
-                    font-size: rwd(12);
+                    font-size: rwd(18);
                 }
             }
         }
@@ -47,8 +49,11 @@
                     text-align: center;
                     padding: vw(16) 0;
                     vertical-align: middle;
+                    font-size: $p;
                     @include m(){
-                        font-size: rwd(12);
+                        font-size: rwd(18);
+                        width: rwd(90);
+                        padding: rwd(16) 0;
                     }
                 }
             }
@@ -60,8 +65,9 @@
                     text-align: center;
                     padding-top: vw(24);
                     border-top: vw(1) solid $gray900;
+                    font-size: $p;
                     @include m(){
-                        font-size: rwd(12);
+                        font-size: rwd(18);
                     }
                 }
             }
