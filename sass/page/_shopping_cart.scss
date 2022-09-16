@@ -333,6 +333,9 @@ main.shoppingCartWrapper {
                 content: "\00D7";
                 color: $gray700;
               }
+              &.-none::after{
+                content: "";
+              }
             }
           }
         }

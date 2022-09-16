@@ -1,4 +1,4 @@
-     //   codepen參考: https://codepen.io/abdon-gahungu/pen/eYdxVmz?editors=1000
+//   codepen參考: https://codepen.io/abdon-gahungu/pen/eYdxVmz?editors=1000
 
      const productContent ={
       template:`
@@ -105,11 +105,11 @@
     
           保存期限:3年<br>
           </div>
-      `
-    };
-    
-    const shoppingInfo ={
-      template:`
+      `,
+};
+
+const shoppingInfo = {
+  template:`
       <div class="textArea">
       付款方式<br>
       <br>
@@ -149,11 +149,11 @@
       購物小叮嚀<br>
       ● 如因廠商因素而遇商品斷貨/停售無法追加，賣場將會主動與您聯繫，造成不便請見諒。<br>
       </div>
-      `
-    };
-    
-    const deliveryMethod ={
-      template:`
+      `,
+};
+
+const deliveryMethod = {
+  template: `
       <div class="textArea">
       運送方式<br>
       <br>
@@ -174,138 +174,141 @@
       5.超取簡訊皆由系統自動發送通知，由於超商簡訊漏發嚴重，請買家到訂單查詢中，都會顯示出貨進度，如因未收到通知或其他因素錯失包裹領取時間，恕無法再提重新補寄服務<br>
       <br>
       </div>
-      `
-    };
+      `,
+};
 
-   new Vue({
-     el: '#shoppingApp',
-    //  props: ['isShow = true'],
-    data:{
-        isOpen: false,
-        reactArr:[],
-         olClass: 'hide',
-      products: ['1', '2', '3', '4', '5', '6', '7', '8'],
-      pages: ['2', '3', '4'],
-      content:'productContent',
+new Vue({
+  el: "#shoppingApp",
+  data: {
+    isOpen: false,
+    reactArr: [],
+    olClass: "hide",
+    products: ["1", "2", "3", "4", "5", "6", "7", "8"],
+    pages: ["2", "3", "4"],
+    content: "productContent",
     selected: 1,
-    counter:1,
-    isShow:false
-     },
-     components:{
-      'productContent': productContent,
-      'shoppingInfo': shoppingInfo,
-      'deliveryMethod':deliveryMethod
-    },
-    mounted() {
-      let reactTotal = document.querySelectorAll('.hide')
-      // console.log(reactTotal);
-      reactTotal.forEach((item) => {
-        this.reactArr.push(item)
-        console.log(this.reactArr);
-      });
-    },
-    methods:{
-      toggle(order) {
-            let length = this.reactArr.length,
-            i = 0;
-            // console.log(length);
-            // console.log(this.reactArr[order]);
-
-            if (this.isOpen === false) {
-                // console.log(this.reactArr[order]);
-                this.reactArr[order].classList.remove('hide');
-                this.reactArr[order].classList.add('show');
-                // console.log(this.reactArr[order].previousElementSibling);
-                this.reactArr[order].previousElementSibling.classList.add('turnRight');
-
-                this.isOpen = true;
-                for (i; i < length; i++) {
-                    if (order != i) {
-                this.reactArr[i].classList.remove('show');
-                this.reactArr[i].classList.add('hide');
-                this.reactArr[i].previousElementSibling.classList.remove('turnRight');
-
-
-                        // this.reactArr[i].class = 'hide';
-                        // this.reactArr[i].chevron = 'fa fa-chevron-down';
-                    }
-                }
-            }else if(this.isOpen === true && this.reactArr[order].classList.contains('hide') ){
-              this.reactArr[order].classList.remove('hide');
-              this.reactArr[order].classList.add('show');
-              this.reactArr[order].previousElementSibling.classList.add('turnRight');
-                
-                for (i; i < length; i++) {
-                    if (order != i) {
-                this.reactArr[i].classList.remove('show');
-                this.reactArr[i].classList.add('hide');
-                this.reactArr[i].previousElementSibling.classList.remove('turnRight');
-
-                    }
-                  }
-            } else {
-                this.reactArr[order].classList.remove('show');
-                this.reactArr[order].classList.add('hide'); this.reactArr[order].previousElementSibling.classList.remove('turnRight');
-                
-                // this.reactArr[order].class = 'hide';
-                // this.reactArr[order].chevron = 'fa fa-chevron-down';
-                this.isOpen = false;
-            }
+    counter: 1,
+    isShow: false,
+    currentSrc: 0,
+    imgList: [
+      {
+        imgSrc: "./images/ff/pd-001-1.jpg",
       },
-      changeCounter(num){
-        this.counter += +num;
-      this.counter > 1 ? this.counter : this.counter = 1;
+      {
+        imgSrc: "./images/ff/pd-001-2.jpg",
       },
+      {
+        imgSrc: "./images/ff/pd-001-3.jpg",
+      },
+      {
+        imgSrc: "./images/ff/pd-001-4.jpg",
+      },
+      {
+        imgSrc: "./images/ff/pd-001-5.jpg",
+      },
+      {
+        imgSrc: "./images/ff/pd-001-6.jpg",
+      },
+      {
+        imgSrc: "./images/ff/pd-001-7.jpg",
+      },
+      {
+        imgSrc: "./images/ff/pd-001-8.jpg",
+      },
+      {
+        imgSrc: "./images/ff/pd-001-9.jpg",
+      },
+      {
+        imgSrc: "./images/ff/pd-001-10.jpg",
+      },
+    ],
+  },
+  components: {
+    'productContent': productContent,
+    'shoppingInfo': shoppingInfo,
+    'deliveryMethod': deliveryMethod
+  },
+  methods: {
+    toggle(order) {
+      let length = this.reactArr.length,
+        i = 0;
+      // console.log(length);
+      // console.log(this.reactArr[order]);
+
+      if (this.isOpen === false) {
+        // console.log(this.reactArr[order]);
+        this.reactArr[order].classList.remove("hide");
+        this.reactArr[order].classList.add("show");
+        // console.log(this.reactArr[order].previousElementSibling);
+        this.reactArr[order].previousElementSibling.classList.add("turnRight");
+
+        this.isOpen = true;
+        for (i; i < length; i++) {
+          if (order != i) {
+            this.reactArr[i].classList.remove("show");
+            this.reactArr[i].classList.add("hide");
+            this.reactArr[i].previousElementSibling.classList.remove(
+              "turnRight"
+            );
+
+            // this.reactArr[i].class = 'hide';
+            // this.reactArr[i].chevron = 'fa fa-chevron-down';
+          }
+        }
+      } else if (
+        this.isOpen === true &&
+        this.reactArr[order].classList.contains("hide")
+      ) {
+        this.reactArr[order].classList.remove("hide");
+        this.reactArr[order].classList.add("show");
+        this.reactArr[order].previousElementSibling.classList.add("turnRight");
+
+        for (i; i < length; i++) {
+          if (order != i) {
+            this.reactArr[i].classList.remove("show");
+            this.reactArr[i].classList.add("hide");
+            this.reactArr[i].previousElementSibling.classList.remove(
+              "turnRight"
+            );
+          }
+        }
+      } else {
+        this.reactArr[order].classList.remove("show");
+        this.reactArr[order].classList.add("hide");
+        this.reactArr[order].previousElementSibling.classList.remove("turnRight");
+
+        // this.reactArr[order].class = 'hide';
+        // this.reactArr[order].chevron = 'fa fa-chevron-down';
+        this.isOpen = false;
+      }
     },
-    // computed:{
-    //   num(index){
-    //     let length = this.reactArr.length, i = 0, arr = [];
-    //     for(i;i < length; i++){
-    //       arr.push(i)
-    //     }
-    //     index = arr[i]
-    //   },
-    // },
-});
+    changeCounter(num) {
+      this.counter += +num;
+      this.counter > 1 ? this.counter : (this.counter = 1);
+    },
+  },
+  mounted() {
+    let reactTotal = document.querySelectorAll(".hide");
+    // console.log(reactTotal);
+    reactTotal.forEach((item) => {
+      this.reactArr.push(item);
+      console.log(this.reactArr);
+    });
 
-// new Vue({
-//   el: '#productsApp',
-//   data:{
-//     products: ['1', '2', '3', '4', '5', '6', '7', '8']
-//   },
-// })
-
-// new Vue({
-//   el: '#pageApp',
-//   data:{
-//     pages:['2','3','4']
-//   },
-// })
-
-
-
-
-
-
-// new Vue({
-//   el: '#productPageApp',
-//   // props: ['isShow'],
-//   data:{
-//     content:'productContent',
-//     selected: 1,
-//     counter:1,
-//     isShow:false
-//   },
-//   components:{
-//     'productContent': productContent,
-//     'shoppingInfo': shoppingInfo,
-//     'deliveryMethod':deliveryMethod
-//   },
-//   methods: {
-//     changeCounter(num){
-//       this.counter += +num;
-//     this.counter > 1 ? this.counter : this.counter = 1;
-//     }
-//   },
-
-// })
+    const swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 16,
+      slidesPerGroup: 3,
+      loop: false,
+      loopFillGroupWithBlank: false,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      },
+      // navigation: {
+      // nextEl: ".swiper-button-next",
+      // prevEl: ".swiper-button-prev",
+      // },
+    });
+  },
+})
