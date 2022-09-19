@@ -167,8 +167,23 @@
                 @include inputLabel(100%, "","請輸入姓名")
             }
 
+      
             .registerEmailLabel{
+                &.text::after{
+                    font-size: font-size(13);
+                    color: $gray800;
+                    content: attr(data-content);
+                    
+                    @include m(){
+                        font-size: rwd(13);
+                    }
+
+                    // &1::after{
+                    //     content: '請輸入8個字元';
+                    // }
+                  }
                 @include inputLabel(100%, "","請輸入正確格式的e-mail註冊帳號")
+
             }
 
             .registerPasswordLabel{
@@ -202,7 +217,7 @@
                     option{
                         color: $gray900;
                     }
-                    &.-error {
+                    &.error {
                     outline: solid 1px $error;
                     }
                 }
@@ -221,7 +236,7 @@
                         border-radius: rwd(6);
                       padding: rwd(5) rwd(7);
                     }
-                    &.-error {
+                    &.error {
                     outline: solid 1px $error;
                     }
                 }
@@ -263,9 +278,9 @@
                     margin-bottom: 0;
                 }
             }
-            a{
-                text-decoration:none;
-            }
+            // a{
+            //     text-decoration:none;
+            // }
         }
     }
 }

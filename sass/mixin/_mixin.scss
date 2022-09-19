@@ -78,7 +78,7 @@
     &:hover{
         outline: solid vw(2) $primaryDefault;
     }
-    &.-error{
+    &.error{
         outline: solid 1px $error;
     }
     &:disabled{
@@ -124,7 +124,7 @@
         font-size: font-size(13);
         color: $gray800;
     }
-    &.-error{
+    &.error{
     //    outline: solid vw(1) $error;
         &::after {
             content: "輸入錯誤";
@@ -161,7 +161,7 @@
     // margin: $space4 0;
     display: inline-block;
     // margin: vw(8) 0;
-    .input-textLabel[type="text"] {
+    .input-textLabel {
       @include input-text($w);
       margin: vw(8) 0;
 
@@ -187,7 +187,7 @@
         font-size: rwd(13);
       }
     }
-    &.-error::after {
+    &.error::after {
         content: $errortext;
         font-size: font-size(13);
         color: $error;
