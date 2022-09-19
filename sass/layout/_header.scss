@@ -21,7 +21,7 @@ header {
             @include m(){
                 overflow: hidden;
                 height: 137vw;
-                margin-bottom: -20vw;
+                margin-bottom: -62vw;
             
             }
         }
@@ -179,6 +179,10 @@ header {
 .top_kv_t {
     position: relative;
     z-index: 5;
+
+    @include m(){
+        z-index: -1;
+    }
 
     &_cir {
         position: absolute;

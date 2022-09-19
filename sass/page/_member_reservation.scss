@@ -6,7 +6,7 @@
     z-index: 28;
     padding: vw(50);
     @include m(){
-        width: rwd(350);
+        width: rwd(394);
         height: rwd(250);
         margin: rwd(40) auto 0;
         border-radius: rwd(25);
@@ -17,7 +17,7 @@
         border-bottom: vw(1) solid $gray900;
         padding-bottom: vw(24);
         @include m(){
-            font-size: rwd(12);
+            font-size: rwd(18);
         }
     }
     table{
@@ -27,8 +27,10 @@
                 width: vw(300);
                 border-bottom: vw(1) solid $gray900;
                 padding-bottom: vw(24);
+                font-size: $p;
                 @include m(){
-                    font-size: rwd(12);
+                    font-size: rwd(18);
+                    width: rwd(130);
                 }
             }
         }
@@ -37,16 +39,17 @@
                 td{
                     text-align: center;
                     padding-top: vw(24);
+                    font-size: $p;
                     @include m(){
-                        font-size: rwd(12);
+                        font-size: rwd(18);
                     }
                 }
                 .btn-0{
                     font-size: font-size(12);
                     @include m(){
-                        font-size: rwd(12);
-                        width: rwd(70);
-                        padding: rwd(8);
+                        font-size: rwd(16);
+                        width: rwd(60);
+                        padding: rwd(6);
                     }
                 }
             }

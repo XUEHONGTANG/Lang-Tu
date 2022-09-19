@@ -20,16 +20,28 @@ new Vue({
         title: "狗狗罐罐",
         price: "NT$400",
         sum: 400,
-      },
+      }
     ],
+    recipientInfo: {
+      name: null,
+      address: null,
+      phone: null,
+      email: null,
+      invoce: null,
+      text: '',
+    },
     counter: 1,
-    currentPage: 1,
+    currentPage: 2,
+    changeAddressIsActive:false
   },
   methods: {
     changeCounter(num) {
       this.counter += +num;
       this.counter > 1 ? this.counter : (this.counter = 1);
     },
+    changeAddress() {
+      this.changeAddressIsActive = !this.changeAddressIsActive
+    }
   },
   mounted() {
     this.currentPage = 1;

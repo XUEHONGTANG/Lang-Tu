@@ -6,26 +6,116 @@
       })
 </head>
 <body>
-  @@include('./layout/header_1.html',{
-    "大標題" : "領養知識問答" ,
-    "英文標題" : "ADOPTION QUIZ" ,
-    "前頁面" : "關於浪浪" ,
-    "此頁面" : "領養知識問答" ,
-  })
-    <main class="adoption_quiz">
-        <div class="quiz1">
-            <img src="./images/Derrick/quiz1.jpg" alt="">
-        </div>
-        <div class="quiz_start">
-            <div class="dog4"><img src="./images/Derrick/dog4.png" alt=""></div>
-            <div class="content">
-                <h2>關於浪浪的大小事</h2>
-                <button class="btn-0" onclick="location.href='./adoption_quiz2.html'">開始測驗</button>
+    @@include('./layout/nav.html')
+    <main id="adoptionQuizApp" class="adoption_quiz">
+        <transition name="fade" mode="out-in">
+        
+            <section v-if="currentPage === 1" key="block-a" class="start">
+            <div class="quizpic">
+                <img src="./images/Derrick/quiz1.jpg" alt="">
             </div>
-            <div class="quiz2"><img src="./images/Derrick/quiz2.jpg" alt=""></div>
-        </div>
-    </main>
-    @@include('layout/footer.html')
+            <div class="quiz_start">
+                <div class="dog4"><img src="./images/Derrick/dog4.png" alt=""></div>
+                <div class="content">
+                    <h2>關於浪浪的大小事</h2>
+                    <button @click="currentPage = 2" class="btn-0">開始測驗</button>
+                </div>
+                <div class="start2"><img src="./images/Derrick/quiz2.jpg" alt=""></div>
+            </div>
+        </section>
     
+        <section v-else-if="currentPage === 2" key="block-b" class="quiz1">
+            <img src="./images/Derrick/quiz3.jpg" alt="">
+            <div class="question">
+                <h3>1.毛小孩能不能吃人類的食物呢?</h3>
+                <div class="button">
+                    <button @click="class1.show1 = !class1.show1" :disabled="isDisabled" class="btn-0 left">可以</button>
+                    <i class="fa-solid fa-circle-xmark" :class= "class1"></i>
+                    <button @click="class2.show2 = !class2.show2" :disabled="isDisabled" class="btn-0 right">不可以</button>
+                    <i class="fa-solid fa-circle-check" :class= "class2"></i>
+                </div>
+            </div>
+            <div v-show="isShow" class="answer">
+                <p> A：毛小孩不應該吃人類的食物，正確來說是調理給人吃的食物。<br><br>想像一下：你坐下來吃晚飯，覺得有些凝視著你。從桌子下面，您可以瞥見牠們的眼睛，悄悄地乞求您只品嚐一種人類食物，作為牠們的主人，您可能會想給他吃一點也無妨，但是這種行為可能會在許多方面對牠們造成危險。<br><br>以下食物也不能食用，可能會有不適甚至致死的情況<br>
+                    1. 蔥、蒜、韭菜、洋蔥<br>
+                    2. 生雞蛋<br>
+                    3. 葡萄、葡萄乾<br>
+                    4. 巧克力<br>
+                    5. 櫻桃<br>
+                    6. 洋菇<br>
+                    7. 花椰菜<br>
+                    8. 骨頭(咬了會碎的骨頭都不要，可能會刺傷)<br>
+                   除了上述之外還很多，因此最好統一就是不要給狗吃人類的食物，如果你打算給予鮮食或是生食，請僅以肉類即可。
+                </p>
+                <div class="next"><button @click="next" class="btn-0">下一題</button></div>
+            </div>
+        </section>
+    
+        <section v-else-if="currentPage === 3" key="block-c" class="quiz2">
+            <img src="./images/Derrick/quiz3.jpg" alt="">
+            <div class="question">
+                <h3>2.喵星人需要洗澡嗎？</h3>
+                <div class="button">
+                    <button @click="class1.show1 = !class1.show1" :disabled="isDisabled" class="btn-0 left">需要</button>
+                    <i class="fa-solid fa-circle-check" :class= "class1"></i>
+                    <button @click="class2.show2 = !class2.show2" :disabled="isDisabled" class="btn-0 right">不需要</button>
+                    <i class="fa-solid fa-circle-xmark" :class= "class2"></i>
+                </div>
+            </div>
+            <div v-show="isShow" class="answer">
+                <p> A：需要<br>即使沒有養過貓的人，似乎也知道喵星人都是不喜歡水的，那肯定就是對於洗澡也恐懼的一種小動物。其實喵星人是需要洗澡的，身上過度骯髒的時候確實需要徹底的清理，那洗澡是最方便的。但是喵星人一般都是在室內活動的，主人如果每天定時的為喵星人梳理毛髮，可以保持毛髮的柔順，還可以減少跳蚤的發生。做好平時的護理工作，都是可以減少洗澡的頻率的。所以主人也大可以放心。至於家庭的環境也要保持，常常進行環境整理，每一個角落都要注意到，人類從戶外其實也會帶跳蚤回來，只能盡量清潔環境避免一些寄生蟲的發生。
+                </p>
+                <div class="next"><button @click="next" class="btn-0">下一題</button></div>
+            </div>
+        </section>
+        
+        <section v-else-if="currentPage === 4" key="block-d" class="quiz3">
+            <img src="./images/Derrick/quiz3.jpg" alt="">
+            <div class="question">
+                <h3>3.毛小孩一定要植入晶片嗎</h3>
+                <div class="button">
+                    <button @click="class1.show1 = !class1.show1" :disabled="isDisabled" class="btn-0 left">一定要</button>
+                    <i class="fa-solid fa-circle-check" :class= "class1"></i>
+                    <button @click="class2.show2 = !class2.show2" :disabled="isDisabled" class="btn-0 right">不一定</button>
+                    <i class="fa-solid fa-circle-xmark" :class= "class2"></i>
+                </div>
+            </div>
+            <div v-show="isShow" class="answer">
+                <p> A：一定要!<br>
+                    依據動物保護法規定,飼主必須為自家飼養犬隻植入晶片辦理寵物登記,經勸導拒不改善的飼主,可依同法處3,000元至15,000元罰鍰,飼主可持身分證件至寵物登記站(動物醫院)    辦理
+                </p>
+                <div class="next"><button @click="next" class="btn-0">下一題</button></div>
+            </div>
+        </section>
+        
+        <section v-else-if="currentPage === 5" key="block-e" class="quiz4">
+            <img src="./images/Derrick/quiz3.jpg" alt="">
+            <div class="question">
+                <h3>4.天氣炎熱時，需要給長毛狗狗剪毛，是否能讓它們感覺到舒適?</h3>
+                <div class="button">
+                    <button @click="class1.show1 = !class1.show1" :disabled="isDisabled" class="btn-0 left">是</button>
+                    <i class="fa-solid fa-circle-xmark" :class= "class1"></i>
+                    <button @click="class2.show2 = !class2.show2" :disabled="isDisabled" class="btn-0 right">否</button>
+                    <i class="fa-solid fa-circle-check" :class= "class2"></i>
+                </div>
+            </div>
+            <div v-show="isShow" class="answer">
+                <p> A：不能!<br>
+                    因為狗的汗腺主要分布在舌頭和腳掌上，而它們的身體上幾乎沒有汗腺，所以將長毛剪短。對它們沒有幫助，反而讓陽光直接照射，灼傷它們的皮膚
+                </p>
+                <div class="next"><button @click="next" class="btn-0">下一題</button></div>
+            </div>
+        </section>
+        
+        <section v-else-if="currentPage === 6" key="block-f" class="complete">
+            <h1>測驗完成</h1>
+        </section>
+        </transition-group>
+
+    </main>
+    
+    <script src="./js/adoption_quiz.js"></script>
+    <script src="./js/header.js"></script>
+
 </body>
 </html>

@@ -167,12 +167,22 @@
                 @include inputLabel(100%, "","請輸入姓名")
             }
 
+      
             .registerEmailLabel{
-                @include inputLabel(100%, "","請輸入正確格式的e-mail註冊帳號")
+                @include inputLabel(100%, "","請輸入正確格式的e-mail註冊帳號");
+                
+                &::after{
+                    // color: $gray800;
+                    content: attr(data-email);
+                  }
             }
 
             .registerPasswordLabel{
-                @include inputLabel(100%, "","請核對輸入的密碼是否有誤")
+                @include inputLabel(100%, "","請核對輸入的密碼是否有誤");
+
+                &::after{
+                    content: attr(data-password);
+                  }
             }
 
             .checkPasswordLabel{
@@ -202,7 +212,7 @@
                     option{
                         color: $gray900;
                     }
-                    &.-error {
+                    &.error {
                     outline: solid 1px $error;
                     }
                 }
@@ -221,7 +231,7 @@
                         border-radius: rwd(6);
                       padding: rwd(5) rwd(7);
                     }
-                    &.-error {
+                    &.error {
                     outline: solid 1px $error;
                     }
                 }
@@ -263,9 +273,9 @@
                     margin-bottom: 0;
                 }
             }
-            a{
-                text-decoration:none;
-            }
+            // a{
+            //     text-decoration:none;
+            // }
         }
     }
 }
