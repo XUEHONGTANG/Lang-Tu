@@ -19,16 +19,157 @@
       <main class="loginPageWrapper" id="loginPageApp">
         <ul>
           <li
-          @click="content='loginContent', selected = 1" :class="{'currentPage':selected === 1}"
+          @click="selected = 1"
+          :class="{'currentPage':selected === 1}"
           >登入會員</li>
           <li
-          @click="content='registerContent', selected = 2" :class="{'currentPage':selected === 2}"
+          @click="selected = 2"
+          :class="{'currentPage':selected === 2}"
           >註冊會員</li>
         </ul>
         <br>
         <!-- <a href="./member_detail.html" class="btn-0">登入會員</a> -->
 
-        <component :is="content"></component>
+        <!-- <component :is="content"></component> -->
+
+        <!-- 登入會員 -->
+        <section v-if="selected === 1">
+          <span>
+            <button>使用 LINE 登入</button>
+            <button>使用 FB 登入</button>
+          </span>
+            <hr class="mainLine">
+            <div>
+              <h3>請輸入您的登入資訊</h3>
+      
+              <label
+              :class="{error: loginErrors.account}"
+              class="loginAccountLabel"
+              name="loginAccount">
+                <input 
+                :class="{error: loginErrors.account}"
+                v-model.lazy.trim="loginForm.account"
+                class="input-textLabel" type="text" placeholder="請輸入您的註冊e-mail" name="loginAccount">
+            </label>
+      
+              <label
+              :class="{error: loginErrors.password}"
+              class="loginPasswordLabel" name="loginPassword">
+                <input
+                :class="{error: loginErrors.password}"
+                v-model.lazy.trim="loginForm.password"
+                class="input-textLabel" type="password" placeholder="請輸入您的密碼" name="loginPassword">
+            </label>
+      
+          </div>
+          <div>
+
+            <button 
+            @click="userLogin"
+            class="btn-0">登入會員</button>
+
+            <!-- <button @click="location.href='./member_detail.html'" class="btn-0">登入會員</button> -->
+
+              <button class="btn-1">忘記密碼?</button>
+            </div>
+        </section>
+        <!-- 登入會員  結束-->
+
+        
+
+        <!-- 註冊會員 -->
+        <section v-if="selected === 2">
+          <span>
+            <button>使用 LINE 註冊</button>
+            <button>使用 FB 註冊</button>
+          </span>
+            <hr class="mainLine">
+            <div>
+              <h3>請輸入註冊會員資訊</h3>
+
+
+              <label 
+              :class="{error: registerErrors.name}"
+              class="registerNameLabel" name="
+              registerName">
+                <input 
+                :class="{error: registerErrors.name}"
+                v-model.lazy.trim="registerForm.name"
+                class="input-textLabel" type="text" placeholder="請輸入您的姓名" name="
+              registerName">
+              </label>
+
+              <!-- :style="emailWarning" -->
+              <!-- :data-content="emailWarningContent" -->
+              <!-- v-model="emailWarningContent" -->
+              <label
+              :data-content="emailWarningContent"
+              :class="{error: registerErrors.email,emailWarningContent}"
+              class="registerEmailLabel text" name="
+              registerEmail">
+              
+              <!-- @onchange="emailCheck" -->
+                <input
+                :class="{error: registerErrors.email}"
+                v-model.trim="registerForm.email"
+                class="input-textLabel" type="email" placeholder="請輸入您的E-MAIL註冊帳號" name="
+              registerEmail">
+              </label>
+
+              <label 
+              :class="{error: registerErrors.password}"
+              class="registerPasswordLabel" name="
+              registerPassword">
+                <input
+                :class="{error: registerErrors.password}"
+                v-model="registerForm.password"
+                class="input-textLabel" type="password" placeholder="請輸入您的密碼(至少8個字元)" name="
+              registerPassword">
+              </label>
+
+              <label 
+              :class="{error: registerErrors.check}"
+              class="checkPasswordLabel" name="checkPassword">
+                <input 
+                :class="{error: registerErrors.check}"
+                v-model="registerForm.check"
+                class="input-textLabel" type="password" placeholder="請再次輸入您的密碼" name="checkPassword">
+              </label>
+
+              <span>
+                <select
+                :class="{error: registerErrors.gender}"
+                v-model="registerForm.gender"
+                name="gender">
+                  <option hidden disabled selected value="">-- 性別 --</option>
+                  <option value="men">男</option>
+                  <option value="women">女</option>
+                </select>
+
+                <input 
+                :class="{error: registerErrors.birth}"
+                v-model="registerForm.birth"
+                type="date">
+              </span>
+
+            </div>
+            <hr class="mainLine">
+            
+            <div>
+              <div>
+                <input type="checkbox">我同意 網站服務條款及隱私政策
+              </div>
+              <button
+              @click="userRegister" 
+              class="btn-0">加入浪途之家吧!</button>
+            </div>
+
+        </section>
+        <!-- 註冊會員  結束-->
+
+
+
+
       </main>
     <!-- </main> -->
     @@include('layout/footer.html')
