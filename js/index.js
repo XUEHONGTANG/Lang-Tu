@@ -149,7 +149,7 @@ function animateFrom(elem, direction) {
         x = -29;
         y = 0;
     } else if (elem.classList.contains("gs_reveal_fromRight")) {
-        x = 45;
+        x = 29;
         y = 0;
     }
     elem.style.transform = "translate(" + x + "px, " + y + "px)";
@@ -163,7 +163,7 @@ function animateFrom(elem, direction) {
         x: 0,
         y: 0,
         autoAlpha: 1,
-        ease: "transform 0.7s ease-out,opacity 1.2s ease",
+        ease: " 0.7s ease-out,opacity 1.2s ease",
         //   overwrite: "auto",
 
     });
@@ -176,8 +176,7 @@ function hide(elem) {
 document.addEventListener("DOMContentLoaded", function () {
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap
-        .utils
+    gsap.utils
         .toArray(".gs_reveal")
         .forEach(function (elem) {
             hide(elem); // assure that the element is hidden when scrolled into view
@@ -193,13 +192,35 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 });
 
+
+
+
+
+// ScrollTrigger.create({
+//     trigger: ".svg",
+//     // markers:true,
+//     onEnter: function(){animateFrom(mySVG)}
+// });
 var mySVG = $('svg').drawsvg();
+
 ScrollTrigger.create({
     trigger: ".svg",
-    // markers:true,
-    onEnter: mySVG.drawsvg('animate')
+    paused: true,
+    //markers: true,
+    onEnter: () => mySVG.drawsvg('animate')
 });
 
+// gsap.to(".svg",{
+//     scrollTrigger:{
+//         trigger: ".svg",
+//         onEnter: function(){animateFrom(mySVG)},
+//         trigger: section,
+//         markers:true,
+//         start: "top center",
+//         end: "350px center",
+
+//     }
+// })
 //
 
 const tl = gsap.timeline({
