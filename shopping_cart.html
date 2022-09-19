@@ -24,7 +24,7 @@
         
 
         <!-- shopping cart page 1 -->
-        <section v-if="currentPage == 1">
+        <section v-if="currentPage === 1">
             <div class="shoppingList">
             <h3>購物清單</h3>
             <hr class="mainLine">
@@ -79,7 +79,7 @@
 
 
         <!-- shopping cart page 2 -->
-        <section v-if="currentPage == 2">
+        <section v-if="currentPage === 2">
             <div class="shoppingList">
                 <h3>訂單成立</h3>
                 <hr class="mainLine">
@@ -150,13 +150,22 @@
                 <hr class="mainLine">
 
                 <!-- 您的名字 -->
-                <label class="infoNameLabel -error" name="infoName">
-                    <input class="input-textLabel" type="text" placeholder="請輸入您的名字" name="infoName">
+                <label 
+                :class="{disabled: changeAddressIsActive}"
+                class="infoNameLabel" name="infoName" >
+                    <input
+                    :disabled="changeAddressIsActive" 
+                    v-model.lazy.trim="recipientInfo.name"
+                    class="input-textLabel" type="text" placeholder="請輸入您的名字" name="infoName">
                 </label>
 
                 <!-- 寄送地址 -->
-                <h5>寄送地址 (使用超商收貨者免填) (選填)</h5>
-                <div class="twzipcode"></div>
+                <h5
+                :class="{disabled: changeAddressIsActive}"
+                >寄送地址 (使用超商收貨者免填) (選填)</h5>
+                <div
+                :class="{disabled: changeAddressIsActive}"
+                class="twzipcode"></div>
                 <!-- 舊寫法 
                     <span>
                     <select>
@@ -167,22 +176,38 @@
                     </select>
                     <input class="postalCode" type="text" placeholder="郵遞區號">
                 </span> -->
-                <input class="address" type="text" placeholder="請輸入您的住址">
+                <input
+                :disabled="changeAddressIsActive" 
+                v-model.lazy.trim="recipientInfo.address"
+                 class="address" type="text" placeholder="請輸入您的住址">
 
 
 
                 <!-- 連絡電話 -->
-                <label class="infoPhoneLabel" name="infoName">
-                    <input class="input-textLabel" type="text" placeholder="請輸入您的電話" name="infoPhone">
+                <label
+                :class="{disabled: changeAddressIsActive}"
+                class="infoPhoneLabel" name="infoName">
+                    <input
+                    :disabled="changeAddressIsActive"
+                    v-model.lazy.trim="recipientInfo.phone"
+                    class="input-textLabel" type="text" placeholder="請輸入您的電話" name="infoPhone">
                 </label>
 
                 <!-- e-mail -->
-                <label class="infoEmailLabel" name="infoName">
-                    <input class="input-textLabel" type="text" placeholder="請輸入您的e-mail" name="infoEmail">
+                <label
+                :class="{disabled: changeAddressIsActive}"
+                class="infoEmailLabel" name="infoName">
+                    <input
+                    :disabled="changeAddressIsActive"
+                    v-model.lazy.trim="recipientInfo.email"
+                    class="input-textLabel" type="text" placeholder="請輸入您的e-mail" name="infoEmail">
                 </label>
 
-                <label for="invoice">索取發票方式:</label>
-                <select name="invoice" class="invoice" id="invoice">
+                <label
+                for="invoice">索取發票方式:</label>
+                <select
+                v-model.lazy.trim="recipientInfo.invoce"
+                name="invoice" class="invoice" id="invoice">
                     <option value="">索取紙本發票</option>
                     <option value="">統一編號</option>
                     <option value="">手機條碼</option>
@@ -192,29 +217,42 @@
             <!-- 右邊資料 -->
             <div class="right-form">
                 <div>
-                    <input type="checkbox">
+                    <input type="checkbox" @click="changeAddress">
                     <h4>運送到不同地址?</h4>
                 </div>
                 <hr class="mainLine">
 
                 <!-- 收件人的名字 -->
-                <label class="otherNameLabel -disabled" name="otherName">
-                    <input class="input-textLabel" type="text" placeholder="請輸入收件人的名字" name="otherName" disabled>
+                <label
+                :class="{disabled: !changeAddressIsActive}"
+                 class="otherNameLabel" name="otherName">
+                    <input
+                    :disabled="!changeAddressIsActive"
+                    class="input-textLabel" type="text" placeholder="請輸入收件人的名字" name="otherName">
                 </label>
 
                 <!-- 寄送地址 -->
-                <h5 class="-disabled">寄送地址 (使用超商收貨者免填) (選填)</h5>
-                <div class="twzipcode -disabled"></div>
-                <input class="otherAddress" type="text" placeholder="請輸入收件者的住址" disabled>
+                <h5 :class="{disabled: !changeAddressIsActive}">寄送地址 (使用超商收貨者免填) (選填)</h5>
+                <div
+                :class="{disabled: !changeAddressIsActive}"
+                class="twzipcode"></div>
+                <input
+                :disabled="!changeAddressIsActive"
+                class="otherAddress" type="text" placeholder="請輸入收件者的住址">
 
                 <!-- 連絡電話 -->
-                <label class="otherPhoneLabel -disabled" name="otherName">
-                    <input class="input-textLabel" type="text" placeholder="請輸入收件者的電話" name="otherPhone" disabled>
+                <label
+                :class="{disabled: !changeAddressIsActive}"
+                class="otherPhoneLabel -disabled" name="otherName">
+                    <input
+                    :disabled="!changeAddressIsActive"
+                    class="input-textLabel" type="text" placeholder="請輸入收件者的電話" name="otherPhone">
                 </label>
 
                 <!-- 備註 -->
-                <label class="-disabled">備註:
-                    <textarea name="" id="" disabled></textarea>
+                <label>備註:
+                    <textarea
+                     name="" id=""></textarea>
                 </h5>
                 
                 
@@ -233,7 +271,7 @@
 
 
         <!-- shopping cart page 3 -->
-        <section v-if="currentPage == 3">
+        <section v-if="currentPage === 3">
             <div class="shoppingList">
             <h3>您的訂單</h3>
             <hr class="mainLine">
