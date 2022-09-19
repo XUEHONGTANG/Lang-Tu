@@ -18,6 +18,7 @@
     .petpage-pp-big{
         width: vw(628);
         margin-right: vw(64);
+        
         img{
             width: 100%;
         }
@@ -26,25 +27,43 @@
                 // display: flex;
                 img{
                     // width: rwd(260);
-                    margin-left: rwd(8);
+                    // margin-left: rwd(8);
                 }
         }
     }
     .petpage-pp-small{
-        width: vw(628);
-        display: flex;
+        // width: vw(628);
+        // display: flex;
         margin-top: vw(24);
-        
-        img{
-            width: vw(100);
-            margin-right: vw(32);
-        }
-        @include m(){
-            // flex-direction: column;
+
+        .swiper-wrapper{
+            display: -webkit-box;
+                display: -ms-flexbox;
+                // display: -webkit-flex;
+                // -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                -webkit-align-items: center;
+                align-items: center;
             img{
-                width: rwd(60);
+                width: vw(100);
+                margin-right: vw(32);
+                object-fit: cover;
+                display: block;
                 
             }
+            @include m(){
+                // flex-direction: column;
+                img{
+                    
+                    
+                    
+                }
+            }
+
         }
     }
     .petpage-tt{

@@ -5,7 +5,8 @@
     @@include('./layout/head.html', {
     "title" : "浪浪等家"
     })
-    <!-- <script src="https://unpkg.com/vue@2"></script> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@7/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@7/swiper-bundle.min.js"></script>
 </head>
 
 <body>
@@ -21,13 +22,15 @@
                 <li>
                 <img :src="imgList[petimg]"  alt="" class="petpage-pp-rwd">
                 </li>
-                <li class="petpage-pp-small">
+                <li class="swiper mySwiper  petpage-pp-small">
                     <!-- <img src="./images/Meteor/dog5.png" alt="" >
                     <img src="./images/Meteor/dog6.png" alt="" >
                     <img src="./images/Meteor/dog7.png" alt="" >
                     <img src="./images/Meteor/dog8.png" alt="" >
                     <img src="./images/Meteor/dog9.png" alt="" > -->
-                    <img v-for="(pic, picIndex) in imgList" :src="pic" @click="petimg = picIndex"> 
+                    <div class="swiper-wrapper">
+                    <img v-for="(pic, picIndex) in imgList" :src="pic" @click="petimg = picIndex" class="swiper-slide">
+                    </div>
                 </li>
             </ul>
             <div class="petpage-tt">
