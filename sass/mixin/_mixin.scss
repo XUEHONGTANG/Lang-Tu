@@ -196,7 +196,7 @@
             font-size: rwd(13);
           }
     }
-    &.-disabled {
+    &.disabled {
       &::before {
         color: $gray600;
       }

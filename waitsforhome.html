@@ -15,31 +15,49 @@
     "此頁面" : "浪浪等家" ,
     })
     
-    <main class="waitsforhome">
-            <div class="sidebarExsample" id="sidebarApp">
+    <main class="waitsforhome" id="waitsforhomeApp" >
+            <div class="sidebarExsample" >
                 <ul>
                     <li>
                         <button class="accordion" @click="toggle(0)">貓貓</button>
                         <ol :class="olClass">
-                            <li><button>棕色</button></li>
-                            <li><button>花色</button></li>
-                            <li><button>黑色</button></li>
-                            <li><button>白色</button></li>
+                            <li><button @click="content='brown'">棕色</button></li>
+                            <li><button @click="content='flower'">花色</button></li>
+                            <li><button @click="content='black'">黑色</button></li>
+                            <li><button @click="content='white'">白色</button></li>
                         </ol>
                     </li>
                     <li>
                         <button class="accordion" @click="toggle(1)">狗狗</button>
                         <ol :class="olClass">
-                            <li><button>小型犬</button></li>
-                            <li><button>中型犬</button></li>
-                            <li><button>大型犬</button></li>
+                            <li><button @click="content='smalldog'">小型犬</button></li>
+                            <li><button @click="content='mediumdog'">中型犬</button></li>
+                            <li><button @click="content='bigdog'">大型犬</button></li>
                         </ol>
                     </li>
                 </ul>
             </div>
         <div>
-            <ul class="">
-                <a href="./petpage.html">
+            <component :is='content'></component>
+            <!-- <ul> -->
+                    
+                    <!-- <a v-for="animal in animals" href="./${animal.pet}.html">
+                        <li class="waitsforhome-li">
+                            <div class="home-1">
+                                <div class="dogpp">
+                                    <img src="./images/Meteor/${animal.image}.png" alt="">
+                                </div>
+                                <div class="dogtt">
+                                    <h1>{{animal.name}}</h1>
+                                    <h4>收養日期:約{{year}}/{{month}}月 性別:{{gender}}</h4>
+                                    <p>{{dest}}</p>
+                                    <p>◎預防針施打狀況(下一次施打時間)：{{vax}}</p>
+                                </div>
+                            </div>
+                        </li>
+                    </a> -->
+
+                <!-- <a href="./petpage.html">
                     <li class="waitsforhome-li">
                         <div class="home-1">
                             <div class="dogpp">
@@ -57,6 +75,7 @@
                         </div>
                     </li>
                 </a>
+            
                 <a href="./petpage.html">
                     <li class="waitsforhome-li">
                         <div class="home-1">
@@ -92,10 +111,10 @@
                             </div>
                         </div>
                     </li>
-                </a>
-            </ul>
+                </a> -->
+            <!-- </ul> -->
             <div class="page-icon">
-                <ul class="pages" id="pageApp">
+                <ul class="pages">
                     <li class="previous">
                       <i class="fa-solid fa-circle-chevron-left"></i>
                     </li>
@@ -110,71 +129,7 @@
     </main>
     @@include('layout/footer.html')
 
-    <script>
-        new Vue({
-        el: '#pageApp',
-        data:{
-          pages:['2','3','4']
-        },
-        })
-        new Vue({
-              el: '#sidebarApp',
-              data:{
-                  isOpen: false,
-                  reactArr:[],
-                  olClass: 'hide',
-              },
-              mounted() {
-                let reactTotal = document.querySelectorAll('.hide')
-                // console.log(reactTotal);
-                reactTotal.forEach((item) => {
-                  this.reactArr.push(item)
-                  console.log(this.reactArr);
-                });
-              },
-              methods:{
-                toggle(order) {
-                      let length = this.reactArr.length,
-                      i = 0;
-                      // console.log(length);
-                      // console.log(this.reactArr[order]);
-
-                      if (this.isOpen === false) {
-                          // console.log(this.reactArr[order]);
-                          this.reactArr[order].classList.remove('hide');
-                          this.reactArr[order].classList.add('show');
-                          // console.log(this.reactArr[order].previousElementSibling);
-                          this.reactArr[order].previousElementSibling.classList.add('turnRight');
-                          this.isOpen = true;
-
-                          for (i; i < length; i++) {
-                              if (order != i) {
-                          this.reactArr[i].classList.remove('show');
-                          this.reactArr[i].classList.add('hide');
-                          this.reactArr[i].previousElementSibling.classList.remove('turnRight');
-                              }
-                          }
-                      }else if(this.isOpen === true && this.reactArr[order].classList.contains('hide') ){
-                        this.reactArr[order].classList.remove('hide');
-                        this.reactArr[order].classList.add('show');
-                        this.reactArr[order].previousElementSibling.classList.add('turnRight');
-                         
-                          for (i; i < length; i++) {
-                              if (order != i) {
-                          this.reactArr[i].classList.remove('show');
-                          this.reactArr[i].classList.add('hide');
-                          this.reactArr[i].previousElementSibling.classList.remove('turnRight');
-                              }
-                            }
-                      } else {
-                          this.reactArr[order].classList.remove('show');
-                          this.reactArr[order].classList.add('hide'); this.reactArr[order].previousElementSibling.classList.remove('turnRight');
-                          this.isOpen = false;
-                      }
-                  },
-              },
-          });
-    </script>
+    <script src="./js/waitsforhome.js"></script>
 </body>
 
 </html>

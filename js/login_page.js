@@ -10,14 +10,15 @@ new Vue({
   el: "#loginPageApp",
   data: {
     selected: 2,
-    emailWarningContent: '',
+    emailWarningText: "",
+    passwordWarningText: "",
     loginForm: {
       account: null,
-      password: null
+      password: null,
     },
     loginErrors: {
       account: false,
-      password: false
+      password: false,
     },
     registerForm: {
       name: null,
@@ -25,7 +26,7 @@ new Vue({
       password: null,
       check: null,
       gender: null,
-      birth: null   
+      birth: null,
     },
     registerErrors: {
       name: false,
@@ -33,8 +34,9 @@ new Vue({
       password: false,
       check: false,
       gender: false,
-      birth: false
-    }
+      birth: false,
+      agree: false
+    },
   },
   methods: {
     userLogin() {
@@ -42,7 +44,7 @@ new Vue({
         this.loginErrors.account = true;
         this.loginErrors.password = true;
         return false;
-      }else if (!this.loginForm.account) {
+      } else if (!this.loginForm.account) {
         this.loginErrors.account = true;
         this.loginErrors.password = false;
         return false;
@@ -52,150 +54,103 @@ new Vue({
         return false;
       }
 
-      alert('登入成功');
+      alert("登入成功");
       window.location.href = "./member_detail.html";
     },
     userRegister() {
-      const self = this;
+      // const self = this;
 
       for (let key in this.registerErrors) {
         this.registerErrors[key] = false;
       }
 
-      (function(){
-        if (!self.registerForm.name) {
+      (() => {
+        if (!this.registerForm.name) {
           this.registerErrors.name = true;
         }
 
-        if (!self.registerForm.email) {
+        if (!this.registerForm.email || !/^\b[A-Z0-9-]+@[A-Z0-9]+\.com\b/i.test(this.registerForm.email)) {
           this.registerErrors.email = true;
         }
 
-        if (!self.registerForm.password) {
-          this.registerErrors.password= true;
+        if (!this.registerForm.password || !/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9_\W]).+$/.test(this.registerForm.password)) {
+          this.registerErrors.password = true;
         }
 
-        if (!self.registerForm.check) {
-          this.registerErrors.check= true;
+        if (!this.registerForm.check || (this.registerForm.password != this.registerForm.check)) {
+          this.registerErrors.check = true;
         }
 
-        if (!self.registerForm.gender) {
-          this.registerErrors.gender= true;
+        if (!this.registerForm.gender) {
+          this.registerErrors.gender = true;
         }
 
-        if (!self.registerForm.birth) {
-          this.registerErrors.birth= true;
+        if (!this.registerForm.birth) {
+          this.registerErrors.birth = true;
         }
 
-        
-
+        if (!this.registerForm.agree) {
+          this.registerErrors.agree = true;
+        }
       })();
-        
 
-   
       for (let key in this.registerErrors) {
         if (this.registerErrors[key] === true) {
-          alert('註冊失敗');
+          alert("註冊失敗");
           return false;
         }
-        
       }
 
-      alert('註冊成功');
+      alert("註冊成功");
     },
-    // emailCheck() {
-    //   this.emailWarningContent = '請輸入'
-    //   console.log(this.emailWarningContent);
-    // }
-    // emailWarning() {
-    //   // this.emailWarningContent = text
-    //   this.emailWarningContent = '請輸入';
-    //   // return this.emailWarningContent  
-    // }
-
   },
   computed: {
-    // emailWarning: { 
-    //   get() {
-    //     return emailWarningContent
-    //   },
-    //   set(){
-    //     return emailWarningContent
-    //   }
-    // }
-
-    // emailWarning(){
-    //   // this.emailWarning = true;
-    //   // console.log(1);
-    //   // return this.emailWarningContent;
-    //   // emailWarningContent = '請輸入';
-   
-    //   return emailWarningContent
-    // }
+    emailWarning() {
+      return this.emailWarningText;
+      // return this.registerForm.email
+    },
+    passwordWarning() {
+      return this.passwordWarningText;
+      // return this.registerForm.email
+    },
   },
   watch: {
     registerForm: {
-      
-      handler: (newVal) => { 
-        // console.log(newVal.email);
+      handler(newVal) {
 
+        // mail
+        if (newVal.email) {
+          let pattern = /^\b[A-Z0-9-]+@[A-Z0-9]+\.com\b/i;
+          if (newVal.email && !pattern.test(newVal.email)) {
+            this.emailWarningText = "請輸入正確的e-mail格式";
+          } else if (newVal.email && pattern.test(newVal.email)) {
+            this.emailWarningText = "";
+          }
+        }
 
-        // let emailWarn = document.querySelector('.registerEmailLabel').dataset.content
-        // console.log(emailWarn );
-        let pattern = /^\b[A-Z0-9-]+@[A-Z0-9]+\.com\b/i;
-        if (!pattern.test(newVal.email)) {
-          // return emailWarningContent = 'xx';
-          // console.log(this.emailWarningContent);
-          // emailWarn = '請輸入';
-          // console.log(emailWarn);
-          // emailWarning();
-          emailWarningContent = '請輸入正確e-mail';
-          console.log(emailWarningContent);
-          // emailWarning();
-        } else {
-          emailWarningContent = '';
-          console.log(emailWarningContent);
-          // emailWarning();
+        // password
+        if (newVal.password) {
+          // (() => {
+          let patternLower = /^(?=.*[a-z]).+$/;
+          let patternUpper = /^(?=.*[A-Z]).+$/;
+          let pattern = /^(?=.*[0-9_\W]).+$/;
+
+          if (newVal.password && newVal.password.length < 8) {
+            this.passwordWarningText = "密碼需8個字元以上";
+          } else if (newVal.password && !patternLower.test(newVal.password)) {
+            this.passwordWarningText = "密碼必須含有小寫英文";
+          } else if (newVal.password && !patternUpper.test(newVal.password)) {
+            this.passwordWarningText = "密碼必須含有大寫英文";
+          } else if (newVal.password && !pattern.test(newVal.password)) {
+            this.passwordWarningText = "密碼必須含有1個數字或1個特殊符號";
+          } else {
+            this.passwordWarningText = "";
+          }
         }
       },
       deep: true,
-      immediate: true,
-
-      // email: {
-      //   handler: (newVal) => {
-      //     // if (newVal) {
-      //     //   emailWarningContent = '請輸入';
-      //     //   return emailWarningContent
-      //     // }
-      //     // let emailWarn = document.getAttribute('data-content')
-      //     // console.log(emailWarn);
-
-      //     // console.log(registerForm);
-      //     // console.log(registerForm.email);
-
-      //     // let pattern = /^\b[A-Z0-9-]+@[A-Z0-9]+\.com\b/i;
-      //     // if (!pattern.test(newVal)) {
-      //     //   // emailWarningContent = '';
-      //     //   console.log(registerForm.email);
-      //     //   console.log(1);
-      //     //   // emailWarningContent = 'data-content="請輸入"';
-      //     //   // console.log(emailWarningContent);
-      //     //   // return emailWarningContent
-      //     //   // console.log(newval);
-      //     //   // return emailWarningContent
-      //     //   // emailWarning();
-      //     //   // console.log('驗證成功');
-      //     //   // console.log(emailWarningContent);
-      //     // }
-      //     // this.emailWarningContent = '請輸入';
-       
-      //     // emailWarningContent = '請輸入';
-      //     // console.log(emailWarningContent);
-      //   },
-      //   deep: true,
-      //   immediate: true
-      // }
-      }
+      // immediate: true,
+    },
   },
 });
 

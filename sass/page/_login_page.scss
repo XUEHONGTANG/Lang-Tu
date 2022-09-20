@@ -169,25 +169,20 @@
 
       
             .registerEmailLabel{
-                &.text::after{
-                    font-size: font-size(13);
-                    color: $gray800;
-                    content: attr(data-content);
-                    
-                    @include m(){
-                        font-size: rwd(13);
-                    }
-
-                    // &1::after{
-                    //     content: '請輸入8個字元';
-                    // }
+                @include inputLabel(100%, "","請輸入正確格式的e-mail註冊帳號");
+                
+                &::after{
+                    // color: $gray800;
+                    content: attr(data-email);
                   }
-                @include inputLabel(100%, "","請輸入正確格式的e-mail註冊帳號")
-
             }
 
             .registerPasswordLabel{
-                @include inputLabel(100%, "","請核對輸入的密碼是否有誤")
+                @include inputLabel(100%, "","請核對輸入的密碼是否有誤");
+
+                &::after{
+                    content: attr(data-password);
+                  }
             }
 
             .checkPasswordLabel{

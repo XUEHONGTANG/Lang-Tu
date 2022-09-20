@@ -23,7 +23,7 @@
                 <div class="start2"><img src="./images/Derrick/quiz2.jpg" alt=""></div>
             </div>
         </section>
-    
+
         <section v-else-if="currentPage === 2" key="block-b" class="quiz1">
             <img src="./images/Derrick/quiz3.jpg" alt="">
             <div class="question">
@@ -36,7 +36,8 @@
                 </div>
             </div>
             <div v-show="isShow" class="answer">
-                <p> A：毛小孩不應該吃人類的食物，正確來說是調理給人吃的食物。<br><br>想像一下：你坐下來吃晚飯，覺得有些凝視著你。從桌子下面，您可以瞥見牠們的眼睛，悄悄地乞求您只品嚐一種人類食物，作為牠們的主人，您可能會想給他吃一點也無妨，但是這種行為可能會在許多方面對牠們造成危險。<br><br>以下食物也不能食用，可能會有不適甚至致死的情況<br>
+                <h4>A：不能</h4>
+                    <p>毛小孩不應該吃人類的食物，正確來說是調理給人吃的食物。想像一下：你坐下來吃晚飯，覺得有些凝視著你。從桌子下面，您可以瞥見牠們的眼睛，悄悄地乞求您只品嚐一種人類食物，作為牠們的主人，您可能會想給他吃一點也無妨，但是這種行為可能會在許多方面對牠們造成危險。<br><br>以下食物也不能食用，可能會有不適甚至致死的情況<br>
                     1. 蔥、蒜、韭菜、洋蔥<br>
                     2. 生雞蛋<br>
                     3. 葡萄、葡萄乾<br>
@@ -63,7 +64,7 @@
                 </div>
             </div>
             <div v-show="isShow" class="answer">
-                <p> A：需要<br>即使沒有養過貓的人，似乎也知道喵星人都是不喜歡水的，那肯定就是對於洗澡也恐懼的一種小動物。其實喵星人是需要洗澡的，身上過度骯髒的時候確實需要徹底的清理，那洗澡是最方便的。但是喵星人一般都是在室內活動的，主人如果每天定時的為喵星人梳理毛髮，可以保持毛髮的柔順，還可以減少跳蚤的發生。做好平時的護理工作，都是可以減少洗澡的頻率的。所以主人也大可以放心。至於家庭的環境也要保持，常常進行環境整理，每一個角落都要注意到，人類從戶外其實也會帶跳蚤回來，只能盡量清潔環境避免一些寄生蟲的發生。
+                <h4>A：需要</h4><p>即使沒有養過貓的人，似乎也知道喵星人都是不喜歡水的，那肯定就是對於洗澡也恐懼的一種小動物。其實喵星人是需要洗澡的，身上過度骯髒的時候確實需要徹底的清理，那洗澡是最方便的。但是喵星人一般都是在室內活動的，主人如果每天定時的為喵星人梳理毛髮，可以保持毛髮的柔順，還可以減少跳蚤的發生。做好平時的護理工作，都是可以減少洗澡的頻率的。所以主人也大可以放心。至於家庭的環境也要保持，常常進行環境整理，每一個角落都要注意到，人類從戶外其實也會帶跳蚤回來，只能盡量清潔環境避免一些寄生蟲的發生。
                 </p>
                 <div class="next"><button @click="next" class="btn-0">下一題</button></div>
             </div>
@@ -72,7 +73,7 @@
         <section v-else-if="currentPage === 4" key="block-d" class="quiz3">
             <img src="./images/Derrick/quiz3.jpg" alt="">
             <div class="question">
-                <h3>3.毛小孩一定要植入晶片嗎</h3>
+                <h3>3.毛小孩一定要植入晶片嗎?</h3>
                 <div class="button">
                     <button @click="class1.show1 = !class1.show1" :disabled="isDisabled" class="btn-0 left">一定要</button>
                     <i class="fa-solid fa-circle-check" :class= "class1"></i>
@@ -81,8 +82,7 @@
                 </div>
             </div>
             <div v-show="isShow" class="answer">
-                <p> A：一定要!<br>
-                    依據動物保護法規定,飼主必須為自家飼養犬隻植入晶片辦理寵物登記,經勸導拒不改善的飼主,可依同法處3,000元至15,000元罰鍰,飼主可持身分證件至寵物登記站(動物醫院)    辦理
+                <h4>A：一定要!</h4><p>依據動物保護法規定,飼主必須為自家飼養犬隻植入晶片辦理寵物登記,經勸導拒不改善的飼主,可依同法處3,000元至15,000元罰鍰,飼主可持身分證件至寵物登記站(動物醫院)    辦理
                 </p>
                 <div class="next"><button @click="next" class="btn-0">下一題</button></div>
             </div>
@@ -100,15 +100,18 @@
                 </div>
             </div>
             <div v-show="isShow" class="answer">
-                <p> A：不能!<br>
-                    因為狗的汗腺主要分布在舌頭和腳掌上，而它們的身體上幾乎沒有汗腺，所以將長毛剪短。對它們沒有幫助，反而讓陽光直接照射，灼傷它們的皮膚
+                <h4>A：不能!</h4><p>因為狗的汗腺主要分布在舌頭和腳掌上，而它們的身體上幾乎沒有汗腺，所以將長毛剪短。對它們沒有幫助，反而讓陽光直接照射，灼傷它們的皮膚
                 </p>
                 <div class="next"><button @click="next" class="btn-0">下一題</button></div>
             </div>
         </section>
         
         <section v-else-if="currentPage === 6" key="block-f" class="complete">
-            <h1>測驗完成</h1>
+            <h2>恭喜你已學到毛小孩的飼養相關知識<br>想了解更多領養相關知識嗎?</h2>
+            <img class="dog1" src="./images/Derrick/dog1.png" alt="">
+            <img class="dog2"s rc="./images/Derrick/dog2.png" alt="">
+            <img class="dog3" src="./images/Derrick/dog3.png" alt="">
+            <button class="btn-0"><a href="./adoption_knowledge.html">請按我</a></button>
         </section>
         </transition-group>
 

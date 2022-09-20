@@ -459,6 +459,10 @@ main.shoppingCartWrapper {
         color: $primaryA11y;
         font-size: $h5;
         margin-bottom: $space1;
+
+        &.disabled{
+          color: $gray600;
+      }
   
         @include m(){
           font-size: rwd(16);
@@ -475,7 +479,7 @@ main.shoppingCartWrapper {
           margin-bottom: rwd(8);
         }
 
-        &.-disabled{
+        &.disabled{
           input[type=text]{
             outline: solid 1px $gray600;
             color: $gray500;
@@ -608,7 +612,7 @@ main.shoppingCartWrapper {
         color: $primaryA11y;
         font-size: $h5;
         margin-bottom: $space1;
-        &.-disabled{
+        &.disabled{
           color: $gray600;
       }
   
@@ -627,7 +631,7 @@ main.shoppingCartWrapper {
           margin-bottom: rwd(8);
         }
 
-        &.-disabled{
+        &.disabled{
           input[type=text]{
             outline: solid 1px $gray600;
             color: $gray500;
@@ -683,7 +687,7 @@ main.shoppingCartWrapper {
       label{
           font-size: $h5;
           color: $primaryA11y;
-          &.-disabled{
+          &.disabled{
               color: $gray600;
           }
   
