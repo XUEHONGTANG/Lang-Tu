@@ -6,9 +6,9 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
     />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
-    <script src="https://unpkg.com/vue@2"></script>
+    <!-- <script src="https://unpkg.com/vue@2"></script> -->
   </head>
 
   <body>
@@ -129,13 +129,13 @@
                 <span class="doubleLine"></span>
                 <div class="payWay">
                     <span>
-                        <input type="radio" name="payWay" id="">綠界金流 - 第三方金流平台 (透過信用卡、WebATM、ATM轉帳付款)
+                        <input type="radio" name="payWay">綠界金流 - 第三方金流平台 (透過信用卡、WebATM、ATM轉帳付款)
                     </span>
                     <span>
-                        <input type="radio" name="payWay" id="">貨到付款 (收到貨時以現金付款)
+                        <input type="radio" name="payWay">貨到付款 (收到貨時以現金付款)
                     </span>
                     <span>
-                        <input type="radio" name="payWay" id="">超商取貨付款 (全家超商取貨付款)
+                        <input type="radio" name="payWay">超商取貨付款 (全家超商取貨付款)
                     </span>
                 </div>
             </div>
@@ -151,11 +151,12 @@
 
                 <!-- 您的名字 -->
                 <label 
-                :class="{disabled: changeAddressIsActive}"
+                :class="{disabled: changeAddressIsActive,error: memberErrors.name && !changeAddressIsActive}"
                 class="infoNameLabel" name="infoName" >
                     <input
-                    :disabled="changeAddressIsActive" 
-                    v-model.lazy.trim="recipientInfo.name"
+                    :disabled="changeAddressIsActive"
+                    :class="{error: memberErrors.name}" 
+                    v-model.lazy.trim="memberRec.name"
                     class="input-textLabel" type="text" placeholder="請輸入您的名字" name="infoName">
                 </label>
 
@@ -164,8 +165,9 @@
                 :class="{disabled: changeAddressIsActive}"
                 >寄送地址 (使用超商收貨者免填) (選填)</h5>
                 <div
-                :class="{disabled: changeAddressIsActive}"
-                class="twzipcode"></div>
+                :class="{disabled: changeAddressIsActive,error: memberErrors.address}"
+                class="twzipcode1"
+                ></div>
                 <!-- 舊寫法 
                     <span>
                     <select>
@@ -176,83 +178,105 @@
                     </select>
                     <input class="postalCode" type="text" placeholder="郵遞區號">
                 </span> -->
-                <input
-                :disabled="changeAddressIsActive" 
-                v-model.lazy.trim="recipientInfo.address"
-                 class="address" type="text" placeholder="請輸入您的住址">
-
+                <label
+                :class="{error: memberErrors.address && !changeAddressIsActive}"
+                class="addressLabel" name="infoAddress">
+                    <input
+                    :disabled="changeAddressIsActive"
+                    :class="{error: memberErrors.address}" 
+                    v-model.lazy.trim="memberRec.address"
+                    class="address" type="text" name="infoAddress" placeholder="請輸入您的住址">
+                </label>
 
 
                 <!-- 連絡電話 -->
                 <label
-                :class="{disabled: changeAddressIsActive}"
+                :class="{disabled: changeAddressIsActive,error: memberErrors.phone && !changeAddressIsActive}"
                 class="infoPhoneLabel" name="infoName">
                     <input
+                    :class="{error: memberErrors.phone}" 
                     :disabled="changeAddressIsActive"
-                    v-model.lazy.trim="recipientInfo.phone"
-                    class="input-textLabel" type="text" placeholder="請輸入您的電話" name="infoPhone">
+                    v-model.lazy.trim="memberRec.phone"
+                    class="input-textLabel" type="text" placeholder="請輸入您的手機或電話號碼" name="infoPhone">
                 </label>
 
                 <!-- e-mail -->
                 <label
-                :class="{disabled: changeAddressIsActive}"
+                :class="{error: recipientErrors.email}" 
                 class="infoEmailLabel" name="infoName">
                     <input
-                    :disabled="changeAddressIsActive"
+                    :class="{error: recipientErrors.email}"
                     v-model.lazy.trim="recipientInfo.email"
                     class="input-textLabel" type="text" placeholder="請輸入您的e-mail" name="infoEmail">
                 </label>
 
                 <label
-                for="invoice">索取發票方式:</label>
+                :class="{error: recipientErrors.invoce}" 
+                for="invoice">索取發票方式: 
                 <select
+                :class="{error: recipientErrors.invoce}" 
                 v-model.lazy.trim="recipientInfo.invoce"
                 name="invoice" class="invoice" id="invoice">
-                    <option value="">索取紙本發票</option>
-                    <option value="">統一編號</option>
-                    <option value="">手機條碼</option>
+                    <option value="索取紙本發票">索取紙本發票</option>
+                    <option value="統一編號">統一編號</option>
+                    <option value="手機條碼">手機條碼</option>
                 </select>
             </div>
 
             <!-- 右邊資料 -->
             <div class="right-form">
-                <div>
-                    <input type="checkbox" @click="changeAddress">
+                <div class="right-form-title">
+                    <input type="checkbox"
+                    @click="changeAddress">
                     <h4>運送到不同地址?</h4>
                 </div>
                 <hr class="mainLine">
 
                 <!-- 收件人的名字 -->
                 <label
-                :class="{disabled: !changeAddressIsActive}"
+                :class="{disabled: !changeAddressIsActive,error: otherErrors.name && changeAddressIsActive}"
                  class="otherNameLabel" name="otherName">
                     <input
                     :disabled="!changeAddressIsActive"
+                    :class="{error: otherErrors.name}"
+                    v-model.lazy.trim="otherRec.name"
                     class="input-textLabel" type="text" placeholder="請輸入收件人的名字" name="otherName">
                 </label>
 
                 <!-- 寄送地址 -->
-                <h5 :class="{disabled: !changeAddressIsActive}">寄送地址 (使用超商收貨者免填) (選填)</h5>
+                <h5 
+                :class="{disabled: !changeAddressIsActive}">寄送地址 (使用超商收貨者免填) (選填)</h5>
                 <div
-                :class="{disabled: !changeAddressIsActive}"
-                class="twzipcode"></div>
-                <input
-                :disabled="!changeAddressIsActive"
-                class="otherAddress" type="text" placeholder="請輸入收件者的住址">
+                :class="{disabled: !changeAddressIsActive,error: otherErrors.address}"
+                class="twzipcode2"></div>
+
+                <label
+                :class="{error: otherErrors.address && changeAddressIsActive}"
+                class="otherAddressLabel"
+                name="otherAddress">
+                    <input
+                    :disabled="!changeAddressIsActive"
+                    :class="{error: otherErrors.address}"
+                    v-model.lazy.trim="otherRec.address"
+                    class="otherAddress" type="text" name="otherAddress" placeholder="請輸入收件者的住址">
+                </label>
 
                 <!-- 連絡電話 -->
                 <label
-                :class="{disabled: !changeAddressIsActive}"
-                class="otherPhoneLabel -disabled" name="otherName">
+                :class="{disabled: !changeAddressIsActive,error: otherErrors.phone && changeAddressIsActive}"
+                class="otherPhoneLabel" name="otherPhone">
                     <input
                     :disabled="!changeAddressIsActive"
-                    class="input-textLabel" type="text" placeholder="請輸入收件者的電話" name="otherPhone">
+                    :class="{error: otherErrors.phone}"
+                    v-model.lazy.trim="otherRec.phone"
+                    class="input-textLabel" type="text" placeholder="請輸入收件者的手機或電話號碼" name="otherPhone">
                 </label>
 
                 <!-- 備註 -->
                 <label>備註:
                     <textarea
-                     name="" id=""></textarea>
+                    v-model.lazy.trim="recipientInfo.note"
+                     name="note"></textarea>
                 </h5>
                 
                 
@@ -263,7 +287,7 @@
                 @click="currentPage = 1"
                 >返回購物車</button>
                 <button class="btn-0"
-                @click="currentPage = 3"
+                @click="sendOredr"
                 >提交訂單</button>
             </div>
         </section>
