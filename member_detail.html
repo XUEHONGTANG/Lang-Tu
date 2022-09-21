@@ -39,7 +39,9 @@
                 >贊助明細</li>
             </ul>
         </div>
-        <component :is='content'></component>
+        <keep-alive>
+            <component :is='content'></component>
+        </keep-alive>
     </main>
     @@include('layout/footer.html')
     <script src="./js/member.js"></script>
