@@ -14,24 +14,53 @@
         </div>
 
         <div class="acc_pass">
-            <form method="post" action="#">
+            <form method="post" action="./php/baklogin.php">
                 <div class="log">
                     <label class="text-label-1 tl" for=""><br>
-                        <input class="input-text" type="text" id="" placeholder="請輸入管理員帳號">
+                        <input class="input-text" type="text" id="username" name="username" placeholder="請輸入管理員帳號">
                     </label>
         
                     <label class="text-label-2 tl"><br>
-                        <input class="input-text" type="password" placeholder="請輸入管理員密碼">
+                        <input class="input-text" type="password" id="password" name="password" placeholder="請輸入管理員密碼">
                     </label>
                 </div>
     
                 <div class="btn">
-                    <input onclick="location.href='./bak_member.html'" type="button" value="登入" class="btn-0"> 
+                    <input type="submit" value="登入" class="btn-0"> 
                 </div>
             </form>
         </div>
 
 
     </div>
+
+    <script>
+        const username = document.querySelector('#username');
+        const password = document.querySelector('#password');
+        document.querySelector('.btn-0').addEventListener('click', () => {
+            if(!username || !password){
+                alert('請輸入USERNAME、PASSWORD!');
+                return;
+            }
+
+        fetch('./php/baklogin.php', {
+            method: 'POST',
+            headers: { 'Content-Type':'application/json' },
+            body: JSON.stringify({
+                username: username.value,
+                password: password.value
+            })
+        })
+            .then(resp => resp.json())
+            .then(body => {
+                if (body.successful){
+                    location = './bak_member.html';
+                }else{
+                    alert(body.message);
+                }
+            });
+
+        });
+    </script>
 </body>
 </html>
