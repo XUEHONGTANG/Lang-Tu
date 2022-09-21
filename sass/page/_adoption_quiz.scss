@@ -5,7 +5,12 @@
     position: absolute;
     left: vw(400);
     top: vw(70);
-    
+    @include m(){
+        width: rwd(394);
+        height: rwd(550);
+        left: rwd(10);
+        top: rwd(140);
+    }
     .fade-enter-active,
     .fade-leave-active {
       transition: opacity 0.75s;
@@ -20,9 +25,7 @@
     .fade-leave-from {
       opacity: 1;
     }
-    @include m(){
-        width: rwd(394);
-    }
+    
     .start{
         display: flex;
         height: vw(800);
@@ -37,14 +40,14 @@
             flex: 1;
             .content{
                 text-align: center;
-                margin-top: vw(130);
+                margin-top: vw(120);
                 @include m(){
-                    margin-top: rwd(80);
+                    margin-top: rwd(24);
                 }
                 h2{
                     margin-bottom: vw(10);
                     @include m(){
-                        font-size: rwd(12);
+                        font-size: rwd(16);
                     }
                 }
                 .btn-0{
@@ -56,10 +59,24 @@
             .dog4{
                 margin-left: auto;
                 width: vw(300);
+                @include m(){
+                    margin-left: rwd(16);
+                    width: rwd(100);
+                    img{
+                        width: rwd(100);
+                    }
+                }
             }
             .start2{
-                margin-top: vw(96);
+                margin-top: vw(120);
                 width: vw(170);
+                @include m(){
+                    margin-top: rwd(16);
+                    width: rwd(100);
+                    img{
+                        width: rwd(70);
+                    }
+                }
             }
         }
     }
@@ -80,6 +97,9 @@
             text-align: center;
             margin-top: vw(32);
             height: vw(250);
+            @include m(){
+                height: rwd(150);
+            }
             h3{
                 @include m(){
                     font-size: rwd(20);
@@ -93,19 +113,31 @@
                 margin: vw(64) auto;
                 .right{
                     margin: 0 vw(16);
+                    @include m(){
+                        margin: 0 rwd(16);
+                    }
                 }
                 .left{
                     margin-right: vw(16);
+                    @include m(){
+                        margin-right: rwd(16);
+                    }
                 }
                 .fa-circle-xmark{
                     font-size: vw(40);
                     color: red;
                     visibility: hidden;
+                    @include m(){
+                        font-size: rwd(32);
+                    }
                 }
                 .fa-circle-check{
                     font-size: vw(40);
                     color: green;
                     visibility: hidden;
+                    @include m(){
+                        font-size: rwd(32);
+                    }
                 }
                 .show1{
                     visibility: visible;
@@ -124,12 +156,21 @@
             }
         }
         .answer{
-            margin-top: vw(90);
             padding: 0 vw(32);
-            p{
-                text-indent: vw(20);
+            h4{
+                margin-left: vw(160);
+                color: $secondaryA11y;
+                font-weight: $bold;
                 @include m(){
-                    font-size: rwd(12);
+                    font-size: rwd(18);
+                }
+            }
+            p{
+                width: vw(700);
+                margin: 0 auto;
+                @include m(){
+                    font-size: rwd(16);
+                    width: rwd(350);
                 }
             }
             .next{
@@ -158,6 +199,9 @@
             text-align: center;
             margin-top: vw(32);
             height: vw(250);
+            @include m(){
+                height: rwd(150);
+            }
             h3{
                 @include m(){
                     font-size: rwd(20);
@@ -171,19 +215,31 @@
                 margin: vw(64) auto;
                 .right{
                     margin: 0 vw(16);
+                    @include m(){
+                        margin: 0 rwd(16);
+                    }
                 }
                 .left{
                     margin-right: vw(16);
+                    @include m(){
+                        margin-right: rwd(16);
+                    }
                 }
                 .fa-circle-xmark{
                     font-size: vw(40);
                     color: red;
                     visibility: hidden;
+                    @include m(){
+                        font-size: rwd(32);
+                    }
                 }
                 .fa-circle-check{
                     font-size: vw(40);
                     color: green;
                     visibility: hidden;
+                    @include m(){
+                        font-size: rwd(32);
+                    }
                 }
                 .show1{
                     visibility: visible;
@@ -202,12 +258,21 @@
             }
         }
         .answer{
-            margin-top: vw(90);
             padding: 0 vw(32);
-            p{
-                text-indent: vw(20);
+            h4{
+                margin-left: vw(160);
+                color: $secondaryA11y;
+                font-weight: $bold;
                 @include m(){
-                    font-size: rwd(12);
+                    font-size: rwd(18);
+                }
+            }
+            p{
+                width: vw(700);
+                margin: 0 auto;
+                @include m(){
+                    font-size: rwd(16);
+                    width: rwd(350);
                 }
             }
             .next{
@@ -236,6 +301,9 @@
             text-align: center;
             margin-top: vw(32);
             height: vw(250);
+            @include m(){
+                height: rwd(150);
+            }
             h3{
                 @include m(){
                     font-size: rwd(20);
@@ -245,23 +313,35 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: vw(470);
+                width: vw(460);
                 margin: vw(64) auto;
                 .right{
                     margin: 0 vw(16);
+                    @include m(){
+                        margin: 0 rwd(16);
+                    }
                 }
                 .left{
                     margin-right: vw(16);
+                    @include m(){
+                        margin-right: rwd(16);
+                    }
                 }
                 .fa-circle-xmark{
                     font-size: vw(40);
                     color: red;
                     visibility: hidden;
+                    @include m(){
+                        font-size: rwd(32);
+                    }
                 }
                 .fa-circle-check{
                     font-size: vw(40);
                     color: green;
                     visibility: hidden;
+                    @include m(){
+                        font-size: rwd(32);
+                    }
                 }
                 .show1{
                     visibility: visible;
@@ -280,12 +360,21 @@
             }
         }
         .answer{
-            margin-top: vw(90);
             padding: 0 vw(32);
-            p{
-                text-indent: vw(20);
+            h4{
+                margin-left: vw(160);
+                color: $secondaryA11y;
+                font-weight: $bold;
                 @include m(){
-                    font-size: rwd(12);
+                    font-size: rwd(18);
+                }
+            }
+            p{
+                width: vw(700);
+                margin: 0 auto;
+                @include m(){
+                    font-size: rwd(16);
+                    width: rwd(350);
                 }
             }
             .next{
@@ -314,6 +403,9 @@
             text-align: center;
             margin-top: vw(32);
             height: vw(250);
+            @include m(){
+                height: rwd(150);
+            }
             h3{
                 @include m(){
                     font-size: rwd(20);
@@ -327,19 +419,31 @@
                 margin: vw(64) auto;
                 .right{
                     margin: 0 vw(16);
+                    @include m(){
+                        margin: 0 rwd(16);
+                    }
                 }
                 .left{
                     margin-right: vw(16);
+                    @include m(){
+                        margin-right: rwd(16);
+                    }
                 }
                 .fa-circle-xmark{
                     font-size: vw(40);
                     color: red;
                     visibility: hidden;
+                    @include m(){
+                        font-size: rwd(32);
+                    }
                 }
                 .fa-circle-check{
                     font-size: vw(40);
                     color: green;
                     visibility: hidden;
+                    @include m(){
+                        font-size: rwd(32);
+                    }
                 }
                 .show1{
                     visibility: visible;
@@ -358,12 +462,21 @@
             }
         }
         .answer{
-            margin-top: vw(90);
             padding: 0 vw(32);
-            p{
-                text-indent: vw(20);
+            h4{
+                margin-left: vw(160);
+                color: $secondaryA11y;
+                font-weight: $bold;
                 @include m(){
-                    font-size: rwd(12);
+                    font-size: rwd(18);
+                }
+            }
+            p{
+                width: vw(700);
+                margin: 0 auto;
+                @include m(){
+                    font-size: rwd(16);
+                    width: rwd(350);
                 }
             }
             .next{
@@ -380,8 +493,19 @@
     .complete{
         text-align: center;
         color: $primaryA11y;
-        h1{
-            margin-top: 300px;
+        h2{
+            margin-top: 180px;
+            margin-bottom: 16px;
+            @include m(){
+                margin-top: rwd(8);
+                margin-bottom: rwd(16);   
+                font-size: rwd(20);
+            }
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+            display: block;
         }
     }
 }

@@ -2,58 +2,49 @@
     display: flex;
     width: vw(1200);
     margin: 0 auto;
-    z-index: 28;
     @include m(){
         width: rwd(394);
+        margin-top: rwd(250);
         flex-direction: column;
     }
     .slidebar{
-        background-color: #fff;
         border-radius: $r25;
-        z-index: 28;
         width: vw(290);
         height: vw(260);
         text-align: center;
         margin-right: vw(24);
+        overflow: hidden;
         @include m(){
             width: rwd(394);
             height: rwd(40);
             margin: 0 auto;
         }
         ul{
+            background-color: #fff;
+            border-radius: $r25;
             @include m(){
                 display: flex;
                 justify-content: space-around;
                 height: rwd(40);
-                li:nth-child(1){
-                    background-color: $primaryDark;
-                    border-radius: $r25;
-                    a{
-                        color: #fff;
-                    }
                 }
-            }
             li{
                 font-size: $h4;
                 line-height: vw(64);
-                border-bottom: vw(1) solid $lineGray;
+                color: $primaryDark;
+                font-weight: $bold;
+                // border-radius: $r25;
+                cursor: pointer;
                     @include m(){
                         width: rwd(100);
                         line-height: rwd(40);
                         border-bottom: none;
-                    }
-                a{
-                    text-decoration: none;
-                    color: $primaryA11y;
-                    line-height: vw(64);
-                    font-size: $h4;
-                    display: block;
-                    @include m(){
                         font-size: rwd(18);
-                        line-height: rwd(40);
-                    }            
+                    }
                 }
-            }
+                .choose{
+                    color: #fff;
+                    background-color: $primaryDark;
+                }
             li:last-child{
                 border-bottom: none;
             }
@@ -65,7 +56,7 @@
         background-color: #fff;
         border-radius: $r25;
         z-index: 28;
-        padding: vw(80) vw(50);
+        padding: vw(50);
         @include m(){
             width: rwd(394);
             height: rwd(470);
@@ -75,6 +66,7 @@
         h3{
             margin-bottom: vw(32);
             color: $primaryA11y;
+            text-align: center;
             @include m(){
                 font-size: rwd(24);
             }

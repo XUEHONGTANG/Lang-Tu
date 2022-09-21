@@ -9,7 +9,7 @@ new Vue({
   // router,
   el: "#loginPageApp",
   data: {
-    selected: 2,
+    selected: 1,
     emailWarningText: "",
     passwordWarningText: "",
     loginForm: {
@@ -58,7 +58,6 @@ new Vue({
       window.location.href = "./member_detail.html";
     },
     userRegister() {
-      // const self = this;
 
       for (let key in this.registerErrors) {
         this.registerErrors[key] = false;
