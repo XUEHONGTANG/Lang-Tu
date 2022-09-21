@@ -73,7 +73,7 @@
             flex-direction: column;
         }
         .btn-0{
-            width: vw(243);
+            width: vw(200);
             font-size: font-size(12);
             padding: vw(10) vw(10);
             background-color: $primaryA11y;
@@ -85,7 +85,7 @@
             }
         }
         .btn-1{
-            width: vw(243);
+            width: vw(200);
             font-size: font-size(12);
             padding: vw(10) vw(10);
             @include m(){
