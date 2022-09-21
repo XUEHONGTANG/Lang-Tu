@@ -43,14 +43,7 @@
                         </thead>
     
                         <tbody id="tbb">
-                            <tr>
-                                <td>AD001</td>
-                                <td>林宜蓁</td>
-                                <td>0948375983</td>
-                                <td>1</td>
-                                <td>003</td>
-                                <td>22/03/01 10:00</td>
-                            </tr>
+                            
                         </tbody>
                     </table>
                 </form>
@@ -58,5 +51,30 @@
         </main>
 
     </div>
+
+    <script>
+        const tbb = document.getElementById('tbb');
+          fetch("./php/bak_adoption.php") //從後端JS拿到資料
+          .then(rsp => rsp.json(
+            console.log(rsp)
+          ))
+          .then(userArr => {   
+            console.log(userArr);  
+            for (let user of userArr) {
+                    tbb.insertAdjacentHTML('beforeend', `
+                        <tr>
+                            <td>${user.ID}</td>
+                            <td>${user.ANAME}</td>
+                            <td>${user.APHONE}</td>
+                            <td>${user.APEOPLE}</td>
+                            <td>${user.PID}</td>
+                            <td>${user.ADATE}</td>
+                            <td>${user.ATIME}</td>
+                            <td>${user.SITUATION}</td>
+                        </tr>
+                    `);
+                }
+          })
+    </script>
 </body>
 </html>
