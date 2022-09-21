@@ -73,5 +73,30 @@
 
     </div>
 
+    <script>
+        const tbb = document.getElementById('tbb');
+          fetch("./php/bak_member.php") //從後端JS拿到資料
+          .then(rsp => rsp.json(
+            console.log(rsp)
+          ))
+          .then(userArr => {   
+            console.log(userArr);  
+            for (let user of userArr) {
+                    tbb.insertAdjacentHTML('beforeend', `
+                        <tr>
+                            <td>${user.ID}</td>
+                            <td>${user.NAME}</td>
+                            <td>${user.ACCOUNT}</td>
+                            <td>${user.PASSWORD}</td>
+                            <td>${user.EMAIL}</td>
+                            <td>${user.PHONE}</td>
+                            <td>${user.BIRTHDAY}</td>
+                            <td>${user.GENDER}</td>
+                        
+                        </tr>
+                    `);
+                }
+          })
+    </script>
 </body>
 </html>
