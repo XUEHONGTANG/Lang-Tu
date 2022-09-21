@@ -135,7 +135,7 @@
                     }
                     margin-top: rwd(16);
                 }
-                .input-text[type=text]{
+                .input-text[type=date]{
                     @include input-text(vw(740));
                     @include m(){
                         @include input-text(rwd(373));
@@ -153,7 +153,7 @@
                     }
                     margin-top: rwd(16);
                 }
-                .input-text[type=text]{
+                .input-text[type=email]{
                     @include input-text(vw(740));
                     @include m(){
                         @include input-text(rwd(373));
