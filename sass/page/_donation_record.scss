@@ -3,7 +3,6 @@
     height: vw(850);
     background-color: #fff;
     border-radius: $r25;
-    z-index: 28;
     padding: vw(50);
     @include m(){
         width: rwd(394);
@@ -20,6 +19,7 @@
             font-size: rwd(18);
         }
     }
+
     table{
         margin-top: vw(32);
         thead{
@@ -51,7 +51,7 @@
             }
         }
     }
-    h3{
+    .bottom{
         margin-top: vw(50);
         @include m(){
             font-size: rwd(18);

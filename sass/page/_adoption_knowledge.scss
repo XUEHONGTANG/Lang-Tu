@@ -13,12 +13,12 @@
             margin-top: 20px;
             cursor: pointer;
             h1{
-               font-size: $h3;
-               font-weight: $bold; 
+                font-size: $h3;
+                font-weight: $bold; 
             }
 
             h3{
-               font-size: $p; 
+                font-size: $p; 
             }
         }
         
@@ -37,12 +37,18 @@
             display: block;
         }
 
-        .row{
+        .row-1{
             margin-bottom: vw(80);
+            @include m(){
+                margin-bottom: rwd(32);
+                width: rwd(394);
+                height: rwd(240);
+            }
         }
         .row-2{
             display: flex;
             flex-wrap: wrap;
+
             .rowTop-pic{
                 margin-bottom: vw(80);
             }

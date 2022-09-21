@@ -14,44 +14,35 @@
     "前頁面" : "會員登入" ,
     "此頁面" : "會員專區" ,
     })
-    <main class="member_center">
+    <main id="memberCenterApp" class="member_center">
         <div class="slidebar">
             <ul>
-                <li><a href="./member_detail.html">會員資料</a></li>
-                <li><a href="./member_reservation.html">預約領養</a></li>
-                <li><a href="./order_detail.html">訂單管理</a></li>
-                <li><a href="./donation_record.html">贊助明細</a></li>
+                <li 
+                    @click="content='detail', changeColor()" 
+                    @touchend.stop.prevent="content='detail', changeColor()"
+                    :class="{'choose': detail}"
+                >會員資料</li>
+                <li 
+                    @click="content='reservation', changeColor()" 
+                    @touchend.stop.prevent="content='reservation', changeColor()"
+                    :class="{'choose': reservation}"
+                >預約領養</li>
+                <li 
+                    @click="content='order', changeColor()" 
+                    @touchend.stop.prevent="content='order', changeColor()"
+                    :class="{'choose': order}"
+                >查詢訂單</li>
+                <li 
+                    @click="content='sponsor', changeColor()" 
+                    @touchend.stop.prevent="content='sponsor', changeColor()"
+                    :class="{'choose': sponsor}"
+                >贊助明細</li>
             </ul>
         </div>
-        <div class="member_detail">
-            <h3>會員資料</h3>
-            <label class="text-label-1">
-                <input class="input-text" type="text">
-            </label>
-            <label class="text-label-2">
-                <input class="input-text" type="text">
-            </label>
-            <label class="text-label-3">
-                <input class="input-text" type="text">
-            </label>
-            <br>
-            <label class="text-label-4">
-                <input class="input-text" type="text">
-            </label>
-            <br>
-            <label class="text-label-5">
-                <input class="input-text" type="text">
-            </label>
-            <br>
-            <label class="text-label-6">
-                <input class="input-text" type="password">
-            </label>
-            <div class="btn">
-                <button class="btn-0">修改會員資料</button>
-            </div>
-        </div>
+        <component :is='content'></component>
     </main>
     @@include('layout/footer.html')
+    <script src="./js/member.js"></script>
 </body>
 
 </html>
