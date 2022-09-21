@@ -42,12 +42,12 @@
                 <div class="application-book-1">
                     <label class="application-label">
                         <h1>姓名：</h1>
-                        <input class="application-text" type="text" placeholder="">
+                        <input v-model.trim="reserve.name" class="application-text" type="text" placeholder="請輸入您的姓名">
                     </label>
                 </div>
                     <div class="application-book-2">
                         <h1>預約人數</h1>
-                        <select  name="" id="">
+                        <select v-model.trim="reserve.people" name="" id="">
                             <option value="1人">1人</option>
                             <option value="2人">2人</option>
                             <option value="3人">3人</option>
@@ -56,21 +56,15 @@
                 <div class="application-book-3">
                     <label class="application-label">
                         <h1>手機號碼：</h1>
-                        <input class="application-text" type="text" placeholder="">
+                        <input v-model="reserve.number" class="application-text" type="text" placeholder="請輸入您手機號碼">
                     </label>
                 </div>
                 <div class="application-book-4">
                     <h1>預約時間</h1>
-                    <select  name="" id="">
-                        <option value="YY/MM/DD">YY/MM/DD</option>
-                        <option value=""></option>
-                        <option value=""></option>
-                    </select>
-                    <select  name="" id="">
-                        <option value="HH/MM">HH/MM</option>
-                        <option value=""></option>
-                        <option value=""></option>
-                    </select>
+                    <input  v-model.trim="reserve.day" name="" id="" type="date">
+                    </input>
+                    <input v-model.trim="reserve.time" name="" id="" type="time">
+                    </input>
                 </div>
             </div>
         </div>
@@ -94,29 +88,29 @@
                 <div class="application-right">
                     <label class="application-label">
                         <h1>姓名：</h1>
-                        <input class="application-text" type="text" placeholder="">
+                        <input v-model.trim="applications.appname" class="application-text" type="text" placeholder="請輸入您的姓名">
                     </label>
                     <label class="application-label">
                         <h1>身分證字號：</h1>
-                        <input class="application-text" type="text" placeholder="">
+                        <input v-model.trim="applications.appid" class="application-text" type="text" placeholder="請輸入您的身分證字號">
                     </label>
                     <label class="application-label">
                         <h1>出生日期：</h1>
-                        <input class="application-text" type="text" placeholder="">
+                        <input v-model.trim="applications.appbirthday" class="application-text" type="text" placeholder="請輸入您的出生日期">
                     </label>
                     <label class="application-label">
                         <h1>手機號碼：</h1>
-                        <input class="application-text" type="text" placeholder="">
+                        <input v-model.trim="applications.appnumber" class="application-text" type="text" placeholder="請輸入您的手機號碼">
                     </label>
                     <label class="application-label">
                         <h1>電子信箱：</h1>
-                        <input class="application-text" type="text" placeholder="">
+                        <input v-model.lazy.trim="applications.appemail" class="application-text" type="text" placeholder="請輸入您的電子信箱">
                     </label>
                 </div>
             </div>
         </article>
         <div class="application-under">
-            <a href="./finish.html"><button class="btn-0">完成</button></a>
+            <button @click="over" class="btn-0">完成</button>
             <a href="./petpage.html"><button class="btn-1">取消</button></a>
         </div>
     </main>
