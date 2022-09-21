@@ -483,6 +483,8 @@ Vue.component('white', {
     `,
 })
 
+
+
 new Vue({
     el: '#waitsforhomeApp',
     data: {
@@ -501,6 +503,7 @@ new Vue({
         });
     },
     methods: {
+        
         toggle(order) {
             let length = this.reactArr.length,
                 i = 0;
@@ -542,5 +545,6 @@ new Vue({
         },
     },
 
+    
 
 });
