@@ -15,285 +15,180 @@
     "此頁面" : "浪浪新聞" ,
     })
     <main class="langNews" id="app">
-        <div class="parent">
 
-            <news-card v-for="post in posts" :key="post.id" :post="post" ></news-card>
-            <!-- <a href="#" class="div15">
-                <img :src="image"  alt="">
-                <p>其實貓狗跟人類一樣，都會調皮犯錯誤</p>
-                <div class="date_box">
-                    <span class="year">2022</span>
-                    <span class="date">08/30</span>
-                </div>
-            </a> -->
+        <div class="filters">
+            <span class="filter" :class="{ active: currentFilter === 'ALL' }"
+                v-on:click="setFilter('ALL')">全部</span>
+            <span class="filter" :class="{ active: currentFilter === 'NEWS' }"
+                v-on:click="setFilter('NEWS')">浪浪新聞</span>
+            <span class="filter" :class="{ active: currentFilter === 'ACTIVITY' }"
+                v-on:click="setFilter('ACTIVITY')">活動公告</span>
+            <span class="filter" :class="{ active: currentFilter === 'ANNOUNCE' }"
+                v-on:click="setFilter('ANNOUNCE')">一般公告</span>
         </div>
-    </main>
-    @@include('layout/footer.html')
-
-    <script>
-        Vue.component('news-card', {
-            // template: '#vue-card',
-            props: ['post'],
-            // data() {
-            //     return {
-                  
-            //     }
-            // },
-            template: `
-            <div>
-            <a href="#" class="News_cont">
-                <img :src="post.image"  alt="">
+       
+            <div class="NewsGrid" name="posts">
+                <a href="/langNews-cont.html" class="News_cont" v-if="currentFilter === post.category || currentFilter === 'ALL'" v-for="(post,pid) in posts" :style="{'animation-delay': pid/8 + 's'}"
+                 :key="post.pid">
+                 <div class="News_pic">
+                 <img :src="post.image"  alt=""></div>
                     <p>{{ post.title }}</p>
-                    <div class="date_box">
-                        <span class="year">{{ post.year }}</span>
-                        <span class="date">{{ post.date }}</span>
-                    </div>
-                </a>
+                     <div class="date_box">
+                         <span class="year">{{ post.year }}</span>
+                         <span class="date">{{ post.date }}</span>
+                     </div>
+                 </a>
+
+
             </div>
-            `,
-        });
+
+    </main>
+
+    @@include('layout/footer.html')
+    <script>
+
+        //容器方式
+        // Vue.component('news-card', {
+        //     // template: '#vue-card',
+        //     props: ['post'],
+        //     // data() {
+        //     //     return {
+
+        //     //     }
+        //     // },
+        //     template: `
+        //     <div>
+        //     <a href="./langNews-cont.html" class="News_cont">
+        //         <img :src="post.image"  alt="">
+        //             <p>{{ post.title }}</p>
+        //             <div class="date_box">
+        //                 <span class="year">{{ post.year }}</span>
+        //                 <span class="date">{{ post.date }}</span>
+        //             </div>
+        //         </a>
+        //     </div>
+        //     `,
+        // });
 
         new Vue({
             el: '#app',
             data: {
-                // title: '其實貓狗跟人類一樣，都會調皮犯錯誤',
-                // image: './images/Derrick/new15.jpg',
-                // desc: `Zal de coronacrisis de Vlaamse stadsvlucht nog versterken, of is dit het kantelmoment voor kwalitatieve verdichting? 'Op lange termijn is de verkavelingscultuur dodelijker ...`,
-                // year: '2022',
-                // date: '08/30',
+                currentFilter: 'ALL',
                 posts: [
-                        {   
-                            id: 1,
-                            title: '看到流浪貓狗該怎麼辦?',
-                            image: './images/Derrick/new1.jpg',
-                            year: '2022',
-                            date: '01/20',
-                        },
-                        {   
-                            id: 1,
-                            title: '別將巧克力放在犬貓可及之處，避免毛小孩誤食中毒，而留下遺憾',
-                            image: './images/Derrick/new2.jpg',
-                            year: '2022',
-                            date: '02/20',
-                        },
-                        {   
-                            id: 1,
-                            title: '對於結紮你也有這些疑問嗎?',
-                            image: './images/Derrick/new3.jpg',
-                            year: '2022',
-                            date: '02/20',
-                        },
-                        {
-                            id: 1,
-                            title: '犬隻體溫高於人體1-2度，更容易在炎熱氣候產生不適，飼主於家中室內可開空調風扇降低溫度',
-                            image: './images/Derrick/new4.jpg',
-                            year: '2022',
-                            date: '03/20',
-                        },
-                        {
-                            id: 1,
-                            title: '多用耐心陪伴狗狗，並且也要多做功課',
-                            image: './images/Derrick/new5.jpg',
-                            year: '2022',
-                            date: '03/20',
-                        },
-                        {
-                            id: 1,
-                            title: '做個好主人，請為家中犬貓絕育吧！',
-                            image: './images/Derrick/new6.jpg',
-                            year: '2022',
-                            date: '04/20',
-                        },
-                        {
-                            id: 1,
-                            title: '預防毛寶貝高溫中暑 浪途中途之家啟動防熱措施',
-                            image: './images/Derrick/new7.jpg',
-                            year: '2022',
-                            date: '05/20',
-                        },
-                        {
-                            id: 1,
-                            title: '浪浪問題該如何解決?',
-                            image: './images/Derrick/new8.jpg',
-                            year: '2022',
-                            date: '03/20',
-                        },
-                        {
-                            id: 1,
-                            title: '動物保護觀念已是全球普世價值，對流浪動物管理現階段採取零安樂死及全面結紮等措施',
-                            image: './images/Derrick/new9.jpg',
-                            year: '2022',
-                            date: '06/20',
-                        },
-                        {
-                            id: 1,
-                            title: '毛小孩老是犯錯怎麼辦? 四招教給你!',
-                            image: './images/Derrick/new10.jpg',
-                            year: '2022',
-                            date: '01/20',
-                        },
-                        {
-                            id: 1,
-                            title: '浪途中途之家致力守護轄內收容毛寶貝身心健康',
-                            image: './images/Derrick/new11.jpg',
-                            year: '2022',
-                            date: '01/20',
-                        },
-                        {
-                            id: 1,
-                            title: '2022 寵物用品展 贈票中',
-                            image: './images/Derrick/new12.jpg',
-                            year: '2022',
-                            date: '01/20',
-                        },
-                        {
-                            id: 1,
-                            title: '世界糖尿病日 毛小孩也可能會得糖尿病!',
-                            image: './images/Derrick/new13.jpg',
-                            year: '2022',
-                            date: '01/20',
-                        },
-                        {
-                            id: 1,
-                            title: '共度白色情人節 單身狗貓要小心!',
-                            image: './images/Derrick/new14.jpg',
-                            year: '2022',
-                            date: '01/20',
-                        },
-                        {
-                            id: 1,
-                            title: '其實貓狗跟人類一樣，都會調皮犯錯誤',
-                            image: './images/Derrick/new15.jpg',
-                            year: '2022',
-                            date: '01/20',
-                        },
-
-
-
-                    ]
+                    {
+                        title: '看到流浪貓狗該怎麼辦?',
+                        image: './images/Derrick/new1.jpg',
+                        year: '2022',
+                        date: '01/20',
+                        category: 'NEWS',
+                    },
+                    {
+                        title: '別將巧克力放在犬貓可及之處，避免毛小孩誤食中毒，而留下遺憾',
+                        image: './images/Derrick/new2.jpg',
+                        year: '2022',
+                        date: '02/20',
+                        category: 'NEWS',
+                    },
+                    {
+                        title: '對於結紮你也有這些疑問嗎?',
+                        image: './images/Derrick/new3.jpg',
+                        year: '2022',
+                        date: '02/20',
+                        category: 'NEWS',
+                    },
+                    {
+                        title: '犬隻體溫高於人體1-2度，更容易在炎熱氣候產生不適，飼主於家中室內可開空調風扇降低溫度',
+                        image: './images/Derrick/new4.jpg',
+                        year: '2022',
+                        date: '03/20',
+                        category: 'NEWS',
+                    },
+                    {
+                        title: '多用耐心陪伴狗狗，並且也要多做功課',
+                        image: './images/Derrick/new5.jpg',
+                        year: '2022',
+                        date: '03/20',
+                        category: 'NEWS',
+                    },
+                    {
+                        title: '做個好主人，請為家中犬貓絕育吧！',
+                        image: './images/Derrick/new6.jpg',
+                        year: '2022',
+                        date: '04/20',
+                        category: 'NEWS',
+                    },
+                    {
+                        title: '預防毛寶貝高溫中暑 浪途中途之家啟動防熱措施',
+                        image: './images/Derrick/new7.jpg',
+                        year: '2022',
+                        date: '05/20',
+                        category: 'ANNOUNCE',
+                    },
+                    {
+                        title: '浪浪問題該如何解決?',
+                        image: './images/Derrick/new8.jpg',
+                        year: '2022',
+                        date: '03/20',
+                        category: 'NEWS',
+                    },
+                    {
+                        title: '動物保護觀念已是全球普世價值，對流浪動物管理現階段採取零安樂死及全面結紮等措施',
+                        image: './images/Derrick/new9.jpg',
+                        year: '2022',
+                        date: '06/20',
+                        category: 'ACTIVITY',
+                    },
+                    {
+                        title: '毛小孩老是犯錯怎麼辦? 四招教給你!',
+                        image: './images/Derrick/new10.jpg',
+                        year: '2022',
+                        date: '01/20',
+                        category: 'NEWS',
+                    },
+                    {
+                        title: '浪途中途之家致力守護轄內收容毛寶貝身心健康',
+                        image: './images/Derrick/new11.jpg',
+                        year: '2022',
+                        date: '01/20',
+                        category: 'NEWS',
+                    },
+                    {
+                        title: '2022 寵物用品展 贈票中',
+                        image: './images/Derrick/new12.jpg',
+                        year: '2022',
+                        date: '01/20',
+                        category: 'ACTIVITY',
+                    },
+                    {
+                        title: '世界糖尿病日 毛小孩也可能會得糖尿病!',
+                        image: './images/Derrick/new13.jpg',
+                        year: '2022',
+                        date: '01/20',
+                        category: 'NEWS',
+                    },
+                    {
+                        title: '共度白色情人節 單身狗貓要小心!',
+                        image: './images/Derrick/new14.jpg',
+                        year: '2022',
+                        date: '01/20',
+                        category: 'ACTIVITY',
+                    },
+                    {
+                        title: '其實貓狗跟人類一樣，都會調皮犯錯誤',
+                        image: './images/Derrick/new15.jpg',
+                        year: '2022',
+                        date: '01/20',
+                        category: 'NEWS',
+                    },
+                ]
+            },
+            methods: {
+                setFilter: function (filter) {
+                    this.currentFilter = filter;
+                }
             }
         });
 
-
-
-        // var app = new Vue({
-        //     el: "#app",
-        //     data: function () {
-        //         return {
-        //             gap_space: 12,
-        //             jobs: [
-        //                 {
-        //                     isBookmarked: false,
-        //                     title: "Head of Strategy - SEEK Asia",
-        //                     group: "jobsDB Hong Kong",
-        //                     features: [
-        //                         "Join the leading job portal in the region",
-        //                         "Improving others' lives through your work",
-        //                         "Immerse yourself in our award-winning culture"
-        //                     ],
-        //                     loc: "Wan Chai Area",
-        //                     price: "Base salary + high commission",
-        //                     logo: "https://content.jobsdbcdn.com/Content/d1019/images/Shared/v8Revamp2/jobsdb_logo_general_2015.svg",
-        //                     timestamp: "2018-11-16 09:48:12",
-        //                     benefit: [
-        //                         "Dental insurance",
-        //                         "Education allowance",
-        //                         "Five-day work week",
-        //                         "Flexible working hours",
-        //                         "Life insurance",
-        //                         "Medical insurance",
-        //                         "Performance bonus"
-        //                     ]
-        //                 }, {
-        //                     isBookmarked: false,
-        //                     title: "Sales - Team Manager",
-        //                     group: "jobsDB Hong Kong",
-        //                     features: [
-        //                         "Aggressive and passion in solution selling",
-        //                         "As team leader to drive sales performance",
-        //                         "Reward based on achieving results"
-        //                     ],
-        //                     loc: "Wan Chai Area",
-        //                     price: "Base salary + high commission",
-        //                     logo: "https://content.jobsdbcdn.com/Content/d1019/images/Shared/v8Revamp2/jobsdb_logo_general_2015.svg",
-        //                     timestamp: "2018-10-22",
-        //                     benefit: [
-        //                         "Dental insurance",
-        //                         "Education allowance",
-        //                         "Five-day work week",
-        //                         "Life insurance",
-        //                         "Medical insurance"
-        //                     ]
-        //                 },
-        //                 {
-        //                     isBookmarked: false,
-        //                     title: "Sales Account Manager",
-        //                     group: "jobsDB Hong Kong",
-        //                     features: [
-        //                         "Aggressive and passion in solution selling",
-        //                         "As team leader to drive sales performance",
-        //                         "Reward based on achieving results"
-        //                     ],
-        //                     loc: "Wan Chai Area",
-        //                     price: "Base salary + high commission",
-        //                     timestamp: "2018-10-22"
-        //                 },
-        //                 {
-        //                     isBookmarked: false,
-        //                     title: "Business Development Executive",
-        //                     group: "jobsDB Hong Kong",
-        //                     features: [
-        //                         "Support company business development role",
-        //                         "Creative, self motivated and drive for success",
-        //                         "Young, energetic, face pacing environment"
-        //                     ],
-        //                     loc: "Wan Chai Area",
-        //                     logo: "https://content.jobsdbcdn.com/Content/d1019/images/Shared/v8Revamp2/jobsdb_logo_general_2015.svg",
-        //                     timestamp: "2018-10-22"
-        //                 },
-        //                 {
-        //                     isBookmarked: false,
-        //                     title: "System Administrator (Intern - 6 Months contract)",
-        //                     group: "jobsDB Hong Kong",
-        //                     features: [
-        //                         "Successful digital company across South East Asia",
-        //                         "Independent role with team spirit",
-        //                         "Fun and energetic environment"
-        //                     ],
-        //                     loc: "Wan Chai Area",
-        //                     logo: "https://content.jobsdbcdn.com/Content/d1019/images/Shared/v8Revamp2/jobsdb_logo_general_2015.svg",
-        //                     timestamp: "2018-10-20"
-        //                 }
-        //             ]
-        //         }
-        //     },
-        //     methods: {
-        //         moment: function () {
-        //             return moment();
-        //         },
-        //         toggleBookmark: function (item, index) {
-        //             console.log(top + "," + left);
-        //             if (item.active) {
-        //                 Vue.set(item, 'active', false);
-        //             } else {
-        //                 Vue.set(item, 'active', true);
-        //             }
-        //             this.isActive = !this.isActive;
-        //         }
-        //     },
-        //     filters: {
-        //         moment: function (date) {
-        //             return moment(date).fromNow();
-        //         }
-        //     }
-        // });
-        /*
-                $('body').on('mousemove', '.card', (e) => {
-                  let x = e.pageX - e.target.offsetLeft;
-                  let y = e.pageY - e.target.offsetTop;
-                  $(e.target).css({'--x': x+'px', '--y': y+'px'})
-                });
-                */
     </script>
 </body>
 
