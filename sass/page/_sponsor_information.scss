@@ -266,7 +266,7 @@
                     text-align: left;
                 }
             }
-            .input-text2{
+            input{
                 @include input-text(vw(165));
                 margin-right: vw(16);
                 @include m(){
@@ -283,13 +283,28 @@
                 padding: vw(5) vw(7);
                 color: $gray500;
                 width: vw(201);
-                margin-right: vw(16);
+                margin-right: vw(8);
 
                 @include m(){
                     width: rwd(70);
                     margin-right: rwd(10);
                     margin-bottom: rwd(16);
                 }
+            }
+            input{
+                // font-size: $p;
+                // border: 0;
+                // outline: solid 1px $primaryDefault;
+                // border-radius: vw(6);
+                // padding: vw(5) vw(7);
+                // color: $gray500;
+                // width: vw(201);
+                // margin-right: vw(16);
+                // @include m(){
+                //     width: rwd(70);
+                //     margin-right: rwd(10);
+                //     margin-bottom: rwd(16);
+                // }
             }
         }   
     }
