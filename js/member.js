@@ -1,15 +1,16 @@
 Vue.component('detail', {
     data() {
         return {
+            member: [],
             isDisabled: true,
-            form: {
-                name: '林宜蓁',
-                gender: '女',
-                tel: '0912345678',
-                birthday: '2022-2-28',
-                email: '12345@gmail.com',
-                password: '123344',
-            },
+            // form: {
+            //     name: '林宜蓁',
+            //     gender: '女',
+            //     tel: '0912345678',
+            //     birthday: '1992-05-19',
+            //     email: '12345@gmail.com',
+            //     password: '123344',
+            // },
             text: '修改',
         }
     },
@@ -33,21 +34,21 @@ Vue.component('detail', {
                     <input 
                         class="input-text" 
                         type="text"
-                        v-model.trim="form.name"
+                        v-model.trim="member[0].name"
                         :disabled=isDisabled>
                 </label>
                 <label class="text-label-2">
                     <input 
                     class="input-text" 
                     type="text"
-                    v-model="form.gender"
+                    v-model="member[0].gender"
                     :disabled=isDisabled>
                 </label>
                 <label class="text-label-3">
                     <input 
                         class="input-text" 
                         type="text"
-                        v-model="form.tel"
+                        v-model="member[0].tel"
                         :disabled=isDisabled>
                 </label>
                 <br>
@@ -55,7 +56,7 @@ Vue.component('detail', {
                     <input 
                         class="input-text" 
                         type="date"
-                        v-model="form.birthday"
+                        v-model="member[0].birthday"
                         :disabled=isDisabled>
                 </label>
                 <br>
@@ -63,7 +64,7 @@ Vue.component('detail', {
                     <input 
                         class="input-text" 
                         type="email"
-                        v-model="form.email"
+                        v-model="member[0].email"
                         :disabled=isDisabled>
                 </label>
                 <br>
@@ -71,7 +72,7 @@ Vue.component('detail', {
                     <input 
                         class="input-text" 
                         type="password"
-                        v-model="form.password"
+                        v-model="member[0].password"
                         :disabled=isDisabled>
                 </label>
                 <div class="btn">
@@ -82,8 +83,12 @@ Vue.component('detail', {
                 </div>
             </div>
         </form>
-
-        `
+        `,
+        mounted() {
+            fetch('../php/searchMember.php')
+            .then(resp => resp.json())
+            .then(resp => this.member = resp);
+        },
 });
 
 Vue.component('reservation', {

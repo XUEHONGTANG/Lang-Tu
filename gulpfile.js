@@ -75,9 +75,9 @@ function img_move(){
     return src(['images/*.*' , 'images/**/*.*']).pipe(dest('dist/images'))
  }
 
- function php_move(){
-    return src(['php/*.*' , 'php/**/*.*']).pipe(dest('dist/php'))
- }
+//  function php_move(){
+//     return src(['php/*.*' , 'php/**/*.*']).pipe(dest('dist/php'))
+//  }
 
  
  //壓縮圖片
@@ -114,11 +114,10 @@ function min_images(){
     watch(['sass/*.scss' , 'sass/**/*.scss'] , sassstyle).on('change' ,reload)
     watch(['images/*.*' , 'images/**/*.*'] , img_move).on('change' , reload)
     watch('js/*.js' ,Jsminify).on('change' ,reload)
-    watch(['php/*.*' , 'php/**/*.*'] , php_move).on('change' , reload)
     done();
 }
 
 //執行
-exports.default = series(parallel(includeHTML , sassstyle ,img_move , Jsminify , php_move) ,browser)
+exports.default = series(parallel(includeHTML , sassstyle ,img_move , Jsminify) ,browser)
 exports.online = series(clear, parallel(includeHTML, sassstyle, min_images, babel5))
 
