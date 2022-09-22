@@ -73,11 +73,11 @@
                     <label class="sponsor_information-label" for="sex">
                         <h4>性別</h4>
                     <label  class="sex-label" for="male">
-                        <input v-model="donor.male" id="male" type="radio" name="sex" value="男">
+                        <input v-model="donor.gender" id="male" type="radio" name="sex" value="男">
                         <p>男</p>
                     </label>
                     <label class="sex-label" for="female">
-                        <input v-model="donor.male" id="female" type="radio" name="sex" value="女">
+                        <input v-model="donor.gender" id="female" type="radio" name="sex" value="女">
                         <p>女</p>
                     </label>
                     </label>
@@ -125,7 +125,7 @@
                     </label>
                     </label>
                     <div class="sponsor_information-under">
-                        <button class="btn-0" @click="sendOredr">下一步</button>
+                        <button class="btn-0" @click="sendOrder">下一步</button>
                     </div>
                 </section>
 
@@ -177,7 +177,7 @@
                     </div>
                     <div class="sponsor_information-under">
                         <button class="btn-0" @click="currentPage = 1">上一步</button>
-                        <button class="btn-0" @click="currentPage = 3">下一步</button>
+                        <button class="btn-0" @click="receipt">下一步</button>
                     </div>
                 </section>
 
