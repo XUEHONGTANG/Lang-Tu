@@ -48,6 +48,9 @@
                 margin: rwd(16) 0;
             }
         }
+        .target{
+            text-align: right;
+        }
         .sponsored_page-top-border{
             content: "";
             height: 7px;
@@ -129,6 +132,13 @@
                     text-align: center;
                     margin-bottom: rwd(16);
                 }
+            }
+
+            .chooseBtn1{
+                background-color: #DBC0AF;
+            }
+            .chooseBtn2{
+                background-color: #FFFAF3;
             }
 
             .sponsored_page-under-btnbig-in{
