@@ -1,6 +1,6 @@
 <?php
    //MySQL相關資訊
-   $db_host = "172.20.10.2";
+   $db_host = "192.168.0.220";
    $db_user = "TXH";
    $db_pass = "liyuan0142";
    $db_select = "LangTu";
