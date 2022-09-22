@@ -57,7 +57,7 @@ new Vue({
   },
   methods: {
     changeCounter(num) {
-      this.counter += +num;
+      this.counter += num;
       this.counter > 1 ? this.counter : (this.counter = 1);
     },
     changeAddress() {
