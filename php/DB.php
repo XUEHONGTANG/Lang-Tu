@@ -1,7 +1,7 @@
 <?php
    //MySQL相關資訊
-   $db_host = "127.0.0.1";
-   $db_user = "root";
+   $db_host = "172.20.10.2";
+   $db_user = "TXH";
    $db_pass = "liyuan0142";
    $db_select = "LangTu";
 
