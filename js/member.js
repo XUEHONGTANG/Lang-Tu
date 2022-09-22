@@ -23,6 +23,21 @@ Vue.component('detail', {
                 this.text = '修改',
                 this.isDisabled = true
             }
+
+            fetch('../php/updateMember.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application.json'
+                },
+                body: JSON.stringify({
+                    name: this.member[0].name, 
+                    gender: this.member[0].gender, 
+                    tel: this.member[0].tel, 
+                    birthday: this.member[0].birthday,
+                    email: this.member[0].email,
+                    password: this.member[0].password,
+                }) 
+            })
         }
     },
 
