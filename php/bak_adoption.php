@@ -1,13 +1,12 @@
 <?php
+    include("./DB.php");
 
-include("./DB.php");
-
-
-   // $pdo->exec('');
+    // $pdo->exec('');
    $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
+
    //建立SQL
-   $sql = " SELECT * from member ";
+   $sql = " SELECT * from adoption ";
 
    $statement = $pdo->prepare($sql);
    $statement->execute();

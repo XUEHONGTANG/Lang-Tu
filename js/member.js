@@ -1,15 +1,16 @@
 Vue.component('detail', {
     data() {
         return {
+            member: [],
             isDisabled: true,
-            form: {
-                name: '林宜蓁',
-                gender: '女',
-                tel: '0912345678',
-                birthday: '2022-2-28',
-                email: '12345@gmail.com',
-                password: '123344',
-            },
+            // form: {
+            //     name: '林宜蓁',
+            //     gender: '女',
+            //     tel: '0912345678',
+            //     birthday: '1992-05-19',
+            //     email: '12345@gmail.com',
+            //     password: '123344',
+            // },
             text: '修改',
         }
     },
@@ -22,6 +23,21 @@ Vue.component('detail', {
                 this.text = '修改',
                 this.isDisabled = true
             }
+
+            fetch('../php/updateMember.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application.json'
+                },
+                body: JSON.stringify({
+                    name: this.member[0].name, 
+                    gender: this.member[0].gender, 
+                    tel: this.member[0].tel, 
+                    birthday: this.member[0].birthday,
+                    email: this.member[0].email,
+                    password: this.member[0].password,
+                }) 
+            })
         }
     },
 
@@ -33,21 +49,21 @@ Vue.component('detail', {
                     <input 
                         class="input-text" 
                         type="text"
-                        v-model.trim="form.name"
+                        v-model.trim="member[0].name"
                         :disabled=isDisabled>
                 </label>
                 <label class="text-label-2">
                     <input 
                     class="input-text" 
                     type="text"
-                    v-model="form.gender"
+                    v-model="member[0].gender"
                     :disabled=isDisabled>
                 </label>
                 <label class="text-label-3">
                     <input 
                         class="input-text" 
                         type="text"
-                        v-model="form.tel"
+                        v-model="member[0].tel"
                         :disabled=isDisabled>
                 </label>
                 <br>
@@ -55,7 +71,7 @@ Vue.component('detail', {
                     <input 
                         class="input-text" 
                         type="date"
-                        v-model="form.birthday"
+                        v-model="member[0].birthday"
                         :disabled=isDisabled>
                 </label>
                 <br>
@@ -63,7 +79,7 @@ Vue.component('detail', {
                     <input 
                         class="input-text" 
                         type="email"
-                        v-model="form.email"
+                        v-model="member[0].email"
                         :disabled=isDisabled>
                 </label>
                 <br>
@@ -71,7 +87,7 @@ Vue.component('detail', {
                     <input 
                         class="input-text" 
                         type="password"
-                        v-model="form.password"
+                        v-model="member[0].password"
                         :disabled=isDisabled>
                 </label>
                 <div class="btn">
@@ -82,14 +98,33 @@ Vue.component('detail', {
                 </div>
             </div>
         </form>
-
-        `
+        `,
+        mounted() {
+            fetch('../php/searchMember.php')
+            .then(resp => resp.json())
+            .then(resp => this.member = resp);
+        },
 });
 
 Vue.component('reservation', {
     data() {
         return {
-
+            form: [
+                {
+                people: 2,
+                date: '2022-9-22',
+                time: '10:00',
+                id: 'pt001',
+                situation: '已預約'
+                },
+                {
+                    people: 1,
+                    date: '2022-12-22',
+                    time: '10:00',
+                    id: 'pt002',
+                    situation: '已預約'
+                }
+            ],
         }
     },
     template: `
@@ -98,25 +133,18 @@ Vue.component('reservation', {
                 <h3>預約領養紀錄</h3>
                 <table>
                     <thead>
-                        <th>人數</th>
+                        <th class="person">人數</th>
                         <th>預約時間</th>
-                        <th>寵物編號</th>
-                        <th>狀態</th>
-                        <th></th>
+                        <th class="num">寵物編號</th>
+                        <th class="situation">狀態</th>
+                        <th class="cancel"></th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>三位</td>
-                            <td>2022/9/20 13:00</td>
-                            <td>pt001</td>
-                            <td>已預約</td>
-                            <td><button class="btn-0">取消</button></td>
-                        </tr>
-                        <tr>
-                            <td>一位</td>
-                            <td>2022/9/2 13:00</td>
-                            <td>pt002</td>
-                            <td>已預約</td>
+                        <tr v-for="info in form">
+                            <td>{{info.people}}位</td>
+                            <td>{{info.date}} {{info.time}}</td>
+                            <td>{{info.id}}</td>
+                            <td>{{info.situation}}</td>
                             <td><button class="btn-0">取消</button></td>
                         </tr>
                     </tbody>
@@ -130,7 +158,22 @@ Vue.component('reservation', {
 Vue.component('order', {
     data() {
         return {
-
+            form: [
+                {
+                id: 'OD001',
+                date: '2022-9-22',
+                methods: '信用卡',
+                price: '1200',
+                situation: '已完成'
+                },
+                {
+                    id: 'OD002',
+                    date: '2022-12-22',
+                    methods: '信用卡',
+                    price: '2200',
+                    situation: '已完成'
+                },
+            ],
         }
     },
     template: `
@@ -147,36 +190,12 @@ Vue.component('order', {
                             <th></th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>OD001</td>
-                            <td>111/1/1</td>
-                            <td>信用卡</td>
-                            <td>1200</td>
-                            <td>已完成</td>
-                            <td><i class="fa-solid fa-plus"></i></td>
-                        </tr>
-                        <tr>
-                            <td>OD002</td>
-                            <td>111/9/21</td>
-                            <td>信用卡</td>
-                            <td>1000</td>
-                            <td>已完成</td>
-                            <td><i class="fa-solid fa-plus"></i></td>
-                        </tr>
-                        <tr>
-                            <td>OD002</td>
-                            <td>111/9/21</td>
-                            <td>信用卡</td>
-                            <td>1000</td>
-                            <td>已完成</td>
-                            <td><i class="fa-solid fa-plus"></i></td>
-                        </tr>
-                        <tr>
-                            <td>OD002</td>
-                            <td>111/9/21</td>
-                            <td>信用卡</td>
-                            <td>1000</td>
-                            <td>已完成</td>
+                        <tr v-for='info in form'>
+                            <td>{{info.id}}</td>
+                            <td>{{info.date}}</td>
+                            <td>{{info.methods}}</td>
+                            <td>{{info.price}}</td>
+                            <td>{{info.situation}}</td>
                             <td><i class="fa-solid fa-plus"></i></td>
                         </tr>
                     </tbody>
