@@ -1,35 +1,45 @@
 new Vue({
     el: '#applicationApp',
     data: {
-        reserve:{
-            name:null,
-            people:null,
-            number:null,
-            day:null,
-            time:null,
-        },
-        applications:{
-            appname:null,
-            appid:null,
-            appbirthday:null,
-            appnumber:null,
-            appemail:null,
-        },
-        errors:{
-            name:false,
-            people:false,
-            number:false,
-            day:false,
-            time:false,
-            appname:false,
-            appid:false,
-            appbirthday:false,
-            appnumber:false,
-            appemail:false,
-        }
+        
+            reserve:{
+                name:null,
+                people:null,
+                number:null,
+                day:null,
+                time:null,
+            },
+            applications:{
+                appname:null,
+                appid:null,
+                appbirthday:null,
+                appnumber:null,
+                appemail:null,
+            },
+            errors:{
+                name:false,
+                people:false,
+                number:false,
+                day:false,
+                time:false,
+                appname:false,
+                appid:false,
+                appbirthday:false,
+                appnumber:false,
+                appemail:false,
+            },
+            isDisabled: true,
+            ischeckbox:false,
         
     },
     methods: {
+        revise(){
+            if(this.ischeckbox == false){
+                this.isDisabled = false
+            }else if(this.ischeckbox == true){
+                this.isDisabled = true
+            }
+        },
         over(){
             for (let key in this.errors) {
                 this.errors[key] = false;
@@ -68,10 +78,10 @@ new Vue({
 
             for (let key in this.errors) {
                 if (this.errors[key] === true) {
-                  alert("請填寫完成");
-                  return false;
+                    alert("請填寫完成");
+                    return false;
                 }
-              }
+            }
             window.location.href = "./finish.html";
             
         },

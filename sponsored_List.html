@@ -14,7 +14,7 @@
     "前頁面" : "首頁" ,
     "此頁面" : "浪浪募資" ,
     })
-    <main class="sponsored_List">
+    <main class="sponsored_List" id="sponsored_ListApp">
         <div class="sponsored_List-top">
             <ul class="sponsored_List-ul">
                 <li class="sponsored_List-li">
@@ -122,15 +122,8 @@
               </ul>
         </div>
     </main>
-    <script>
-        new Vue({
-        el: '#pageApp',
-        data:{
-          pages:['2','3','4']
-        },
-        })
-      </script>
     @@include('layout/footer.html')
+    <script src="js/sponsored_List.js"></script>
 </body>
 
 </html>

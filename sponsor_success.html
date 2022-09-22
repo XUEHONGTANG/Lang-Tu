@@ -14,7 +14,7 @@
     "前頁面" : "動物認養申請書" ,
     "此頁面" : "完成認養" ,
     })
-    <main class="sponsor_success">
+    <main class="sponsor_success" id="sponsor_successApp">
         <div class="sponsor_success-top">
             <div class="sponsor_success-top-img">
                 <img src="./images/Meteor/thank.png" alt="">
@@ -28,12 +28,12 @@
                     <h3>贊助金額：</h3>
                     <h3>贊助方式：</h3>
                 </div>
-                <div class="sponsor_success-right">
-                    <p>2022 / 08 / 15 14 : 13</p>
-                    <p>1298376509342766</p>
-                    <p>林宜蓁</p>
-                    <p>5000</p>
-                    <p>ATM轉帳</p>
+                <div v-for="success in success" class="sponsor_success-right">
+                    <p>{{currentDate()}}</p>
+                    <p>{{success.serialnumber}}</p>
+                    <p>{{success.name}}</p>
+                    <p>{{success.money}}</p>
+                    <p>{{success.creditcard}}</p>
                 </div>
             </div>
         </div>
@@ -42,6 +42,7 @@
         </div>
     </main>
     @@include('layout/footer.html')
+    <script src="js/sponsor_success.js"></script>
 </body>
 
 </html>
