@@ -1,55 +1,3 @@
-$(document).ready(function () {
-    var ns = new Vue({
-        el: '.newsinfo_contentBox',
-        data: {
-            image_url: '../images/news/',
-            newsInfo: [],
-        },
-        created: function () {
-            this.newsInfo = getNews;
-        },
-        // methods: {
-        //     showNdata() {
-               
-        //         $.ajax({
-        //             method: "POST",
-        //             url: "../php/news_info.php",
-        //             data: {
-        //                 tap: this.tap++,
-        //                 clickcl: this.classtype,
-
-        //             },
-        //             dataType: "json",
-        //             success: function (response) {
-        //                 ns.news = response[0];
-        //             },
-        //             error: function (exception) {
-        //                 alert("�䔄��罸𥲤隤�: " + exception.status);
-        //             },
-        //         });
-        //     },
-        // }
-    })
-})
-
-// Vue.component('news-card', {
-        //     // template: '#vue-card',
-        //     name: 1,
-        //     // props: ['post'],
-        //     // data() {
-        //     //     return {
-
-        //     //     }
-        //     // },
-        //     template: `
-            
-        //     `,
-        // });
-
-
-
-
-
 
 //容器方式
         // Vue.component('news-card', {
@@ -88,27 +36,18 @@ $(document).ready(function () {
             data: {
                 currentFilter: 'ALL',
                 posts: [
-                    {
-                        views:'',
-                        title: ' ',
+            
+                    {   
+                        views:' ',
+                        title: '',
                         image: ' ',
                         year: ' ',
                         date: ' ',
-                        category: '',
+                        category: ' ',
                         collet:'',
                         content:'',
-                    },
-                    // {   
-                        // views:'1.4k',
-                        // title: '狗狗出門就爆衝？正確遛狗有撇步｜PetTalk愛寵健康談',
-                        // image: './images/news_cont/4HYqC4RBV=7pi7i_191008散步CS5.png',
-                        // year: '2022',
-                        // date: '01/20',
-                        // category: 'NEWS',
-                        // collet:'20',
-                        // content:'',
                         
-                    // },
+                    },
                     // {
                     //     title: '對於結紮你也有這些疑問嗎?',
                     //     image: './images/Derrick/new3.jpg',
@@ -219,35 +158,15 @@ $(document).ready(function () {
                 setFilter: function (filter) {
                     this.currentFilter = filter;
                 },
-
-            showdata() {
-                
-                $.ajax({
-                    method: "POST",
-                    url: "../php/news_content.php",
-                    data: {
-                        
-
-                    },
-                    dataType: "json",
-                    success: function (response) {
-                        ns.news = response[0];
-                    },
-                    error: function (exception) {
-                        alert("發生錯誤: " + exception.status);
-                    },
-                });
             },
-                
-                
-            }
+            mounted() {
+                fetch('../php/news_content.php')
+                .then(resp => resp.json())
+                .then(resp => this.posts = resp)
+
+            },
+
         });
-
-
-
-
-
-
 
 
 

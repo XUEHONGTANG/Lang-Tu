@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('./layout/head.html', {
+    "title" : "領養知識問答"
+    })
+</head>
+
+<body>
+    @@include('./layout/nav.html')
+    <section id="customizedApp" class="customized">
+        <transition name="fade" mode="out-in">
+
+            <article v-if="currentPage === 1" key="block-a" class="start">
+               
+            </article>
+        </transition>
+        <section>
