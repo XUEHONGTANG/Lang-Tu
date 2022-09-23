@@ -65,7 +65,7 @@ new Vue({
       window.location.href = "./member_detail.html";
     },
     userRegister() {
-
+      
       for (let key in this.registerErrors) {
         this.registerErrors[key] = false;
       }
@@ -112,6 +112,18 @@ new Vue({
       }
 
       alert("註冊成功");
+
+      fetch('../php/login_page.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          registerName: this.registerForm.name,
+          registerEmail: this.registerForm.email,
+          registerPassword: this.registerForm.password,
+          gender: this.registerForm.gender,
+          date: this.registerForm.birth,
+        })
+      })
     },
   },
   computed: {
@@ -172,6 +184,9 @@ new Vue({
       deep: true,
       // immediate: true,
     },
+  },
+  mounted() {
+    
   },
 });
 
