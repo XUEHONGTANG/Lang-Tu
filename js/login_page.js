@@ -10,8 +10,13 @@ new Vue({
   el: "#loginPageApp",
   data: {
     selected: 1,
-    emailWarningText: "",
-    passwordWarningText: "",
+    warningText: {
+      email: '',
+      password: '',
+      phone: ''
+    },
+    // emailWarningText: "",
+    // passwordWarningText: "",
     loginForm: {
       account: null,
       password: null,
@@ -25,6 +30,7 @@ new Vue({
       email: null,
       password: null,
       check: null,
+      phone: null,
       gender: null,
       birth: null,
     },
@@ -33,6 +39,7 @@ new Vue({
       email: false,
       password: false,
       check: false,
+      phone: false,
       gender: false,
       birth: false,
       agree: false
@@ -80,6 +87,10 @@ new Vue({
           this.registerErrors.check = true;
         }
 
+        if (!this.registerForm.phone || !/09\d{2}(\d{6}|-\d{3}-\d{3})/.test(this.registerForm.phone)) {
+          this.registerErrors.phone = true;
+        }
+
         if (!this.registerForm.gender) {
           this.registerErrors.gender = true;
         }
@@ -105,11 +116,11 @@ new Vue({
   },
   computed: {
     emailWarning() {
-      return this.emailWarningText;
+      return this.warningText.email;
       // return this.registerForm.email
     },
     passwordWarning() {
-      return this.passwordWarningText;
+      return this.warningText.password;
       // return this.registerForm.email
     },
   },
@@ -121,12 +132,12 @@ new Vue({
         if (newVal.email) {
           let pattern = /^\b[A-Z0-9-]+@[A-Z0-9]+\.com\b/i;
           if (newVal.email && !pattern.test(newVal.email)) {
-            this.emailWarningText = "請輸入正確的e-mail格式";
+            this.warningText.email = "請輸入正確的e-mail格式 ex: example@gmail.com";
           } else if (newVal.email && pattern.test(newVal.email)) {
-            this.emailWarningText = "";
+            this.warningText.email = "";
           }
         }
-
+        
         // password
         if (newVal.password) {
           // (() => {
@@ -135,17 +146,28 @@ new Vue({
           let pattern = /^(?=.*[0-9_\W]).+$/;
 
           if (newVal.password && newVal.password.length < 8) {
-            this.passwordWarningText = "密碼需8個字元以上";
+            this.warningText.password = "密碼需8個字元以上";
           } else if (newVal.password && !patternLower.test(newVal.password)) {
-            this.passwordWarningText = "密碼必須含有小寫英文";
+            this.warningText.password = "密碼必須含有小寫英文";
           } else if (newVal.password && !patternUpper.test(newVal.password)) {
-            this.passwordWarningText = "密碼必須含有大寫英文";
+            this.warningText.password = "密碼必須含有大寫英文";
           } else if (newVal.password && !pattern.test(newVal.password)) {
-            this.passwordWarningText = "密碼必須含有1個數字或1個特殊符號";
+            this.warningText.password = "密碼必須含有1個數字或1個特殊符號";
           } else {
-            this.passwordWarningText = "";
+            this.warningText.password = "";
           }
         }
+
+        // phone
+        if (newVal.phone) {
+          let pattern = /09\d{2}(\d{6}|-\d{3}-\d{3})/;
+          if (newVal.phone && !pattern.test(newVal.phone)) {
+            this.warningText.phone = "請輸入十碼手機號碼  ex: 09xx-xxx-xxx or 09xxxxxxxx";
+          } else if (newVal.phone && pattern.test(newVal.phone)) {
+            this.warningText.phone = "";
+          }
+        }
+      
       },
       deep: true,
       // immediate: true,
