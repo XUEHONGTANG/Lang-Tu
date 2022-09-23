@@ -36,6 +36,8 @@
     "sass": "^1.54.8"
   },
   "dependencies": {
-    "scroll-active": "0.0.9"
+    "scroll-active": "0.0.9",
+    "twzipcode-vue": "^2.2.2",
+    "vue-twzipcode": "^1.0.6"
   }
 }

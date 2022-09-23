@@ -17,6 +17,7 @@
         }
     }
     .sponsored_List-li{
+        
         list-style: none;
         flex-basis: vw(400);
         margin-bottom: vw(20);
@@ -30,7 +31,7 @@
         }
         h3{
             color: $primaryA11y;
-            margin-bottom: vw(10);
+            margin-bottom: vw(0);
             text-align: center;
             font-size: $h5;
             @include m(){

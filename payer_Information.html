@@ -14,24 +14,24 @@
     "前頁面" : "動物認養申請書" ,
     "此頁面" : "完成認養" ,
     })
-    <main class="payer_information">
+    <main v-for="information in information" class="payer_information" id="payer_InformationApp">
         <div class="payer_information-title">
             <h1>確認資料</h1>
         </div>
-        <div class="payer_information-top">
+        <div  class="payer_information-top">
             <div class="payer_information-top-title">
                 <h2>贊助人付款資料</h2>
             </div>
-            <div class="payer_information-div1">
+            <div  class="payer_information-div1">
                 <div class="payer_information-h3">
                     <h3>贊助金額</h3>
                     <h3>贊助類別</h3>
                     <h3>贊助方式</h3>
                 </div>
                 <div class="payer_information-p">
-                    <p>新台幣 5000 元</p>
-                    <p>單次贊助</p>
-                    <p>ATM轉帳</p>
+                    <p>新台幣 {{information.money}} 元</p>
+                    <p>{{information.sponsorship}}</p>
+                    <p>{{information.creditcard}}</p>
                 </div>
             </div>
         </div>
@@ -51,14 +51,14 @@
                     <h3>連絡地址</h3>
                 </div>
                 <div class="payer_information-p">
-                    <p>本國籍</p>
-                    <p>林宜蓁</p>
-                    <p>F234567890</p>
-                    <p>urusai666@gmail.com</p>
-                    <p>女</p>
-                    <p>1990-01-01</p>
-                    <p>0912345678</p>
-                    <p>233 新北市烏來區野要街19號</p>
+                    <p>{{information.nationTW}}</p>
+                    <p>{{information.name}}</p>
+                    <p>{{information.idname}}</p>
+                    <p>{{information.email}}</p>
+                    <p>{{information.male}}</p>
+                    <p>{{information.birthday}}</p>
+                    <p>{{information.number}}</p>
+                    <p>{{information.address}}</p>
                 </div>
             </div>
         </div>
@@ -74,11 +74,11 @@
                     <h3>公開徵信錄</h3>
                     
                 </div>
-                <div class="payer_information-p">
-                    <p>不需要(無抵稅需求/不用寄收據給我)</p>
-                    <p>林宜蓁</p>
-                    <p>F234567890</p>
-                    <p>公開</p>
+                <div  class="payer_information-p">
+                    <p>{{information.receipt}}</p>
+                    <p>{{information.header}}</p>
+                    <p>{{information.usernumber}}</p>
+                    <p>{{information.public}}</p>
                     
                 </div>
             </div>
@@ -89,6 +89,7 @@
         </div>
     </main>
     @@include('layout/footer.html')
+    <script src="js/payer_Information.js"></script>
 </body>
 
 </html>
