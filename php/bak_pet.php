@@ -1,15 +1,16 @@
 <?php
-    include("./DB.php");
+
+include("./DB.php");
 
 
-    // $pdo->exec('');
-    $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
+   // $pdo->exec('');
+   $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
-    //建立SQL
-    $sql = " SELECT * from pet ";
+   //建立SQL
+   $sql = " SELECT * FROM LangTu.pet; ";
 
-    $statement = $pdo->prepare($sql);
-    $statement->execute();
+   $statement = $pdo->prepare($sql);
+   $statement->execute();
 
     //抓出全部且依照順序封裝成一個二維陣列
     $data = $statement->fetchAll();
