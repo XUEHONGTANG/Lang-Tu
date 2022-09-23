@@ -110,7 +110,7 @@
           <!-- :data-content="emailWarningContent" -->
           <!-- v-model="emailWarningContent" -->
           <label
-            :data-email="emailWarningText"
+            :data-email="warningText.email"
             :class="{error: registerErrors.email}"
             class="registerEmailLabel"
             name="registerEmail"
@@ -128,7 +128,7 @@
           </label>
 
           <label
-            :data-password="passwordWarningText"
+            :data-password="warningText.password"
             :class="{error: registerErrors.password}"
             class="registerPasswordLabel"
             name="
@@ -157,6 +157,22 @@
               type="password"
               placeholder="請再次輸入您的密碼"
               name="checkPassword"
+            />
+          </label>
+
+          <label
+            :data-phone="warningText.phone"
+            :class="{error: registerErrors.phone}"
+            class="registerPhoneLabel"
+            name="registerPhone"
+          >
+            <input
+              :class="{error: registerErrors.phone}"
+              v-model="registerForm.phone"
+              class="input-textLabel"
+              type="text"
+              placeholder="請輸入您的手機號碼"
+              name="registerPhone"
             />
           </label>
 
