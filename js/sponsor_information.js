@@ -14,7 +14,7 @@ new Vue({
                 nationTW:null,
                 idname:null,
                 email:null,
-                male:null,
+                gender:null,
                 birthday:null,
                 number:null,
                 address:null,
@@ -26,14 +26,29 @@ new Vue({
                 usernumber:null,
                 public:null,
             },
+            errors:{
+                name:false,
+                nationTW:false,
+                idname:false,
+                email:false,
+                male:false,
+                birthday:false,
+                number:false,
+                address:false,
+                creditcard:false,
+                receipt:false,
+                header:false,
+                usernumber:false,
+                public:false,
+            },
             
             //確認紐
             isDisabled: true,
             ischeckbox:false,
         },
         
-        methods:{
-        sendOredr() {
+    methods:{
+        sendOrder() {
             const memberCounty = $('.twzipcode1 > select[name="county"]').val();
             const memberDistrict = $('.twzipcode1 > select[name="district"]').val();
             const memberZipcode = $('.twzipcode1 > input[name="zipcode"]').val();
@@ -41,6 +56,44 @@ new Vue({
             
             this.donor.address = memberPostal + this.donor.address;
 
+            for(let key in this.errors){
+                this.errors[key] = false;
+            }
+
+            if(!this.donor.name){
+                this.errors.name = true;
+            }
+            if(!this.donor.nationTW){
+                this.errors.nationTW = true;
+            }
+            if(!this.donor.idname || !/^[a-zA-Z]\d{9}$/g.test(this.donor.idname)){
+                this.errors.idname = true;
+            }
+            if(!this.donor.email || !/^\b[A-Z0-9-]+@[A-Z0-9]+\.com\b/i.test(this.donor.email)){
+                this.errors.email = true;
+            }
+            if(!this.donor.gender){
+                this.errors.gender = true;
+            }
+            if(!this.donor.birthday){
+                this.errors.birthday = true;
+            }
+            if(!this.donor.number || !/^09\d{8}$/.test(this.donor.number)){
+                this.errors.number = true;
+            }
+            if(!this.donor.address){
+                this.errors.address = true;
+            }
+            if(!this.donor.creditcard){
+                this.errors.creditcard = true;
+            }
+
+            for (let key in this.errors) {
+                if (this.errors[key] === true) {
+                    alert("請填寫完成");
+                    return false;
+                }
+            }
             this.currentPage = 2
         },
         revise(){
@@ -60,11 +113,36 @@ new Vue({
                 this.donor2.usernumber = this.donor.idname
             }
         },
+        receipt(){
+            for(let key in this.errors){
+                this.errors[key] = false;
+            }
+
+            if(!this.donor2.receipt){
+                this.errors.receipt = true;
+            }
+            if(!this.donor2.header){
+                this.errors.header = true;
+            }
+            if(!this.donor2.usernumber || !/^[a-zA-Z]\d{9}$/g.test(this.donor2.usernumber)){
+                this.errors.usernumber = true;
+            }
+            if(!this.donor2.public){
+                this.errors.public = true;
+            }
+            for (let key in this.errors) {
+                if (this.errors[key] === true) {
+                    alert("請填寫完成");
+                    return false;
+                }
+            }
+            this.currentPage = 3
+        }
     },
     mounted() {
         $(".twzipcode1").twzipcode();
-      },
-      updated() {
+    },
+    updated() {
         $(".twzipcode1").twzipcode();
-      },
+    },
     })
