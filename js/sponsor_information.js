@@ -17,7 +17,7 @@ new Vue({
                 gender:null,
                 birthday:null,
                 number:null,
-                address:null,
+                address:'',
                 creditcard:null,
             },
             donor2:{

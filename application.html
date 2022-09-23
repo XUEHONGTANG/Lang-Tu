@@ -32,8 +32,8 @@
             <p>11. 依據「動物保護法」第33-1條之規定:完成不擬續養手續後將不得飼養寵物及認養收容動物。</p>
             <p>12. 本認養申請資料送出後，不代表已完成所選動物之認養，亦不代表您已具認養本動物的第一優先權，認養以收容所現場完成程序為準。</p>
             <div class="application-tt-in">
-            <input type="checkbox" v-model="ischeckbox"  @click="revise">
-            <p>我已詳細閱讀並同意</p>
+            <label for="agree"><input id="agree" type="checkbox" v-model="ischeckbox"  @click="revise">
+            <p>我已詳細閱讀並同意</p></label>
             </div>
         </section>
         <div class="application-book">
@@ -96,7 +96,7 @@
                     </label>
                     <label class="application-label">
                         <h1>出生日期：</h1>
-                        <input v-model.trim="applications.appbirthday" :disabled=isDisabled class="application-text" type="text" placeholder="請輸入您的出生日期">
+                        <input v-model.trim="applications.appbirthday" :disabled=isDisabled class="application-text" type="text" placeholder="範例: 1999-10-10">
                     </label>
                     <label class="application-label">
                         <h1>手機號碼：</h1>

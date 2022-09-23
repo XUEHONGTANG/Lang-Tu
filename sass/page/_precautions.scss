@@ -132,15 +132,15 @@
         @include m(){
             .Vector1{
                 left: rwd(220);
-                top: rwd(870);
+                top: rwd(670);
             }
             .home1{
                 left: rwd(240);
-                top: rwd(890);
+                top: rwd(690);
             }
             .home2{
                 left: rwd(250);
-                top: rwd(910);
+                top: rwd(710);
             }
             width: 50%;
         }
@@ -219,11 +219,11 @@
         @include m(){
             .home4{
                 left: rwd(220);
-                top: rwd(1330);
+                top: rwd(1150);
             }
             .home5{
                 left: rwd(230);
-                top: rwd(1330);
+                top: rwd(1150);
             }
             width: 50%;
         }
