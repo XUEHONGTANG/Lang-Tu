@@ -54,8 +54,27 @@ new Vue({
         return false;
       }
 
-      alert("登入成功");
-      window.location.href = "./member_detail.html";
+      fetch('../php/login.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: this.loginForm.account,
+          password: this.loginForm.password,
+        })
+      })
+      .then(resp => resp.json())
+            .then(body => {
+                if (body.successful){
+                    location = '../dist/member_detail.html';
+                }else{
+                    alert("登入失敗");
+                }
+            });
+
+      // alert("登入成功");
+      // window.location.href = "./member_detail.html";
     },
     userRegister() {
 
