@@ -1,12 +1,12 @@
 .member_reservation{
     width: vw(840);
-    height: vw(400);
+    height: vw(1000);
     background-color: #fff;
     border-radius: $r25;
     padding: vw(50);
     @include m(){
         width: rwd(394);
-        height: rwd(250);
+        height: rwd(350);
         margin: rwd(40) auto 0;
         border-radius: rwd(25);
     }
@@ -34,15 +34,27 @@
             }
             .person{
                 width: vw(120);
+                @include m(){
+                    width: rwd(120);
+                }
             }
             .num{
                 width: vw(120);
+                @include m(){
+                    width: rwd(120);
+                }
             }
             .situation{
                 width: vw(140);
+                @include m(){
+                    width: rwd(120);
+                }
             }
             .cancel{
                 width: vw(160);
+                @include m(){
+                    width: rwd(120);
+                }
             }
         }
         tbody{

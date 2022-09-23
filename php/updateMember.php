@@ -6,12 +6,16 @@ include("./DB.php");
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
 //建立SQL
-$sql = " UPDATE LangTu.member SET NAME = :name, GENDER = :gender where ID = 1";
+$sql = " UPDATE LangTu.member SET NAME = :name, GENDER = :gender, PHONE = :tel, BIRTHDAY = :birthday, EMAIL = :email, PASSWORD = :password where EMAIL = :email ";
 
 
 $statement = $pdo->prepare($sql);
 $statement->bindValue(":name", $data["name"]);
 $statement->bindValue(":gender", $data["gender"]);
+$statement->bindValue(":tel", $data["tel"]);
+$statement->bindValue(":birthday", $data["birthday"]);
+$statement->bindValue(":email", $data["email"]);
+$statement->bindValue(":password", $data["password"]);
 $statement->execute();
 
  //抓出全部且依照順序封裝成一個二維陣列

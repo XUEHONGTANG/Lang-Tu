@@ -27,7 +27,7 @@ Vue.component('detail', {
             fetch('../php/updateMember.php', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application.json'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
                     name: this.member[0].name, 
@@ -42,7 +42,6 @@ Vue.component('detail', {
     },
 
     template: `
-    <form>
         <div class="member_detail">
                 <h3>會員資料</h3>
                 <label class="text-label-1">
@@ -97,7 +96,6 @@ Vue.component('detail', {
                     >{{text}}</button>
                 </div>
             </div>
-        </form>
         `,
         mounted() {
             fetch('../php/searchMember.php')
@@ -109,26 +107,25 @@ Vue.component('detail', {
 Vue.component('reservation', {
     data() {
         return {
-            form: [
-                {
-                people: 2,
-                date: '2022-9-22',
-                time: '10:00',
-                id: 'pt001',
-                situation: '已預約'
-                },
-                {
-                    people: 1,
-                    date: '2022-12-22',
-                    time: '10:00',
-                    id: 'pt002',
-                    situation: '已預約'
-                }
+            adoption: [
+                // {
+                // people: 2,
+                // date: '2022-9-22',
+                // time: '10:00',
+                // id: 'pt001',
+                // situation: '已預約'
+                // },
+                // {
+                //     people: 1,
+                //     date: '2022-12-22',
+                //     time: '10:00',
+                //     id: 'pt002',
+                //     situation: '已預約'
+                // }
             ],
         }
     },
     template: `
-    <form>
         <div class="member_reservation">
                 <h3>預約領養紀錄</h3>
                 <table>
@@ -140,7 +137,7 @@ Vue.component('reservation', {
                         <th class="cancel"></th>
                     </thead>
                     <tbody>
-                        <tr v-for="info in form">
+                        <tr v-for="info in adoption">
                             <td>{{info.people}}位</td>
                             <td>{{info.date}} {{info.time}}</td>
                             <td>{{info.id}}</td>
@@ -151,8 +148,12 @@ Vue.component('reservation', {
                     
                 </table>
             </div>
-        </form>
-    `
+    `,
+    mounted() {
+        fetch('../php/searchAdoption.php')
+        .then(resp => resp.json())
+        .then(resp => this.adoption = resp);
+    },
 })
 
 Vue.component('order', {
@@ -177,7 +178,6 @@ Vue.component('order', {
         }
     },
     template: `
-    <form>
         <div class="order_detail">
                 <h3>訂單紀錄</h3>
                 <table>
@@ -236,7 +236,6 @@ Vue.component('order', {
                     </tfoot>
                 </table>
             </div>
-        </form>
     `
 })
 
@@ -247,7 +246,6 @@ Vue.component('sponsor', {
         }
     },
     template: `
-    <form>
     <div class="donation_record">
             <h3>贊助紀錄</h3>
             <table>
@@ -287,7 +285,6 @@ Vue.component('sponsor', {
                 <button class="btn-0-1">取消贊助</button>
             </div>
         </div>
-    </form>
     `
 })
 
