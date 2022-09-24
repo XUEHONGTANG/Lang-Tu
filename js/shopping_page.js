@@ -190,6 +190,7 @@ new Vue({
     counter: 1,
     isShow: false,
     currentSrc: 0,
+    pdList:[],
     imgList: [
       {
         imgSrc: "./images/ff/pd-001-1.jpg",
@@ -220,8 +221,8 @@ new Vue({
       },
       {
         imgSrc: "./images/ff/pd-001-10.jpg",
-      },
-    ],
+      }
+    ]
   },
   components: {
     'productContent': productContent,
@@ -310,5 +311,26 @@ new Vue({
       // prevEl: ".swiper-button-prev",
       // },
     });
+
+
+    fetch('../php/shopping_page.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: this.member[0].name,
+        gender: this.member[0].gender,
+        tel: this.member[0].tel,
+        birthday: this.member[0].birthday,
+        email: this.member[0].email,
+        password: this.member[0].password,
+      })
+    });
   },
 })
+
+// [{ imgSrc: './images/ff/pd-001-1.jpg' }, { imgSrc: './images/ff/pd-001-2.jpg' }, { imgSrc: './images/ff/pd-001-3.jpg' }, { imgSrc: './images/ff/pd-001-4.jpg' }, { imgSrc: './images/ff/pd-001-5.jpg' }, { imgSrc: './images/ff/pd-001-6.jpg' }, { imgSrc: './images/ff/pd-001-7.jpg' }, { imgSrc: './images/ff/pd-001-8.jpg' }, { imgSrc: './images/ff/pd-001-9.jpg' }, { imgSrc: './images/ff/pd-001-10.jpg' }]
+
+
+// ['pd-001-1.jpg','pd-001-2.jpg','pd-001-3.jpg','pd-001-4.jpg','pd-001-5.jpg','pd-001-6.jpg','pd-001-7.jpg','pd-001-8.jpg','pd-001-9.jpg','pd-001-10.jpg']
