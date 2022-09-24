@@ -57,13 +57,13 @@ new Vue({
   },
   methods: {
     changeCounter(num) {
-      this.counter += +num;
+      this.counter += num;
       this.counter > 1 ? this.counter : (this.counter = 1);
     },
     changeAddress() {
       this.changeAddressIsActive = !this.changeAddressIsActive;
     },
-    sendOredr() {
+    sendOrder() {
       const memberCounty = $('.twzipcode1 > select[name="county"]').val();
       const memberDistrict = $('.twzipcode1 > select[name="district"]').val();
       const memberZipcode = $('.twzipcode1 > input[name="zipcode"]').val();

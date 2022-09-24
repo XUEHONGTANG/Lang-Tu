@@ -101,6 +101,7 @@
               class="input-textLabel"
               type="text"
               placeholder="請輸入您的姓名"
+              id="registerName"
               name="
               registerName"
             />
@@ -110,7 +111,7 @@
           <!-- :data-content="emailWarningContent" -->
           <!-- v-model="emailWarningContent" -->
           <label
-            :data-email="emailWarningText"
+            :data-email="warningText.email"
             :class="{error: registerErrors.email}"
             class="registerEmailLabel"
             name="registerEmail"
@@ -122,13 +123,14 @@
               class="input-textLabel"
               type="email"
               placeholder="請輸入您的E-MAIL註冊帳號"
+              id="registerEmail"
               name="
               registerEmail"
             />
           </label>
 
           <label
-            :data-password="passwordWarningText"
+            :data-password="warningText.password"
             :class="{error: registerErrors.password}"
             class="registerPasswordLabel"
             name="
@@ -138,6 +140,7 @@
               :class="{error: registerErrors.password}"
               v-model="registerForm.password"
               class="input-textLabel"
+              id="registerPassword"
               type="password"
               placeholder="請輸入您的密碼(至少8個字元)"
               name="
@@ -154,9 +157,26 @@
               :class="{error: registerErrors.check}"
               v-model="registerForm.check"
               class="input-textLabel"
+              id="checkPassword"
               type="password"
               placeholder="請再次輸入您的密碼"
               name="checkPassword"
+            />
+          </label>
+
+          <label
+            :data-phone="warningText.phone"
+            :class="{error: registerErrors.phone}"
+            class="registerPhoneLabel"
+            name="registerPhone"
+          >
+            <input
+              :class="{error: registerErrors.phone}"
+              v-model="registerForm.phone"
+              class="input-textLabel"
+              type="text"
+              placeholder="請輸入您的手機號碼"
+              name="registerPhone"
             />
           </label>
 
@@ -165,16 +185,19 @@
               :class="{error: registerErrors.gender}"
               v-model="registerForm.gender"
               name="gender"
+              id="gender"
             >
               <option hidden disabled selected value="">-- 性別 --</option>
-              <option value="men">男</option>
-              <option value="women">女</option>
+              <option value="男">男</option>
+              <option value="女">女</option>
             </select>
 
             <input
               :class="{error: registerErrors.birth}"
               v-model="registerForm.birth"
+              id="date"
               type="date"
+              name="date"
             />
           </span>
         </div>
@@ -185,7 +208,7 @@
             <input type="checkbox" 
             v-model="registerForm.agree"
             />我同意 網站服務條款及隱私政策</div>
-          <button @click="userRegister" class="btn-0">加入浪途之家吧!</button>
+          <button @click="userRegister" id="btn-0" class="btn-0">加入浪途之家吧!</button>
         </div>
       </section>
       <!-- 註冊會員  結束-->

@@ -98,6 +98,9 @@
           }
           ol, ul{
             padding-left: 0rem;
+            @include m(){
+              padding-left: 0rem;
+            }
           }
           ul > li:first-child  > button{
             border-radius: vw(20) vw(20) vw(20) vw(20);
@@ -119,6 +122,12 @@
         }
         
     //主頁中間
+    ol, ul{
+      padding-left: 0rem;
+      @include m(){
+        padding-left: 0rem;
+      }
+    }
     a{
         text-decoration: none;
     }

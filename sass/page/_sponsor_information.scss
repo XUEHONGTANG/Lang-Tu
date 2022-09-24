@@ -275,6 +275,11 @@
                     margin-bottom: rwd(16);
                 }
             }
+            .twzipcode1{
+                @include m(){
+                    width: rwd(290);
+                }
+            }
             select{
                 font-size: $p;
                 border: 0;
@@ -286,12 +291,13 @@
                 margin-right: vw(8);
 
                 @include m(){
-                    width: rwd(70);
-                    margin-right: rwd(10);
-                    margin-bottom: rwd(16);
+                    font-size: rwd(18);
+                    width: rwd(100);
+                    margin-right: rwd(4);
+                    margin-bottom: rwd(8);
                 }
             }
-            input{
+            .twzipcode1 input{
                 // font-size: $p;
                 // border: 0;
                 // outline: solid 1px $primaryDefault;
@@ -300,11 +306,12 @@
                 // color: $gray500;
                 // width: vw(201);
                 // margin-right: vw(16);
-                // @include m(){
-                //     width: rwd(70);
-                //     margin-right: rwd(10);
-                //     margin-bottom: rwd(16);
-                // }
+                @include m(){
+                    @include input-text(rwd(60));
+                    width: rwd(60);
+                    margin-right: rwd(0);
+                    margin-bottom: rwd(8);
+                }
             }
         }   
     }

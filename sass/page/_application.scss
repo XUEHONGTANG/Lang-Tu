@@ -41,7 +41,9 @@
             }
         }
     .application-tt-in{
-        display: flex;
+            label{
+                display: flex;
+            }
             p{
                 font-size: $h4;
                 font-weight: $bold;

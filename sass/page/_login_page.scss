@@ -186,7 +186,15 @@
             }
 
             .checkPasswordLabel{
-                @include inputLabel(100%, "","請核對輸入的密碼是否有誤")
+                @include inputLabel(100%, "","請核對再次輸入的確認密碼是否有誤")
+            }
+
+            .registerPhoneLabel{
+                @include inputLabel(100%, "","請核對輸入的手機號碼是否有誤");
+
+                &::after{
+                    content: attr(data-phone);
+                  }
             }
 
             span{

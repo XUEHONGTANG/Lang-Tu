@@ -5,7 +5,7 @@
     $search1 = "%$search%";
 
     //建立SQL語法
-    $sql = "SELECT * FROM LangTu.member WHERE NAME LIKE ? OR ACCOUNT like ? OR EMAIL LIKE ? OR PHONE LIKE ? OR BIRTHDAY LIKE ? OR GENDER LIKE ?";
+    $sql = "SELECT * FROM LangTu.member WHERE NAME LIKE ? OR EMAIL LIKE ? OR PHONE LIKE ? OR BIRTHDAY LIKE ? OR GENDER LIKE ?";
 
     //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
     //    $statement = $pdo->query($sql);
@@ -16,7 +16,6 @@
     $statement->bindValue(3, $search1);
     $statement->bindValue(4, $search1);
     $statement->bindValue(5, $search1);
-    $statement->bindValue(6, $search1);
     $statement->execute();
 
     //抓出全部且依照順序封裝成一個二維陣列
@@ -28,7 +27,7 @@
          echo " / ";
          echo $row["NAME"];    //欄位名稱
          echo " / ";
-         echo $row["ACCOUNT"];   //欄位名稱
+         echo $row["EMAIL"];   //欄位名稱
          echo " / ";
          echo $row["PHONE"];   //欄位名稱
          echo " / ";
