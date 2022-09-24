@@ -2,19 +2,18 @@ Vue.component('pettext', {
     data(){
         return{
             textnames:[
-                {
-                    dest:`在南投集集一工程處許多母帶子浪犬在貨車卡車來來往往的道路旁求生，已經有不少幼犬當了車輪下的亡魂，賴愛媽不捨這些幼犬還未真正探索這個世界就當了天使，撈了其中一窩幼犬送養。(若有救援時的照片影片請提供)`,
-                    fix:`未`,
-                    microchip:`已植入`,
-                }
+                
+                    // dest:`在南投集集一工程處許多母帶子浪犬在貨車卡車來來往往的道路旁求生，已經有不少幼犬當了車輪下的亡魂，賴愛媽不捨這些幼犬還未真正探索這個世界就當了天使，撈了其中一窩幼犬送養。(若有救援時的照片影片請提供)`,
+                    // fix:`未`,
+                    // microchip:`已植入`,
             ],
         }
     },
     template:
-    `
-        <div v-for="textname in textnames" class="petpage-tt-on">
+    `<div>
+        <div v-for="(textname, index) in textnames[0]" :key="index" class="petpage-tt-on">
             <h1>救援經過</h1>
-            <p>{{textname.dest}}</p>
+            <p>{{textname.dest}}{{key}}</p>
             <ul>
                 <li>預防針施打狀況(下一次施打時間)7/18、8/5</li>
                 <li>幼犬(2-6個月)驗腸炎、犬瘟快篩是否通過：過關</li>
@@ -29,7 +28,12 @@ Vue.component('pettext', {
                 <li>有沒有什麼需要特別照顧的地方：奶狗一天四餐一餐6分米杯</li>
             </ul>
         </div>
-    `,
+    </div>`,
+    mounted(){
+        fetch('../php/searchPetPage.php')
+            .then(resp => resp.json())
+            .then(resp => {this.textnames = resp;});
+    }
 })
 
 new Vue({
@@ -50,12 +54,9 @@ new Vue({
         content:'pettext',
     },
     mounted(){
-        // var swiper = new Swiper(".mySwiper", {
-        //     loop: false,
-        //     pagination: {
-        //         el: ".swiper-pagination",
-        //     },
-        // });
+        // fetch('../php/searchCatAndDog.php')
+        //     .then(resp => resp.json())
+        //     .then(resp => {this.textnames = resp;});
         const swiper = new Swiper(".mySwiper", {
             slidesPerView: 5,
             spaceBetween: 16,
