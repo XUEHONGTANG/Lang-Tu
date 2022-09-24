@@ -6,7 +6,7 @@ include("./DB.php");
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
 //建立SQL
-$sql = " SELECT NAME as name, EMAIL as email, PHONE as tel, BIRTHDAY as birthday, GENDER as gender, PASSWORD as password from member ";
+$sql = " SELECT PHELP as dest, PFIX as fix, PMICROCHIP as microchip  from LangTu.pet ";
 
 $statement = $pdo->prepare($sql);
 $statement->execute();

@@ -1,13 +1,8 @@
 <?php
    //MySQL相關資訊
-<<<<<<< HEAD
-   $db_host = "192.168.0.220";
-   $db_user = "Rose";
-=======
-   $db_host = "127.0.0.1";
-   $db_user = "root";
->>>>>>> sanada
-   $db_pass = "liyuan0142";
+   $db_host = "192.168.0.185";
+   $db_user = "Meteor";
+   $db_pass = "password";
    $db_select = "LangTu";
 
    //建立資料庫連線物件
