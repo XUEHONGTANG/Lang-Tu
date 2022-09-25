@@ -3,14 +3,6 @@ Vue.component('detail', {
         return {
             member: [],
             isDisabled: true,
-            // form: {
-            //     name: '林宜蓁',
-            //     gender: '女',
-            //     tel: '0912345678',
-            //     birthday: '1992-05-19',
-            //     email: '12345@gmail.com',
-            //     password: '123344',
-            // },
             text: '修改',
         }
     },

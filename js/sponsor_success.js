@@ -1,18 +1,18 @@
 new Vue({
     el: '#sponsor_successApp',
     data: {
-        success:[{
-            serialnumber:'12345678',
-            name:'林宜蓁',
-            money:'5000',
-            creditcard:'ATM轉帳',
-        }],
+        success:[],
     },
     methods: {
-        currentDate() {
-            const current = new Date();
-            const date = `${current.getFullYear()}/${current.getMonth()+1}/${current.getDate()}`;
-            return date;
-        }
+        // currentDate() {
+        //     const current = new Date();
+        //     const date = `${current.getFullYear()}/${current.getMonth()+1}/${current.getDate()}`;
+        //     return date;
+        // }
+    },
+    mounted() {
+        fetch('../php/searchDonation.php')
+        .then(resp => resp.json())
+        .then(resp => this.success = resp)
     },
 });
