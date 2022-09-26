@@ -201,7 +201,7 @@ new Vue({
     productType: [],
     productInPage: [],
     imgURL: "./images/ff/",
-    changeFilter: "pd-0",
+    filterCondition: "pd-0",
   },
   components: {
     productContent: productContent,
@@ -284,7 +284,7 @@ new Vue({
     changeType() {
       this.productType = [];
       this.productType = this.products.filter((pd) => {
-        return pd.pdId.includes(this.changeFilter);
+        return pd.pdId.includes(this.filterCondition);
       });
       this.pages = Math.ceil(this.productType.length / 9);
       this.currentPage = 1;
@@ -297,7 +297,7 @@ new Vue({
       // .then((resp) => {
       //   this.products = resp;
 
-      //   this.products.forEach((val,i) => {
+      //   this.products.forEach((pd,i) => {
       //     this.products[i].imgList = this.products[i].imgList.split(',')
       //     this.products[i] = { ...this.products[i], isShow: false, quantity: 0 }
       //   })
@@ -315,11 +315,11 @@ new Vue({
       this.reLoading();
     },
     pageMinus() {
-      this.currentPage === 1 ? 1 : this.currentPage--;
+      this.currentPage  <= 1 ? 1 : this.currentPage--;
       this.reLoading();
     },
     pagePlus() {
-      this.currentPage === this.pages ? this.pages : this.currentPage++;
+      this.currentPage >= this.pages ? this.pages : this.currentPage++;
       this.reLoading();
     },
     reLoading() {
@@ -362,7 +362,7 @@ new Vue({
       .then((resp) => {
         this.products = resp;
 
-        this.products.forEach((val, i) => {
+        this.products.forEach((pd, i) => {
           this.products[i].imgList = this.products[i].imgList.split(",");
           this.products[i] = {...this.products[i],isShow: false, quantity: 0,};
         });
@@ -371,7 +371,7 @@ new Vue({
         // this.products = this.products.filter((pd) => { return pd.type === 'pd-0' })
         // 方法二
         this.productType = this.products.filter((pd) => {
-          return pd.pdId.includes(this.changeFilter);
+          return pd.pdId.includes(this.filterCondition);
         });
         this.pages = Math.ceil(this.productType.length / 9);
         this.productInPage = this.productType.slice((this.currentPage - 1) * 9,this.currentPage * 9);
@@ -383,7 +383,7 @@ new Vue({
     //   .then((resp) => {
     //     this.products = resp;
 
-    //     this.products.forEach((val,i) => {
+    //     this.products.forEach((pd,i) => {
     //       this.products[i].imgList = this.products[i].imgList.split(',')
     //       this.products[i] = { ...this.products[i], isShow: false, quantity: 0 }
     //     })

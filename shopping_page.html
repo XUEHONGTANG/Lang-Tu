@@ -23,14 +23,14 @@
           <li>
             <button class="accordion" @click="toggle(0)">汪汪選物</button>
             <ol :class="olClass">
-              <li><button @click="changeFilter ='pd-1',changeType()">汪汪罐頭</button></li>
+              <li><button @click="filterCondition ='pd-1',changeType()">汪汪罐頭</button></li>
               <li><button>汪汪飼料</button></li>
             </ol>
           </li>
           <li>
             <button class="accordion" @click="toggle(1)">喵喵選物</button>
             <ol :class="olClass">
-              <li><button @click="changeFilter ='pd-0',changeType()">喵喵罐頭</button></li>
+              <li><button @click="filterCondition ='pd-0',changeType()">喵喵罐頭</button></li>
               <li><button>喵喵飼料</button></li>
             </ol>
           </li>
