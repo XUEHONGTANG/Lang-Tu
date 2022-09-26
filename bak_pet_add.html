@@ -20,66 +20,76 @@
                 <h2>浪浪新增</h2>
 
                 <!-- 新增資訊 -->
-                <form action="">
+                <form method="get" action="./php/bak_pet_add.php">
                     <div class="info">
                         <div class="name">
                             <span class="title">浪浪名稱</span>
-                            <input type="text">
+                            <input class="PNAME" name="name" type="text">
                         </div>
                         
                         <div class="type">
                             <span class="title">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp種類</span>
-                            <select name="" id="">
-                                <option value="">狗</option>
-                                <option value="">貓</option>
+                            <select name="PTYPE" id="" class="pet">
+                                <option value="dog" class="dogadd">狗</option>
+                                <option value="cat"  class="catadd">貓</option>
                             </select>
 
                             <span class="title tt">類別</span>
-                            <select name="" id="">
-                                <option value="">大型犬</option>
-                                <option value="">中型犬</option>
-                                <option value="">小型犬</option>
+                            <select name="PKIND" id="size" class="dog">
+                                <option value="large">大型犬</option>
+                                <option value="medium">中型犬</option>
+                                <option value="small">小型犬</option>
+                            </select>
+
+                            <select name="PKIND" id="color" class="cat">
+                                <option value="brown">棕色</option>
+                                <option value="sun">花色</option>
+                                <option value="black">黑色</option>
+                                <option value="white">白色</option>
                             </select>
                         </div>
 
                         <div class="pic">
                             <span class="title">浪浪圖片</span>
-                            <textarea name="" id="" cols="50" rows="10"></textarea>
-                            <input type="submit" value="瀏覽">
+                            <!-- <textarea name="" id="" cols="50" rows="10"></textarea> -->
+                            <input type="file" name="profile[]" multiple />
                         </div>
 
                         <div class="gender">
                             <span class="title">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp性別</span>
-                            <input type="radio" name="gender"><span class="g1">公&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-                            <input type="radio" name="gender"><span class="g2">母</span>
+                            <input type="radio" name="PGENDER"><span class="g1">公&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                            <input type="radio" name="PGENDER"><span class="g2">母</span>
                         </div>
 
                         <div class="date">
                             <span class="title">入園日期</span>
-                            <input type="date">
+                            <input type="date" name="PTIME">
+
+                            <span class="title">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp年齡</span>
+                            <input type="text">
                         </div>
 
                         <div class="help">
                             <span class="title">救援經過</span>
-                            <textarea name="" id="" cols="62" rows="10"></textarea>
+                            <textarea name="PHELP" id="" cols="62" rows="10"></textarea>
                         </div>
 
                         <div class="vax">
                             <span class="title">施打疫苗</span>
-                            <input type="radio" name="vax"><span class="v1">已施打&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-                            <input type="radio" name="vax"><span class="v2">未施打</span>
+                            <input type="radio" name="PVAX"><span class="v1">已施打&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                            <input type="radio" name="PVAX"><span class="v2">未施打</span>
                         </div>
 
                         <div class="fix">
                             <span class="title">是否結紮</span>
-                            <input type="radio" name="fix"><span class="f1">已結紮&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-                            <input type="radio" name="fix"><span class="f2">未結紮</span>
+                            <input type="radio" name="PFIX"><span class="f1">已結紮&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                            <input type="radio" name="PFIX"><span class="f2">未結紮</span>
                         </div>
 
                         <div class="micor">
                             <span class="title">植入晶片</span>
-                            <input type="radio" name="micor"><span class="m1">已植入&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-                            <input type="radio" name="micor"><span class="m2">未植入</span>
+                            <input type="radio" name="PMICROCHIP"><span class="m1">已植入&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                            <input type="radio" name="PMICROCHIP"><span class="m2">未植入</span>
                         </div>
 
                         <div class="send">
@@ -95,5 +105,25 @@
         </main>
 
     </div>
+
+    <script>
+
+        $(".pet").on("change", function () {
+            if ($(".pet").val() === "dog") {
+                $("#size").toggle(".dog");
+                $("#color").toggle(".dog");
+            }else if ($(".pet").val() === "cat") {
+                $("#size").toggle(".dog");
+                $("#color").toggle(".dog");
+            }
+        });
+
+
+        
+        
+
+    </script>
+
+
 </body>
 </html>

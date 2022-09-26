@@ -1,123 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-<link rel="stylesheet" href="https://use.typekit.net/qza4luu.css">
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js' integrity='sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==' crossorigin='anonymous'></script>
-<script src="https://unpkg.com/vue@2"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-<title>浪途 | 贊助管理</title>
-
+    @@include('./layout/head.html', {
+        "title" : "寵物管理"
+    })
 
 </head>
 <body>
     <div class="wrapper">
-        <nav class="head">
-    <img src="../images/Eric/bak-logo.png" alt="">
-</nav>
+        @@include('./layout/bak-head.html')
 
         <main class="bm">
             <!-- 側邊欄位 -->
             <aside>
-                <!-- 側邊欄 -->
-    
-    <div class="sidebarExsample1" id="sidebarApp">
-        <ul>
-            <li>
-                <button onclick="location.href='./bak_member.html'">會員管理</button>
-            </li>
-          <li>
-            <button class="accordion" @click="toggle(0)">寵物管理</button>
-            <ol :class="olClass">
-              <li><button onclick="location.href='./bak_pet.html'">浪浪資訊</button></li>
-              <li><button onclick="location.href='./bak_adoption.html'">預約領養紀錄</button></li>
-            </ol>
-          </li>
-          <li>
-            <button onclick="location.href='./bak_goods.html'">商品管理</button>
-          </li>
-          <li>
-            <button onclick="location.href='./bak_order.html'">訂單管理</button>
-          </li>
-          <li>
-            <button class="accordion" @click="toggle(1)">贊助管理</button>
-            <ol :class="olClass">
-              <li><button onclick="location.href='./bak_donate_pro.html'">贊助專案</button></li>
-              <li><button onclick="location.href='./bak_donate_list.html'">贊助明細</button></li>
-            </ol>
-          </li>
-          <li>
-            <button onclick="location.href='./bak.html'">登出</button>
-          </li>
-        </ul>
-      </div>
-
-    <script>
-        //   codepen參考: https://codepen.io/abdon-gahungu/pen/eYdxVmz?editors=1000
-
-          new Vue({
-              el: '#sidebarApp',
-              data:{
-                  isOpen: false,
-                  reactArr:[],
-                  olClass: 'hide',
-              },
-              mounted() {
-                let reactTotal = document.querySelectorAll('.hide')
-                // console.log(reactTotal);
-                reactTotal.forEach((item) => {
-                  this.reactArr.push(item)
-                  console.log(this.reactArr);
-                });
-              },
-              methods:{
-                toggle(order) {
-                      let length = this.reactArr.length,
-                      i = 0;
-                      // console.log(length);
-                      // console.log(this.reactArr[order]);
-
-                      if (this.isOpen === false) {
-                          // console.log(this.reactArr[order]);
-                          this.reactArr[order].classList.remove('hide');
-                          this.reactArr[order].classList.add('show');
-                          // console.log(this.reactArr[order].previousElementSibling);
-                          this.reactArr[order].previousElementSibling.classList.add('turnRight');
-                          this.isOpen = true;
-
-                          for (i; i < length; i++) {
-                              if (order != i) {
-                          this.reactArr[i].classList.remove('show');
-                          this.reactArr[i].classList.add('hide');
-                          this.reactArr[i].previousElementSibling.classList.remove('turnRight');
-                              }
-                          }
-                      }else if(this.isOpen === true && this.reactArr[order].classList.contains('hide') ){
-                        this.reactArr[order].classList.remove('hide');
-                        this.reactArr[order].classList.add('show');
-                        this.reactArr[order].previousElementSibling.classList.add('turnRight');
-                         
-                          for (i; i < length; i++) {
-                              if (order != i) {
-                          this.reactArr[i].classList.remove('show');
-                          this.reactArr[i].classList.add('hide');
-                          this.reactArr[i].previousElementSibling.classList.remove('turnRight');
-                              }
-                            }
-                      } else {
-                          this.reactArr[order].classList.remove('show');
-                          this.reactArr[order].classList.add('hide'); this.reactArr[order].previousElementSibling.classList.remove('turnRight');
-                          this.isOpen = false;
-                      }
-                  },
-              },
-          });
-    </script>
-            </aside>
+                @@include('./layout/bak-aside.html')
+              </aside>
 
             <div class="right">
                 <!-- 標題 -->

@@ -3,18 +3,19 @@
 
 <head>
     @@include('./layout/head.html', {
-    "title" : "預約完成"
+    "title" : "確認資料"
     })
 </head>
 
 <body>
     @@include('./layout/header_2.html',{
-    "大標題" : "浪浪等家" ,
+    "大標題" : "浪浪募資" ,
     "英文標題" : "LANG LANG WAITS FOR HOME" ,
-    "前頁面" : "動物認養申請書" ,
-    "此頁面" : "完成認養" ,
+    "前頁面" : "填寫資料" ,
+    "此頁面" : "確認資料" ,
     })
-    <main v-for="information in information" class="payer_information" id="payer_InformationApp">
+    <div id="payer_InformationApp">
+    <main v-for="info in donation" class="payer_information" >
         <div class="payer_information-title">
             <h1>確認資料</h1>
         </div>
@@ -29,9 +30,9 @@
                     <h3>贊助方式</h3>
                 </div>
                 <div class="payer_information-p">
-                    <p>新台幣 {{information.money}} 元</p>
-                    <p>{{information.sponsorship}}</p>
-                    <p>{{information.creditcard}}</p>
+                    <p>新台幣 {{info.amount}} 元</p>
+                    <p>{{info.type}}</p>
+                    <p>{{info.methods}}</p>
                 </div>
             </div>
         </div>
@@ -51,14 +52,14 @@
                     <h3>連絡地址</h3>
                 </div>
                 <div class="payer_information-p">
-                    <p>{{information.nationTW}}</p>
-                    <p>{{information.name}}</p>
-                    <p>{{information.idname}}</p>
-                    <p>{{information.email}}</p>
-                    <p>{{information.male}}</p>
-                    <p>{{information.birthday}}</p>
-                    <p>{{information.number}}</p>
-                    <p>{{information.address}}</p>
+                    <p>{{info.nationality}}</p>
+                    <p>{{info.name}}</p>
+                    <p>{{info.id}}</p>
+                    <p>{{info.email}}</p>
+                    <p>{{info.gender}}</p>
+                    <p>{{info.birthday}}</p>
+                    <p>{{info.phone}}</p>
+                    <p>{{info.address}}</p>
                 </div>
             </div>
         </div>
@@ -75,10 +76,10 @@
                     
                 </div>
                 <div  class="payer_information-p">
-                    <p>{{information.receipt}}</p>
-                    <p>{{information.header}}</p>
-                    <p>{{information.usernumber}}</p>
-                    <p>{{information.public}}</p>
+                    <p>{{info.receipt}}</p>
+                    <p>{{info.title}}</p>
+                    <p>{{info.id}}</p>
+                    <p>{{info.credit}}</p>
                     
                 </div>
             </div>
@@ -88,6 +89,7 @@
             <a href="./sponsor_success.html"><button class="btn-0">確認</button></a>
         </div>
     </main>
+    </div>
     @@include('layout/footer.html')
     <script src="js/payer_Information.js"></script>
 </body>

@@ -3,14 +3,6 @@ Vue.component('detail', {
         return {
             member: [],
             isDisabled: true,
-            // form: {
-            //     name: '林宜蓁',
-            //     gender: '女',
-            //     tel: '0912345678',
-            //     birthday: '1992-05-19',
-            //     email: '12345@gmail.com',
-            //     password: '123344',
-            // },
             text: '修改',
         }
     },
@@ -107,22 +99,7 @@ Vue.component('detail', {
 Vue.component('reservation', {
     data() {
         return {
-            adoption: [
-                // {
-                // people: 2,
-                // date: '2022-9-22',
-                // time: '10:00',
-                // id: 'pt001',
-                // situation: '已預約'
-                // },
-                // {
-                //     people: 1,
-                //     date: '2022-12-22',
-                //     time: '10:00',
-                //     id: 'pt002',
-                //     situation: '已預約'
-                // }
-            ],
+            adoption: [],
         }
     },
     template: `
@@ -140,7 +117,7 @@ Vue.component('reservation', {
                         <tr v-for="info in adoption">
                             <td>{{info.people}}位</td>
                             <td>{{info.date}} {{info.time}}</td>
-                            <td>{{info.id}}</td>
+                            <td>PT00{{info.id}}</td>
                             <td>{{info.situation}}</td>
                             <td><button class="btn-0">取消</button></td>
                         </tr>
@@ -159,23 +136,22 @@ Vue.component('reservation', {
 Vue.component('order', {
     data() {
         return {
-            form: [
-                {
-                id: 'OD001',
-                date: '2022-9-22',
-                methods: '信用卡',
-                price: '1200',
-                situation: '已完成'
-                },
-                {
-                    id: 'OD002',
-                    date: '2022-12-22',
-                    methods: '信用卡',
-                    price: '2200',
-                    situation: '已完成'
-                },
-            ],
+            order: [],
+            imgURL:'./images/Derrick/',
+            orderDetail: [], 
         }
+    },
+    methods: {
+        total(){
+            let total = 0;
+            for(let i = 0; i < this.order.length; i++){
+                total += this.order[i].price * this.order[i].quantity
+            }
+            return total;
+        },
+    },
+    computed:{
+        
     },
     template: `
         <div class="order_detail">
@@ -190,11 +166,11 @@ Vue.component('order', {
                             <th></th>
                     </thead>
                     <tbody>
-                        <tr v-for='info in form'>
-                            <td>{{info.id}}</td>
+                        <tr v-for='info in order'>
+                            <td>OD00{{info.id}}</td>
                             <td>{{info.date}}</td>
-                            <td>{{info.methods}}</td>
-                            <td>{{info.price}}</td>
+                            <td>{{info.method}}</td>
+                            <td>{{info.total}}</td>
                             <td>{{info.situation}}</td>
                             <td><i class="fa-solid fa-plus"></i></td>
                         </tr>
@@ -210,19 +186,12 @@ Vue.component('order', {
                         <th>小計</th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><img src="./images/Derrick/product.jpg" alt=""></td>
-                            <td>111/1/1</td>
-                            <td>300</td>
-                            <td>1</td>
-                            <td>300</td>
-                        </tr>
-                        <tr>
-                            <td><img src="./images/Derrick/product.jpg" alt=""></td>
-                            <td>111/9/21</td>
-                            <td>300</td>
-                            <td>2</td>
-                            <td>300</td>
+                        <tr v-for='info in order'>
+                            <td><img :src="imgURL+info.image" alt=""></td>
+                            <td>{{info.name}}</td>
+                            <td>{{info.price}}</td>
+                            <td>{{info.quantity}}</td>
+                            <td>{{info.price * info.quantity}}</td>
                         </tr>
                     </tbody>
                     <tfoot>
@@ -231,18 +200,23 @@ Vue.component('order', {
                             <td></td>
                             <td>合計:</td>
                             <td></td>
-                            <td>900</td>
+                            <td>{{total()}}</td>
                         </tr>
                     </tfoot>
                 </table>
             </div>
-    `
+    `,
+    mounted() {
+        fetch('../php/searchOrder.php')
+        .then(resp => resp.json())
+        .then(resp => this.order = resp);
+    },
 })
 
 Vue.component('sponsor', {
     data() {
         return {
-
+            donor: [],
         }
     },
     template: `
@@ -257,19 +231,12 @@ Vue.component('sponsor', {
                     <th>狀態</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>OD001</td>
-                        <td>2022/9/20</td>
-                        <td>信用卡</td>
-                        <td>NT 1200</td>
-                        <td>已完成</td>
-                    </tr>
-                    <tr>
-                        <td>OD002</td>
-                        <td>2022/9/21</td>
-                        <td>信用卡</td>
-                        <td>NT 1000</td>
-                        <td>已完成</td>
+                    <tr v-for= "info in donor">
+                        <td>OD00{{info.id}}</td>
+                        <td>{{info.date}}</td>
+                        <td>{{info.method}}</td>
+                        <td>NT $ {{info.amount}}</td>
+                        <td>{{info.situation}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -285,7 +252,12 @@ Vue.component('sponsor', {
                 <button class="btn-0-1">取消贊助</button>
             </div>
         </div>
-    `
+    `,
+    mounted() {
+        fetch('../php/searchDonor.php')
+        .then(resp => resp.json())
+        .then(resp => this.donor = resp);
+    },
 })
 
 new Vue({

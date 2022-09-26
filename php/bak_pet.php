@@ -7,7 +7,7 @@ include("./DB.php");
    $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
    //建立SQL
-   $sql = " SELECT * FROM LangTu.pet; ";
+   $sql = " SELECT * FROM pet; ";
 
    $statement = $pdo->prepare($sql);
    $statement->execute();

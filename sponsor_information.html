@@ -162,11 +162,11 @@
                         <h4>*公開徵信錄</h4>
                         <div class="receiptPublicOrnot">
                             <label class="receiptPublic-label" for="public">
-                                <input v-model="donor2.public" id="public" type="radio" name="receipt" value="公開"><p>公開</p>
+                                <input v-model="donor2.public" id="public" type="radio" name="public" value="公開"><p>公開</p>
                             </label>
                             <br>
                             <label class="receiptPublic-label" for="noPublic">
-                                <input v-model="donor2.public" id="noPublic" type="radio" name="receipt" value="不同意公開"><p>不同意公開</p>
+                                <input v-model="donor2.public" id="noPublic" type="radio" name="public" value="不同意公開"><p>不同意公開</p>
                             </label>
                         </div>
                     </div>
@@ -194,7 +194,7 @@
 
                     <div class="sponsor_information-under">
                         <button class="btn-0" @click="currentPage = 2">上一步</button>
-                        <button class="btn-0" :disabled=isDisabled onclick="location.href='./payer_Information.html'">下一步</button>
+                        <button class="btn-0" :disabled=isDisabled @click="finish">下一步</button>
                     </div>
                 </section>
             </div>
