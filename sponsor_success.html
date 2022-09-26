@@ -28,12 +28,12 @@
                     <h3>贊助金額：</h3>
                     <h3>贊助方式：</h3>
                 </div>
-                <div v-for="success in success" class="sponsor_success-right">
-                    <p>{{currentDate()}}</p>
-                    <p>{{success.serialnumber}}</p>
-                    <p>{{success.name}}</p>
-                    <p>{{success.money}}</p>
-                    <p>{{success.creditcard}}</p>
+                <div v-for="info in success" class="sponsor_success-right">
+                    <p>{{info.date}}</p>
+                    <p>123456</p>
+                    <p>{{info.name}}</p>
+                    <p>{{info.amount}}</p>
+                    <p>{{info.methods}}</p>
                 </div>
             </div>
         </div>

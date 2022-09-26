@@ -30,6 +30,8 @@ new Vue({
             },
             isDisabled: true,
             ischeckbox:false,
+            situation: '已預約',
+            pid: 1,
         
     },
     methods: {
@@ -82,9 +84,29 @@ new Vue({
                     return false;
                 }
             }
-            window.location.href = "./finish.html";
+
+            fetch('../php/InsertReservation.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: this.reserve.name, 
+                    people: this.reserve.people,
+                    phone: this.reserve.number,
+                    date: this.reserve.day,
+                    time: this.reserve.time,
+                    aid: this.applications.appid,
+                    birthday: this.applications.appbirthday,
+                    email: this.applications.appemail,
+                    situation: this.situation,
+                    pid: this.pid,
+                })
+            })
+            // window.location.href = "./finish.html";
             
         },
     },
+
 
 });
