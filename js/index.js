@@ -1,3 +1,10 @@
+gsap.config({
+    autoSleep: 60,
+    nullTargetWarn: false,
+  
+  });
+
+
 //svg var mySVG = $('svg').drawsvg(); mySVG.drawsvg('animate'); parallax index
 var scene = document.getElementById('index-1');
 var parallaxInstance = new Parallax(scene);
@@ -6,28 +13,26 @@ var parallaxInstance = new Parallax(scene);
 var scene = document.getElementById('ending-1');
 var parallaxInstance = new Parallax(scene);
 
-///////
-let moon = document.getElementById('moon');
-// let cityRight = document.getElementById('city-r'); let cityLeft =
+// ///// let cityRight = document.getElementById('city-r'); let cityLeft =
 // document.getElementById('city-l');
-let cloud01 = document.getElementById('cloud01');
-let cloud02 = document.getElementById('cloud02');
-let cloud03 = document.getElementById('cloud03');
-let cloud04 = document.getElementById('cloud04');
-let cloud05 = document.getElementById('cloud05');
+
 let star = document.getElementById('star');
+let delSections = document.querySelectorAll(".delayed-section")
+let delcity = document.querySelectorAll(".delayed-city")
+let delmoon = document.getElementById("moon")
+let delclouds = document.querySelectorAll(".delayed-cloud")
+// let value = this.window.scrollY; moon
+let cloud01 = document.getElementById('cloud01')
+let cloud02 = document.getElementById('cloud02')
+let cloud03 = document.getElementById('cloud03')
+let cloud04 = document.getElementById('cloud04')
+let cloud05 = document.getElementById('cloud05')
 
 window.addEventListener('scroll', function () {
     // clearTimeout(timer) ;
     let value = this.window.scrollY;
 
-    moon.style.top = value * 0.35 + 200 + 'px';
-    moon.style.opacity = value * 0.05 + '%';
-    // cityRight.style.top = value * 0.24 - 80 + 'px'; cityLeft.style.top = value *
-    // 0.15 - 80 + 'px'; cityRight.style.opacity = value * 0.05 + '%';
-    // cityLeft.style.opacity = value * 0.05 + '%';
-
-    cloud01.style.right = '-' + value * 0.04 + 'px';
+    cloud01.style.left = value * 0.04 + 800 + 'px';
     cloud01.style.opacity = value * 0.2 + '%';
 
     cloud02.style.left = value * 0.1 - 130 + 'px';
@@ -46,18 +51,21 @@ window.addEventListener('scroll', function () {
 
 });
 
-// document.querySelector(".txt-type"), {     scrollTrigger: {       trigger:
-// ".txt-type",       start: "top center",       end: "350px center",
-// ease: "power2",     }   }; Init On DOM Load
 document.addEventListener('DOMContentLoaded', init);
-
 // Init App
 function init() {
     const txtElement = document.querySelector('.txt-type');
     const words = JSON.parse(txtElement.getAttribute('data-words'));
     // Init TypeWriter
-    new TypeWriter(txtElement, words);
-};
+    ScrollTrigger.create({
+        trigger: ".txt-type",
+        once: true,
+        // markers: true,
+        start: "center bottom",
+        end: "center top",
+        onEnter: () => new TypeWriter(txtElement, words)
+    })
+}
 class TypeWriter {
     constructor(txtElement, words) {
         this.txtElement = txtElement;
@@ -66,7 +74,6 @@ class TypeWriter {
         this.wordIndex = 0;
         this.type();
     }
-
     type() {
         // Current index of word
         const current = this.wordIndex % this.words.length;
@@ -74,17 +81,37 @@ class TypeWriter {
         const fullTxt = this.words[current];
         this.txt = fullTxt.substring(0, this.txt.length + 1);
         // Insert txt into element
-        this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
+        this.txtElement.innerHTML = `<h3="txt">${this.txt}</h3>`;
         // Initial Type Speed
         let typeSpeed = 300;
         setTimeout(() => this.type(), typeSpeed);
+
     }
+}
+//gsap city  paper
 
-};
+//moon
 
-//gsap city paper
-let delSections = document.querySelectorAll(".delayed-section");
-let delcity = document.querySelectorAll(".delayed-city");
+let imageAnim = gsap.to(delmoon.querySelector("img"), {
+    y: "45vh",
+    paused: true,
+    autoAlpha: 0.3
+})
+let progressTo = gsap.quickTo(imageAnim, "progress", {
+    ease: "ease",
+    duration: 4
+})
+gsap.to(delmoon.querySelector("moon"), {
+    scrollTrigger: {
+        trigger: moon,
+        end: "bottom -400px",
+        start: "top center",
+        // markers:true,
+        onUpdate: self => progressTo(self.progress)
+    }
+});
+
+//city
 
 delcity.forEach(section => {
 
@@ -110,13 +137,11 @@ delcity.forEach(section => {
             // markers:true,
             onUpdate: self => progressTo(self.progress)
         }
-    });
+    })
 
-});
-
+})
 
 delSections.forEach(section => {
-
     let imageAnim = gsap.to(section.querySelector("img"), {
         y: "-70vh",
         paused: true
@@ -140,7 +165,7 @@ delSections.forEach(section => {
     });
 });
 
-////
+////漸進件出
 function animateFrom(elem, direction) {
     direction = direction || 1;
     var x = 0,
@@ -172,57 +197,31 @@ function animateFrom(elem, direction) {
 function hide(elem) {
     gsap.set(elem, {autoAlpha: 0});
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-    gsap.registerPlugin(ScrollTrigger);
-
     gsap.utils
         .toArray(".gs_reveal")
         .forEach(function (elem) {
             hide(elem); // assure that the element is hidden when scrolled into view
-
             ScrollTrigger.create({
                 trigger: elem,
+                once: true,
                 onEnter: function () {
                     animateFrom(elem)
-                },
-                // onEnterBack: function() { animateFrom(elem, -1) }, onLeave: function() {
-                // hide(elem) }  assure that the element is hidden when scrolled into view
+                }
             })
-        });
-});
+        })
 
 
+//svg
 
-
-
-// ScrollTrigger.create({
-//     trigger: ".svg",
-//     // markers:true,
-//     onEnter: function(){animateFrom(mySVG)}
-// });
 var mySVG = $('svg').drawsvg();
 
 ScrollTrigger.create({
-    trigger: ".svg",
-    paused: true,
+    trigger: ".svg", paused: true, once: true,
     //markers: true,
     onEnter: () => mySVG.drawsvg('animate')
 });
 
-// gsap.to(".svg",{
-//     scrollTrigger:{
-//         trigger: ".svg",
-//         onEnter: function(){animateFrom(mySVG)},
-//         trigger: section,
-//         markers:true,
-//         start: "top center",
-//         end: "350px center",
-
-//     }
-// })
-//
-
+//給狗狗飼料
 const tl = gsap.timeline({
     scrollTrigger: {
         trigger: ".assist",
@@ -230,7 +229,6 @@ const tl = gsap.timeline({
         end: "center top",
         ease: "transform 2s ease-out,opacity 0.5s ease"
     }
-});
-
+})
 tl.to(".assist2", {opacity: 0})
 tl.to(".assist1", {opacity: 1})

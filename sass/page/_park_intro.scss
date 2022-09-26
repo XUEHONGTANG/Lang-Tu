@@ -436,7 +436,7 @@
                 width: 11.8vw;
                 @include m(){
                     width: calc(20 / var(--rwd-width) * 100vw);
-                    top: 46.854167000000004vw;
+                    top: 46.8 vw;
                     left: 84px;
                 }
 
@@ -741,9 +741,9 @@
             background-image: $ball;
             content: "";
             position: absolute;
-            top: 47vw;
+            top: 15vw;
             z-index: 10;
-            right: 31vw;
+            right: 9vw;
             width: 15.5vw;
             height: 14vw;
             background-repeat: no-repeat;
@@ -784,7 +784,7 @@
             background-image: $grass02;
             content: "";
             position: absolute;
-            top: 21vw;
+            top: -5vw;
             z-index: 10;
             right: 31vw;
             width: 15.5vw;
