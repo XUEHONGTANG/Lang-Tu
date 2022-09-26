@@ -27,9 +27,11 @@
                 v-on:click="setFilter('ANNOUNCE')">一般公告</span>
         </div>
        
+        <section id="">
             <div class="NewsGrid" name="posts">
-                <a href="./langNews-cont.html" class="News_cont" v-if="currentFilter === post.category || currentFilter === 'ALL'" v-for="(post,pid) in posts" :style="{'animation-delay': pid/8 + 's'}"
-                 :key="post.pid">
+              <div class="for" v-if="currentFilter === post.category || currentFilter === 'ALL'" v-for="(post,pid) in posts" :style="{'animation-delay': pid/8 + 's'}"
+              :key="post.id">
+                <a :href="'./langNews-cont.html?getNews='+post.id" class="News_cont">
                  <div class="News_pic">
                  <img :src="post.image"  alt=""></div>
                     <p>{{ post.title }}</p>
@@ -38,11 +40,14 @@
                          <span class="date">{{ post.date }}</span>
                      </div>
                  </a>
+              </div>
             </div>
+            </section>
     </main>
 
     @@include('layout/footer.html')
     <script src="./js/langNews.js"></script>
+
 </body>
 
 </html>
