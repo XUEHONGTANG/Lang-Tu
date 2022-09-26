@@ -133,6 +133,8 @@
         position: absolute;
         left: vw(500);
         top: vw(1200);
+        animation: step-balloon 5s steps(1) infinite;
+
     }
 
     .dog1 {
@@ -140,6 +142,7 @@
         position: absolute;
         left: vw(900);
         top: vw(1200);
+
         @include m(){
             width: rwd(178);
             top: rwd(1000);
@@ -303,14 +306,27 @@
     }
 
     .cloud {
-        width: vw(190);
+        width: 5.89vw;
         position: absolute;
-        top: vw(2900);
-        left: vw(600);
+        top: 151vw;
+        left: 31vw;
+        animation: step-fluffy 10s steps(1) infinite;
         @include m(){
             top: rwd(2830);
             width: rwd(128);
             left: rwd(50);
+        }
+        &:before {
+            background-image: $cloud;
+            content: " ";
+            position: absolute;
+            width: 13vw;
+            height: 8.8vw;
+            top: 3.7vw;
+            right: 5.7vw;
+            background-repeat: no-repeat;
+            animation: step-fluffy 7s steps(1) infinite;
+            background-size: 9vw;
         }
     }
 
@@ -347,6 +363,7 @@
     .cat2 {
         width: vw(260);
         margin-left: vw(900);
+        animation: step-fluffy2 5s steps(1) infinite;
         @include m() {
             display: none;
         }
