@@ -23,14 +23,14 @@
           <li>
             <button class="accordion" @click="toggle(0)">汪汪選物</button>
             <ol :class="olClass">
-              <li><button>汪汪罐頭</button></li>
+              <li><button @click="changeFilter ='pd-1',changeType()">汪汪罐頭</button></li>
               <li><button>汪汪飼料</button></li>
             </ol>
           </li>
           <li>
             <button class="accordion" @click="toggle(1)">喵喵選物</button>
             <ol :class="olClass">
-              <li><button>喵喵罐頭</button></li>
+              <li><button @click="changeFilter ='pd-0',changeType()">喵喵罐頭</button></li>
               <li><button>喵喵飼料</button></li>
             </ol>
           </li>
@@ -60,99 +60,135 @@
         <span></span>
         <ul class="productsContent">
           <li
-            v-for="item in products"
+            v-for="(product,pdIndex) in productInPage" 
             class="pd-itembox"
-            @touchend.stop.prevent="isShow = true"
-            @click="isShow = true"
+            @click="toggleShow(product)"
+            @touchend.stop.prevent="toggleShow(product)"
           >
-            <img src="./images/ff/pd-001-1.jpg" alt="pd-001" />
+            <!-- <img src="./images/ff/pd-001-1.jpg" alt="pd-001" /> -->
+            <img :src="imgURL+product.imgList[0]" :alt="replaceStr(product.imgList[0])" />
             <h5>
-              <!-- 貓貓罐頭貓貓罐頭<br>
-                貓貓罐頭貓貓罐頭 -->
-              貓貓罐頭
+              {{product.name}}
             </h5>
             <hr />
-            <h4>NT 425</h4>
+            <h4>NT {{product.price}}</h4>
+
+
+
+
+<!-- product page -->
+<div
+v-show="product.isShow"
+class="productPageDrop"
+@click="toggleShow(product)">
+
+<!-- v-for="(pd,pdIndex) in productOnChosen"  -->
+<div
+@click.stop
+@touchend.stop.prevent="product.isShow = true"
+  class="productPageWrapper" 
+  >
+    <div class="productImageArea">
+      <div class="imgLarge">
+        <img :src="imgURL+product.imgList[currentSrc]" alt="product" />
+      </div>
+
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div
+            v-for="(pic, picIndex) in product.imgList"
+            :key="picIndex"
+            class="swiper-slide"
+          >
+            <img :src="imgURL+pic" 
+            @touchend.stop.prevent="currentSrc=picIndex"
+            @click="currentSrc=picIndex" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="productInfo">
+      <h2>{{product.name}}</h2>
+      <div class="pageClose" @click="toggleShow(product)"></div>
+      <ul class="changePageButton">
+        <li
+          @click="content='productContent', selected = 1"
+          :class="{'highlight':selected === 1}"
+        >
+          商品資訊
+        </li>
+        <li
+          @click="content='shoppingInfo', selected = 2"
+          :class="{'highlight':selected === 2}"
+        >
+          購物須知
+        </li>
+        <li
+          @click="content='deliveryMethod', selected = 3"
+          :class="{'highlight':selected === 3}"
+        >
+          寄送方式
+        </li>
+      </ul>
+      <component :is="content" :pd-info="product.info">
+        <!-- <div class="textArea"></div> -->
+      </component>
+      <p class="price">金額 NT.{{product.price}}</p>
+      <p class="num">現有庫存 {{product.inventory}}</p>
+      <div>
+        <div class="counter">
+          <button class="btn-minus" @click="product.quantity ===1?1:product.quantity--"
+          ></button>
+          <input type="number" v-model="product.quantity" />
+          <button class="btn-plus" @click="product.quantity++"
+          ></button>
+        </div>
+        <button class="btn-0 btn-shopping">
+          <iconify-icon icon="eva:shopping-cart-fill"></iconify-icon>
+          加入購物車
+        </button>
+      </div>
+    </div>
+
+    <button class="btn-1"
+    @touchend.stop.prevent="toggleShow(product)"
+    @click="toggleShow(product)">返回上一頁</button>
+  </div>
+</div>
+
+<!-- product page end -->
+
+
+
+
+
+
           </li>
         </ul>
+
+        <!-- 頁數 -->
         <ul class="pages">
-          <li class="previous">
+          <li
+          @click="pageMinus" 
+          class="previous">
             <i class="fa-solid fa-circle-chevron-left"></i>
           </li>
-          <li class="currentPage">1</li>
-          <li v-for="page in pages">{{page}}</li>
-          <li class="next">
+          <li v-for="(page,pageIndex) in pages"
+          @click="changePage(page)"
+          :class="{currentPage:currentPage === (pageIndex + 1)}">{{pageIndex+1}}</li>
+          <!-- <li v-for="page in pages">{{page}}</li> -->
+          <li 
+          @click="pagePlus" 
+          class="next">
             <i class="fa-solid fa-circle-chevron-right"></i>
           </li>
         </ul>
       </div>
 
-      <div class="productPageDrop" v-show="isShow" @click="isShow = false">
-        <div class="productPageWrapper" @click.stop="isShow">
-          <div class="productImageArea">
-            <div class="imgLarge">
-              <img :src="imgList[currentSrc].imgSrc" alt="product" />
-            </div>
 
-            <div class="swiper mySwiper">
-              <div class="swiper-wrapper">
-                <div
-                  v-for="(pic, picIndex) in imgList"
-                  :key="picIndex"
-                  class="swiper-slide"
-                >
-                  <img :src="pic.imgSrc" @click="currentSrc=picIndex" />
-                </div>
-                <!-- <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div> -->
-              </div>
-            </div>
-          </div>
+      
 
-          <div class="productInfo">
-            <h2>貓貓罐頭</h2>
-            <div class="pageClose" @click="isShow = false"></div>
-            <ul class="changePageButton">
-              <li
-                @click="content='productContent', selected = 1"
-                :class="{'highlight':selected === 1}"
-              >
-                商品資訊
-              </li>
-              <li
-                @click="content='shoppingInfo', selected = 2"
-                :class="{'highlight':selected === 2}"
-              >
-                購物須知
-              </li>
-              <li
-                @click="content='deliveryMethod', selected = 3"
-                :class="{'highlight':selected === 3}"
-              >
-                寄送方式
-              </li>
-            </ul>
-            <component :is="content">
-              <!-- <div class="textArea"></div> -->
-            </component>
-            <h5 class="price">金額 NT.425</h5>
-            <p class="num">現有庫存 12</p>
-            <div>
-              <div class="counter">
-                <button class="btn-minus" @click="changeCounter(-1)"></button>
-                <input type="number" :value="counter" />
-                <button class="btn-plus" @click="changeCounter(1)"></button>
-              </div>
-              <button class="btn-0 btn-shopping">
-                <iconify-icon icon="eva:shopping-cart-fill"></iconify-icon>
-                加入購物車
-              </button>
-            </div>
-          </div>
-
-          <button class="btn-1" @click="isShow = false">返回上一頁</button>
-        </div>
-      </div>
 
       <!-- main content end -->
     </main>
