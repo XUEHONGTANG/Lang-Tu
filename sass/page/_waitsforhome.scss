@@ -67,66 +67,10 @@
                 z-index: 20;
             }
             li .show {
-<<<<<<< HEAD
-              visibility: visible;
-              opacity: 1;
-              transition: visibility 0s linear 0s, opacity 1100ms;
-    
-            }
-          
-            li .hide {
-              visibility: hidden;
-              opacity: 0;
-              height: 0;
-              -moz-transition: height 2s ease;
-              -webkit-transition: height 2s ease;
-              -o-transition: height 2s ease;
-              transition: height 2s ease;
-            }
-            li ol li button{
-              background-color: #EBEBEB;
-              color: $gray600;
-              
-              &:hover{
-                color: $gray600;
-                background-color: darken(#EBEBEB, 10);
-                
-              }
-              @include m(){
-                // margin: rwd(5) 0;
-                height: rwd(50);
-                
-              }
-            }
-          }
-          ol{
-            position: absolute;
-          }
-          ol, ul{
-            padding-left: 0rem;
-            @include m(){
-              padding-left: 0rem;
-            }
-          }
-          ul > li:first-child  > button{
-            border-radius: vw(20) vw(20) vw(20) vw(20);
-            &:hover{
-                border-radius: vw(20) vw(20) 0 0;
-            }
-          }
-          ul > li:last-child > button{
-            border-radius: vw(20) vw(20) vw(20) vw(20);
-            &:hover{
-                border-radius: vw(20) vw(20) 0 0;
-            }
-          }
-          
-=======
                 visibility: visible;
                 opacity: 1;
                 transition: visibility 0s linear 0s, opacity 1100ms;
                 z-index: 20;
->>>>>>> QQBB
 
             }
 
@@ -180,7 +124,6 @@
     }
 
     //主頁中間
-<<<<<<< HEAD
     ol, ul{
       padding-left: 0rem;
       @include m(){
@@ -188,9 +131,6 @@
       }
     }
     a{
-=======
-    a {
->>>>>>> QQBB
         text-decoration: none;
     }
     .waitsforhome-li {
