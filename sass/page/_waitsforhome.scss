@@ -176,13 +176,14 @@
     }
 
     .dogpp {
-        padding-right: vw(48);
+        margin-right: vw(48);
         flex: 1;
         width: vw(141);
         overflow: hidden;
         border-radius: 10px;
 
         img {
+            border-radius: 10px;
             transform: scale(1);
             transition: transform 2s ease 0s;
         }
