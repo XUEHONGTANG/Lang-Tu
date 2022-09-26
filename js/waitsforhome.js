@@ -1,9 +1,10 @@
 Vue.component('CatAndDog', {
     props:['animalType','animals','currentPage'],
+    // 變數資料是由父層傳子層接收 所以需要給變數
     data(){
         return{
             
-            htmlURL:'./',
+            htmlURL:'./petpage.html',
             imgURL:'./images/Meteor/',
             // animals:[],
             // currentPage: 1,
@@ -11,6 +12,7 @@ Vue.component('CatAndDog', {
         }
     },
     computed: {
+        // 這邊做篩選
         filterAnimals() {
             console.log(this.animalType);
             if(!this.animalType){
@@ -34,7 +36,7 @@ Vue.component('CatAndDog', {
     // },
     template: `
     <ul>
-        <a v-for="animal in filterAnimals" :href="htmlURL+animal.pet">
+        <a v-for="animal in filterAnimals" :href="htmlURL">
             <li class="waitsforhome-li">
                 <div class="home-1">
                     <div class="dogpp">
@@ -548,11 +550,17 @@ new Vue({
         reactArr: [],
         olClass: 'hide',
         // pages: ['1','2', '3', '4'],
+
         pages:0,
-        currentPage: 1,
+        
+        currentPage: 2,
+        //預設從第一頁開始
         content: 'CatAndDog',
+        // content頁面
         animalType:null,
+        // 為了點擊click事件所設定的變數
         animals:[],
+        // 接收資料的空陣列 擺出來放 為了可以做頁碼
         // animalType: ['brown','flower','black','white','smalldog','mediumdog','bigdog']
     },
     mounted() {
@@ -562,17 +570,21 @@ new Vue({
             this.reactArr.push(item)
             console.log(this.reactArr);
         });
+
+        // PHP也由外面接收 去跑陣列
         fetch('../php/searchCatAndDog.php')
             .then(resp => resp.json())
             .then(resp => {
                 this.animals = resp;
                 this.pages = this.animals.length /3;
+                // 上面是陣列的頁碼長度去除已三 讓頁碼可以劃分資料
             });
     },
     methods: {
         pagepet(index){
             console.log(index)
             this.currentPage = index;
+            // 點擊頁碼等於他的質去控制顯示第幾頁
         },
         itemClick(value){
             this.animalType = value;
@@ -582,6 +594,7 @@ new Vue({
             this.pages = _animals.length / 3;
             this.currentPage = 1;
             console.log(value);
+            // 這邊是頁碼 篩選過後的資料顯示 篩選完後頁碼都要切回第一頁
         },
         // updateAnimals(newAnimals) {
         //     this.pages = newAnimals.length/ 3;

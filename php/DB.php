@@ -5,15 +5,15 @@
    // $db_user = "root";
 
    
-   // $db_host = "192.168.0.220";
-   // $db_user = "Rose";
-   // $db_pass = "liyuan0142";
-   // $db_select = "LangTu";
-
-   $db_host = "192.168.0.185";
+   $db_host = "192.168.0.220";
    $db_user = "Rose";
-   $db_pass = "password";
+   $db_pass = "liyuan0142";
    $db_select = "LangTu";
+
+   // $db_host = "192.168.0.185";
+   // $db_user = "Meteor";
+   // $db_pass = "password";
+   // $db_select = "LangTu";
 
    // other_host
 
