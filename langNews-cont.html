@@ -15,75 +15,75 @@
     "前頁面" : "浪浪新聞" ,
     "此頁面" : "{{post.title}}" ,
     })
-    <main class="langNews-content" id="app" >
+    <main class="langNews-content">
+        <div class="news-content" id="news_cont">
+            <div class="langNews-content_frame" v-for="(post,pid) in posts">
+                <article class="sponsored_page langNews-content_article ">
+                    <div class="langNews-content_date">
+                        {{ post.year }} / {{ post.date }} 觀看 {{ post.views }}
+                    </div>
 
-        <div class="langNews-content_frame" v-for="(post,pid) in posts"  v-show="pid === 0">
-            <article class="sponsored_page langNews-content_article ">
-                <div class="langNews-content_date"> 
-                    {{ post.year }} / {{ post.date }} 觀看 {{ post.views }}
-                </div>
+                    <div class="langNews-content_title">
+                        <h2>{{ post.title }}</h2>
+                    </div>
+                    <div class="langNews-content_text">
 
-                <div class="langNews-content_title">
-                    <h2>{{ post.title }}</h2>
-                </div>
-                <div class="langNews-content_text"  >
+                        <img class="langNews-content_cover" :src="post.image">
+                        <div v-html="post.content">
+                            {{ post.content }}
+                        </div>
 
-                <img class="langNews-content_cover" :src="post.image">
-                   <div v-html="post.content">
-                    {{ post.content }}
-                   </div>
-                
 
-            
-            </div> 
 
-                    <article class="artical_favorites_share" >
-                      
-                                <div class="favorites">
-                                    <div class="" onclick="postLike(this);" data-id="517"> <i
-                                            class="fa-solid fa-heart"></i>
-                                    </div>
-                                    {{ post.collet }}
-                                </div>
-                        
-                           
-                                <div class="artical_share">
-                                    <input type="hidden" id="share_link">
-                                    <div class="share_link" onclick="copyText();">
-                                        <a href=""><i class="fa-solid fa-share-nodes"></i></a>
-                                    </div>
-                                    <div class="share_line">
-                                        <a href=""><i class="fa-brands fa-line"></i></a>
-                                    </div>
-                                    <div class="share_facebook">
-                                        <a href=""><i class="fa-brands fa-facebook"></i></a>
-                                    </div>
-                                
-                                </div>
-                            
+                    </div>
+
+                    <article class="artical_favorites_share">
+
+                        <div class="favorites">
+                            <div class="" onclick="postLike(this);" data-id="517"> <i class="fa-solid fa-heart"></i>
+                            </div>
+                            {{ post.collet }}
+                        </div>
+
+
+                        <div class="artical_share">
+                            <input type="hidden" id="share_link">
+                            <div class="share_link" onclick="copyText();">
+                                <a href=""><i class="fa-solid fa-share-nodes"></i></a>
+                            </div>
+                            <div class="share_line">
+                                <a href=""><i class="fa-brands fa-line"></i></a>
+                            </div>
+                            <div class="share_facebook">
+                                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                            </div>
+
+                        </div>
+
                     </article>
-          
+
+            </div>
         </div>
-                   
-          
-             <article class="sponsored_page related_artical_list">
-                <div class="box_title">
-                    <h3>相關文章</h3>
-                </div>
-                <div class="NewsGrid NewsGrid3n" name="posts">
-                    <a href="./langNews-cont.html" class="News_cont News_cont-sm"  v-show="pid < 3 " v-for="(post,pid) in posts" :style="{'animation-delay': pid/8 + 's'}"
-                     :key="post.pid">
-                     <div class="News_pic ">
-                     <img :src="post.image"  alt=""></div>
+
+        <article class="sponsored_page related_artical_list" id="app">
+            <div class="box_title">
+                <h3>相關文章</h3>
+            </div>
+            <div class="NewsGrid NewsGrid3n">
+                <div class="for" v-for="(post,pid) in posts" v-show=" pid < 3" :key="post.pid">
+                    <a :href="'./langNews-cont.html?getNews='+post.id" class="News_cont">
+                        <div class="News_pic">
+                            <img :src="post.image" alt="">
+                        </div>
                         <p>{{ post.title }}</p>
-                     </a>
+                    </a>
                 </div>
-            </article> 
-
-        </div>  
-
-
+            </div>
+        </article>
     </main>
+
+
+
     @@include('layout/footer.html')
     <script src="./js/langNews.js"></script>
 

@@ -4,15 +4,12 @@ include("./DB.php");
 
 // $pdo->exec('');
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
-
-// echo $getNews;
+$getNews = $_GET['getNews'];
+// echo $getnews;
 //建立SQL
-$sql = " SELECT * from news";
-// $sql = " SELECT * from news where id = $getNews";
+// $sql = " SELECT * from news";
+$sql = " SELECT * from news where id = $getNews";
 
-
-
-// $getNews = $_GET['getNews'];
 $statement = $pdo->prepare($sql);
 $statement->execute();
 

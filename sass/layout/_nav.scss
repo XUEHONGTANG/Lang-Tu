@@ -96,8 +96,9 @@ $menu-font-size: 20px;
       }
       }
 
-      & ol {
+       ol {
         margin-top: vw(10);
+        padding-left: 0;
         & a {
           color: #c3dfff;;
           display: block;

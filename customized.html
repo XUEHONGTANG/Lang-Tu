@@ -9,11 +9,211 @@
 
 <body>
     @@include('./layout/nav.html')
-    <section id="customizedApp" class="customized">
-        <transition name="fade" mode="out-in">
 
-            <article v-if="currentPage === 1" key="block-a" class="start">
-               
+    <main id="customizedApp" class="customized">
+        <!-- <transition name="fade" mode="out-in">
+            <article v-if="currentPage === 1" key="page1" class="custom_start">
+                <h3>今天想幫誰挑項圈呢？</h3>
+                <div class="custom_start-btn">
+                    <a href="" type="button" @click="currentPage = 2" class="btn-dog"><img
+                            src="./images/customized/custom-Dog.png" alt=""></a>
+                    <a href="" type="button" @click="currentPage = 2" class="btn-cat"><img
+                            src="./images/customized/custom-Cat.png" alt=""></a>
+                </div>
             </article>
-        </transition>
-        <section>
+        </transition> -->
+
+
+        <section id="step" class="cus_step">
+            <transition name="fade" mode="out-in">
+                <article class="custom_page">
+                    <!-- 背景狗狗 -->
+                    <!-- <picture class="big_dog"><img src="./images/customized/custom-dogb1.png" alt=""></picture> -->
+
+                    <!-- 2 -->
+                    <!-- <div class="cus_step2_content" v-if="currentPage === 2" key="page2">
+                        <div class="cus_step_txt">
+                            <h3>第二步</h3>
+                            <h2>挑選皮帶</h2>
+                            <div class="cus_step-select">
+                                <button id="prev" class="custom_btn" @click="currentPage = 1" disabled><i
+                                        class="fa-solid fa-circle-arrow-left"></i>上一步</button>
+                                <button id="next" class="custom_btn" @click="currentPage = 3">下一步<i
+                                        class="fa-solid fa-circle-arrow-right"></i></button>
+                            </div>
+                            <div class="progress-cont">
+                                <div class="progress-container">
+                                    <div class="progress" id="progress"></div>
+                                    <div class="circle active">1</div>
+                                    <div class="circle">2</div>
+                                    <div class="circle">3</div>
+                                    <div class="circle">4</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div container-id="product-grid" class="product-grid">
+                            <div class="product1">
+                                <div class="prd"><img src="./images/customized/collar01.png" alt=""></div>
+                                <div class="price">NT$400</div>
+                            </div>
+                            <div class="product2">
+                                <div class="prd"><img src="./images/customized/collar01.png" alt=""></div>
+                                <div class="price">NT$400</div>
+                            </div>
+                            <div class="product3">
+                                <div class="prd"><img src="./images/customized/collar01.png" alt=""></div>
+                                <div class="price">NT$400</div>
+                            </div>
+                            <div class="product4">
+                                <div class="prd"><img src="./images/customized/collar01.png" alt=""></div>
+                                <div class="price">NT$400</div>
+                            </div>
+                            <div class="product5">
+                                <div class="prd"><img src="./images/customized/collar01.png" alt=""></div>
+                                <div class="price">NT$400</div>
+                            </div>
+
+                            <div class="product6">
+                                <div class="prd"><img src="./images/customized/collar01.png" alt=""></div>
+                                <div class="price">NT$400</div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- 3 -->
+                    <!-- 
+                    <div class="cus_step2_content cus_step3_content" v-if="currentPage === 3" key="page3">
+                        <div class="cus_step_txt">
+                            <h3>第三步</h3>
+                            <h2>挑選吊牌</h2>
+                            <div class="cus_step-select">
+                                <button id="prev" class="custom_btn" @click="currentPage = 2" disabled><i
+                                        class="fa-solid fa-circle-arrow-left"></i>上一步</button>
+                                <button id="next" class="custom_btn" @click="currentPage = 4">下一步<i
+                                        class="fa-solid fa-circle-arrow-right"></i></button>
+                            </div>
+                            <div class="progress-cont">
+                                <div class="progress-container">
+                                    <div class="progress" id="progress"></div>
+                                    <div class="circle active">1</div>
+                                    <div class="circle">2</div>
+                                    <div class="circle">3</div>
+                                    <div class="circle">4</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div container-id="product-grid" class="product-grid">
+                            <div class="product1">
+                                <div class="prd"><img src="./images/customized/custom- tag01.png" alt=""></div>
+                                <div class="price">NT$150</div>
+                            </div>
+                            <div class="product2">
+                                <div class="prd"><img src="./images/customized/custom- tag01.png" alt=""></div>
+                                <div class="price">NT$150</div>
+                            </div>
+                            <div class="product3">
+                                <div class="prd"><img src="./images/customized/custom- tag01.png" alt=""></div>
+                                <div class="price">NT$150</div>
+                            </div>
+                            <div class="product4">
+                                <div class="prd"><img src="./images/customized/custom- tag01.png" alt=""></div>
+                                <div class="price">NT$150</div>
+                            </div>
+                            <div class="product5">
+                                <div class="prd"><img src="./images/customized/custom- tag01.png" alt=""></div>
+                                <div class="price">NT$150</div>
+                            </div>
+
+                            <div class="product6">
+                                <div class="prd"><img src="./images/customized/custom- tag01.png" alt=""></div>
+                                <div class="price">NT$150</div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- 4 -->
+<!-- 
+                    <div class="cus_step2_content cus_step4_content" v-if="currentPage === 4" key="page4">
+                        <div class="cus_step_txt">
+                            <h3>第四步</h3>
+                            <h2>吊牌刻字</h2>
+                            
+                            <div class="cus_step-select">
+                                <button id="prev" class="custom_btn" @click="currentPage = 3" disabled><i
+                                        class="fa-solid fa-circle-arrow-left"></i>上一步</button>
+                                <button id="next" class="custom_btn" @click="currentPage = 5">下一步<i
+                                        class="fa-solid fa-circle-arrow-right"></i></button>
+                            </div>
+                            <div class="progress-cont">
+                                <div class="progress-container">
+                                    <div class="progress" id="progress"></div>
+                                    <div class="circle active">1</div>
+                                    <div class="circle">2</div>
+                                    <div class="circle">3</div>
+                                    <div class="circle">4</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div container-id="product-input" class="product-input">
+                            <form action method="post" v-model="message">
+                                <textarea name="" id="custom_cardText" placeholder="請輸入吊牌內容..."></textarea>
+                            </form>
+                        </div>
+                        <div id="big_tag" class="big_dog big_tag">
+                 
+                            <div class="big_tag_select"> 
+                                <img class="choose-tag tag1" src="./images/customized/custom-tag1-big.png" alt=""  data-cardid="1"> 
+                            </div>
+                            <pre></pre>
+                        </div> -->
+
+            <!-- 5 -->
+
+                    <div class="cus_step2_content cus_step4_content" v-if="currentPage === 4" key="page4">
+                        <div class="cus_step_txt">
+                            <h3>第五步</h3>
+                            <h2>吊牌刻字</h2>
+                            
+                            <div class="cus_step-select">
+                                <button id="prev" class="custom_btn" @click="currentPage = 3" disabled><i
+                                        class="fa-solid fa-circle-arrow-left"></i>上一步</button>
+                                <button id="next" class="custom_btn" @click="currentPage = 5">下一步<i
+                                        class="fa-solid fa-circle-arrow-right"></i></button>
+                            </div>
+                            <div class="progress-cont">
+                                <div class="progress-container">
+                                    <div class="progress" id="progress"></div>
+                                    <div class="circle active">1</div>
+                                    <div class="circle">2</div>
+                                    <div class="circle">3</div>
+                                    <div class="circle">4</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div container-id="product-input" class="product-input">
+                            <form action method="post" v-model="message">
+                                <textarea name="" id="custom_cardText" placeholder="請輸入吊牌內容..."></textarea>
+                            </form>
+                        </div>
+                        <div id="big_tag" class="big_dog big_tag">
+                            <!-- 吊牌 -->
+                            <div class="big_tag_select"> 
+                                <img class="choose-tag tag1" src="./images/customized/custom-tag1-big.png" alt=""  data-cardid="1"> 
+                            </div>
+                            <pre></pre>
+                        </div>
+                        <!--  -->
+                </article>
+            </transition>
+        </section>
+
+    </main>
+
+    <script src="./js/customized.js"></script>
+</body>

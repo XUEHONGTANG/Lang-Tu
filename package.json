@@ -38,6 +38,7 @@
   "dependencies": {
     "scroll-active": "0.0.9",
     "twzipcode-vue": "^2.2.2",
+    "vue-router": "^4.1.5",
     "vue-twzipcode": "^1.0.6"
   }
 }
