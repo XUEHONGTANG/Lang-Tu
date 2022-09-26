@@ -34,6 +34,11 @@
             border: none;
             border: 1px solid $primaryDefault;
             border-radius: vw(5);
+            // display: none;
+        }
+
+        .cat{
+            display: none;
         }
     }
 
@@ -41,21 +46,21 @@
         display: flex;
         padding-bottom: vw(32);
 
-        textarea{
-            border: none;
-            border: 1px solid $primaryDefault;
-        }
+        // textarea{
+        //     border: none;
+        //     border: 1px solid $primaryDefault;
+        // }
 
-        input{
-            width: vw(100);
-            height: vw(40);
-            background-color: $primaryDark;
-            border: none;
-            color: white;
-            border-radius: vw(50);
-            align-self: center;
-            margin-left: vw(16);
-        }
+        // input{
+        //     width: vw(100);
+        //     height: vw(40);
+        //     background-color: $primaryDark;
+        //     border: none;
+        //     color: white;
+        //     border-radius: vw(50);
+        //     align-self: center;
+        //     margin-left: vw(16);
+        // }
     }
 
     .gender{
