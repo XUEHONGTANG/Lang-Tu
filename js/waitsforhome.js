@@ -98,7 +98,7 @@ new Vue({
             .then(resp => resp.json())
             .then(resp => {
                 this.animals = resp;
-                this.pages = this.animals.length /3;
+                this.pages = Math.ceil(this.animals.length /3);
                 // 上面是陣列的頁碼長度去除已三 讓頁碼可以劃分資料
             });
     },
@@ -113,7 +113,7 @@ new Vue({
             let _animals = this.animals.filter((animal) => {
                 return animal.pkind  === this.animalType;
             })
-            this.pages = _animals.length / 3;
+            this.pages = Math.ceil(_animals.length /3);
             this.currentPage = 1;
             console.log(value);
             // 這邊是頁碼 篩選過後的資料顯示 篩選完後頁碼都要切回第一頁
