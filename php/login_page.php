@@ -10,9 +10,9 @@
         return;
     }
     
-    $SQL = " select * from LangTu.MEMBER where EMAIL = ? ";
+    $SQL = " select * from LangTu.MEMBER ";
     $stmt = $pdo->prepare($SQL);
-    $stmt->bindValue(1, $member["registerEmail"]);
+    // $stmt->bindValue(1, $member["registerEmail"]);
     $stmt->execute();
     $members = $stmt->fetchAll();
     
@@ -36,7 +36,7 @@
     $stmt->execute();
     
     $result_count = $stmt->rowCount();
-    echo "$result_count"
+    echo "$result_count";
     
     $member["message"] = $result_count != 0 ? "註冊成功" : "註冊錯誤，請聯絡管理員!";
     $member["successful"] = $result_count != 0;

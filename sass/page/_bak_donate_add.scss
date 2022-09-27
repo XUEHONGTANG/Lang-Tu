@@ -1,5 +1,6 @@
+
 .d_info{
-    padding: vw(65) 0 vw(65) vw(115) ;
+    padding: vw(65) 0 vw(8) vw(115) ;
 
     // 各欄位標題
     .title{
@@ -70,16 +71,16 @@
             border: 1px solid $primaryDefault;
         }
 
-        input{
-            width: vw(100);
-            height: vw(40);
-            background-color: $primaryDark;
-            border: none;
-            color: white;
-            border-radius: vw(50);
-            align-self: center;
-            margin-left: vw(16);
-        }
+        // input{
+        //     width: vw(100);
+        //     height: vw(40);
+        //     background-color: $primaryDark;
+        //     border: none;
+        //     color: white;
+        //     border-radius: vw(50);
+        //     align-self: center;
+        //     margin-left: vw(16);
+        // }
     }
 
     // 簡介標題
@@ -145,35 +146,21 @@
         }
     }
 
-    .btn{
-        display: flex;
-        justify-content: center;
-        padding-top: vw(64);
-        .send{
-            input{
-                width: vw(100);
-                height: vw(40);
-                background-color: $primaryDark;
-                border: none;
-                color: white;
-                border-radius: vw(50);
-                align-self: center;
-                margin-left: vw(24);
-            }
-        }
+    .summernote_wrapper{
+        padding-left:vw(115) ;
+    }
     
-        .reset{
-            input{
-                width: vw(100);
-                height: vw(40);
-                background-color: $gray600;
-                border: none;
-                color: white;
-                border-radius: vw(50);
-                align-self: center;
-                margin-right: vw(24);
-            }
-        }
+    .save_wrapper{
+        width: vw(1000);
+        text-align: right;
+        margin-top: vw(16);
     }
 
+    .button{
+        text-align: center;
+        margin-top: vw(32);
+        .btn-1{
+            margin-right: vw(16);
+        }
+    }
 }

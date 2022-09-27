@@ -20,7 +20,7 @@
         <div class="petpage-pp">
             <ul class="petpage-pp-big">
                 <li>
-                <img :src="imgList[petimg]"  alt="" class="petpage-pp-rwd">
+                <img :src="imgURL+imgList[petimg]"  alt="" class="petpage-pp-rwd">
                 </li>
                 <li class="swiper mySwiper  petpage-pp-small">
                     <!-- <img src="./images/Meteor/dog5.png" alt="" >
@@ -29,12 +29,12 @@
                     <img src="./images/Meteor/dog8.png" alt="" >
                     <img src="./images/Meteor/dog9.png" alt="" > -->
                     <div class="swiper-wrapper">
-                    <img v-for="(pic, picIndex) in imgList" :src="pic" @click="petimg = picIndex" class="swiper-slide">
+                    <img v-for="(pic, picIndex) in fakeList" :src="imgURL+imgList[pic]" @click="petimg = picIndex" class="swiper-slide">
                     </div>
                 </li>
             </ul>
             <div class="petpage-tt" content='pettext'>
-                <component :is='content'></component>
+                <component :is='content' :textnames="textnames" ></component>
                 <!-- <div class="petpage-tt-on">
                     <h1>救援經過</h1>
                     <p>在南投集集一工程處許多母帶子浪犬在貨車卡車來來往往的道路旁求生，已經有不少幼犬當了車輪下的亡魂，賴愛媽不捨這些幼犬還未真正探索這個世界就當了天使，撈了其中一窩幼犬送養。<br>(若有救援時的照片影片請提供)</p>

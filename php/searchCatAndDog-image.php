@@ -4,11 +4,9 @@ include("./DB.php");
 
 // $pdo->exec('');
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
-$getNews = $_GET['getNews'];
-// echo $getnews;
+$id = $_GET['id'];
 //建立SQL
-// $sql = " SELECT * from news";
-$sql = " SELECT * from news where id = $getNews or id = $getNews+1 or id = $getNews+2 or id = $getNews+3 ";
+$sql = " SELECT IMAGE2 as image2 from LangTu.pet where pid = $id";
 
 $statement = $pdo->prepare($sql);
 $statement->execute();

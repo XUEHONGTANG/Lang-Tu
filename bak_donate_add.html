@@ -4,131 +4,150 @@
     @@include('./layout/head.html', {
         "title" : "贊助專案管理"
     })
+<!-- include libraries(jQuery, bootstrap) -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 </head>
 <body>
     <div class="wrapper">
         @@include('./layout/bak-head.html')
 
         <main class="bm">
-            <!-- 側邊欄位 -->
             <aside>
                 @@include('./layout/bak-aside.html')
             </aside>
 
-            <div class="right">
-                <!-- 標題 -->
-                <h2>贊助新增</h2>
-
-                <!-- 新增資訊 -->
-                <form action="">
+            <div class="d_info">
+                <div id="app" class="right">
+                    <h2>贊助新增</h2>
                     <div class="d_info">
-                        
-                        <!-- 贊助標題 -->
                         <div class="dtitle">
                             <span class="title">&nbsp&nbsp&nbsp&nbsp贊助標題</span>
-                            <input type="text">
+                            <input type="text" v-model="sponsor.title">
                         </div>
                         
-                        <!-- 標題文案 -->
                         <div class="copywriting">
                             <span class="title">&nbsp&nbsp&nbsp&nbsp標題文案</span>
-                            <input type="text">
+                            <input type="text" v-model="sponsor.content">
                         </div>
 
-                        <!-- 日期 -->
                         <div class="sedate">
                             <div class="start">
                                 <span class="title">&nbsp&nbsp&nbsp&nbsp開始日期</span>
-                                <input type="date">
+                                <input type="date" v-model="sponsor.dateStart">
                             </div>
 
                             <div class="end">
                                 <span class="title in">結束日期</span>
-                                <input type="date">
+                                <input type="date" v-model="sponsor.dateEnd">
                             </div>
                         </div>
 
-                        <!-- 圖片 -->
                         <div class="pic">
                             <span class="title">&nbsp&nbsp&nbsp&nbsp主題圖片</span>
-                            <textarea name="" id="" cols="50" rows="10"></textarea>
-                            <input type="submit" value="瀏覽">
-                        </div>
-
-                        <!-- 簡介標題 -->
-                        <div class="introduction">
-                            <span class="title">&nbsp&nbsp&nbsp&nbsp簡介標題</span>
-                            <input type="text">
-                        </div>
-
-                        <!-- 簡介文案 -->
-                        <div class="copywriting2">
-                            <span class="title">&nbsp&nbsp&nbsp&nbsp簡介文案</span>
-                            <textarea name="" id="" cols="62" rows="10"></textarea>
-                        </div>
-
-                        <!-- 客服文案 -->
-                        <div class="copywriting3">
-                            <span class="title">&nbsp&nbsp&nbsp&nbsp客服文案</span>
-                            <textarea name="" id="" cols="62" rows="10"></textarea>
-                        </div>
-
-                        <!-- 方案一標題 -->
-                        <div class="ptitle">
-                            <span class="title">方案一標題</span>
-                            <input type="text">
-                        </div>
-
-                        <!-- 方案一內文 -->
-                        <div class="pcontent">
-                            <span class="title">方案一內文</span>
-                            <textarea name="" id="" cols="62" rows="10"></textarea>
-                        </div>
-
-                        <!-- 方案二標題 -->
-                        <div class="ptitle">
-                            <span class="title">方案二標題</span>
-                            <input type="text">
-                        </div>
-
-                        <!-- 方案二內文 -->
-                        <div class="pcontent">
-                            <span class="title">方案二內文</span>
-                            <textarea name="" id="" cols="62" rows="10"></textarea>
-                        </div>
-
-                        <!-- 方案三標題 -->
-                        <div class="ptitle">
-                            <span class="title">方案三標題</span>
-                            <input type="text">
-                        </div>
-
-                        <!-- 方案三內文 -->
-                        <div class="pcontent">
-                            <span class="title">方案三內文</span>
-                            <textarea name="" id="" cols="62" rows="10"></textarea>
-                        </div>
-
-
-                        <!-- 送出重置鍵 -->
-                        <div class="btn">
-                            <div class="reset">
-                                <input type="submit" value="重置">
-                            </div>
-                            
-                            <div class="send">
-                                <input type="submit" value="送出">
-                            </div>
+                            <input type="file" value="瀏覽" @change="files">
                         </div>
                     </div>
-                </form>
-    
+                </div>
+
+                <div class="summernote_wrapper">
+                    <textarea id="summernote"></textarea>
+                </div>
+                <div class="save_wrapper">
+                    <button class="btn-0" id="save">save</button>
+                </div>
                 
 
-                
+                <div id="app2" class="button">
+                    <button class="btn-1" @click="reset">重置</button>
+                    <button class="btn-0" @click="submit" :disabled="isDisabled">送出</button>      
+                </div>
             </div>
         </main>
 
-    </div>
+    <script>
+            $('#summernote').summernote({
+                        lang: 'zh-CN',
+                        tabsize: 2,
+                        width: 900,
+                        height: 300,
+                        toolbar: [
+                        ['style', ['style']],
+                        ['font', ['bold', 'underline', 'clear']],
+                        ['color', ['color']],
+                        ['para', ['ul', 'ol', 'paragraph']],
+                        ['table', ['table']],
+                        ['insert', ['link', 'picture', 'video']],
+                        ['view', ['fullscreen', 'codeview', 'help']]
+                        ],
+                    });
+                    
+                    $('#save').click(function(){
+                        let sHTML = $('#summernote').summernote('code');
+                        vm.sponsor.note = sHTML
+                        console.log(vm.sponsor.note);
+                    })
+
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                sponsor:{
+                        title: "",
+                        content: "",
+                        dateStart: "",
+                        dateEnd: "",
+                        image: "",
+                        note: "",
+                        status: "進行中",
+                    }
+            },
+            methods:{
+                files(e){
+                    this.sponsor.image = e.target.files[0].name;
+                },
+            }
+        })
+    
+        let vm2 = new Vue({
+            el: "#app2",
+            methods: {
+                reset(){
+                    vm.sponsor.title = ""
+                    vm.sponsor.content = ""
+                    vm.sponsor.dateStart = ""
+                    vm.sponsor.dateEnd = ""
+                    vm.sponsor.image = ""
+                    vm.sponsor.note = ""
+                },
+                submit(){
+                    fetch('./php/insertSponsor.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            title: vm.sponsor.title, 
+                            content: vm.sponsor.content, 
+                            dateStart: vm.sponsor.dateStart, 
+                            dateEnd: vm.sponsor.dateEnd,
+                            image: vm.sponsor.image,
+                            note: vm.sponsor.note,
+                            status: vm.sponsor.status
+                        }),
+                    })
+                },
+            },
+            computed: {
+                isDisabled(){
+                    if(vm.sponsor.note !== ""){
+                        return false
+                    }else{
+                        return true
+                    }
+                },
+            }
+        })
+    </script>
 </body>
 </html>

@@ -16,20 +16,20 @@ Vue.component('detail', {
                 this.isDisabled = true
             }
 
-            fetch('../php/updateMember.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: this.member[0].name, 
-                    gender: this.member[0].gender, 
-                    tel: this.member[0].tel, 
-                    birthday: this.member[0].birthday,
-                    email: this.member[0].email,
-                    password: this.member[0].password,
-                }) 
-            })
+            // fetch('../php/updateMember.php', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify({
+            //         name: this.member[0].name, 
+            //         gender: this.member[0].gender, 
+            //         tel: this.member[0].tel, 
+            //         birthday: this.member[0].birthday,
+            //         email: this.member[0].email,
+            //         password: this.member[0].password,
+            //     }) 
+            // })
         }
     },
 
@@ -90,7 +90,13 @@ Vue.component('detail', {
             </div>
         `,
         mounted() {
-            fetch('../php/searchMember.php')
+            var getUrlString = location.href;
+            var url = new URL(getUrlString);
+            var id = url.searchParams.get('email');
+
+            fetch(`../php/searchMember.php?id=`+id,{
+                method: "GET"
+            })
             .then(resp => resp.json())
             .then(resp => this.member = resp);
         },
