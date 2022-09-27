@@ -68,6 +68,9 @@ Vue.component('CatAndDog', {
 new Vue({
     el: '#waitsforhomeApp',
     data: {
+        classObj: {
+            'ballstyle': false,
+        },
         isOpen: false,
         reactArr: [],
         olClass: 'hide',
@@ -107,6 +110,7 @@ new Vue({
             console.log(index)
             this.currentPage = index;
             // 點擊頁碼等於他的質去控制顯示第幾頁
+            
         },
         itemClick(value){
             this.animalType = value;
@@ -118,6 +122,25 @@ new Vue({
             console.log(value);
             // 這邊是頁碼 篩選過後的資料顯示 篩選完後頁碼都要切回第一頁
         },
+        left(){
+            this.currentPage--
+            if(this.currentPage <=0){
+                this.currentPage=1
+            }
+        },
+        right(){
+            this.currentPage++
+            if(this.currentPage >= this.pages){
+                this.currentPage = this.pages
+            }
+        },
+        // changeColor(){
+        //     if(this.currentPage == this.pages){
+        //         return true
+        //     }else{
+        //         return false
+        //     }
+        // },
         // updateAnimals(newAnimals) {
         //     this.pages = newAnimals.length/ 3;
         //     this.currentPage = 1;
