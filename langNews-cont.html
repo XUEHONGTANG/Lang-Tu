@@ -10,14 +10,15 @@
 </head>
 
 <body>
+    
     @@include('./layout/header_2.html',{
 
     "前頁面" : "浪浪新聞" ,
-    "此頁面" : "{{post.title}}" ,
+    "此頁面" : "新聞" ,
     })
     <main class="langNews-content">
         <div class="news-content" id="news_cont">
-            <div class="langNews-content_frame" v-for="(post,pid) in posts">
+            <div class="langNews-content_frame" v-for="(post,pid) in posts" v-show="pid === 0">
                 <article class="sponsored_page langNews-content_article ">
                     <div class="langNews-content_date">
                         {{ post.year }} / {{ post.date }} 觀看 {{ post.views }}
@@ -63,14 +64,14 @@
                     </article>
 
             </div>
-        </div>
+     
 
-        <article class="sponsored_page related_artical_list" id="app">
+        <article class="sponsored_page related_artical_list">
             <div class="box_title">
                 <h3>相關文章</h3>
             </div>
             <div class="NewsGrid NewsGrid3n">
-                <div class="for" v-for="(post,pid) in posts" v-show=" pid < 3" :key="post.pid">
+                <div class="for" v-for="(post,pid) in posts" v-show="pid!=0">
                     <a :href="'./langNews-cont.html?getNews='+post.id" class="News_cont">
                         <div class="News_pic">
                             <img :src="post.image" alt="">
@@ -80,6 +81,7 @@
                 </div>
             </div>
         </article>
+    </div>
     </main>
 
 

@@ -78,7 +78,7 @@
     &_txt {
         text-align: center;
         position: relative;
-        padding-bottom: 50px;
+        padding-bottom: 9vw;
         h3 {
 
             font-size: vw(24);
@@ -96,6 +96,7 @@
         height: auto;
         position: absolute;
         top: -4vw;
+        left: 33vw;
 
     }
 
@@ -139,6 +140,12 @@
 :root {
     --line-border-fill: #7C8C38;
     --line-border-empty: #e0e0e0;
+}
+
+.progress-content{
+    position: relative;
+    left: 22vw;
+    width: 41vw;
 }
 .progress-cont {
     display: flex;

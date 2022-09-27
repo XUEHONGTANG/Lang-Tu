@@ -8,7 +8,7 @@ $getNews = $_GET['getNews'];
 // echo $getnews;
 //建立SQL
 // $sql = " SELECT * from news";
-$sql = " SELECT * from news where id = $getNews";
+$sql = " SELECT * from news where id = $getNews or id = $getNews+1 or id = $getNews+2 or id = $getNews+3 ";
 
 $statement = $pdo->prepare($sql);
 $statement->execute();
