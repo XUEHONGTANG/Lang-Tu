@@ -74,7 +74,7 @@ new Vue({
       .then(resp => resp.json())
             .then(body => {
                 if (body.successful){
-                    location = '../dist/member_detail.html';
+                    // location = '../dist/member_detail.html';
                 }else{
                     alert("登入失敗");
                 }
@@ -205,7 +205,7 @@ new Vue({
     },
   },
   mounted() {
-    
+    fetch(`../php/searchMember.php?id=`)
   },
 });
 

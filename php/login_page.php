@@ -10,9 +10,9 @@
         return;
     }
     
-    $SQL = " select * from LangTu.MEMBER where EMAIL = ? ";
+    $SQL = " select * from LangTu.MEMBER ";
     $stmt = $pdo->prepare($SQL);
-    $stmt->bindValue(1, $member["registerEmail"]);
+    // $stmt->bindValue(1, $member["registerEmail"]);
     $stmt->execute();
     $members = $stmt->fetchAll();
     
