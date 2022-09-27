@@ -36,10 +36,7 @@ new Vue({
 var news = new Vue({
     el: '#news_cont',
     data: {
-        posts: [
-            {
-       
-            }]
+        posts: [],
     },
     mounted() {
         var getUrlString = location.href;
@@ -50,7 +47,10 @@ var news = new Vue({
             method: "GET",
         })
             .then(resp => resp.json())
-            .then(resp => this.posts = resp)
+            .then(resp => {
+                this.posts = resp
+                // console.log(this.posts)
+            })
 
     }
 })

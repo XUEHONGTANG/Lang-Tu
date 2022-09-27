@@ -29,8 +29,8 @@
        
         <section id="">
             <div class="NewsGrid" name="posts">
-              <div class="for" v-if="currentFilter === post.category || currentFilter === 'ALL'" v-for="(post,pid) in posts" :style="{'animation-delay': pid/8 + 's'}"
-              :key="post.id">
+              <div class="for" v-if="currentFilter === post.category || currentFilter === 'ALL'" v-for="post in posts" :style="{'animation-delay': pid/8 + 's'}"
+              :key="id">
                 <a :href="'./langNews-cont.html?getNews='+post.id" class="News_cont">
                  <div class="News_pic">
                  <img :src="post.image"  alt=""></div>
