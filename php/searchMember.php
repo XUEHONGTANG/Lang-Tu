@@ -4,9 +4,9 @@ include("./DB.php");
 
 // $pdo->exec('');
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
-
+$email= $_GET['email']
 //建立SQL
-$sql = " SELECT NAME as name, EMAIL as email, PHONE as tel, BIRTHDAY as birthday, GENDER as gender, PASSWORD as password from LangTu.member";
+$sql = " SELECT NAME as name, EMAIL as email, PHONE as tel, BIRTHDAY as birthday, GENDER as gender, PASSWORD as password from LangTu.member where email = $email";
 
 $statement = $pdo->prepare($sql);
 $statement->execute();
