@@ -13,7 +13,7 @@ Vue.component('listli', {
                 },
                 {
                     pet:'sponsored_page.html',
-                    image: 'dog1.png', 
+                    image: 'dogeat.png',
                     title:'與浪共食｜浪毛孩不再飢餓',
                     lowTime:'剩下12小時',
                     lowMoney:'222,345',

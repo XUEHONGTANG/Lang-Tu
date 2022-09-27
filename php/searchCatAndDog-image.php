@@ -4,9 +4,9 @@ include("./DB.php");
 
 // $pdo->exec('');
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
-
+$id = $_GET['id'];
 //建立SQL
-$sql = " SELECT PID as pid, IMAGE1 as image, PNAME as name, PGENDER as gender, PHELP as dest, PVAX as vax, PTIME as date, PKIND as pkind from LangTu.pet ";
+$sql = " SELECT IMAGE2 as image2 from LangTu.pet where pid = $id";
 
 $statement = $pdo->prepare($sql);
 $statement->execute();

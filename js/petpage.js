@@ -1,19 +1,15 @@
 Vue.component('pettext', {
+    props:['textnames'],
     data(){
         return{
-            textnames:[
-                
-                    // dest:`在南投集集一工程處許多母帶子浪犬在貨車卡車來來往往的道路旁求生，已經有不少幼犬當了車輪下的亡魂，賴愛媽不捨這些幼犬還未真正探索這個世界就當了天使，撈了其中一窩幼犬送養。(若有救援時的照片影片請提供)`,
-                    // fix:`未`,
-                    // microchip:`已植入`,
-            ],
+            
         }
     },
     template:
     `<div>
-        <div v-for="(textname, index) in textnames[0]" :key="index" class="petpage-tt-on">
+        <div v-for="textname in textnames"  class="petpage-tt-on">
             <h1>救援經過</h1>
-            <p>{{textname.dest}}{{key}}</p>
+            <p>{{textname.dest}}</p>
             <ul>
                 <li>預防針施打狀況(下一次施打時間)7/18、8/5</li>
                 <li>幼犬(2-6個月)驗腸炎、犬瘟快篩是否通過：過關</li>
@@ -30,33 +26,50 @@ Vue.component('pettext', {
         </div>
     </div>`,
     mounted(){
-        fetch('../php/searchPetPage.php')
-            .then(resp => resp.json())
-            .then(resp => {this.textnames = resp;});
-    }
+    },
 })
 
 new Vue({
     el:'#petPageApp',
     data: {
         petimg: 0,
+        imgURL:'./images/Meteor/',
         imgList:[
-            "./images/Meteor/dog4.png",
-            "./images/Meteor/dog5.png",
-            "./images/Meteor/dog6.png",
-            "./images/Meteor/dog7.png",
-            "./images/Meteor/dog8.png",
-            "./images/Meteor/dog9.png",
-            "./images/Meteor/dog9.png",
-            "./images/Meteor/dog9.png",
-            "./images/Meteor/dog9.png",
+            // "./images/Meteor/sdog2.png",
+            // "./images/Meteor/sdog2-1.png",
+            // "./images/Meteor/sdog2-2.png",
+            // "./images/Meteor/sdog2-3.png",
+            // "./images/Meteor/sdog2-4.png",
+            // "./images/Meteor/sdog2-5.png",
         ],
+        fakeList:[0,1,2,3,4,5],
         content:'pettext',
+        textnames:[],
     },
     mounted(){
-        // fetch('../php/searchCatAndDog.php')
-        //     .then(resp => resp.json())
-        //     .then(resp => {this.textnames = resp;});
+        var getUrlString = location.href;
+        var url = new URL(getUrlString);
+        var id = url.searchParams.get('id');
+            
+            fetch(`../php/searchCatAndDog-content.php?id=`+id,{
+                method: "GET",
+            })
+            .then(resp => resp.json())
+            .then(resp => {this.textnames = resp;});
+            // .then(resp => {this.imgList = resp;});
+           
+            fetch(`../php/searchCatAndDog-image.php?id=`+id,{
+                method: "GET",
+            })
+            .then(resp => resp.json())
+            .then(resp => {
+                // console.log(resp);
+                this.imgList = resp[0].image2.substr(0,resp[0].image2.length-1).split(",");
+                // this.imgList = resp;
+            
+            });
+            // console.log(imgList);
+
         const swiper = new Swiper(".mySwiper", {
             slidesPerView: 5,
             spaceBetween: 16,
@@ -72,6 +85,9 @@ new Vue({
             // prevEl: ".swiper-button-prev",
             // },
           })
+    },
+    computed: {
+        
     },
     
 });
