@@ -363,7 +363,7 @@ new Vue({
         this.products = resp;
 
         this.products.forEach((pd, i) => {
-          this.products[i].imgList = this.products[i].imgList.split(",");
+          this.products[i].imgList = this.products[i].imgList.split(',');
           this.products[i] = {...this.products[i],isShow: false, quantity: 0,};
         });
 
