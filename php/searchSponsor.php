@@ -6,10 +6,9 @@ include("./DB.php");
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
 //建立SQL
-$sql = " SELECT o.ID as id, o.ODATE as date, o.OMETHOD as method, o.OTOTAL as total, o.OSTATUS as situation, o.IMAGE as image, o.ONAME as name, o.OPRICE as price, o.OQUANTITY as quantity from LangTu.order o natural join LangTu.member m where m.EMAIL = :account";
+$sql = " SELECT fundName, fundTopContent, fundContent, fundImg, fundStatus, fundDate, fundEndDate, fundGoal, fundNow, Amount from LangTu.project where ID = 6";
 
 $statement = $pdo->prepare($sql);
-$statement->bindValue(":account", $data["account"]);
 $statement->execute();
 
  //抓出全部且依照順序封裝成一個二維陣列

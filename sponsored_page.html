@@ -21,35 +21,26 @@
                 <img src="./images/Meteor/dogeatbig.png" alt="">
             </div>
             <div class="sponsored_page-top-tt">
-                <h1>{{sponsorName}}</h1>
-                <p>{{sponsorTopText}}</p>
-                <h3>NT${{accumulatedAmount}}</h3>
-                <p class="target">目標金額 NT${{target}}</p>
+                <h1>{{sponsor[0].fundName}}</h1>
+                <p>{{sponsor[0].fundTopContent}}</p>
+                <p class="acc">目前累積</p>
+                <h3>NT${{sponsor[0].fundNow}}</h3>
+                <p class="target">目標金額 NT${{sponsor[0].fundGoal}}</p>
                 <div class="sponsored_page-top-border"></div>
                 <hr>
-                <p>贊助人數 {{sponsorPeople}}</p>
-                <p>招募時間 {{sponsorStartDate}} - {{sponsorEndDate}}</p>
+                <p>贊助人數 {{sponsor[0].Amount}}</p>
+                <p>招募時間 {{sponsor[0].fundDate}} - {{sponsor[0].fundEndDate}}</p>
             </div>
         </div>
         <hr>
         <div class="sponsored_page-inder">
             <a href="#"><p>專案內容</p></a>
             <a href="#"><p>常見問答</p></a>
-            <a href="./sponsor_information.html"><button class="btn-0">贊助專案</button></a>
         </div>
         <hr>
         <div class="sponsored_page-under">
             <div class="sponsored_page-under-left">
-                <h3>{{sponsorTitle1}}</h3>
-                <p v-html="sponsorP1"></p>
-                <img :src="imgURL + img[0]" alt="">
-                <h5 v-html="sponsorP2"></h5>
-                <img :src="imgURL + img[1]" alt="">
-                <p v-html="sponsorP3"></p>
-                <h3>{{sponsorTitle2}}</h3>
-                <p v-html="sponsorP3"></p>
-                <h3>{{sponsorTitle3}}</h3>
-                <p v-html="sponsorP4"></p>
+                <div v-html="sponsor[0].fundContent"></div>
             </div>
             <div class="sponsored_page-under-right">
                 <div class="sponsored_page-under-btn">
@@ -57,19 +48,19 @@
                     <button class="btn-3" @click="currentPlan = 2, changeColor()" :class="{'chooseBtn1' :btn1}">單筆贊助</button>
                 </div>
                     <section v-if="currentPlan == 1">
-                        <a href="./sponsor_information.html" class="sponsored_page-under-btnbig-in">
+                        <a href="./sponsor_information.html" class="sponsored_page-under-btnbig-in" @click="sponsorContent('每月方案一300'), sponsorPic('selection1.jpg')">
                             <div class="selection"><img src="./images/Meteor/selection1.jpg" alt=""></div>
                             <h5>方案一</h5>
                             <p>每月 NT$300</p>
                             <p class="sponsorTime">已被贊助 621 次</p>
                         </a>
-                        <a href="./sponsor_information.html" class="sponsored_page-under-btnbig-in">
+                        <a href="./sponsor_information.html" class="sponsored_page-under-btnbig-in" @click="sponsorContent('每月方案二500'), sponsorPic('selection2.jpg')">
                             <div class="selection"><img src="./images/Meteor/selection2.jpg" alt=""></div>
                             <h5>方案二</h5>
                             <p>每月 NT$500</p>
                             <p class="sponsorTime">已被贊助 621 次</p>
                         </a>
-                        <a href="./sponsor_information.html" class="sponsored_page-under-btnbig-in">
+                        <a href="./sponsor_information.html" class="sponsored_page-under-btnbig-in" @click="sponsorContent('每月方案三1000'), sponsorPic('selection3.jpg')">
                             <div class="selection"><img src="./images/Meteor/selection3.jpg" alt=""></div>
                             <h5>方案三</h5>
                             <p>每月 NT$1000</p>
@@ -77,19 +68,19 @@
                         </a>
                     </section>
                     <section v-else-if="currentPlan == 2">
-                        <a href="./sponsor_information.html" class="sponsored_page-under-btnbig-in">
+                        <a href="./sponsor_information.html" class="sponsored_page-under-btnbig-in" @click="sponsorContent('單筆方案一300'), sponsorPic('selection4.jpg')">
                             <div class="selection"><img src="./images/Meteor/selection4.jpg" alt=""></div>
                             <h5>方案一</h5>
                             <p>單筆 NT$300</p>
                             <p class="sponsorTime">已被贊助 621 次</p>
                         </a>
-                        <a href="./sponsor_information.html" class="sponsored_page-under-btnbig-in">
+                        <a href="./sponsor_information.html" class="sponsored_page-under-btnbig-in" @click="sponsorContent('單筆方案二500'), sponsorPic('selection5.jpg')">
                             <div class="selection"><img src="./images/Meteor/selection5.jpg" alt=""></div>
                             <h5>方案二</h5>
                             <p>單筆 NT$500</p>
                             <p class="sponsorTime">已被贊助 621 次</p>
                         </a>
-                        <a href="./sponsor_information.html" class="sponsored_page-under-btnbig-in">
+                        <a href="./sponsor_information.html" class="sponsored_page-under-btnbig-in" @click="sponsorContent('單筆方案三1000'), sponsorPic('selection6.jpg')">
                             <div class="selection"><img src="./images/Meteor/selection6.jpg" alt=""></div>
                             <h5>方案三</h5>
                             <p>單筆 NT$1000</p>

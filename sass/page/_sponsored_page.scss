@@ -48,8 +48,15 @@
                 margin: rwd(16) 0;
             }
         }
+        .acc{
+            text-align: right;
+            color: $gray700;
+            font-size: vw(8);
+            margin-bottom: 0;
+        }
         .target{
             text-align: right;
+            font-size: vw(20);
         }
         .sponsored_page-top-border{
             content: "";
