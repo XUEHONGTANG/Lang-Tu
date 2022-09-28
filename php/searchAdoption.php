@@ -6,9 +6,10 @@ include("./DB.php");
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
 //建立SQL
-$sql = " SELECT APEOPLE as people, ADATE as date, ATIME as time, PID as id, SITUATION as situation from LangTu.adoption";
+$sql = " SELECT APEOPLE as people, ADATE as date, ATIME as time, PID as id, SITUATION as situation from LangTu.adoption WHERE AEMAIL = :account";
 
 $statement = $pdo->prepare($sql);
+$statement->bindValue(":account", $data["account"]);
 $statement->execute();
 
  //抓出全部且依照順序封裝成一個二維陣列

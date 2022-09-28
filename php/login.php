@@ -22,5 +22,8 @@ $data = $statement->fetchAll();
     $data["successful"] = false;
 }
 
+session_start();
+$_SESSION['myValue'] = 3;
+
 echo json_encode($data);
 ?>

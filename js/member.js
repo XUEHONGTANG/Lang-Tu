@@ -2,6 +2,7 @@ Vue.component('detail', {
     data() {
         return {
             member: [],
+            account: "",
             isDisabled: true,
             text: '修改',
         }
@@ -14,22 +15,22 @@ Vue.component('detail', {
             }else if(this.text == '確認'){
                 this.text = '修改',
                 this.isDisabled = true
+                fetch('../php/updateMember.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: this.member[0].name, 
+                        gender: this.member[0].gender, 
+                        tel: this.member[0].tel, 
+                        birthday: this.member[0].birthday,
+                        email: this.member[0].email,
+                        password: this.member[0].password,
+                    }) 
+                })
             }
 
-            // fetch('../php/updateMember.php', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     },
-            //     body: JSON.stringify({
-            //         name: this.member[0].name, 
-            //         gender: this.member[0].gender, 
-            //         tel: this.member[0].tel, 
-            //         birthday: this.member[0].birthday,
-            //         email: this.member[0].email,
-            //         password: this.member[0].password,
-            //     }) 
-            // })
         }
     },
 
@@ -90,12 +91,17 @@ Vue.component('detail', {
             </div>
         `,
         mounted() {
-            var getUrlString = location.href;
-            var url = new URL(getUrlString);
-            var id = url.searchParams.get('email');
+            let account = sessionStorage.getItem("account")
+            this.account = account
 
-            fetch(`../php/searchMember.php?id=`+id,{
-                method: "GET"
+            fetch('../php/searchMember.php',{
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    account: this.account, 
+                })
             })
             .then(resp => resp.json())
             .then(resp => this.member = resp);
@@ -106,6 +112,7 @@ Vue.component('reservation', {
     data() {
         return {
             adoption: [],
+            account: "",
         }
     },
     template: `
@@ -133,7 +140,18 @@ Vue.component('reservation', {
             </div>
     `,
     mounted() {
-        fetch('../php/searchAdoption.php')
+        let account = sessionStorage.getItem("account")
+        this.account = account
+
+        fetch('../php/searchAdoption.php',{
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                account: this.account, 
+            })
+        })
         .then(resp => resp.json())
         .then(resp => this.adoption = resp);
     },
@@ -144,7 +162,8 @@ Vue.component('order', {
         return {
             order: [],
             imgURL:'./images/Derrick/',
-            orderDetail: [], 
+            orderDetail: [],
+            account: "", 
         }
     },
     methods: {
@@ -213,7 +232,18 @@ Vue.component('order', {
             </div>
     `,
     mounted() {
-        fetch('../php/searchOrder.php')
+        let account = sessionStorage.getItem("account")
+        this.account = account
+
+        fetch('../php/searchOrder.php',{
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                account: this.account, 
+            })
+        })
         .then(resp => resp.json())
         .then(resp => this.order = resp);
     },
@@ -223,6 +253,7 @@ Vue.component('sponsor', {
     data() {
         return {
             donor: [],
+            account: "",
         }
     },
     template: `
@@ -260,7 +291,18 @@ Vue.component('sponsor', {
         </div>
     `,
     mounted() {
-        fetch('../php/searchDonor.php')
+        let account = sessionStorage.getItem("account")
+        this.account = account
+
+        fetch('../php/searchDonation.php',{
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                account: this.account, 
+            })
+        })
         .then(resp => resp.json())
         .then(resp => this.donor = resp);
     },

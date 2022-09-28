@@ -74,7 +74,8 @@ new Vue({
       .then(resp => resp.json())
             .then(body => {
                 if (body.successful){
-                    // location = '../dist/member_detail.html';
+                    alert("登入成功");
+                    location = '../dist/member_detail.html';
                 }else{
                     alert("登入失敗");
                 }
@@ -82,6 +83,7 @@ new Vue({
 
       // alert("登入成功");
       // window.location.href = "./member_detail.html";
+      sessionStorage.setItem("account",this.loginForm.account)
     },
     userRegister() {
       
