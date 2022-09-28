@@ -206,9 +206,6 @@ new Vue({
       // immediate: true,
     },
   },
-  mounted() {
-    fetch(`../php/searchMember.php?id=`)
-  },
 });
 
 /*

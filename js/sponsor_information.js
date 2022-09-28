@@ -1,6 +1,11 @@
 new Vue({
     el: '#sponsor_informationApp',
     data:{
+            planName: "",
+            planPrice: "",
+            planMethod: "",
+            imgURL:'./images/Meteor/',
+            planPic: "",
             cartTitle:[
                 {id:1,name:'捐款人資料'},
                 {id:2,name:'收據資訊'},
@@ -168,7 +173,10 @@ new Vue({
                     amount: this.donor.amount,
                     audit: this.donor.audit,
                     date: this.donor.date,
-                    serialNum: this.donor.serialNum
+                    serialNum: this.donor.serialNum,
+                    planMethod: this.planMethod,
+                    planName: this.planName,
+                    planPrice: this.planPrice,
                 })
             })
             window.location.href = "./payer_information.html";
@@ -178,6 +186,14 @@ new Vue({
     },
     mounted() {
         $(".twzipcode1").twzipcode();
+
+        let plan = sessionStorage.getItem('plan')
+        this.planMethod = plan.slice(0, 2)
+        this.planName = plan.slice(2, 5)
+        this.planPrice = plan.slice(5)
+
+        let planPic = sessionStorage.getItem('planPic')
+        this.planPic = planPic
     },
     updated() {
         $(".twzipcode1").twzipcode();

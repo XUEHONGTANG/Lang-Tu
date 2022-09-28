@@ -20,20 +20,20 @@
         <div class="sponsor_information-all">
             <div class="sponsor_information-all-left">
                 <div class="sponsor_information-all-btnbig-in">
-                    <div class="selection"><img src="./images/Meteor/selection1.jpg" alt=""></div>
-                    <h5>方案一</h5>
-                    <p>每月 NT$300</p>
+                    <div class="selection"><img :src="imgURL+planPic" alt=""></div>
+                    <h5>{{planName}}</h5>
+                    <p>{{planMethod}} NT${{planPrice}}</p>
                     <p class="sponsorTime">已被贊助 621 次</p>
                 </div>
                 <div class="sponsor_information-all-under">
                     <div class="sponsor_information-all-inder1">
                         <h5>選項金額</h5>
-                        <p>NT$300</p>
+                        <p>NT${{planPrice}}</p>
                     </div>
                     <hr>
                     <div class="sponsor_information-all-inder2">
                         <h5>總價</h5>
-                        <p>NT$300/每月</p>
+                        <p>NT${{planPrice}}/{{planMethod}}</p>
                     </div>
                 </div>
             </div>
