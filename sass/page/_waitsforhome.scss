@@ -201,7 +201,7 @@
     .dogtt {
         // width: vw(732);
         flex: 3;
-        height: 0;
+        height: 100%;
     }
     h1 {
         color: $secondaryA11y;
@@ -252,7 +252,7 @@
                 height: vw(40);
                 margin: 0 vw(8);
                 cursor: pointer;
-
+                
                 @include m() {
                     line-height: rwd(32);
                     width: rwd(32);
@@ -261,10 +261,11 @@
                     font-size: rwd(18);
                 }
             }
-            li.currentPage {
+            .ballstyle{
                 color: $secondaryLight;
                 background-color: $primaryA11y;
                 border-radius: 50%;
+                
             }
             li.next,
             li.previous {

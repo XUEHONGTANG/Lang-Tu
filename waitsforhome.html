@@ -123,12 +123,12 @@
             <div class="page-icon">
                 <ul class="pages">
                     <li class="previous">
-                      <i class="fa-solid fa-circle-chevron-left"></i>
+                      <i class="fa-solid fa-circle-chevron-left" @click="left()"></i>
                     </li>
                     <!-- <li class="currentPage">1</li> -->
-                    <li v-for=" page in pages" @click="pagepet(page)">{{page}}</li>
+                    <li v-for=" page in pages" @click="pagepet(page)" :class="classObj">{{page}}</li>
                     <li class="next">
-                      <i class="fa-solid fa-circle-chevron-right"></i>
+                      <i class="fa-solid fa-circle-chevron-right" @click="right()"></i>
                     </li>
                   </ul>
             </div>
