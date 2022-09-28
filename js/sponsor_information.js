@@ -24,8 +24,6 @@ new Vue({
                 number:null,
                 address:'',
                 creditcard:null,
-                category: '單筆贊助',
-                amount: 300,
                 audit: '待審核',
                 date: "",
                 serialNum: "",
@@ -179,6 +177,7 @@ new Vue({
                     planPrice: this.planPrice,
                 })
             })
+            sessionStorage.setItem('account', this.donor.email)
             window.location.href = "./payer_information.html";
         }
 

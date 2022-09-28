@@ -6,7 +6,7 @@ include("./DB.php");
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
 //建立SQL
-$sql = " INSERT INTO LangTu.donate(DDATE, DNAME, DPHONE, DEMAIL, DMETHODS, DAMOUNT, DAUDIT, DTYPE, DNATIONALITY, DIDNUMBER, DGENDER, DBIRTHDAY, DADDRESS, DRECEIPT, DTITLE, DCREDIT, DID, PLANMETHOD, PLANNAME, PLANPRICE) values (:date, :name, :phone, :email, :methods, :amount, :audit, :category, :nationality, :idname, :gender, :birthday, :address, :receipt, :header, :public, :serialNum, :planMethod, :planName, :planPrice )  ";
+$sql = " INSERT INTO LangTu.donate(DDATE, DNAME, DPHONE, DEMAIL, DMETHODS, DAMOUNT, DAUDIT, DTYPE, DNATIONALITY, DIDNUMBER, DGENDER, DBIRTHDAY, DADDRESS, DRECEIPT, DTITLE, DCREDIT, DID, PLAN) values (:date, :name, :phone, :email, :methods, :planPrice, :audit, :planMethod, :nationality, :idname, :gender, :birthday, :address, :receipt, :header, :public, :serialNum, :planName ) ";
 
 
 $statement = $pdo->prepare($sql);
@@ -15,9 +15,7 @@ $statement->bindValue(":name", $data["name"]);
 $statement->bindValue(":phone", $data["phone"]);
 $statement->bindValue(":email", $data["email"]);
 $statement->bindValue(":methods", $data["methods"]);
-$statement->bindValue(":amount", $data["amount"]);
 $statement->bindValue(":audit", $data["audit"]);
-$statement->bindValue(":category", $data["category"]);
 $statement->bindValue(":nationality", $data["nationality"]);
 $statement->bindValue(":idname", $data["idname"]);
 $statement->bindValue(":gender", $data["gender"]);
