@@ -45,6 +45,7 @@ new Vue({
         fakeList:[0,1,2,3,4,5],
         content:'pettext',
         textnames:[],
+        
     },
     mounted(){
         var getUrlString = location.href;
@@ -57,6 +58,7 @@ new Vue({
             .then(resp => resp.json())
             .then(resp => {this.textnames = resp;});
             // .then(resp => {this.imgList = resp;});
+            
            
             fetch(`../php/searchCatAndDog-image.php?id=`+id,{
                 method: "GET",
@@ -78,13 +80,19 @@ new Vue({
             loopFillGroupWithBlank: false,
             pagination: {
             //   el: ".swiper-pagination",
-              clickable: true
+                clickable: true
             },
             // navigation: {
             // nextEl: ".swiper-button-next",
             // prevEl: ".swiper-button-prev",
             // },
           })
+    },
+    methods: {
+        nextpet(){
+            sessionStorage.setItem("pid",this.textnames[0].pid)
+            window.location.href = "./precautions.html";
+        },
     },
     computed: {
         

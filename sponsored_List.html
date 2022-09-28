@@ -17,7 +17,7 @@
     <main class="sponsored_List" id="sponsored_ListApp">
         <div class="sponsored_List-top"content='listli'>
             <!-- <ul class="sponsored_List-ul"> -->
-                <component :is='content'></component>
+                <component :is='content' :lists="lists" :current-page="currentPage"></component>
                 <!-- <li class="sponsored_List-li">
                     <div class="sponsored_List-div">
                         <a v-for="list in lists" :href="htmlURL+list.pet">
@@ -128,12 +128,12 @@
         <div class="page-icon">
             <ul class="pages" id="pageApp">
                 <li class="previous">
-                  <i class="fa-solid fa-circle-chevron-left"></i>
+                  <i class="fa-solid fa-circle-chevron-left" @click="left()"></i>
                 </li>
-                <li class="currentPage">1</li>
-                <li v-for="page in pages">{{page}}</li>
+                <!-- <li class="currentPage">1</li> -->
+                <li v-for="page in pages" @click="pagepet(page)">{{page}}</li>
                 <li class="next">
-                  <i class="fa-solid fa-circle-chevron-right"></i>
+                  <i class="fa-solid fa-circle-chevron-right" @click="right()"></i>
                 </li>
               </ul>
         </div>

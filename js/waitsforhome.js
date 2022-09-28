@@ -38,7 +38,7 @@ Vue.component('CatAndDog', {
     template: `
     <div>
     <ul v-for="animal in filterAnimals" :key="pid">
-        <a  :href="'./petpage.html?id='+animal.pid" >
+        <a  :href="'./petpage.html?id='+animal.pid"  >
             <li class="waitsforhome-li">
                 <div class="home-1">
                     <div class="dogpp">
@@ -61,6 +61,7 @@ Vue.component('CatAndDog', {
         //     .then(resp => resp.json())
         //     .then(resp => this.animals = resp);
     },
+    
     
 })
 
@@ -85,25 +86,29 @@ new Vue({
         animalType:null,
         // 為了點擊click事件所設定的變數
         animals:[],
+        
         // 接收資料的空陣列 擺出來放 為了可以做頁碼
         // animalType: ['brown','flower','black','white','smalldog','mediumdog','bigdog']
     },
     mounted() {
+        
         let reactTotal = document.querySelectorAll('.hide')
         // console.log(reactTotal);
         reactTotal.forEach((item) => {
             this.reactArr.push(item)
             console.log(this.reactArr);
         });
-
+        
         // PHP也由外面接收 去跑陣列
         fetch('../php/searchCatAndDog.php')
-            .then(resp => resp.json())
-            .then(resp => {
-                this.animals = resp;
-                this.pages = Math.ceil(this.animals.length /3);
-                // 上面是陣列的頁碼長度去除已三 讓頁碼可以劃分資料
-            });
+        .then(resp => resp.json())
+        .then(resp => {
+            this.animals = resp;
+            this.pages = Math.ceil(this.animals.length /3);
+            // 上面是陣列的頁碼長度去除已三 讓頁碼可以劃分資料
+            
+            
+        });
     },
     methods: {
         pagepet(index){
@@ -112,6 +117,7 @@ new Vue({
             // 點擊頁碼等於他的質去控制顯示第幾頁
             
         },
+        
         itemClick(value){
             this.animalType = value;
             let _animals = this.animals.filter((animal) => {
@@ -120,7 +126,9 @@ new Vue({
             this.pages = Math.ceil(_animals.length /3);
             this.currentPage = 1;
             console.log(value);
+            
             // 這邊是頁碼 篩選過後的資料顯示 篩選完後頁碼都要切回第一頁
+            
         },
         left(){
             this.currentPage--

@@ -1,3 +1,5 @@
+
+
 new Vue({
     el: '#applicationApp',
     data: {
@@ -32,9 +34,17 @@ new Vue({
             ischeckbox:false,
             situation: '已預約',
             pid: 1,
-        
+            petpid: "",
+    },
+    mounted() {
+        let petpid = sessionStorage.getItem("pid")
+        this.petpid = petpid
+        console.log(petpid);
     },
     methods: {
+        forpet(){
+            window.location.href = `./petpage.html?id=${this.petpid}`;
+        },
         revise(){
             if(this.ischeckbox == false){
                 this.isDisabled = false
