@@ -10,9 +10,9 @@
    // $db_pass = "liyuan0142";
    // $db_select = "LangTu";
 
-   $db_host = "192.168.0.185";
-   $db_user = "Rose";
-   $db_pass = "password";
+   $db_host = "192.168.0.220";
+   $db_user = "TXH";
+   $db_pass = "liyuan0142";
    $db_select = "LangTu";
 
    // other_host
