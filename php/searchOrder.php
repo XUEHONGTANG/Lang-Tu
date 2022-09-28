@@ -6,9 +6,10 @@ include("./DB.php");
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
 //建立SQL
-$sql = " SELECT ID as id, ODATE as date, OMETHOD as method, OTOTAL as total, OSTATUS as situation, IMAGE as image, ONAME as name, OPRICE as price, OQUANTITY as quantity from LangTu.order where OBUYER = '林宜蓁'";
+$sql = " SELECT ID as id, ODATE as date, OMETHOD as method, OTOTAL as total, OSTATUS as situation, IMAGE as image, ONAME as name, OPRICE as price, OQUANTITY as quantity from LangTu.order where OEMAIL = :account";
 
 $statement = $pdo->prepare($sql);
+$statement->bindValue(":account", $data["account"]);
 $statement->execute();
 
  //抓出全部且依照順序封裝成一個二維陣列

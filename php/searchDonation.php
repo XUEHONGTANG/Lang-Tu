@@ -6,9 +6,10 @@ include("./DB.php");
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
 //建立SQL
-$sql = " SELECT DAMOUNT as amount, DTYPE as type, DMETHODS as methods, DNATIONALITY as nationality, DNAME as name, DIDNUMBER as id, DEMAIL as email, DGENDER as gender, DBIRTHDAY as birthday, DPHONE as phone, DADDRESS as address, DRECEIPT as receipt, DTITLE as title, DCREDIT as credit, DDATE as date from LangTu.donate WHERE ID = 1";
+$sql = " SELECT DAMOUNT as amount, DTYPE as type, DMETHODS as methods, DNATIONALITY as nationality, DNAME as name, DIDNUMBER as id, DEMAIL as email, DGENDER as gender, DBIRTHDAY as birthday, DPHONE as phone, DADDRESS as address, DRECEIPT as receipt, DTITLE as title, DCREDIT as credit, DDATE as date from LangTu.donate WHERE DEMAIL = :account";
 
 $statement = $pdo->prepare($sql);
+$statement->bindValue(":account", $data["account"]);
 $statement->execute();
 
  //抓出全部且依照順序封裝成一個二維陣列
