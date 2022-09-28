@@ -1,6 +1,7 @@
 new Vue({
     el: '#sponsorPageApp',
     data: {
+        imgURL:'./images/Meteor/',
         sponsor: [],
         currentPlan: 1,
         btn1: false,
