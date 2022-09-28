@@ -28,7 +28,7 @@ Vue.component('listli', {
     <ul class="sponsored_List-ul">
         <li v-for="list in filterAnimals" :key="fid" class="sponsored_List-li">
             <div class="sponsored_List-div">
-                <a  :href="'./sponsored_page.html?id='+lists.fid">
+                <a  :href="'./sponsored_page.html?id='+list.fid">
                     <img :src="imgURL+list.ListImg" alt="">
                     <h3>{{list.Name}}</h3>
                     <div class="sponsored_List-border radius"></div>

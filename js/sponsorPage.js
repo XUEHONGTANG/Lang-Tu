@@ -26,8 +26,13 @@ new Vue({
         }
     },
     mounted() {
-        fetch('../php/searchSponsor.php')
-        .then(resp => resp.json())
-        .then(resp => this.sponsor = resp)
+        var getUrlString = location.href;
+        var url = new URL(getUrlString);
+        var id = url.searchParams.get('id');
+            fetch(`../php/searchSponsor.php?id=`+id,{
+                method: "GET",
+            })
+            .then(resp => resp.json())
+            .then(resp => this.sponsor = resp)
     },
 })
