@@ -129,10 +129,10 @@ const productPage = {
       slidesPerGroup: 4,
       loop: false,
       loopFillGroupWithBlank: false,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
+      // pagination: {
+      //   el: ".swiper-pagination",
+      //   clickable: true,
+      // },
     });
   },
   updated() {
@@ -142,10 +142,10 @@ const productPage = {
       slidesPerGroup: 4,
       loop: false,
       loopFillGroupWithBlank: false,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
+      // pagination: {
+      //   el: ".swiper-pagination",
+      //   clickable: true,
+      // },
     });
   },
 

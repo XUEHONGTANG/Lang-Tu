@@ -15,20 +15,6 @@ new Vue({
       { id: 2, name: "結帳頁面" },
       { id: 3, name: "完成訂單" },
     ],
-    // cartList: [
-    //   {
-    //     img: "./images/ff/pd-001-1.jpg",
-    //     title: "貓貓罐罐",
-    //     price: "NT$300",
-    //     sum: 300,
-    //   },
-    //   {
-    //     img: "./images/ff/pd-002.png",
-    //     title: "狗狗罐罐",
-    //     price: "NT$400",
-    //     sum: 400,
-    //   },
-    // ],
     memberRec: {
       name: null,
       address: null,
@@ -324,7 +310,7 @@ methods: {
 
       this.theOrder = [];
       this.theOrder = [...this.$store.state.cart];
-      console.log(this.$store.state.cart);
+      // console.log(this.$store.state.cart);
       this.$store.dispatch("clearCart");
       this.currentPage = 3;
     },
