@@ -3,6 +3,7 @@ new Vue({
     data: {
         imgURL:'./images/Meteor/',
         sponsor: [],
+        fundPeople: [],
         currentPlan: 1,
         btn1: false,
         btn2: false,
@@ -24,9 +25,12 @@ new Vue({
         },
         sponsorPic(val){
             sessionStorage.setItem("planPic", val)
+            sessionStorage.setItem('amount', this.sponsor[0].fundNow)
+            sessionStorage.setItem('people', this.sponsor[0].Amount)
         }
     },
     mounted() {
+
         var getUrlString = location.href;
         var url = new URL(getUrlString);
         var id = url.searchParams.get('id');
@@ -35,5 +39,9 @@ new Vue({
             })
             .then(resp => resp.json())
             .then(resp => this.sponsor = resp)
+
+            fetch('../php/searchfundPeople.php')
+            .then(resp => resp.json())
+            .then(resp => this.fundPeople = resp)
     },
 })
