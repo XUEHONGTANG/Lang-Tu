@@ -1,8 +1,12 @@
 
 .customized {
-    width: vw(1200);
-    height: vw(800);
-    margin: 0 auto;
+
+
+    .top_nav {
+        height: 0;
+        margin-bottom: -2.0833333333vw;
+    }
+
     img {
         width: 100%;
     }
@@ -43,14 +47,23 @@
             gap: 8vw;
         }
     }
+    .startBtn {
+        background: none;
+        border: 0;
+        cursor: pointer;
+        img {
+            width: 100%;
+        }
+    }
 }
 .big_dog {
-    position: absolute;
-    top: -1vw;
-    right: 32vw;
-    width: 652px;
+    position: fixed;
+    top: 12vw;
+    left: 10vw;
+    width: vw(652);
     img {
         width: 100%;
+        position: absolute;
     }
 }
 .cus_step {
@@ -69,10 +82,9 @@
 
     &-select {
         display: flex;
-        /* position: absolute; */
-        justify-content: space-between;
-        top: -98px;
         position: relative;
+        justify-content: space-between;
+        top: 76px;
     }
 
     &_txt {
@@ -95,9 +107,13 @@
         width: 41.6666666667vw;
         height: auto;
         position: absolute;
-        top: -4vw;
-        left: 33vw;
+        top: 5.6vw;
+        right: 6.5vw;
 
+    }
+
+    &4_content {
+        top: 20vw;
     }
 
 }
@@ -110,9 +126,9 @@
     background: none;
     border: 0;
     cursor: pointer;
-    font-size: 20px;
-    padding: 8px 10px;
-    width: 120px;
+    font-size: vw(20);
+    padding: vw(8) vw(10);
+    width: 10.25vw;
     border-radius: 25px;
     // background: #172852;
     // border: 3px solid #172852;
@@ -146,10 +162,21 @@
     position: relative;
     left: 22vw;
     width: 41vw;
+    top: 1vw;
+    
+    &4{
+        left: 23vw;
+        top: 15vw;
+    }
 }
 .progress-cont {
     display: flex;
     justify-content: center;
+
+    &4{
+        top: 10vw;
+        position: relative;
+    }
 }
 .progress {
     background-color: var(--line-border-fill);
@@ -158,7 +185,7 @@
     left: 0;
     transform: translateY(-50%);
     height: 4px;
-    width: 0;
+    width: 1%;
     z-index: -1;
     transition: 0.4s ease;
 
@@ -184,12 +211,6 @@
 
 }
 
-.container {
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-}
 
 .circle {
     background-color: #fff;
@@ -227,8 +248,40 @@
         color: #B18042;
         text-align: center;
     }
+
+    .prd{
+        background-color: #fff;
+        border-radius: 20px;
+        transition-duration: .7s;
+        transition-property: transform;
+        overflow: hidden;
+        cursor: pointer;
+        transform: translateY(0) ;
+        &:hover {
+            transform: translateY(-8px) ;
+            animation-name: hover;
+            animation-duration: 1.5s;
+            animation-delay: .3s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            box-shadow: 0px 0px 10px 5px #fff4dd;
+        }
+    }
+
+/* Hover */
+@keyframes hover {
+	50% {
+		transform: translateY(-3px);
+	}
+
+	100% {
+		transform: translateY(-6px);
+	}
 }
 
+
+}
 .product-input {
    
     form ::placeholder {
@@ -255,28 +308,36 @@
 }
 
 .big_tag{
-  
-    top: 8vw;
-    right: 43vw;
-    pre {
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        transform: scaleX(-1);
-        position: absolute;
-        border-radius: 25px;
-        top: 0;
-        left: 0;
-        padding: 15px;
-        line-height: 40px;
+    top: 10vw;
+    left: -47vw;
+    width: 43vw;
+
+
+    &-model {
+        width: 14.8vw;
+        height: 6.3vw;
+        position: relative;
+        padding: 0.78vw;
+        font-size: 1.5vw;
+        z-index: 30;
+        top: -18vw;
+        right: -19.1vw;
         white-space: pre-wrap !important;
         word-wrap: break-word;
-        font-size: 16px;
-        color: #bb866a;
-        border: 5px solid tan;
-        box-shadow: 0px 0px 15px #ccc;
+        p{
+            color: #6a564c;
+        }
       }    
 
 }
 
- 
+.cus_step4_btn{
+    display: flex;
+    justify-content: center;
+    gap: 3vw;
+
+    .step4_btn{
+        width: 10.3vw;
+        padding: 0.5vw 0vw;
+    }
+}
