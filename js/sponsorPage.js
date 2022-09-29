@@ -6,10 +6,16 @@ new Vue({
         currentPlan: 1,
         btn1: false,
         btn2: false,
-    
+        
     
     },
+    computed:{
+        percentage:function(){
+                    return parseInt(this.sponsor[0].fundNow/this.sponsor[0].fundGoal*100)
+                }
+            },
     methods: {
+        
         changeColor(){
             if(this.currentPlan == 1){
                 this.btn1 = false
@@ -27,6 +33,7 @@ new Vue({
         }
     },
     mounted() {
+        
         var getUrlString = location.href;
         var url = new URL(getUrlString);
         var id = url.searchParams.get('id');

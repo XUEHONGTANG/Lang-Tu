@@ -58,18 +58,31 @@
             text-align: right;
             font-size: vw(20);
         }
-        .sponsored_page-top-border{
-            content: "";
-            height: 7px;
-            width: vw(300);
-            background-color: $primaryA11y;
-            margin: vw(30) auto;
+        .sponsored_page-top-border-div{
+            height: 10px;
+            width: vw(380);
+            margin: vw(32) auto vw(0); 
             border-radius: 30px;
+            border:1px solid $primaryA11y;
             @include m(){
-                width: rwd(300);
+                width: rwd(380);
             }
+            
+            .sponsored_page-top-border{
+            height: 10px;
+            width: vw(0);
+            background-color: $primaryA11y;
 
+            border-radius: 30px;
+                @include m(){
+                    width: rwd(0);
+                }
+            }
         }
+        .sponsored_page-top-border-percentage{
+            text-align: right;
+        }
+        
     }
     .sponsored_page-inder{
         display: flex;

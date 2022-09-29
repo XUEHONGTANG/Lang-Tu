@@ -26,7 +26,10 @@
                 <p class="acc">目前累積</p>
                 <h3>NT${{sponsor[0].fundNow}}</h3>
                 <p class="target">目標金額 NT${{sponsor[0].fundGoal}}</p>
-                <div class="sponsored_page-top-border"></div>
+                <div class="sponsored_page-top-border-div">
+                <div class="sponsored_page-top-border" :style="{width:(sponsor[0].fundNow/sponsor[0].fundGoal)*100+'%'}"></div>
+                </div>
+                <p class="sponsored_page-top-border-percentage">{{percentage}}%</p>
                 <hr>
                 <p>贊助人數 {{sponsor[0].Amount}}</p>
                 <p>招募時間 {{sponsor[0].fundDate}} - {{sponsor[0].fundEndDate}}</p>

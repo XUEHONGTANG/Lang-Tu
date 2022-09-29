@@ -6,7 +6,7 @@ include("./DB.php");
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
 //建立SQL
-$sql = " SELECT ID as fid, fundName as Name, fundlistImg as ListImg, fundNow as Now, fundEndDate as EndDate from LangTu.project";
+$sql = " SELECT ID as fid, fundName as Name, fundlistImg as ListImg, fundNow as Now,fundGoal as goal, fundEndDate as EndDate from LangTu.project";
 
 $statement = $pdo->prepare($sql);
 $statement->execute();

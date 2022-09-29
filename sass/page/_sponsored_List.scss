@@ -64,22 +64,30 @@
 
         }
     }
-    .sponsored_List-border{
-        content: "";
-        height: 7px;
+    .sponsored_List-borderdiv{
         width: vw(300);
-        background-color: $primaryA11y;
+        height: 10px;
+        border:1px solid $primaryA11y;
         margin: 0 auto;
-        // border: solid 5px ;
-        // border-image-source: linear-gradient(to right, #0b0ff1, #7a7a7a );
-        // border-image-slice: 1;
-        // border-radius: 50%;
+        border-radius: 30px;
+        overflow: hidden;
+        @include m(){
+            width: rwd(150);
+            // margin: 0 auto;
+        }
+        .sponsored_List-border{
+        height: 10px;
+        width: vw(0);
+        background-color: $primaryA11y;
+        // margin: 0 auto;
         border-radius: 30px;
         @include m(){
-            width: 100%;
-            margin: rwd(10) auto;
+            width: rwd(0);
+            
         }
     }
+    }
+    
     
     .sponsored_List-in{
         display: flex;

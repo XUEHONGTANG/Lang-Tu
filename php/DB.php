@@ -2,7 +2,7 @@
    //MySQL相關資訊
    // local_host
    $db_host = "192.168.0.220";
-   $db_user = "TXH";
+   $db_user = "Meteor";
    $db_pass = "liyuan0142";
    $db_select = "LangTu";
 
