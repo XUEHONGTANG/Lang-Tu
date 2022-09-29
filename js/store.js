@@ -22,6 +22,8 @@ const store = new Vuex.Store({
         //     state.products = products;
         // }
         ADD_TO_CART(state, product) {
+            
+
             // 如果相同產品相加 
             let productInCart = state.cart.find(item => {
                 return item.pdId === product.pdId;
@@ -29,14 +31,31 @@ const store = new Vuex.Store({
 
 
             if (productInCart) {
-                console.log(productInCart);
+                // console.log(productInCart);
+                
                 productInCart.quantity += product.quantity;
+                productInCart.quantity >= product.inventory ? productInCart.quantity = product.inventory : productInCart.quantity;
                 return;
             } else {
                 //  不同產品新增
                 state.cart.push(product)
             }
 
+        },
+        DELETE_TO_CART(state, product) { 
+            // let index = state.cart.indexOf(product);
+            //  state.cart.splice(index, 1);
+
+
+            state.cart = state.cart.filter(item => {
+                return item.pdId !== product.pdId;
+            })
+
+            sessionStorage.setItem("store", JSON.stringify(store.state))
+        },
+        CLEAR_CART(state) {
+            state.cart.length = 0;
+            sessionStorage.setItem("store", JSON.stringify(store.state))
         }
   },
   // methods
@@ -44,19 +63,25 @@ const store = new Vuex.Store({
   // 操作同步或異步事件的處理但不直接修改資料（state）
   // 是透過commit → 呼叫 mutation 改變 state
     actions: {
-        getProducts({ commit }) {
-            fetch('../php/loading_products.php')
-                .then(response => response.json())
-                .then(response => {
-                    response.forEach((pd, i) => {
-                        response[i].imgList = response[i].imgList.split(',');
-                    });
-                    commit('SET_PRODUCTS', response);
-                });    
-        },
+        // getProducts({ commit }) {
+        //     fetch('../php/loading_products.php')
+        //         .then(response => response.json())
+        //         .then(response => {
+        //             response.forEach((pd, i) => {
+        //                 response[i].imgList = response[i].imgList.split(',');
+        //             });
+        //             commit('SET_PRODUCTS', response);
+        //         });    
+        // },
         addProductToCart({ commit },product) { 
             commit("ADD_TO_CART", product);
-        }
+        },
+        deleteProductToCart({ commit },product) { 
+            commit("DELETE_TO_CART", product);
+        },
+        clearCart({ commit }) { 
+            commit("CLEAR_CART");
+        },
     }
 
 });
