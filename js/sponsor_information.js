@@ -1,9 +1,11 @@
 new Vue({
     el: '#sponsor_informationApp',
     data:{
+            fundNow: "",
             planName: "",
             planPrice: "",
             planMethod: "",
+            fundPeople: "",
             imgURL:'./images/Meteor/',
             planPic: "",
             cartTitle:[
@@ -175,6 +177,8 @@ new Vue({
                     planMethod: this.planMethod,
                     planName: this.planName,
                     planPrice: this.planPrice,
+                    fundNow: this.fundNow,
+                    fundPeople: this.fundPeople
                 })
             })
             sessionStorage.setItem('account', this.donor.email)
@@ -193,6 +197,14 @@ new Vue({
 
         let planPic = sessionStorage.getItem('planPic')
         this.planPic = planPic
+
+        let amount = sessionStorage.getItem('amount')
+        this.fundNow = amount
+
+        let people = sessionStorage.getItem('people')
+        this.fundPeople = people
+
+
     },
     updated() {
         $(".twzipcode1").twzipcode();
@@ -207,6 +219,12 @@ new Vue({
             let num = new Date();
             numValues = [num.getFullYear(), num.getMonth()+1, num.getDate(), num.getHours(), num.getMinutes()]
             this.donor.serialNum = numValues.join('')
+        },
+        getFundNow(){
+            return this.fundNow = Number(this.planPrice) + Number(this.fundNow)
+        },
+        getFundPeople(){
+            return this.fundPeople++
         }
     }
     })
