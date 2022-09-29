@@ -180,13 +180,13 @@ const circles = document.querySelectorAll(".circle");
     $('.currentPet').css('opacity','0');    
     $('.product1>.prd').click(function(e){
       $('.currentPet').css('opacity','1')
-      e.stopPropagation();
+      // e.stopPropagation();
     });
 // 第二部預設
 
-  $('.PetTag').css('opacity','0');
-    $('.tag').click(function(e){
-      $('.PetTag').css('opacity','1');
-     e.stopPropagation();
-    })
+  // $('.PetTag').css('opacity','0');
+  //   $('.tag').click(function(e){
+  //     $('.PetTag').css('opacity','1');
+  //    e.stopPropagation();
+  //   })
 });

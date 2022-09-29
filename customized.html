@@ -66,9 +66,8 @@
 
                     <div container-id="product-grid" class="product-grid">
                         <div class="product1" v-for="(collar,pid) in schemas" @click.stop="choosePet = pid ">
-                            <div class="prd"><img :src="schemas[currentPage].product_images[pid]" alt="">
+                            <div class="prd"><img :src="schemas[currentPage].product_images[pid]" alt=""></div>
                             <div class="price">{{schemas[currentPage].price[pid]}}</div>
-                        </div>
                         </div>
                     </div>
                 </div>
@@ -87,7 +86,7 @@
                         <div class="product1" v-for="(tags,id) in schemas" @click.stop="chooseTags = id " >
                             <div class="prd tag "><img :src="schemas[currentPage].product_images[id]" alt="">
                             <div class="price">{{schemas[currentPage].price[id]}}</div>
-                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>
