@@ -2,28 +2,26 @@
 <html lang="en">
 <head>
     @@include('./layout/head.html', {
-      "title" : "商品管理"
-  })
-
+        "title" : "新聞管理"
+    })
 </head>
 <body>
     <div class="wrapper">
       @@include('./layout/bak-head.html')
 
         <main class="bm">
-            <!-- 側邊欄位 -->
             <aside>
-              @@include('./layout/bak-aside.html')
+                @@include('./layout/bak-aside.html')
             </aside>
 
             <div class="right">
                 <!-- 標題 -->
-                <h2>商品管理</h2>
+                <h2>新聞管理</h2>
     
                 <div class="s1 s2">
                     <!-- 新增 -->
                     <form action="">
-                    <input onclick="location.href='./bak_product_page.html'" type="button" class="add" value="新增">
+                    <input onclick="location.href='./bak_news_add.html'" type="button" class="add" value="新增">
                     </form>
                     <!-- 搜尋 -->
                     <div class="search-wrapper">
@@ -36,24 +34,20 @@
                     <table class="tb">
                         <thead class="tbh">
                             <tr>
-                                <td>編號</td>
-                                <td>商品名稱</td>
-                                <td>成本</td>
-                                <td>售價</td>
-                                <td>庫存</td>
-                                <td>售出</td>
+                                <td>年分</td>
+                                <td>新聞標題</td>
+                                <td>分類</td>
+                                <td>日期</td>
                                 <td>操作</td>
                             </tr>
                         </thead>
     
                         <tbody id="tbb">
                             <!-- <tr>
-                                <td>GD001</td>
-                                <td>牽繩</td>
-                                <td>300</td>
-                                <td>600</td>
-                                <td>35</td>
-                                <td>20</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a>&nbsp&nbsp<a href="#">下架</a></td>
                             </tr> -->
                         </tbody>
@@ -61,14 +55,14 @@
                 </form>
             </div>
         </main>
-
     </div>
+    
 
     <script>
         const tbb = document.querySelector('tbody');
         const down = document.getElementsByClassName('down');
         const modify = document.getElementsByClassName('modify');
-        fetch("./php/bak_goods.php") //從後端JS拿到資料
+        fetch("./php/bak_news.php") //從後端JS拿到資料
         .then(rsp => rsp.json(
           console.log(rsp)
         ))
@@ -77,34 +71,32 @@
           for (let [i,user] of userArr.entries()) {
                   tbb.insertAdjacentHTML('beforeend', `
                       <tr>
-                          <td>${user.PDID}</td>
-                          <td>${user.PDNAME}</td>
-                          <td>${user.COST}</td>
-                          <td>${user.PRICE}</td>
-                          <td>${user.INVENTORY}</td>
-                          <td>${user.SALES}</td>
+                          <td>${user.year}</td>
+                          <td>${user.title}</td>
+                          <td>${user.category}</td>
+                          <td>${user.date}</td>
                           <td><span class= "modify"><i class="fa-regular fa-pen-to-square"></i></span> <input type="button" class="down" value="下架"></td>
                       </tr>
                   `);
 
                     down[i].addEventListener('click', () => {
-                        console.log(`${user.ID}`);
-                        // sessionStorage.setItem('QWE',`${user.ID}`)
+                        console.log(`${user.id}`);
+                        // sessionStorage.setItem('QWE',`${user.id}`)
                         // confirm ("確定是否下架?");
                         if(confirm ("確定是否下架?")){
-                            fetch(`./php/goods_down.php?home=${user.ID}`)
+                            fetch(`./php/news_down.php?home=${user.id}`)
                             window.location.reload()
                         }else{};
                     })
 
-                    modify[i].addEventListener('click', () => {
-                        console.log(`${user.PID}`);
-                        location = './bak_product_page.html'
-                        fetch(`./php/goods_modify.php?modify=${user.ID}`)
-                    })
+                    // modify[i].addEventListener('click', () => {
+                    //     console.log(`${user.PID}`);
+                    //     location = './bak_product_page.html'
+                    //     fetch(`./php/goods_modify.php?modify=${user.ID}`)
+                    // })
               }
         })
-    </script>
 
+    </script>
 </body>
 </html>

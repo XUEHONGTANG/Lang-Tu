@@ -20,32 +20,32 @@
                 <h2>浪浪新增</h2>
 
                 <!-- 新增資訊 -->
-                <form method="get" action="./php/bak_pet_add.php">
+                <form method="post" action="./php/bak_pet_add.php">
                     <div class="info">
                         <div class="name">
                             <span class="title">浪浪名稱</span>
-                            <input class="PNAME" name="name" type="text">
+                            <input class="PNAME" name="PNAME" type="text">
                         </div>
                         
                         <div class="type">
                             <span class="title">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp種類</span>
                             <select name="PTYPE" id="" class="pet">
-                                <option value="dog" class="dogadd">狗</option>
-                                <option value="cat"  class="catadd">貓</option>
+                                <option value="狗" class="dogadd">狗</option>
+                                <option value="貓"  class="catadd">貓</option>
                             </select>
 
                             <span class="title tt">類別</span>
                             <select name="PKIND" id="size" class="dog">
-                                <option value="large">大型犬</option>
-                                <option value="medium">中型犬</option>
-                                <option value="small">小型犬</option>
+                                <option value="大型犬">大型犬</option>
+                                <option value="中型犬">中型犬</option>
+                                <option value="小型犬">小型犬</option>
                             </select>
 
                             <select name="PKIND" id="color" class="cat">
-                                <option value="brown">棕色</option>
-                                <option value="sun">花色</option>
-                                <option value="black">黑色</option>
-                                <option value="white">白色</option>
+                                <option value="棕色">棕色</option>
+                                <option value="花色">花色</option>
+                                <option value="黑色">黑色</option>
+                                <option value="白色">白色</option>
                             </select>
                         </div>
 
@@ -57,39 +57,49 @@
 
                         <div class="gender">
                             <span class="title">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp性別</span>
-                            <input type="radio" name="PGENDER"><span class="g1">公&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-                            <input type="radio" name="PGENDER"><span class="g2">母</span>
+                            <select name="PGENDER" id="PGENDER" class="pgender">
+                                <option value="男生" class="pgender">男生</option>
+                                <option value="女生"  class="pgender">女生</option>
+                            </select>
                         </div>
 
                         <div class="date">
                             <span class="title">入園日期</span>
-                            <input type="date" name="PTIME">
+                            <input class="ptime" type="date" name="PTIME">
 
                             <span class="title">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp年齡</span>
-                            <input type="text">
+                            <input class="page" type="text" name="PAGE">
                         </div>
 
                         <div class="help">
                             <span class="title">救援經過</span>
-                            <textarea name="PHELP" id="" cols="62" rows="10"></textarea>
+                            <textarea class="phelp" name="PHELP" id="" cols="62" rows="10"></textarea>
                         </div>
 
                         <div class="vax">
                             <span class="title">施打疫苗</span>
-                            <input type="radio" name="PVAX"><span class="v1">已施打&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-                            <input type="radio" name="PVAX"><span class="v2">未施打</span>
+                            <select name="PVAX" id="PVAX" class="pvax">
+                                <option value="已施打" class="pgender">已施打</option>
+                                <option value="未施打"  class="pgender">未施打</option>
+                            </select>
                         </div>
 
                         <div class="fix">
                             <span class="title">是否結紮</span>
-                            <input type="radio" name="PFIX"><span class="f1">已結紮&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-                            <input type="radio" name="PFIX"><span class="f2">未結紮</span>
+                            <select name="PFIX" id="PFIX" class="pfix">
+                                <option value="已結紮" class="pfix">已結紮</option>
+                                <option value="未結紮"  class="pfix">未結紮</option>
+                            </select>
                         </div>
 
                         <div class="micor">
                             <span class="title">植入晶片</span>
-                            <input type="radio" name="PMICROCHIP"><span class="m1">已植入&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-                            <input type="radio" name="PMICROCHIP"><span class="m2">未植入</span>
+                            <select name="PMICROCHIP" id="PMICROCHIP" class="pmicrochip">
+                                <option value="已植入" class="pfix">已植入</option>
+                                <option value="未植入"  class="pfix">已植入</option>
+                            </select>
+                            <!-- <input type="radio" name="PMICROCHIP" value="已植入"><span class="m1">已植入&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                            <input type="radio" name="PMICROCHIP" value="未植入"><span class="m2">未植入</span> -->
                         </div>
 
                         <div class="send">
@@ -109,14 +119,71 @@
     <script>
 
         $(".pet").on("change", function () {
-            if ($(".pet").val() === "dog") {
+            if ($(".pet").val() === "狗") {
                 $("#size").toggle(".dog");
                 $("#color").toggle(".dog");
-            }else if ($(".pet").val() === "cat") {
+            }else if ($(".pet").val() === "貓") {
                 $("#size").toggle(".dog");
                 $("#color").toggle(".dog");
             }
         });
+
+
+        // modify[i].addEventListener('', () => {
+        //                 console.log(`${user.PID}`);
+        //                 // location = `./bak_pet_add.html?modify=${user.PID}`
+        //                 fetch(`./php/pet_modify.php`)
+        //                 .then(resp => resp.json())
+        //                 .then(resp => {
+        //                     PNAME.value = pet.PNAME;
+        //                     PTYPE.value = pet.PTYPE;
+        //                     PKIND.value = pet.PKIND;
+        //                     PGENDER.value = pet.PGENDER;
+        //                     PTIME.value = pet.PTIME;
+        //                     PAGE.value = pet.PAGE;
+        //                     PHELP.value = pet.PHELP;
+        //                     PVAX.value = pet.PVAX;
+        //                     PFIX.value = pet.PFIX;
+        //                     PMICROCHIP.value = pet.PMICROCHIP;
+        //                 });
+
+        //             })
+
+                    
+                        let getUrlString = location.href;
+                        let url = new URL(getUrlString);
+                        let modify = url.searchParams.get('modify');
+                        let pet = [];
+                        let pName = document.getElementsByClassName('PNAME')[0]
+                        let PTYPE = document.getElementsByClassName('pet')[0]
+                        let PKIND = document.getElementsByClassName('dog')[0]
+                        let PGENDER = document.getElementsByClassName('pgender')[0]
+                        let PTIME = document.getElementsByClassName('ptime')[0]
+                        let PAGE = document.getElementsByClassName('page')[0]
+                        let PHELP = document.getElementsByClassName('phelp')[0]
+                        let PVAX = document.getElementsByClassName('pvax')[0]
+                        let PFIX = document.getElementsByClassName('pfix')[0]
+                        let PMICROCHIP = document.getElementsByClassName('pmicrochip')[0]
+                        
+
+                            fetch(`./php/pet_modify.php?modify=`+modify, {
+                            method: "GET"
+                        })
+                        .then(resp => resp.json())
+                        .then(resp => {
+                            pet = resp;                          
+                            pName.value = pet[0].PNAME;
+                            PTYPE.value = pet[0].PTYPE;
+                            PKIND.value = pet[0].PKIND;
+                            PGENDER.value = pet[0].PGENDER;
+                            PTIME.value = pet[0].PTIME;
+                            PAGE.value = pet[0].PAGE;
+                            PHELP.value = pet[0].PHELP;
+                            PVAX.value = pet[0].PVAX;
+                            PFIX.value = pet[0].PFIX;
+                            PMICROCHIP.value = pet[0].PMICROCHIP;
+                        });
+            
 
 
         
