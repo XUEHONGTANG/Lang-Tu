@@ -1,15 +1,15 @@
 <?php
-
     include("./DB.php");
 
-
-   // $pdo->exec('');
+    // $pdo->exec('');
+   $home = $_GET['home'];
    $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
    //建立SQL
-   $sql = " SELECT * from products where STATE = 1 ";
+   $sql = " update pet set PSTATE = 0 WHERE PSTATE = 1 AND PID = :PID";
 
    $statement = $pdo->prepare($sql);
+   $statement -> bindValue(':PID', $home);
    $statement->execute();
 
     //抓出全部且依照順序封裝成一個二維陣列
@@ -19,6 +19,9 @@
     // } else{   //如果沒有撈到資料...
     //     $data["successful"] = false;
     // }
-    
+
     echo json_encode($data);
+
+
+
 ?>

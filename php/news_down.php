@@ -1,15 +1,15 @@
 <?php
-
     include("./DB.php");
 
-
-   // $pdo->exec('');
+    // $pdo->exec('');
+   $home = $_GET['home'];
    $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
    //建立SQL
-   $sql = " SELECT * from products where STATE = 1 ";
+   $sql = " update news set state = 0 WHERE state = 1 AND id = :id";
 
    $statement = $pdo->prepare($sql);
+   $statement -> bindValue(':id', $home);
    $statement->execute();
 
     //抓出全部且依照順序封裝成一個二維陣列
@@ -19,6 +19,9 @@
     // } else{   //如果沒有撈到資料...
     //     $data["successful"] = false;
     // }
-    
+
     echo json_encode($data);
+
+
+
 ?>

@@ -14,12 +14,13 @@
         <aside>
           @@include('./layout/bak-aside.html')
         </aside>
-        <div class="bakProductPageWrapper">
+        
+        <form method="post" action="./php/bak_product_page.php" class="bakProductPageWrapper">
           <div class="productImageArea">
             <div class="imgLarge">
               <h5>請放入商品圖片:</h5>
               <img src="">
-              <input type="file">
+              <input type="file" >
               <!-- <button class="btn-0 uploadImg">上傳圖片</button> -->
             </div>
             <ul class="imgSmall">
@@ -32,7 +33,7 @@
           </div>
           <div class="productInfo">
             <label class="bak-pd-info-name" for="bak-pd-info-name">
-              <input class="input-textLabel" type="text" placeholder="請輸入商品名稱" name="bak-pd-info-name">
+              <input class="input-textLabel" type="text" placeholder="請輸入商品名稱" name="PDNAME">
             </label>
     
             <ul class="changePageButton">
@@ -41,21 +42,22 @@
               <li >購物須知</li>
               <li >寄送方式</li>
             </ul>
-            <textarea placeholder="請輸入商品資訊"></textarea>
+            <textarea placeholder="請輸入商品資訊" name="INFO"></textarea>
             <span>
               <h5>金額 NT$</h5>
-              <input class="bak-pd-price" type="text">
+              <input class="bak-pd-price" type="text" name="PRICE">
             </span>
             <span>
               <h5>現有庫存</h5>
-              <input class="bak-pd-num" type="text">
+              <input class="bak-pd-num" type="text" name="INVENTORY">
             </span>
             <div>
               <div></div>
-              <button class="btn-0">儲存商品資訊</button>
+              <input type="submit" class="btn-0" value="儲存商品資訊">
+              <!-- <button class="btn-0">儲存商品資訊</button> -->
             </div>
           </div>
-        </div>
+        </form>
       </main>
 
     </div>
