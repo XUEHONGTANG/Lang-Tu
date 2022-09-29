@@ -8,243 +8,134 @@
 </head>
 
 <body>
-    @@include('./layout/nav.html')
+
+
 
     <main id="customizedApp" class="customized">
-        <!-- <transition name="fade" mode="out-in">
-            <article v-if="currentPage === 1" key="page1" class="custom_start">
-                <h3>今天想幫誰挑項圈呢？</h3>
-                <div class="custom_start-btn">
-                    <a href="" type="button" @click="currentPage = 2" class="btn-dog"><img
-                            src="./images/customized/custom-Dog.png" alt=""></a>
-                    <a href="" type="button" @click="currentPage = 2" class="btn-cat"><img
-                            src="./images/customized/custom-Cat.png" alt=""></a>
-                </div>
-            </article>
-        </transition> -->
-
-        <!-- <div>
-            <h3>{{schemas[currentPage].step}}</h3>
-            <h2>挑選皮帶</h2>
-
-        </div> -->
-
+        @@include('./layout/nav.html')
+        <article v-if="currentPage === 0" key="page1" class="custom_start">
+            <h3>今天想幫誰挑項圈呢？</h3>
+            <div class="custom_start-btn">
+                <button @click="next" class="startBtn"><img src="./images/customized/custom-Dog.png" alt=""></button>
+                <button @click="next" class="startBtn"><img src="./images/customized/custom-Cat.png" alt=""></button>
+            </div>
+        </article>
 
         <section class="cus_step">
-            <transition name="fade" mode="out-in">
-                <article class="custom_page">
-                    <!-- 背景狗狗 -->
-                    <picture class="big_dog"><img src="./images/customized/custom-dogb1.png" alt=""></picture>
-                    <custom_btn></custom_btn>
-                    <!-- progress -->
-                    <!-- <div class="progress-content">
-                        <div class="cus_step-select">
-                            <button id="prev-btn" class="custom_btn" @click="update" disabled><i
-                                    class="fa-solid fa-circle-arrow-left"></i>上一步</button>
-                            <button id="next-btn" class="custom_btn" @click="update">下一步<i
-                                    class="fa-solid fa-circle-arrow-right"></i></button>
+            <article class="custom_page">
+                <!-- 背景狗狗 -->
+                <picture class="big_dog" v-if="currentPage!=0 && currentPage!=3">
+                    <!-- <img :src="schemas[choosePet].chooscollar[0]"> -->
+                    <img class="PetTag" :src="schemas[currentPage].tags[chooseTags]" style="z-index:1">
+                    <img class="currentPet" :src="schemas[currentPage].chooscollar[choosePet]" style="z-index:0">
+                    <img class="presetPet":src="schemas[5].chooscollar[0]" style="z-index:-1">
+
+                </picture>
+
+                <!-- progress -->
+                <div class="progress-content " v-if="currentPage!=0 ">
+                    <!-- <div :class="[{ progress-content4: isActive }, progress-content]" v-if="currentPage!=0 "> -->
+                    <div class="cus_step-select">
+                        <button id="prev-btn" class="custom_btn" @click="prev">
+                            <i class="fa-solid fa-circle-arrow-left"></i>上一步</button>
+                        <button id="next-btn" class="custom_btn" @click="next">下一步<i
+                                class="fa-solid fa-circle-arrow-right"></i>
+                        </button>
+                    </div>
+                    <!-- progress-cont4 -->
+                    <div class="progress-cont progress-cont4">
+                        <div class="progress-container">
+                            <div class="progress" id="progress"></div>
+                            <div class="circle active">1</div>
+                            <div class="circle">2</div>
+                            <div class="circle">3</div>
+                            <div class="circle">4</div>
                         </div>
-                        <div class="progress-cont">
-                            <div class="progress-container">
-                                <div class="progress" id="progress"></div>
-                                <div class="circle active">1</div>
-                                <div class="circle">2</div>
-                                <div class="circle">3</div>
-                                <div class="circle">4</div>
-                            </div>
+                    </div>
+                </div>
+
+                <!-- proccess -->
+                <!-- <component is="customBtn" v-model="currentPage"></component> -->
+                </div>
+                <!-- 1 挑選皮帶 -->
+                <div class="cus_step2_content" v-if="currentPage === 1">
+                    <div class="cus_step_txt">
+                        <h3>{{schemas[currentPage].step}}</h3>
+                        <h2>{{schemas[currentPage].title}}</h2>
+                    </div>
+
+                    <div container-id="product-grid" class="product-grid">
+                        <div class="product1" v-for="(collar,pid) in schemas" @click.stop="choosePet = pid ">
+                            <div class="prd"><img :src="schemas[currentPage].product_images[pid]" alt="">
+                            <div class="price">{{schemas[currentPage].price[pid]}}</div>
                         </div>
-                    </div> -->
-                    <!-- 2 -->
-                    <div class="cus_step2_content" v-if="currentPage === 1" key="page2">
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- 2 挑選吊牌 -->
+
+                <div class="cus_step2_content" v-if="currentPage === 2">
+                    <div class="cus_step_txt">
+                        <h3>{{schemas[currentPage].step}}</h3>
+                        <h2>{{schemas[currentPage].title}}</h2>
+                    </div>
+
+                    <div container-id="product-grid" class="product-grid">
+                        <div class="product1" v-for="(tags,id) in schemas" @click.stop="chooseTags = id " >
+                            <div class="prd tag "><img :src="schemas[currentPage].product_images[id]" alt="">
+                            <div class="price">{{schemas[currentPage].price[id]}}</div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                    <!-- 3 吊牌刻字 -->
+                    
+                    <div class="cus_step2_content" v-if="currentPage === 3" >
                         <div class="cus_step_txt">
                             <h3>{{schemas[currentPage].step}}</h3>
                             <h2>{{schemas[currentPage].title}}</h2>
-                            <!-- <div class="cus_step-select">
-                                <button id="prev" class="custom_btn" @click="currentPage = 0" disabled><i
-                                        class="fa-solid fa-circle-arrow-left"></i>上一步</button>
-                                <button id="next" class="custom_btn" @click="currentPage = 2">下一步<i
-                                        class="fa-solid fa-circle-arrow-right"></i></button>
-                            </div>
-                            <div class="progress-cont">
-                                <div class="progress-container">
-                                    <div class="progress" id="progress"></div>
-                                    <div class="circle active">1</div>
-                                    <div class="circle">2</div>
-                                    <div class="circle">3</div>
-                                    <div class="circle">4</div>
-                                </div>
-                            </div> -->
-
                         </div>
-
-                        <div container-id="product-grid" class="product-grid">
-                            <div class="product1">
-                                <div class="prd"><img :src="schemas[currentPage].image[0]" alt=""></div>
-                                <div class="price">{{schemas[currentPage].price[0]}}</div>
-                            </div>
-
-                            <div class="product2">
-                                <div class="prd"><img :src="schemas[currentPage].image[1]" alt=""></div>
-                                <div class="price">{{schemas[currentPage].price[1]}}</div>
-                            </div>
-
-                            <div class="product3">
-                                <div class="prd"><img :src="schemas[currentPage].image[2]" alt=""></div>
-                                <div class="price">{{schemas[currentPage].price[2]}}</div>
-                            </div>
-
-                            <div class="product4">
-                                <div class="prd"><img :src="schemas[currentPage].image[3]" alt=""></div>
-                                <div class="price">{{schemas[currentPage].price[3]}}</div>
-                            </div>
-
-                            <div class="product5">
-                                <div class="prd"><img :src="schemas[currentPage].image[4]" alt=""></div>
-                                <div class="price">{{schemas[currentPage].price[4]}}</div>
-                            </div>
-
-                            <div class="product6">
-                                <div class="prd"><img :src="schemas[currentPage].image[5]" alt=""></div>
-                                <div class="price">{{schemas[currentPage].price[5]}}</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 3 -->
-
-                    <div class="cus_step2_content cus_step3_content" v-if="currentPage === 2" key="page3">
-                        <div class="cus_step_txt">
-                            <div class="cus_step_txt">
-                                <h3>{{schemas[currentPage].step}}</h3>
-                                <h2>{{schemas[currentPage].title}}</h2>
-<!-- 
-                                <div class="cus_step-select">
-                                    <button id="prev" class="custom_btn" @click="currentPage = 1" disabled><i
-                                            class="fa-solid fa-circle-arrow-left"></i>上一步</button>
-                                    <button id="next" class="custom_btn" @click="currentPage = 3">下一步<i
-                                            class="fa-solid fa-circle-arrow-right"></i></button>
-                                </div>
-                                <div class="progress-cont">
-                                    <div class="progress-container">
-                                        <div class="progress" id="progress"></div>
-                                        <div class="circle active">1</div>
-                                        <div class="circle">2</div>
-                                        <div class="circle">3</div>
-                                        <div class="circle">4</div>
-                                    </div>
-                                </div> -->
-
-                            </div>
-
-                            <div container-id="product-grid" class="product-grid">
-                                <div class="product1">
-                                    <div class="prd"><img :src="schemas[currentPage].image[0]" alt=""></div>
-                                    <div class="price">{{schemas[currentPage].price[0]}}</div>
-                                </div>
-
-                                <div class="product2">
-                                    <div class="prd"><img :src="schemas[currentPage].image[1]" alt=""></div>
-                                    <div class="price">{{schemas[currentPage].price[1]}}</div>
-                                </div>
-
-                                <div class="product3">
-                                    <div class="prd"><img :src="schemas[currentPage].image[2]" alt=""></div>
-                                    <div class="price">{{schemas[currentPage].price[2]}}</div>
-                                </div>
-
-                                <div class="product4">
-                                    <div class="prd"><img :src="schemas[currentPage].image[3]" alt=""></div>
-                                    <div class="price">{{schemas[currentPage].price[3]}}</div>
-                                </div>
-
-                                <div class="product5">
-                                    <div class="prd"><img :src="schemas[currentPage].image[4]" alt=""></div>
-                                    <div class="price">{{schemas[currentPage].price[4]}}</div>
-                                </div>
-
-                                <div class="product6">
-                                    <div class="prd"><img :src="schemas[currentPage].image[5]" alt=""></div>
-                                    <div class="price">{{schemas[currentPage].price[5]}}</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 4 -->
-                        <!-- 
-                    <div class="cus_step2_content cus_step4_content" v-if="currentPage === 4" key="page4">
-                        <div class="cus_step_txt">
-                            <h3>第四步</h3>
-                            <h2>吊牌刻字</h2>
                             
-                            <div class="cus_step-select">
-                                <button id="prev" class="custom_btn" @click="currentPage = 3" disabled><i
-                                        class="fa-solid fa-circle-arrow-left"></i>上一步</button>
-                                <button id="next" class="custom_btn" @click="currentPage = 5">下一步<i
-                                        class="fa-solid fa-circle-arrow-right"></i></button>
-                            </div>
-                            <div class="progress-cont">
-                                <div class="progress-container">
-                                    <div class="progress" id="progress"></div>
-                                    <div class="circle active">1</div>
-                                    <div class="circle">2</div>
-                                    <div class="circle">3</div>
-                                    <div class="circle">4</div>
-                                </div>
-                            </div>
-                        </div>
 
                         <div container-id="product-input" class="product-input">
-                            <form action method="post" v-model="message">
-                                <textarea name="" id="custom_cardText" placeholder="請輸入吊牌內容..."></textarea>
+                            <form action method="post" >
+                                <textarea name="" id="custom_cardText" placeholder="請輸入吊牌內容..." v-model="message"></textarea>
                             </form>
                         </div>
                         <div id="big_tag" class="big_dog big_tag">
                  
                             <div class="big_tag_select"> 
-                                <img class="choose-tag tag1" src="./images/customized/custom-tag1-big.png" alt=""  data-cardid="1"> 
+                                <img  src="" alt=""  > 
+                                <img class="choose-tag tag1" :src="schemas[currentPage].image[0]" alt="" data-cardid="1">
                             </div>
-                            <pre></pre>
-                        </div> -->
+                            <pre class="big_tag-model">
+                                <p>{{message}}</p>
+                            </pre>
+                        </div>
+                    </div>
 
-                        <!-- 5 -->
-                        <!-- <div class="cus_step2_content cus_step4_content" v-if="currentPage === 4" key="page4">
+
+                    <!-- 4 訂購完成 -->
+                    <div class="cus_step2_content cus_step4_content"  v-if="currentPage === 4"  key="page4">
                         <div class="cus_step_txt">
-                            <h3>第五步</h3>
-                            <h2>吊牌刻字</h2>
-                            
-                            <div class="cus_step-select">
-                                <button id="prev" class="custom_btn" @click="currentPage = 3" disabled><i
-                                        class="fa-solid fa-circle-arrow-left"></i>上一步</button>
-                                <button id="next" class="custom_btn" @click="currentPage = 5">下一步<i
-                                        class="fa-solid fa-circle-arrow-right"></i></button>
-                            </div>
-                            <div class="progress-cont">
-                                <div class="progress-container">
-                                    <div class="progress" id="progress"></div>
-                                    <div class="circle active">1</div>
-                                    <div class="circle">2</div>
-                                    <div class="circle">3</div>
-                                    <div class="circle">4</div>
-                                </div>
-                            </div>
+                            <h3>{{schemas[currentPage].step}}</h3>
+                            <h2>{{schemas[currentPage].title}}</h2>
+                        </div>
+                        
+                        <div class="cus_step4_btn">
+                            <button class="btn-1 step4_btn">回首頁</button>
+                            <button class="btn-0 step4_btn">查看歷史訂單</button>
                         </div>
 
-                        <div container-id="product-input" class="product-input">
-                            <form action method="post" v-model="message">
-                                <textarea name="" id="custom_cardText" placeholder="請輸入吊牌內容..."></textarea>
-                            </form>
-                        </div>
-                        <div id="big_tag" class="big_dog big_tag">
-                          
-
-                            <div class="big_tag_select"> 
-                                <img class="choose-tag tag1" src="./images/customized/custom-tag1-big.png" alt=""  data-cardid="1"> 
-                                <p></p>
-                            </div>                       </div>
-                         -->
-                        <!--  -->
-                </article>
-            </transition>
+                         
+                    </div>
+                    <!--  -->
+            </article>
         </section>
 
     </main>
