@@ -320,24 +320,13 @@ new Vue({
 
     //在頁面刷新時將vuex裏的信息保存到sessionStorage裏
     window.addEventListener("beforeunload", () => {
-      console.log("存vuex前的數據")
-      console.log(this.$store.state,JSON.parse(sessionStorage.getItem("store")))
-      
       sessionStorage.setItem("store", JSON.stringify(this.$store.state))
-
-      console.log("存vuex後的數據")
-      console.log(this.$store.state,JSON.parse(sessionStorage.getItem("store")))
     })
 
   // 在頁面加載時讀取sessionStorage裏的狀態信息
   if (sessionStorage.getItem("store")) {
-    console.log("讀取sessionstorage前的數據")
-    console.log(this.$store.state,JSON.parse(sessionStorage.getItem("store")))
-
     this.$store.replaceState(Object.assign({}, this.$store.state, JSON.parse(sessionStorage.getItem("store"))))
 
-    console.log("讀取sessionstorage後的數據")
-    console.log(this.$store.state,JSON.parse(sessionStorage.getItem("store")))
   }
 
 }
