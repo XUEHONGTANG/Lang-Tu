@@ -6,7 +6,7 @@ include("./DB.php");
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
 //建立SQL
-$sql = " INSERT INTO LangTu.donate(DDATE, DNAME, DPHONE, DEMAIL, DMETHODS, DAMOUNT, DAUDIT, DTYPE, DNATIONALITY, DIDNUMBER, DGENDER, DBIRTHDAY, DADDRESS, DRECEIPT, DTITLE, DCREDIT, DID, PLAN, fundNow, Amount) values (:date, :name, :phone, :email, :methods, :planPrice, :audit, :planMethod, :nationality, :idname, :gender, :birthday, :address, :receipt, :header, :public, :serialNum, :planName, :fundNow,  :fundPeople) ";
+$sql = " INSERT INTO LangTu.donate(DDATE, DNAME, DPHONE, DEMAIL, DMETHODS, DAMOUNT, DAUDIT, DTYPE, DNATIONALITY, DIDNUMBER, DGENDER, DBIRTHDAY, DADDRESS, DRECEIPT, DTITLE, DCREDIT, DID, PLAN) values (:date, :name, :phone, :email, :methods, :planPrice, :audit, :planMethod, :nationality, :idname, :gender, :birthday, :address, :receipt, :header, :public, :serialNum, :planName) ";
 
 
 $statement = $pdo->prepare($sql);
@@ -28,8 +28,6 @@ $statement->bindValue(":serialNum", $data["serialNum"]);
 $statement->bindValue(":planMethod", $data["planMethod"]);
 $statement->bindValue(":planName", $data["planName"]);
 $statement->bindValue(":planPrice", $data["planPrice"]);
-$statement->bindValue(":fundNow", $data["fundNow"]);
-$statement->bindValue(":fundPeople", $data["fundPeople"]);
 $statement->execute();
 
  //抓出全部且依照順序封裝成一個二維陣列
