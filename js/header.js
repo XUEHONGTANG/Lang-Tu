@@ -5,7 +5,6 @@ $(document).ready(function () {
 
   if (sessionStorage.account) {
     $('.nav_logout-text').fadeIn();
-    
   } else {
     $('.nav_logout-text').fadeOut();
   }
@@ -17,6 +16,15 @@ $(document).ready(function () {
     location.href="../dist/login_page.html"
   })
 
+  if(sessionStorage.account){
+    $('#nav_login').click(()=>{
+      window.location.href = "../dist/member_detail.html"
+    })
+  }else {
+    $('#nav_login').click(()=>{
+      window.location.href = "../dist/login_page.html"
+    })
+  }
 
   $('.top_nav_icon_menu-button').click(function () {
     $(this).toggleClass('active');
