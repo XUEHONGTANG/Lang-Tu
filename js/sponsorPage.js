@@ -33,7 +33,15 @@ new Vue({
             sessionStorage.setItem("planPic", val)
             sessionStorage.setItem('amount', this.sponsor[0].fundNow)
             sessionStorage.setItem('people', this.sponsor[0].Amount)
-        }
+        },
+        nextpet(){
+            if(sessionStorage.account){
+                sessionStorage.setItem("id",this.sponsor[0].id)
+                window.location.href = "./sponsor_information.html";
+            }else{
+                window.location.href = "./login_page.html";
+            }
+        },
     },
     mounted() {
         var getUrlString = location.href;
