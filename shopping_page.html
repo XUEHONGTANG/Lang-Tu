@@ -29,22 +29,22 @@
                   汪汪找伙食
                 </button>
               </li>
-              <li><button>汪汪用品</button></li>
+              <li><button @click="filterCondition ='pd-2',changeType()">汪汪用品</button></li>
             </ol>
           </li>
           <li>
             <button class="accordion" @click="toggle(1)">喵喵選物</button>
             <ol :class="olClass">
               <li>
-                <button @click="filterCondition ='pd-0',changeType()">
+                <button @click="filterCondition ='pd-3',changeType()">
                   喵喵找伙食
                 </button>
               </li>
-              <li><button>喵喵用品</button></li>
+              <li><button @click="filterCondition ='pd-4',changeType()">喵喵用品</button></li>
             </ol>
           </li>
           <li>
-            <button>浪浪周邊</button>
+            <button @click="filterCondition ='pd-0',changeType()">浪浪周邊</button>
           </li>
         </ul>
         <img
@@ -195,6 +195,7 @@ class="productPageDrop"
       </div>
 
       <!-- main content end -->
+     
     </main>
     <!-- </main> -->
     @@include('layout/footer.html')

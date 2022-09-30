@@ -207,10 +207,17 @@ main.shoppingPageWrapper {
     ul.productsContent {
       display: flex;
       flex-wrap: wrap;
+      // height: vw(1180);
+
+      // @include m(){
+      //   height: auto;
+      // }
+
       .pd-itembox {
         display: flex;
         flex-direction: column;
         width: vw(306);
+        // height: vw(480);
         background-color: #fffaf3;
         border-radius: $r25;
         margin: 0 $space2 $space5;
@@ -218,6 +225,7 @@ main.shoppingPageWrapper {
 
         @include m() {
           width: rwd(185);
+          
           border-radius: rwd(13);
           margin: rwd(12) rwd(6);
           &:hover {
@@ -304,7 +312,7 @@ main.shoppingPageWrapper {
       }
       li.previous,
       li.next {
-        font-size: vw(18);
+        font-size: font-size(18);
         color: $primaryDark;
         background-color: transparent;
         @include m() {
@@ -411,7 +419,6 @@ main.shoppingPageWrapper {
           .swiper-wrapper {
             height: vw(140);
             width: vw(140);
-
             .swiper-slide {
               display: -webkit-box;
               display: -ms-flexbox;
@@ -426,11 +433,15 @@ main.shoppingPageWrapper {
               -webkit-align-items: center;
               align-items: center;
 
+              border-radius:vw(8);
+            
+
               
               @include m() {
                 width: rwd(84);
                 height: rwd(84);
                 margin: 0 rwd(8);
+                border-radius:rwd(8);
               }
             }
             .swiper-slide img {
@@ -440,6 +451,11 @@ main.shoppingPageWrapper {
               margin: 0 auto;
               object-fit: cover;
               cursor: pointer;
+              border-radius:vw(5);
+            
+              @include m(){
+              border-radius:rwd(5);
+              }
 
               // @include m() {
               //   width: rwd(84);
@@ -488,12 +504,14 @@ main.shoppingPageWrapper {
       }
 
       .productInfo {
-        margin: $space4 $space4 $space4 $space2;
+        margin: $space4 $space4 0 $space2;
         //   border: 1px solid $gray500;
         height: vw(836);
         width: vw(552);
-        padding: $space4;
+        padding: 0 $space4;
         position: relative;
+        // display: flex;
+        // flex-direction: column;
 
         @include m() {
           height: auto;
@@ -502,8 +520,9 @@ main.shoppingPageWrapper {
           margin: rwd(16);
         }
 
-        h2 {
+        h3 {
           color: $primaryA11y;
+          margin: vw(8) 0;
           @include m() {
             font-size: rwd(24);
             text-align: center;
@@ -512,8 +531,8 @@ main.shoppingPageWrapper {
         }
         .pageClose::after {
           position: absolute;
-          top: 0;
-          right: 0;
+          top: vw(-12);
+          right: vw(-12);
           width: vw(40);
           height: vw(40);
           font-size: vw(40);
@@ -579,7 +598,7 @@ main.shoppingPageWrapper {
           }
         }
         .textArea {
-          height: vw(512);
+          height: vw(558);
           border: 1px solid $gray500;
           border-left: 0;
           border-right: 0;
@@ -758,5 +777,34 @@ main.shoppingPageWrapper {
     }
   }
 
+  .alertArea{
+    z-index: 55;
+    position: fixed;
+    right: vw(16);
+    bottom: vw(16);
+    background-color: $primaryA11y;
+    border-radius: vw(8);
+    padding: $space2 $space4;
+    box-shadow: $shadow;
+    font-size: font-size(16);
+
+    font-weight: $bold;
+    color: #fff;
+
+    transition: all .5s ease-in-out;
+    
+    @include box-center();
+    @include m(){
+    border-radius: rwd(8);
+    padding: rwd(16) rwd(32);
+    box-shadow: $shadow;
+    font-size: rwd(16);
+
+    right: rwd(10);
+    left: rwd(10);
+    bottom: rwd(16);
+    }
+
+  }
   // main content end
 }
