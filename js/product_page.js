@@ -93,6 +93,7 @@ const productPage = {
       selected: 1,
       currentSrc: 0,
       imgURL: "./images/ff/",
+      addAlert:null
     };
   },
   methods: {
@@ -101,7 +102,6 @@ const productPage = {
       product.isShow = !product.isShow;
     },
     addToCart(product) {
-
       // let { isShow, info, ...newProduct } = { ...product };
       let newProduct = {
         pdId: product.pdId,
@@ -109,19 +109,29 @@ const productPage = {
         image: product.imgList[0],
         price: product.price,
         inventory: product.inventory,
-        quantity: product.quantity
+        quantity: product.quantity,
       };
       // newProduct = { image: newProduct.imgList[0], ...newProduct };
       // delete newProduct.imgList;
 
       // console.log(newProduct);
- 
+
       this.$store.dispatch("addProductToCart", { ...newProduct });
+      this.putInCart();
     },
     limit(product) {
-      return product.quantity >= product.inventory ? product.quantity = product.inventory : product.quantity;
+      return product.quantity >= product.inventory
+        ? (product.quantity = product.inventory)
+        : product.quantity;
     },
+    putInCart() {
+      this.addAlert = true;
+      setTimeout(() => { return this.addAlert = false }, 3000);
+    }
   },
+  // computed: {
+    
+  // },
   mounted() {
     const swiper = new Swiper(".mySwiper", {
       slidesPerView: 4,
@@ -154,7 +164,11 @@ const productPage = {
   v-show="product.isShow"
   class="productPageDrop"
   @click="myToggleShow(product)">
-
+  <div class="alertArea"
+ 
+  v-if="addAlert"
+  >{{product.name}} {{product.quantity}} pcs 加入購物車</div>
+  
   <div
   @click.stop
   @touchend.stop.prevent="product.isShow = true"
@@ -181,23 +195,26 @@ const productPage = {
       </div>
 
       <div class="productInfo">
-        <h2>{{product.name}}</h2>
-        <div class="pageClose" @click="myToggleShow(product)"></div>
+      <div class="pageClose" @click="myToggleShow(product)"></div>
+        <h3>{{product.name}}</h3>
         <ul class="changePageButton">
           <li
             @click="content='productContent', selected = 1"
+            @touchend="content='productContent', selected = 1"
             :class="{'highlight':selected === 1}"
           >
             商品資訊
           </li>
           <li
             @click="content='shoppingInfo', selected = 2"
+            @touchend="content='shoppingInfo', selected = 2"
             :class="{'highlight':selected === 2}"
           >
             購物須知
           </li>
           <li
             @click="content='deliveryMethod', selected = 3"
+            @touchend="content='deliveryMethod', selected = 3"
             :class="{'highlight':selected === 3}"
           >
             寄送方式
@@ -211,13 +228,16 @@ const productPage = {
         <div>
           <div class="counter">
             <button class="btn-minus" @click="product.quantity <=1?1:product.quantity--"
+            @touchend="product.quantity <=1?1:product.quantity--"
             ></button>
             <input type="number" v-model.number="limit(product)" />
             <button class="btn-plus" @click="product.quantity >= product.inventory ? product.inventory:product.quantity++"
+            @touchend="product.quantity >= product.inventory ? product.inventory:product.quantity++"
             ></button>
           </div>
           <button 
           @click="addToCart(product)"
+          @touchend="addToCart(product)"
           class="btn-0 btn-shopping">
             <iconify-icon icon="eva:shopping-cart-fill"></iconify-icon>
             加入購物車

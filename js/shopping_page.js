@@ -99,7 +99,7 @@ new Vue({
     productInPage: [],
     imgURL: "./images/ff/",
     filterCondition: "pd-1",
-    searchCondition: ''
+    searchCondition: "",
   },
   components: {
     productPage,
@@ -182,7 +182,7 @@ new Vue({
       this.productType = this.products.filter((pd) => {
         return pd.pdId.includes(this.filterCondition);
       });
-      this.pages = Math.ceil(this.productType.length / 9);
+      this.pages = Math.ceil(this.productType.length / 6);
       this.currentPage = 1;
       this.reLoading();
     },
@@ -191,7 +191,7 @@ new Vue({
       this.productType = this.products.filter((pd) => {
         return pd.name.includes(this.searchCondition);
       });
-      this.pages = Math.ceil(this.productType.length / 9);
+      this.pages = Math.ceil(this.productType.length / 6);
       this.currentPage = 1;
       this.reLoading();
     },
@@ -210,8 +210,8 @@ new Vue({
     },
     reLoading() {
       this.productInPage = this.productType.slice(
-        (this.currentPage - 1) * 9,
-        this.currentPage * 9
+        (this.currentPage - 1) * 6,
+        this.currentPage * 6
       );
     },
   },
@@ -265,10 +265,10 @@ new Vue({
         this.productType = this.products.filter((pd) => {
           return pd.pdId.includes(this.filterCondition);
         });
-        this.pages = Math.ceil(this.productType.length / 9);
+        this.pages = Math.ceil(this.productType.length / 6);
         this.productInPage = this.productType.slice(
-          (this.currentPage - 1) * 9,
-          this.currentPage * 9
+          (this.currentPage - 1) * 6,
+          this.currentPage * 6
         );
       });
 
