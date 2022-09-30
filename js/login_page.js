@@ -75,7 +75,13 @@ new Vue({
             .then(body => {
                 if (body.successful){
                     alert("登入成功");
-                    location = '../dist/member_detail.html';
+                    let pid = sessionStorage.getItem('pid');
+                    let id = sessionStorage.getItem('id');
+                    if( sessionStorage.pid || sessionStorage.id){
+                      history.back()
+                    } else {
+                      location = '../dist/member_detail.html';
+                    }
                 }else{
                     alert("登入失敗");
                 }
