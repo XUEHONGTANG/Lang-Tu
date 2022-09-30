@@ -5,6 +5,7 @@ $(document).ready(function () {
 
   if (sessionStorage.account) {
     $('.nav_logout-text').fadeIn();
+    
   } else {
     $('.nav_logout-text').fadeOut();
   }
