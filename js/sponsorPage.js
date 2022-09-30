@@ -48,5 +48,7 @@ new Vue({
             fetch('../php/searchfundPeople.php')
             .then(resp => resp.json())
             .then(resp => this.fundPeople = resp)
+
+        sessionStorage.setItem("id", id)
     },
 })

@@ -1,19 +1,19 @@
 $(document).ready(function () {
 
   //判斷是否已登入
-  if (localStorage.account || sessionStorage.account) {
-    $('#nav_logOut').fadeIn();
+  // console.log(sessionStorage.account);
+
+  if (sessionStorage.account) {
+    $('.nav_logout-text').fadeIn();
   } else {
-    $('#nav_logOut').fadeOut();
+    $('.nav_logout-text').fadeOut();
   }
 
-  //登出
-  $('.nav_logOut').click(function () {
-    console.log('log out');
-    localStorage.removeItem('account');
+  // //登出
+  $('.nav_logout-text').click(function () {
     sessionStorage.removeItem('account');
-    $('.nav_logOut').fadeOut();
-
+    $('.nav_logout-text').fadeOut();
+    location.href="../dist/login_page.html"
   })
 
 

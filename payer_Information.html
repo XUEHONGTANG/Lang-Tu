@@ -5,6 +5,9 @@
     @@include('./layout/head.html', {
     "title" : "確認資料"
     })
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
 </head>
 
 <body>
@@ -23,6 +26,7 @@
             <div class="payer_information-top-title">
                 <h2>贊助人付款資料</h2>
             </div>
+            <form id="myForm">
             <div  class="payer_information-div1">
                 <div class="payer_information-h3">
                     <h3>贊助金額</h3>
@@ -84,9 +88,10 @@
                 </div>
             </div>
         </div>
+    </form>
         <div class="payer_information-btn">
             <a href="./sponsor_information.html"><button class="btn-1">上一頁</button></a>
-            <a href="./sponsor_success.html"><button class="btn-0">確認</button></a>
+            <a><button @click="send" class="btn-0">確認</button></a>
         </div>
     </main>
     </div>

@@ -6,6 +6,7 @@ new Vue({
             planPrice: "",
             planMethod: "",
             fundPeople: "",
+            id: "",
             imgURL:'./images/Meteor/',
             planPic: "",
             cartTitle:[
@@ -177,8 +178,21 @@ new Vue({
                     planMethod: this.planMethod,
                     planName: this.planName,
                     planPrice: this.planPrice,
+                })
+            })
+
+                let id = sessionStorage.getItem('id');
+                this.id = id;
+
+            fetch('../php/addfundingMoneyandPeople.php',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
                     fundNow: this.fundNow,
-                    fundPeople: this.fundPeople
+                    fundPeople: this.fundPeople,
+                    id: this.id,
                 })
             })
             sessionStorage.setItem('account', this.donor.email)
