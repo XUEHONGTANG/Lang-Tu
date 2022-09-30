@@ -12,7 +12,7 @@ const circles = document.querySelectorAll(".circle");
       content: 'customBtn',
       message:"",
       choosePet:  0,
-      chooseTags: 0,
+      chooseTags: -1,
       schemas: [
         {
           title: "今天想幫誰挑項圈呢？",

@@ -1,9 +1,9 @@
 <?php
    //MySQL相關資訊
    // local_host
-   $db_host = "192.168.0.220";
+   $db_host = "192.168.0.185";
    $db_user = "Meteor";
-   $db_pass = "liyuan0142";
+   $db_pass = "password";
    $db_select = "LangTu";
 
    // other_host
