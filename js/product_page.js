@@ -1,5 +1,5 @@
 let productContent = {
-  props: ['pdInfo'],
+  props: ["pdInfo"],
 
   template: `
       <div class="textArea" v-html="pdInfo">
@@ -77,58 +77,75 @@ const deliveryMethod = {
       `,
 };
 
-
 const productPage = {
-  props: ['product', 'toggleShow'],
+  props: ["product", "toggleShow"],
   components: {
     productContent,
     shoppingInfo,
-    deliveryMethod
+    deliveryMethod,
     // productContent: productContent,
     // shoppingInfo: shoppingInfo,
     // deliveryMethod: deliveryMethod
   },
   data() {
     return {
-      content: 'productContent',
+      content: "productContent",
       selected: 1,
       currentSrc: 0,
-      imgURL: './images/ff/',
-    }
+      imgURL: "./images/ff/",
+    };
   },
   methods: {
     myToggleShow(product) {
       this.currentSrc = 0;
       product.isShow = !product.isShow;
     },
-    addToCart() {
-      this.$store.dispatch("addProductToCart", this.product);
-    }
+    addToCart(product) {
+
+      // let { isShow, info, ...newProduct } = { ...product };
+      let newProduct = {
+        pdId: product.pdId,
+        name: product.name,
+        image: product.imgList[0],
+        price: product.price,
+        inventory: product.inventory,
+        quantity: product.quantity
+      };
+      // newProduct = { image: newProduct.imgList[0], ...newProduct };
+      // delete newProduct.imgList;
+
+      // console.log(newProduct);
+ 
+      this.$store.dispatch("addProductToCart", { ...newProduct });
+    },
+    limit(product) {
+      return product.quantity >= product.inventory ? product.quantity = product.inventory : product.quantity;
+    },
   },
   mounted() {
-    const swiper = new Swiper('.mySwiper', {
+    const swiper = new Swiper(".mySwiper", {
       slidesPerView: 4,
       spaceBetween: 16,
       slidesPerGroup: 4,
       loop: false,
       loopFillGroupWithBlank: false,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
+      // pagination: {
+      //   el: ".swiper-pagination",
+      //   clickable: true,
+      // },
     });
   },
   updated() {
-    const swiper = new Swiper('.mySwiper', {
+    const swiper = new Swiper(".mySwiper", {
       slidesPerView: 4,
       spaceBetween: 16,
       slidesPerGroup: 4,
       loop: false,
       loopFillGroupWithBlank: false,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
+      // pagination: {
+      //   el: ".swiper-pagination",
+      //   clickable: true,
+      // },
     });
   },
 
@@ -195,12 +212,12 @@ const productPage = {
           <div class="counter">
             <button class="btn-minus" @click="product.quantity <=1?1:product.quantity--"
             ></button>
-            <input type="number" v-model.number="product.quantity" />
-            <button class="btn-plus" @click="product.quantity++"
+            <input type="number" v-model.number="limit(product)" />
+            <button class="btn-plus" @click="product.quantity >= product.inventory ? product.inventory:product.quantity++"
             ></button>
           </div>
           <button 
-          @click="addToCart"
+          @click="addToCart(product)"
           class="btn-0 btn-shopping">
             <iconify-icon icon="eva:shopping-cart-fill"></iconify-icon>
             加入購物車
@@ -217,3 +234,4 @@ const productPage = {
 };
 export default productPage;
 
+// product.quantity >= product.inventory ? product.inventory :product.quantity

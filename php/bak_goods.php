@@ -7,7 +7,7 @@
    $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
    //建立SQL
-   $sql = " SELECT * from goods ";
+   $sql = " SELECT * from products where STATE = 1 ";
 
    $statement = $pdo->prepare($sql);
    $statement->execute();
