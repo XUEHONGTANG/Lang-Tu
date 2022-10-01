@@ -41,7 +41,6 @@
                                 <td>付款方式</td>
                                 <td>訂單狀態</td>
                                 <td>總金額</td>
-                                <td>明細</td>
                             </tr>
                         </thead>
     
@@ -94,13 +93,12 @@
                     tbb.insertAdjacentHTML('beforeend', `
                         <tr>
                             <td>${user.ID}</td>
-                            <td>${user.ODATE}</td>
-                            <td>${user.OBUYER}</td>
-                            <td>${user.OPAYMENT}</td>
+                            <td>${user.ODATETIME}</td>
+                            <td>${user.OCONSIGNEE}</td>
                             <td>${user.OMETHOD}</td>
+                            <td>${user.OPAYMENT}</td>
                             <td>${user.OSTATUS}</td>
                             <td>${user.OTOTAL}</td>
-                            <td><i class="fa-solid fa-chevron-right"></i></td>
                         </tr>
                     `);
                 }

@@ -21,7 +21,7 @@
                 <div class="info">
                     <div class="name">
                         <span class="title">新聞標題</span>
-                        <input class="PNAME" name="title" type="text">
+                        <input class="title" name="title" type="text">
                     </div>
                     
                     <div class="type">
@@ -59,6 +59,23 @@
         </div>
       </main>
     </div>
+
+    <script>
+        let getUrlString = location.href;
+        let url = new URL(getUrlString);
+        let modify = url.searchParams.get('modify');
+        let news = [];
+        let title = document.getElementsByClassName('title')[0]
+
+        fetch(`./php/news_modify.php?modify=`+modify, {
+            method: "GET"
+        })
+        .then(resp => resp.json())
+        .then(resp => {
+            news = resp;
+            title.value = news[0].title;
+        })
+    </script>
     
 </body>
 </html>
