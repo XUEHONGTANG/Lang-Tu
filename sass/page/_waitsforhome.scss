@@ -9,13 +9,13 @@
         width: vw(290);
         margin-bottom: vw(40);
         z-index: 20;
-
+        font-weight: $bold;
         button {
+            font-weight: $bold;
             width: vw(290);
             // height: vw(60);
             text-align: start;
             font-size: $h4;
-            font-weight: $medium;
             padding: vw(12) vw(32);
             border: none;
             cursor: pointer;
@@ -24,6 +24,7 @@
                 width: rwd(120);
                 font-size: rwd(24);
                 height: rwd(50);
+                margin-bottom: rwd(24);
             }
 
             &::after {
@@ -242,7 +243,9 @@
         ul.pages {
             display: flex;
             justify-content: center;
-            margin: rwd(16) 0;
+            @include m() {
+                margin: rwd(32) 0;
+            }
             li {
                 text-align: center;
                 line-height: vw(40);
@@ -257,11 +260,11 @@
                     line-height: rwd(32);
                     width: rwd(32);
                     height: rwd(32);
-                    margin: 0 rwd(8);
+                    margin: 0 rwd(4);
                     font-size: rwd(18);
                 }
             }
-            .ballstyle{
+            .li.currentPage{
                 color: $secondaryLight;
                 background-color: $primaryA11y;
                 border-radius: 50%;
@@ -273,7 +276,7 @@
                 color: $primaryDark;
                 background-color: transparent;
                 @include m() {
-                    font-size: rwd(24);
+                    font-size: rwd(18);
                 }
             }
         }
