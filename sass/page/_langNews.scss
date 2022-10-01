@@ -20,6 +20,9 @@
         display: flex;
         justify-content: center;
         padding-bottom: 4vw;
+        @include m() {
+            font-size:rwd(16);
+        }
     }
 
     .filter {
@@ -56,7 +59,7 @@
     grid-row-gap: 2.3vw;
     @include m() {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(7, 1fr);
+        // grid-template-rows: repeat(7, 1fr);
     }
 }
 .NewsGrid3n {
@@ -96,6 +99,9 @@
         // height: 17vw;
         height: 17vw;
         width: auto;
+        @include m() {
+            height: rwd(200);
+        }
     }
     img {
         width: 100%;
@@ -145,12 +151,19 @@
 .langNews-content {
     p {
         color: #434343;
+        @include m() {
+            font-size: rwd(16);
+            
+        }
     }
     strong {
         font-weight: $bold;
         margin-bottom: 0.5vw;
         line-height: 1.8;
-
+        @include m() {
+            font-size: rwd(16);
+            
+        }
     }
     h4 {
         color: $primaryDark;
@@ -158,6 +171,9 @@
         margin-left: 2vw;
         margin-top: 20px;
         position: relative;
+        @include m() {
+            font-size: rwd(20);
+        }
         &::before {
             content: "";
             background-image: url("../images/ff/material01.png");
@@ -179,15 +195,34 @@
         line-height: 1.6;
         padding: 3vw;
     }
+    h2{
+        @include m() {
+            font-size: rwd(20);
+        }
+    }
+    h3{
+        @include m() {
+            font-size: rwd(16);
+        }
+    }
+    
 
     &_date {
         text-align: center;
         color: $primaryA11y;
+        @include m() {
+            font-size: rwd(18);
+        }
     }
     &_title {
         color: $primaryA11y;
         padding-top: 1vw;
         text-align: center;
+        h4{
+            @include m() {
+                font-size: rwd(22);
+            }
+        }
     }
 
     &_cover {
@@ -210,11 +245,17 @@
         .favorites {
             display: flex;
             gap: 1vw;
+            @include m() {
+                font-size: rwd(20);
+            }
         }
 
         .artical_share {
             display: flex;
             gap: 1vw;
+            @include m() {
+                font-size: rwd(20);
+            }
         }
     }
 
