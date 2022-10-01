@@ -36,7 +36,6 @@ new Vue({
         },
         nextpet(){
             if(sessionStorage.account){
-                sessionStorage.setItem("id",this.sponsor[0].id)
                 window.location.href = "./sponsor_information.html";
             }else{
                 window.location.href = "./login_page.html";
