@@ -1,8 +1,8 @@
 <?php
    //MySQL相關資訊
    // local_host
-   $db_host = "127.0.0.1";
-   $db_user = "root";
+   $db_host = "192.168.0.185";
+   $db_user = "Meteor";
    $db_pass = "password";
    $db_select = "LangTu";
 
