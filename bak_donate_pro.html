@@ -99,6 +99,11 @@
                             window.location.reload()
                         }else{};
                     })
+
+                    modify[i].addEventListener('click', () => {
+                        console.log(`${user.ID}`);
+                        location = `./bak_donate_add.html?modify=${user.ID}`
+                    })
                 }
           })
     </script>
