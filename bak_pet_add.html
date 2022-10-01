@@ -128,67 +128,41 @@
             }
         });
 
-
-        // modify[i].addEventListener('', () => {
-        //                 console.log(`${user.PID}`);
-        //                 // location = `./bak_pet_add.html?modify=${user.PID}`
-        //                 fetch(`./php/pet_modify.php`)
-        //                 .then(resp => resp.json())
-        //                 .then(resp => {
-        //                     PNAME.value = pet.PNAME;
-        //                     PTYPE.value = pet.PTYPE;
-        //                     PKIND.value = pet.PKIND;
-        //                     PGENDER.value = pet.PGENDER;
-        //                     PTIME.value = pet.PTIME;
-        //                     PAGE.value = pet.PAGE;
-        //                     PHELP.value = pet.PHELP;
-        //                     PVAX.value = pet.PVAX;
-        //                     PFIX.value = pet.PFIX;
-        //                     PMICROCHIP.value = pet.PMICROCHIP;
-        //                 });
-
-        //             })
-
                     
-                        let getUrlString = location.href;
-                        let url = new URL(getUrlString);
-                        let modify = url.searchParams.get('modify');
-                        let pet = [];
-                        let pName = document.getElementsByClassName('PNAME')[0]
-                        let PTYPE = document.getElementsByClassName('pet')[0]
-                        let PKIND = document.getElementsByClassName('dog')[0]
-                        let PGENDER = document.getElementsByClassName('pgender')[0]
-                        let PTIME = document.getElementsByClassName('ptime')[0]
-                        let PAGE = document.getElementsByClassName('page')[0]
-                        let PHELP = document.getElementsByClassName('phelp')[0]
-                        let PVAX = document.getElementsByClassName('pvax')[0]
-                        let PFIX = document.getElementsByClassName('pfix')[0]
-                        let PMICROCHIP = document.getElementsByClassName('pmicrochip')[0]
-                        
-
-                            fetch(`./php/pet_modify.php?modify=`+modify, {
-                            method: "GET"
-                        })
-                        .then(resp => resp.json())
-                        .then(resp => {
-                            pet = resp;                          
-                            pName.value = pet[0].PNAME;
-                            PTYPE.value = pet[0].PTYPE;
-                            PKIND.value = pet[0].PKIND;
-                            PGENDER.value = pet[0].PGENDER;
-                            PTIME.value = pet[0].PTIME;
-                            PAGE.value = pet[0].PAGE;
-                            PHELP.value = pet[0].PHELP;
-                            PVAX.value = pet[0].PVAX;
-                            PFIX.value = pet[0].PFIX;
-                            PMICROCHIP.value = pet[0].PMICROCHIP;
-                        });
-            
-
-
-        
+        let getUrlString = location.href;
+        let url = new URL(getUrlString);
+        let modify = url.searchParams.get('modify');
+        let pet = [];
+        let pName = document.getElementsByClassName('PNAME')[0]
+        let PTYPE = document.getElementsByClassName('pet')[0]
+        let PKIND = document.getElementsByClassName('dog')[0]
+        let PGENDER = document.getElementsByClassName('pgender')[0]
+        let PTIME = document.getElementsByClassName('ptime')[0]
+        let PAGE = document.getElementsByClassName('page')[0]
+        let PHELP = document.getElementsByClassName('phelp')[0]
+        let PVAX = document.getElementsByClassName('pvax')[0]
+        let PFIX = document.getElementsByClassName('pfix')[0]
+        let PMICROCHIP = document.getElementsByClassName('pmicrochip')[0]
         
 
+        fetch(`./php/pet_modify.php?modify=`+modify, {
+            method: "GET"
+        })
+        .then(resp => resp.json())
+        .then(resp => {
+            pet = resp;                          
+            pName.value = pet[0].PNAME;
+            PTYPE.value = pet[0].PTYPE;
+            PKIND.value = pet[0].PKIND;
+            PGENDER.value = pet[0].PGENDER;
+            PTIME.value = pet[0].PTIME;
+            PAGE.value = pet[0].PAGE;
+            PHELP.value = pet[0].PHELP;
+            PVAX.value = pet[0].PVAX;
+            PFIX.value = pet[0].PFIX;
+            PMICROCHIP.value = pet[0].PMICROCHIP;
+        });
+        
     </script>
 
 
