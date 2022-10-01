@@ -154,7 +154,7 @@
         width: vw(210);
         position: absolute;
         left: vw(1100);
-        top: vw(800);
+        top: vw(850);
         @include m() {
             display: none;
         }
@@ -378,9 +378,10 @@
             height: rwd(1000);
         }
         .smallHome {
+            z-index: 1;
             position: absolute;
             left: vw(750);
-            top: vw(3240);
+            top: vw(3200);
             @include m(){
                 top: rwd(3070);
                 left: rwd(50);

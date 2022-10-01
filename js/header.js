@@ -4,17 +4,27 @@ $(document).ready(function () {
   // console.log(sessionStorage.account);
 
   if (sessionStorage.account) {
-    $('.nav_logout-text').fadeIn();
+    $('.nav_logout-text').show();
   } else {
-    $('.nav_logout-text').fadeOut();
+    $('.nav_logout-text').hide();
   }
 
   // //登出
   $('.nav_logout-text').click(function () {
     sessionStorage.removeItem('account');
-    $('.nav_logout-text').fadeOut();
+    $('.nav_logout-text').hide();
     location.href="../dist/login_page.html"
   })
+
+  if(sessionStorage.account){
+    $('#icon_login').click(()=>{
+      window.location.href = "../dist/member_detail.html"
+    })
+  }else {
+    $('#icon_login').click(()=>{
+      window.location.href = "../dist/login_page.html"
+    })
+  }
 
   if(sessionStorage.account){
     $('#nav_login').click(()=>{
@@ -22,6 +32,16 @@ $(document).ready(function () {
     })
   }else {
     $('#nav_login').click(()=>{
+      window.location.href = "../dist/login_page.html"
+    })
+  }
+
+  if(sessionStorage.account){
+    $('#footer_login').click(()=>{
+      window.location.href = "../dist/member_detail.html"
+    })
+  }else {
+    $('#footer_login').click(()=>{
       window.location.href = "../dist/login_page.html"
     })
   }
