@@ -1,12 +1,10 @@
 .order_detail{
     width: vw(840);
-    height: vw(1050);
     background-color: #fff;
     border-radius: $r25;
     padding: vw(50);
     @include m(){
         width: rwd(394);
-        height: rwd(800);
         margin: rwd(40) auto 0;
         border-radius: rwd(25);
         padding: rwd(4);
@@ -54,6 +52,9 @@
                         width: rwd(90);
                         padding: rwd(16) 0;
                     }
+                }
+                .pd{
+                    width: 70%;
                 }
             }
         }

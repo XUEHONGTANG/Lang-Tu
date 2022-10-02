@@ -161,22 +161,19 @@ Vue.component('order', {
     data() {
         return {
             order: [],
-            imgURL:'./images/Derrick/',
-            orderDetail: [],
+            imgURL:'./images/ff/',
             account: "", 
+            isShow: false,
         }
     },
     methods: {
-        total(){
-            let total = 0;
-            for(let i = 0; i < this.order.length; i++){
-                total += this.order[i].price * this.order[i].quantity
+        show(){
+            if(this.isShow == false){
+                this.isShow = true
+            }else if(this.isShow == true){
+                this.isShow = false
             }
-            return total;
-        },
-    },
-    computed:{
-        
+        }
     },
     template: `
         <div class="order_detail">
@@ -191,16 +188,17 @@ Vue.component('order', {
                             <th></th>
                     </thead>
                     <tbody>
-                        <tr v-for='info in order'>
+                        <tr v-for='(info, i) in order'>
                             <td>OD00{{info.id}}</td>
                             <td>{{info.date}}</td>
-                            <td>{{info.method}}</td>
+                            <td>{{info.payment}}</td>
                             <td>{{info.total}}</td>
                             <td>{{info.situation}}</td>
-                            <td><i class="fa-solid fa-plus"></i></td>
+                            <td @click="show"><i class="fa-solid fa-plus"></i></td>
                         </tr>
                     </tbody>
                 </table>
+                <div v-if="isShow">
                 <h3 class="detail-title">訂單明細</h3>
                 <table>
                     <thead>
@@ -211,12 +209,12 @@ Vue.component('order', {
                         <th>小計</th>
                     </thead>
                     <tbody>
-                        <tr v-for='info in order'>
-                            <td><img :src="imgURL+info.image" alt=""></td>
-                            <td>{{info.name}}</td>
-                            <td>{{info.price}}</td>
-                            <td>{{info.quantity}}</td>
-                            <td>{{info.price * info.quantity}}</td>
+                        <tr v-for='(info, i) in order'>
+                            <td><img class="pd" :src="imgURL+info.list[i].image" alt=""></td>
+                            <td>{{info.list[i].name}}</td>
+                            <td>{{info.list[i].price}}</td>
+                            <td>{{info.list[i].quantity}}</td>
+                            <td>{{info.list[i].price * info.list[i].quantity}}</td>
                         </tr>
                     </tbody>
                     <tfoot>
@@ -225,10 +223,11 @@ Vue.component('order', {
                             <td></td>
                             <td>合計:</td>
                             <td></td>
-                            <td>{{total()}}</td>
+                            <td>{{order[0].total}}</td>
                         </tr>
                     </tfoot>
                 </table>
+                </div>
             </div>
     `,
     mounted() {
@@ -245,7 +244,11 @@ Vue.component('order', {
             })
         })
         .then(resp => resp.json())
-        .then(resp => this.order = resp);
+        .then(resp => {
+            resp.forEach((pd)=>{
+                pd.list = JSON.parse(pd.list);
+            });
+            this.order = resp})
     },
 })
 

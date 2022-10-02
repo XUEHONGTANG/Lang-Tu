@@ -1,12 +1,10 @@
 .member_reservation{
     width: vw(840);
-    height: vw(500);
     background-color: #fff;
     border-radius: $r25;
     padding: vw(50);
     @include m(){
         width: rwd(394);
-        height: rwd(350);
         margin: rwd(40) auto 0;
         border-radius: rwd(25);
     }
