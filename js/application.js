@@ -35,6 +35,7 @@ new Vue({
             situation: '已預約',
             pid: 1,
             petpid: "",
+
     },
     mounted() {
         let petpid = sessionStorage.getItem("pid")

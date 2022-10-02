@@ -65,6 +65,14 @@
 
     .gender{
         padding-bottom: vw(32);
+        select{
+            width: vw(168);
+            height: vw(40);
+            border: none;
+            border: 1px solid $primaryDefault;
+            border-radius: vw(5);
+            // display: none;
+        }
 
         span{
             font-size: vw(24);
@@ -95,6 +103,14 @@
 
     .vax{
         padding-bottom: vw(32);
+        select{
+            width: vw(168);
+            height: vw(40);
+            border: none;
+            border: 1px solid $primaryDefault;
+            border-radius: vw(5);
+            // display: none;
+        }
 
         span{
             font-size: vw(24);
@@ -103,6 +119,14 @@
 
     .fix{
         padding-bottom: vw(32);
+        select{
+            width: vw(168);
+            height: vw(40);
+            border: none;
+            border: 1px solid $primaryDefault;
+            border-radius: vw(5);
+            // display: none;
+        }
 
         span{
             font-size: vw(24);
@@ -111,6 +135,14 @@
 
     .micor{
         padding-bottom: vw(32);
+        select{
+            width: vw(168);
+            height: vw(40);
+            border: none;
+            border: 1px solid $primaryDefault;
+            border-radius: vw(5);
+            // display: none;
+        }
 
         span{
             font-size: vw(24);

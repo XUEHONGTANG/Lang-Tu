@@ -28,7 +28,7 @@
             color: $primaryA11y;
             font-weight: $bold;
             @include m(){
-                font-size: rwd(12);
+                font-size: rwd(20);
                 margin: rwd(16) 0;
             }
         }
@@ -36,15 +36,15 @@
             text-align: right;
             font-weight: $bold;
             @include m(){
-                font-size: rwd(12);
+                font-size: rwd(16);
             }
         }
         p{
-            font-size: font-size(14);
+            font-size: font-size(1);
             margin-bottom: vw(10);
             font-weight: $bold;
             @include m(){
-                font-size: rwd(12);
+                font-size: rwd(16);
                 margin: rwd(16) 0;
             }
         }
@@ -53,10 +53,16 @@
             color: $gray700;
             font-size: vw(8);
             margin-bottom: 0;
+            @include m(){
+                font-size: rwd(14);
+            }
         }
         .target{
             text-align: right;
             font-size: vw(20);
+            @include m(){
+                font-size: rwd(14);
+            }
         }
         .sponsored_page-top-border-div{
             height: 10px;
@@ -97,7 +103,7 @@
                 margin-right: vw(20);
                 line-height: vw(35);
                 @include m(){
-                    font-size: rwd(12);
+                    font-size: rwd(16);
                     line-height: rwd(43);
                 }
             }
@@ -119,7 +125,7 @@
                 margin-top: vw(50);
                 font-weight: $bold;
                 @include m(){
-                    font-size: rwd(12);
+                    font-size: rwd(18);
                 }
             }
             p{
@@ -127,7 +133,7 @@
                 margin: vw(20) 0;
                 line-height: 2;
                 @include m(){
-                    font-size: rwd(12);
+                    font-size: rwd(16);
                 }
             }
             img{
