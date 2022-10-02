@@ -80,16 +80,15 @@ new Vue({
                     if( sessionStorage.pid || sessionStorage.id){
                       history.back()
                     } else {
+                      sessionStorage.setItem("account",this.loginForm.account)
                       location = '../dist/member_detail.html';
                     }
                 }else{
                     alert("登入失敗");
                 }
             });
-
       // alert("登入成功");
       // window.location.href = "./member_detail.html";
-      sessionStorage.setItem("account",this.loginForm.account)
     },
     userRegister() {
       
