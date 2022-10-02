@@ -24,26 +24,40 @@ import store from './store.js';
 //   `,
 // };
 const alertLoginArea = {
-  // props: ['alertLogin'],
-  // data() {
-  //   return {
-  //     alertLogin: null
-  //   };
-  // },
   template: `
   <transition>
-    <div class="alertLogin"
+    <div class="alertText"
     >請先登入會員</div>
   </transition>
   `,
 }
 
+const alertEmptyArea = {
+  template: `
+  <transition>
+    <div class="alertText"
+    >購物車內沒有商品</div>
+  </transition>
+  `,
+}
+
+// const alertRemoveArea = {
+//   props:['product'],
+//   template: `
+//   <transition>
+//     <div class="alertText"
+//     >{{product.name}} {{product.quantity}} pcs 移出購物車</div>
+//   </transition>
+//   `,
+// }
+
 new Vue({
   store,
   el: "#shoppingCartApp",
   components: {
-    // alertArea
-    alertLoginArea
+    // alertRemoveArea,
+    alertLoginArea,
+    alertEmptyArea
   },
   data: {
     // counter: 1,
@@ -51,8 +65,9 @@ new Vue({
     currentPage: 1,
     changeAddressIsActive: false,
     imgURL: './images/ff/',
-    alertLogin:null,
-    // addAlert:null,
+    alertLogin: null,
+    alertEmpty:null,
+    // alertRemove:null,
     cartTitle: [
       { id: 1, name: "購物車" },
       { id: 2, name: "結帳頁面" },
@@ -149,7 +164,10 @@ methods: {
     changeAddress() {
       this.changeAddressIsActive = !this.changeAddressIsActive;
     },
-    deleteProduct(product) {
+  deleteProduct(product) {
+      
+    // this.alertRemove = true;
+    // setTimeout(() => { return this.alertRemove = false }, 3000);
       // console.log(product);
       
       // this.deleteInCartAlert();
@@ -162,7 +180,11 @@ methods: {
   //   },
   checkout() {
     if(sessionStorage.getItem('account')){
-      // sessionStorage.setItem("id",this.sponsor[0].id)
+      if (this.$store.state.cart.length === 0) {
+        this.alertEmpty = true;
+        setTimeout(() => { return this.alertEmpty = false }, 3000);
+        return false;
+      }
       this.currentPage = 2
     } else {
       this.alertLogin = true;
@@ -354,28 +376,28 @@ methods: {
         // );
 
 
-        // fetch('../php/insertOrder.php', {
-        //   method: 'POST',
-        //   headers: {
-        //       'Content-Type': 'application/json'
-        //   },
-        //       body: JSON.stringify({
-        //         datetime: this.recipientInfo.datetime,
-        //         consignee: this.recipientInfo.name, 
-        //         cartlist: this.$store.state.cart,
-        //         payment: this.recipientInfo.payment,
-        //         method: this.recipientInfo.method,
-        //         deliveryWay: this.recipientInfo.deliveryWay,
-        //         deliveryFee: this.recipientInfo.deliveryFee,
-        //         total: this.totalPlusDeliveryFee,
-        //         invoce: this.recipientInfo.invoce,
-        //         email: this.recipientInfo.email,
-        //         phone: this.recipientInfo.phone,
-        //         address: this.recipientInfo.address,
-        //         note: this.recipientInfo.note,
-        //         status: '處理中',
-        //       })
-        //   })
+        fetch('../php/insertOrder.php', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+              body: JSON.stringify({
+                datetime: this.recipientInfo.datetime,
+                consignee: this.recipientInfo.name, 
+                cartlist: this.$store.state.cart,
+                payment: this.recipientInfo.payment,
+                method: this.recipientInfo.method,
+                deliveryWay: this.recipientInfo.deliveryWay,
+                deliveryFee: this.recipientInfo.deliveryFee,
+                total: this.totalPlusDeliveryFee,
+                invoce: this.recipientInfo.invoce,
+                email: this.recipientInfo.email,
+                phone: this.recipientInfo.phone,
+                address: this.recipientInfo.address,
+                note: this.recipientInfo.note,
+                status: '處理中',
+              })
+          })
       })();
       
 
@@ -391,6 +413,18 @@ methods: {
     $(".twzipcode1").twzipcode();
     $(".twzipcode2").twzipcode();
     // this.$store.dispatch('getProducts');
+
+    fetch("../php/loading_info.php")
+      .then((resp) => resp.json())
+      .then((resp) => {
+        resp.forEach(user => {
+          if (user.email === sessionStorage.getItem('account')) {
+            this.recipientInfo.email = user.email;
+            this.memberRec.name = user.name;
+            this.memberRec.phone = user.phone;
+          }
+         });
+      });
     
   },
   updated() {

@@ -249,7 +249,7 @@ new Vue({
       .then((resp) => resp.json())
       .then((resp) => {
         this.products = resp;
-        console.log(resp);
+        // console.log(resp);
 
         this.products.forEach((pd, i) => {
           this.products[i].imgList = this.products[i].imgList.split(",");
