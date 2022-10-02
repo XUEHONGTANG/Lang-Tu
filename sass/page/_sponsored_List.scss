@@ -51,7 +51,8 @@
         
         @include m(){
             width: 100%;
-            margin: rwd(10) auto;
+            margin: rwd(0) auto;
+            padding-top: vw(0);
         }
         img{
             width: vw(300);
@@ -138,7 +139,9 @@
         ul.pages{
             display: flex;
             justify-content: center;
-            margin: rwd(16) 0;
+            @include m() {
+                margin: rwd(32) 0;
+            }
             li{
               text-align: center;
               line-height: vw(40);

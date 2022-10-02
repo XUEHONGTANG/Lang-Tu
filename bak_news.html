@@ -89,11 +89,10 @@
                         }else{};
                     })
 
-                    // modify[i].addEventListener('click', () => {
-                    //     console.log(`${user.PID}`);
-                    //     location = './bak_product_page.html'
-                    //     fetch(`./php/goods_modify.php?modify=${user.ID}`)
-                    // })
+                    modify[i].addEventListener('click', () => {
+                        console.log(`${user.id}`);
+                        location = `./bak_news_add.html?modify=${user.id}`
+                    })
               }
         })
 

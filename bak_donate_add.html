@@ -20,7 +20,7 @@
 
             <div class="d_info">
                 <div id="app" class="right">
-                    <h2>贊助新增</h2>
+                    <h2>贊助新增與修改</h2>
                     <div class="d_info">
                         <div class="dtitle">
                             <span class="title">&nbsp&nbsp&nbsp&nbsp贊助標題</span>
@@ -46,7 +46,7 @@
 
                         <div class="copywriting">
                             <span class="title">&nbsp&nbsp&nbsp&nbsp目標金額</span>
-                            <input type="text" v-model="sponsor.content">
+                            <input type="text" v-model="sponsor.targetAmount">
                         </div>
 
                         <div class="pic">
@@ -106,17 +106,20 @@
                         note: "",
                         status: "進行中",
                         targetAmount: "",
-                    }
+                    },
             },
             methods:{
                 files(e){
                     this.sponsor.image = e.target.files[0].name;
                 },
-            }
+            },
         })
     
         let vm2 = new Vue({
             el: "#app2",
+            date: {
+                donate: [],
+            },
             methods: {
                 reset(){
                     vm.sponsor.title = ""
@@ -154,7 +157,15 @@
                         return true
                     }
                 },
-            }
+            },
+            mounted() {
+                let getUrlString = location.href;
+                let url = new URL(getUrlString);
+                let modify = url.searchParams.get('modify');
+                fetch(`./php/donate_modify.php?modify=`+modify)
+                .then(resp => resp.json())
+                .then(resp => this.donate = resp)
+            },
         })
     </script>
 </body>
