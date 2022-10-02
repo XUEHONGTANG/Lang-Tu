@@ -4,11 +4,14 @@ $menu-font-size: 20px;
 .nav_logout {
 
     &-text {
-      display: flex;
-      align-items: center;
-      font-weight: 500;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 500;
+        cursor: pointer;
+        color: #fff;
         img {
-            width: 25px;
+            width: 25px !important;
             margin-right: 5px;
 
         }

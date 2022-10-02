@@ -7,7 +7,7 @@ include("./DB.php");
    $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
    //建立SQL
-   $sql = " SELECT * FROM pet; ";
+   $sql = " SELECT * FROM pet where PSTATE = 1";
 
    $statement = $pdo->prepare($sql);
    $statement->execute();
@@ -19,6 +19,9 @@ include("./DB.php");
     // } else{   //如果沒有撈到資料...
     //     $data["successful"] = false;
     // }
-    
+
     echo json_encode($data);
+
+
+
 ?>

@@ -35,6 +35,7 @@ new Vue({
             situation: '已預約',
             pid: 1,
             petpid: "",
+
     },
     mounted() {
         let petpid = sessionStorage.getItem("pid")
@@ -113,7 +114,7 @@ new Vue({
                     pid: this.pid,
                 })
             })
-            // window.location.href = "./finish.html";
+            window.location.href = "./finish.html";
             
         },
     },

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html', {
+        "title" : "新增新聞"
+    })
+</head>
+<body>
+    <div class="wrapper">
+      @@include('./layout/bak-head.html')
+
+      <main class="bm">
+        <aside>
+            @@include('./layout/bak-aside.html')
+        </aside>
+        
+        <div class="right">
+            <h2>新聞新增</h2>
+
+            <form method="post" action="./php/bak_news_add.php">
+                <div class="info">
+                    <div class="name">
+                        <span class="title">新聞標題</span>
+                        <input class="title" name="title" type="text">
+                    </div>
+                    
+                    <div class="type">
+                        <span class="title">新聞分類</span>
+                        <select name="category" id="" class="pet">
+                            <option value="ANNOUNCE">ANNOUNCE</option>
+                            <option value="NEWS">NEWS</option>
+                            <option value="ACTIVITY">ACTIVITY</option>
+                        </select>
+
+                    </div>
+
+                    <div class="pic">
+                        <span class="title">新聞圖片</span>
+                        <!-- <textarea name="" id="" cols="50" rows="10"></textarea> -->
+                        <input type="file" name="profile[]" multiple />
+                    </div>
+
+                    <div class="date">
+                        <span class="title">發布日期</span>
+                        <input type="text" placeholder="年分" name="year">
+                        <input type="text" placeholder="月-日" name="date">
+                    </div>
+
+                    <div class="content">
+                        <span class="title">新聞內容</span>
+                        <textarea name="content" id="" cols="62" rows="10"></textarea>
+                    </div>
+
+                    <div class="send">
+                        <input type="submit" value="送出">
+                    </div>
+                </div>
+            </form>
+        </div>
+      </main>
+    </div>
+
+    <script>
+        let getUrlString = location.href;
+        let url = new URL(getUrlString);
+        let modify = url.searchParams.get('modify');
+        let news = [];
+        let title = document.getElementsByClassName('title')[0]
+
+        fetch(`./php/news_modify.php?modify=`+modify, {
+            method: "GET"
+        })
+        .then(resp => resp.json())
+        .then(resp => {
+            news = resp;
+            title.value = news[0].title;
+        })
+    </script>
+    
+</body>
+</html>

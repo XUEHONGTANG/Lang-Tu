@@ -33,7 +33,14 @@ new Vue({
             sessionStorage.setItem("planPic", val)
             sessionStorage.setItem('amount', this.sponsor[0].fundNow)
             sessionStorage.setItem('people', this.sponsor[0].Amount)
-        }
+        },
+        nextpet(){
+            if(sessionStorage.account){
+                window.location.href = "./sponsor_information.html";
+            }else{
+                window.location.href = "./login_page.html";
+            }
+        },
     },
     mounted() {
         var getUrlString = location.href;
@@ -48,5 +55,7 @@ new Vue({
             fetch('../php/searchfundPeople.php')
             .then(resp => resp.json())
             .then(resp => this.fundPeople = resp)
+
+        sessionStorage.setItem("id", id)
     },
 })

@@ -6,7 +6,11 @@ include("./DB.php");
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
 //建立SQL
-$sql = " SELECT o.ID as id, o.ODATE as date, o.OMETHOD as method, o.OTOTAL as total, o.OSTATUS as situation, o.IMAGE as image, o.ONAME as name, o.OPRICE as price, o.OQUANTITY as quantity from LangTu.order o natural join LangTu.member m where m.EMAIL = :account";
+$sql = " select o.ODATETIME as date, o.OCARTLIST as list, o.ID as id, o.OPAYMENT as payment, o.OSTATUS as situation, o.OTOTAL as total
+from LangTu.order o 
+left join LangTu.member m on o.OEMAIL = m.EMAIL 
+where m.EMAIL = :account";
+
 
 $statement = $pdo->prepare($sql);
 $statement->bindValue(":account", $data["account"]);

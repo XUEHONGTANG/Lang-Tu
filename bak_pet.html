@@ -53,7 +53,7 @@
                             </tr>
                         </thead>
     
-                        <tbody class="tbb">
+                        <tbody id="tbb">
                             <tr>
                                 <!-- <td>PT001</td>
                                 <td>狗</td>
@@ -77,13 +77,15 @@
 
     <script>
         const tbb = document.querySelector('tbody');
+        const down = document.getElementsByClassName('down');
+        const modify = document.getElementsByClassName('modify');
           fetch("./php/bak_pet.php") //從後端JS拿到資料
           .then(rsp => rsp.json(
             console.log(rsp)
           ))
           .then(userArr => {   
             console.log(userArr);  
-            for (let user of userArr) {
+            for (let [i,user] of userArr.entries()) {
                     tbb.insertAdjacentHTML('beforeend', `
                         <tr>
                             <td>${user.PID}</td>
@@ -96,11 +98,31 @@
                             <td>${user.PFIX}</td>
                             <td>${user.PMICROCHIP}</td>
                             <td>${user.PTIME}</td>
-                            <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a>&nbsp&nbsp<a href="#">下架</a></td>
+                            <td><span class= "modify"><i class="fa-regular fa-pen-to-square"></i></span> <input type="button" class="down" value="下架"></td>
                         </tr>
                     `);
+                    
+                    down[i].addEventListener('click', () => {
+                        console.log(`${user.PID}`);
+                        // sessionStorage.setItem('QWE',`${user.PID}`)
+                        // confirm ("確定是否下架?");
+                        if(confirm ("確定是否下架?")){
+                            fetch(`./php/pet_down.php?home=${user.PID}`)
+                            window.location.reload()
+                        }else{};
+                    })
+
+                    modify[i].addEventListener('click', () => {
+                        console.log(`${user.PID}`);
+                        location = `./bak_pet_add.html?modify=${user.PID}`
+                    })
+                        
                 }
           })
+          
+
+          
+        
     </script>
 </body>
 </html>

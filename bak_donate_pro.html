@@ -48,7 +48,7 @@
                             </tr>
                         </thead>
     
-                        <tbody class="tbb">
+                        <tbody id="tbb">
                             <!-- <tr>
                                 <td>DP001</td>
                                 <td>浪毛孩不再飢餓</td>
@@ -69,24 +69,41 @@
 
     <script>
         const tbb = document.querySelector('tbody');
+        const down = document.getElementsByClassName('down');
+        const modify = document.getElementsByClassName('modify');
           fetch("./php/bak_donate_pro.php") //從後端JS拿到資料
           .then(rsp => rsp.json(
             console.log(rsp)
           ))
           .then(userArr => {   
             console.log(userArr);  
-            for (let user of userArr) {
+            for (let [i,user] of userArr.entries()) {
                     tbb.insertAdjacentHTML('beforeend', `
                         <tr>
                             <td>${user.ID}</td>
-                            <td>${user.TITLE}</td>
-                            <td>${user.START}</td>
-                            <td>${user.END}</td>
-                            <td>${user.TARGET}</td>
-                            <td>${user.HEADCOUNT}</td>
-                            <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a>&nbsp&nbsp<a href="#">下架</a></td>
+                            <td>${user.fundName}</td>
+                            <td>${user.fundDate}</td>
+                            <td>${user.fundEndDate}</td>
+                            <td>${user.fundGoal}</td>
+                            <td>${user.Amount}</td>
+                            <td><span class= "modify"><i class="fa-regular fa-pen-to-square"></i></span> <input type="button" class="down" value="下架"></td>
                         </tr>
                     `);
+
+                    down[i].addEventListener('click', () => {
+                        console.log(`${user.ID}`);
+                        // sessionStorage.setItem('QWE',`${user.ID}`)
+                        // confirm ("確定是否下架?");
+                        if(confirm ("確定是否下架?")){
+                            fetch(`./php/donate_pro_down.php?home=${user.ID}`)
+                            window.location.reload()
+                        }else{};
+                    })
+
+                    modify[i].addEventListener('click', () => {
+                        console.log(`${user.ID}`);
+                        location = `./bak_donate_add.html?modify=${user.ID}`
+                    })
                 }
           })
     </script>

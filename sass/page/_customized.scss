@@ -465,7 +465,31 @@ button{
             outline-color: #B18042;
         }
 
+<<<<<<< HEAD
     }
+=======
+.big_tag{
+    // top: vw(230);
+    // left: vw(40);
+    width: 43vw;
+
+
+    &-model {
+        width: 14.8vw;
+        height: 6.3vw;
+        position: relative;
+        padding: 0.78vw;
+        font-size: 1.5vw;
+        z-index: 30;
+        top: -18vw;
+        right: -19.1vw;
+        white-space: pre-wrap !important;
+        word-wrap: break-word;
+        p{
+            color: #6a564c;
+        }
+      }    
+>>>>>>> 21836f6221fa52856d40bc8ac73a23e86cd7e7ce
 
 }
 

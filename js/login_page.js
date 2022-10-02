@@ -5,11 +5,26 @@
 //   ],
 // })
 
+const alertArea = {
+  props:['content'],
+  template: `
+  <transition>
+    <div class="alertText"
+    >{{content}}</div>
+  </transition>
+  `,
+}
+
 new Vue({
   // router,
   el: "#loginPageApp",
+  components: {
+    alertArea
+  },
   data: {
     selected: 1,
+    alertContent: '',
+    alert:null,
     warningText: {
       email: '',
       password: '',
@@ -75,15 +90,23 @@ new Vue({
             .then(body => {
                 if (body.successful){
                     alert("登入成功");
-                    location = '../dist/member_detail.html';
+                    let pid = sessionStorage.getItem('pid');
+                    let id = sessionStorage.getItem('id');
+                    if( sessionStorage.pid || sessionStorage.id){
+                      history.back()
+                    } else {
+                      sessionStorage.setItem("account",this.loginForm.account)
+                      location = '../dist/member_detail.html';
+                    }
                 }else{
-                    alert("登入失敗");
+                  // alert("登入失敗");
+                  this.alertContent = '登入失敗'
+                  this.alert = true;
+                   setTimeout(() => { return this.alert = false,this.alertContent = '' }, 3000);
                 }
             });
-
       // alert("登入成功");
       // window.location.href = "./member_detail.html";
-      sessionStorage.setItem("account",this.loginForm.account)
     },
     userRegister() {
       
@@ -127,12 +150,18 @@ new Vue({
 
       for (let key in this.registerErrors) {
         if (this.registerErrors[key] === true) {
-          alert("註冊失敗");
+          // alert("註冊失敗");
+          this.alertContent = '註冊失敗'
+          this.alert = true;
+            setTimeout(() => { return this.alert = false,this.alertContent = '' }, 3000);
           return false;
         }
       }
 
-      alert("註冊成功");
+      // alert("註冊成功");
+      this.alertContent = '註冊成功';
+      this.alert = true;
+            setTimeout(() => { return this.alert = false,this.alertContent = '' }, 3000);
 
       fetch('../php/login_page.php', {
         method: 'POST',

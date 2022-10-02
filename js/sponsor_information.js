@@ -1,11 +1,12 @@
 new Vue({
     el: '#sponsor_informationApp',
     data:{
-            fundNow: "",
+            fundNow: null,
             planName: "",
             planPrice: "",
             planMethod: "",
-            fundPeople: "",
+            fundPeople: null,
+            id: "",
             imgURL:'./images/Meteor/',
             planPic: "",
             cartTitle:[
@@ -148,9 +149,19 @@ new Vue({
             }
             this.currentPage = 3
         },
-        
 
         finish(){
+            let date = new Date();
+            dateValues = [date.getFullYear(), date.getMonth()+1, date.getDate()];
+            this.donor.date = dateValues.join('-')
+            
+            let num = new Date();
+            numValues = [num.getFullYear(), num.getMonth()+1, num.getDate(), num.getHours(), num.getMinutes()]
+            this.donor.serialNum = numValues.join('')
+        
+            this.fundNow = Number(this.planPrice) + Number(this.fundNow)
+            this.fundPeople++
+        
             fetch('../php/insertDonation.php',{
                 method: 'POST',
                 headers: {
@@ -177,12 +188,25 @@ new Vue({
                     planMethod: this.planMethod,
                     planName: this.planName,
                     planPrice: this.planPrice,
+                })
+            })
+
+                let id = sessionStorage.getItem('id');
+                this.id = id;
+
+            fetch('../php/addfundingMoneyandPeople.php',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
                     fundNow: this.fundNow,
-                    fundPeople: this.fundPeople
+                    fundPeople: this.fundPeople,
+                    id: this.id,
                 })
             })
             sessionStorage.setItem('account', this.donor.email)
-            window.location.href = "./payer_information.html";
+            location.href ="./payer_information.html"
         }
 
 
@@ -210,21 +234,21 @@ new Vue({
         $(".twzipcode1").twzipcode();
     },
     computed:{
-        getDate(){
-            let date = new Date();
-            dateValues = [date.getFullYear(), date.getMonth()+1, date.getDate()];
-            this.donor.date = dateValues.join('-')
-        },
-        getSerialNum(){
-            let num = new Date();
-            numValues = [num.getFullYear(), num.getMonth()+1, num.getDate(), num.getHours(), num.getMinutes()]
-            this.donor.serialNum = numValues.join('')
-        },
-        getFundNow(){
-            return this.fundNow = Number(this.planPrice) + Number(this.fundNow)
-        },
-        getFundPeople(){
-            return this.fundPeople++
-        }
+        // getDate(){
+        //     let date = new Date();
+        //     dateValues = [date.getFullYear(), date.getMonth()+1, date.getDate()];
+        //     return this.donor.date = dateValues.join('-')
+        // },
+        // getSerialNum(){
+        //     let num = new Date();
+        //     numValues = [num.getFullYear(), num.getMonth()+1, num.getDate(), num.getHours(), num.getMinutes()]
+        //     return this.donor.serialNum = numValues.join('')
+        // },
+        // getFundNow(){
+        //     return this.fundNow = Number(this.planPrice) + Number(this.fundNow)
+        // },
+        // getFundPeople(){
+        //     return this.fundPeople++
+        // }
     }
     })

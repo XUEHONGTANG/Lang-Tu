@@ -511,9 +511,9 @@
 
     .-grass {
         position: relative;
-        top: 20vw;
         z-index: 10;
-        left: 10vw;
+        top: vw(380);
+        left: vw(280);
         height: 300px;
         @include m(){
             top: 228px;
@@ -522,8 +522,8 @@
 
     .-peo {
         position: relative;
-        top: 390px;
-        left: 10vw;
+        top: vw(400);
+        left: vw(280);
         z-index: -1;
         height: 700px;
         @include m(){

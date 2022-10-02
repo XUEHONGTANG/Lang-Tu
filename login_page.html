@@ -212,6 +212,13 @@
         </div>
       </section>
       <!-- 註冊會員  結束-->
+
+      <alert-area 
+      v-if="alert"
+      :content="alertContent"
+      ></alert-area>
+      <!-- <div class="alertText">註冊成功</div> -->
+
     </main>
     <!-- </main> -->
     @@include('layout/footer.html')

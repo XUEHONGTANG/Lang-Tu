@@ -90,8 +90,13 @@ new Vue({
     },
     methods: {
         nextpet(){
-            sessionStorage.setItem("pid",this.textnames[0].pid)
-            window.location.href = "./precautions.html";
+            if(sessionStorage.account){
+                sessionStorage.setItem("pid",this.textnames[0].pid)
+                window.location.href = "./precautions.html";
+            }else{
+                sessionStorage.setItem("pid",this.textnames[0].pid)
+                window.location.href = "./login_page.html";
+            }
         },
     },
     computed: {

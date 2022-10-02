@@ -1,14 +1,12 @@
-import store from './store.js';
-import productPage from './product_page.js';
-
-
+import store from "./store.js";
+import productPage from "./product_page.js";
 
 // let productContent = {
 //   props: ['pdInfo'],
 
 //   template: `
 //       <div class="textArea" v-html="pdInfo">
-     
+
 //       </div>
 //       `,
 // };
@@ -85,13 +83,11 @@ import productPage from './product_page.js';
 new Vue({
   store,
   productPage,
-  el: '#shoppingApp',
+  el: "#shoppingApp",
   data: {
     isOpen: false,
     reactArr: [],
-    olClass: 'hide',
-    // products: ['1', '2', '3', '4', '5', '6', '7', '8'],
-    // pages: ['2', '3', '4'],
+    olClass: "hide",
     pages: 0,
     currentPage: 1,
     // content: 'productContent',
@@ -101,15 +97,12 @@ new Vue({
     products: [],
     productType: [],
     productInPage: [],
-    imgURL: './images/ff/',
-    filterCondition: 'pd-0'
+    imgURL: "./images/ff/",
+    filterCondition: "pd-1",
+    searchCondition: "",
   },
   components: {
-    productPage
-    // productPage: productPage,
-    // productContent: productContent,
-    // shoppingInfo: shoppingInfo,
-    // deliveryMethod: deliveryMethod
+    productPage,
   },
   methods: {
     toggle(order) {
@@ -120,18 +113,18 @@ new Vue({
 
       if (this.isOpen === false) {
         // console.log(this.reactArr[order]);
-        this.reactArr[order].classList.remove('hide');
-        this.reactArr[order].classList.add('show');
+        this.reactArr[order].classList.remove("hide");
+        this.reactArr[order].classList.add("show");
         // console.log(this.reactArr[order].previousElementSibling);
-        this.reactArr[order].previousElementSibling.classList.add('turnRight');
+        this.reactArr[order].previousElementSibling.classList.add("turnRight");
 
         this.isOpen = true;
         for (i; i < length; i++) {
           if (order != i) {
-            this.reactArr[i].classList.remove('show');
-            this.reactArr[i].classList.add('hide');
+            this.reactArr[i].classList.remove("show");
+            this.reactArr[i].classList.add("hide");
             this.reactArr[i].previousElementSibling.classList.remove(
-              'turnRight'
+              "turnRight"
             );
 
             // this.reactArr[i].class = 'hide';
@@ -140,26 +133,26 @@ new Vue({
         }
       } else if (
         this.isOpen === true &&
-        this.reactArr[order].classList.contains('hide')
+        this.reactArr[order].classList.contains("hide")
       ) {
-        this.reactArr[order].classList.remove('hide');
-        this.reactArr[order].classList.add('show');
-        this.reactArr[order].previousElementSibling.classList.add('turnRight');
+        this.reactArr[order].classList.remove("hide");
+        this.reactArr[order].classList.add("show");
+        this.reactArr[order].previousElementSibling.classList.add("turnRight");
 
         for (i; i < length; i++) {
           if (order != i) {
-            this.reactArr[i].classList.remove('show');
-            this.reactArr[i].classList.add('hide');
+            this.reactArr[i].classList.remove("show");
+            this.reactArr[i].classList.add("hide");
             this.reactArr[i].previousElementSibling.classList.remove(
-              'turnRight'
+              "turnRight"
             );
           }
         }
       } else {
-        this.reactArr[order].classList.remove('show');
-        this.reactArr[order].classList.add('hide');
+        this.reactArr[order].classList.remove("show");
+        this.reactArr[order].classList.add("hide");
         this.reactArr[order].previousElementSibling.classList.remove(
-          'turnRight'
+          "turnRight"
         );
 
         // this.reactArr[order].class = 'hide';
@@ -172,7 +165,7 @@ new Vue({
     //   this.counter > 1 ? this.counter : (this.counter = 1);
     // },
     replaceStr(str) {
-      str = str.replace('.jpg', '');
+      str = str.replace(".jpg", "");
       return str;
     },
     // change() {
@@ -189,28 +182,18 @@ new Vue({
       this.productType = this.products.filter((pd) => {
         return pd.pdId.includes(this.filterCondition);
       });
-      this.pages = Math.ceil(this.productType.length / 9);
+      this.pages = Math.ceil(this.productType.length / 6);
       this.currentPage = 1;
-      this.productInPage = this.productType.slice((this.currentPage - 1) * 9, this.currentPage * 9);
-
-      // this.products = [];
-
-      // fetch('../php/shopping_page.php')
-      // .then((resp) => resp.json())
-      // .then((resp) => {
-      //   this.products = resp;
-
-      //   this.products.forEach((pd,i) => {
-      //     this.products[i].imgList = this.products[i].imgList.split(',')
-      //     this.products[i] = { ...this.products[i], isShow: false, quantity: 0 }
-      //   })
-      //   this.products = this.products.filter(pd => {
-      //     return pd.pdId.includes(this.change)
-      //   })
-      //   this.pages = Math.ceil(this.products.length / 9);
-      //   this.currentPage = 1;
-      //   this.productInPage = this.products.slice((this.currentPage-1)*9,9)
-      // });
+      this.reLoading();
+    },
+    searching() {
+      this.productType = [];
+      this.productType = this.products.filter((pd) => {
+        return pd.name.includes(this.searchCondition);
+      });
+      this.pages = Math.ceil(this.productType.length / 6);
+      this.currentPage = 1;
+      this.reLoading();
     },
     changePage(index) {
       this.currentPage = index;
@@ -218,7 +201,7 @@ new Vue({
       this.reLoading();
     },
     pageMinus() {
-      this.currentPage  <= 1 ? 1 : this.currentPage--;
+      this.currentPage <= 1 ? 1 : this.currentPage--;
       this.reLoading();
     },
     pagePlus() {
@@ -227,7 +210,9 @@ new Vue({
     },
     reLoading() {
       this.productInPage = this.productType.slice(
-        (this.currentPage - 1) * 9,this.currentPage * 9);
+        (this.currentPage - 1) * 6,
+        this.currentPage * 6
+      );
     },
   },
   computed: {
@@ -237,7 +222,7 @@ new Vue({
     // },
   },
   mounted() {
-    let reactTotal = document.querySelectorAll('.hide');
+    let reactTotal = document.querySelectorAll(".hide");
     // console.log(reactTotal);
     reactTotal.forEach((item) => {
       this.reactArr.push(item);
@@ -260,14 +245,19 @@ new Vue({
     //   // },
     // });
 
-    fetch('../php/shopping_page.php')
+    fetch("../php/shopping_page.php")
       .then((resp) => resp.json())
       .then((resp) => {
         this.products = resp;
+        // console.log(resp);
 
         this.products.forEach((pd, i) => {
-          this.products[i].imgList = this.products[i].imgList.split(',');
-          this.products[i] = {...this.products[i],isShow: false, quantity: 1,};
+          this.products[i].imgList = this.products[i].imgList.split(",");
+          this.products[i] = {
+            ...this.products[i],
+            isShow: false,
+            quantity: 1,
+          };
         });
 
         // 方法一
@@ -276,20 +266,20 @@ new Vue({
         this.productType = this.products.filter((pd) => {
           return pd.pdId.includes(this.filterCondition);
         });
-        this.pages = Math.ceil(this.productType.length / 9);
-        this.productInPage = this.productType.slice((this.currentPage - 1) * 9,this.currentPage * 9);
+        this.pages = Math.ceil(this.productType.length / 6);
+        this.productInPage = this.productType.slice(
+          (this.currentPage - 1) * 6,
+          this.currentPage * 6
+        );
       });
-    
-    
-    // this.$store.dispatch('getProducts');
 
+    // this.$store.dispatch('getProducts');
   },
   updated() {
     // fetch('../php/shopping_page.php')
     //   .then((resp) => resp.json())
     //   .then((resp) => {
     //     this.products = resp;
-
     //     this.products.forEach((pd,i) => {
     //       this.products[i].imgList = this.products[i].imgList.split(',')
     //       this.products[i] = { ...this.products[i], isShow: false, quantity: 0 }
@@ -299,7 +289,6 @@ new Vue({
     //     // 方法二
     //     this.products = this.products.filter(pd => { return pd.pdId.includes(this.change)})
     //   });
-
     // const swiper = new Swiper('.mySwiper', {
     //   slidesPerView: 4,
     //   spaceBetween: 16,
@@ -316,31 +305,23 @@ new Vue({
     //   // },
     // });
   },
-  created () {
-
+  created() {
     //在頁面刷新時將vuex裏的信息保存到sessionStorage裏
     window.addEventListener("beforeunload", () => {
-      console.log("存vuex前的數據")
-      console.log(this.$store.state,JSON.parse(sessionStorage.getItem("store")))
-      
-      sessionStorage.setItem("store", JSON.stringify(this.$store.state))
+      sessionStorage.setItem("store", JSON.stringify(this.$store.state));
+    });
 
-      console.log("存vuex後的數據")
-      console.log(this.$store.state,JSON.parse(sessionStorage.getItem("store")))
-    })
-
-  // 在頁面加載時讀取sessionStorage裏的狀態信息
-  if (sessionStorage.getItem("store")) {
-    console.log("讀取sessionstorage前的數據")
-    console.log(this.$store.state,JSON.parse(sessionStorage.getItem("store")))
-
-    this.$store.replaceState(Object.assign({}, this.$store.state, JSON.parse(sessionStorage.getItem("store"))))
-
-    console.log("讀取sessionstorage後的數據")
-    console.log(this.$store.state,JSON.parse(sessionStorage.getItem("store")))
-  }
-
-}
+    // 在頁面加載時讀取sessionStorage裏的狀態信息
+    if (sessionStorage.getItem("store")) {
+      this.$store.replaceState(
+        Object.assign(
+          {},
+          this.$store.state,
+          JSON.parse(sessionStorage.getItem("store"))
+        )
+      );
+    }
+  },
 });
 
 // [{ imgSrc: './images/ff/pd-001-1.jpg' }, { imgSrc: './images/ff/pd-001-2.jpg' }, { imgSrc: './images/ff/pd-001-3.jpg' }, { imgSrc: './images/ff/pd-001-4.jpg' }, { imgSrc: './images/ff/pd-001-5.jpg' }, { imgSrc: './images/ff/pd-001-6.jpg' }, { imgSrc: './images/ff/pd-001-7.jpg' }, { imgSrc: './images/ff/pd-001-8.jpg' }, { imgSrc: './images/ff/pd-001-9.jpg' }, { imgSrc: './images/ff/pd-001-10.jpg' }]

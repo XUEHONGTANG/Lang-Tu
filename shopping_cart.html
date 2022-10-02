@@ -22,6 +22,19 @@
         <ul class="titleArea">
             <li v-for="title in cartTitle" :class="{'currentPage': currentPage === title.id}">{{title.name}}</li>
         </ul>
+
+        <alert-login-area 
+        v-if="alertLogin"/></alert-login-area>
+        <alert-empty-area 
+        v-if="alertEmpty"/></alert-empty-area>
+        <!-- <transition>
+            <div class="alertLogin"
+            @click="alertLogin = false"
+            @touchend="alertLogin = false"
+            v-if="alertLogin"
+            key="alertLogin"
+            >請先登入會員</div>
+        </transition> -->
         
 
         <!-- shopping cart page 1 -->
@@ -41,26 +54,43 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for=" product in cart">
-                        <td><img :src="imgURL+product.imgList[0]"></td>
+                    <!-- :product="product" -->
+                    <tr v-for=" product in cart" :key="product.pdId" 
+                    >
+                    
+                    <!-- <alert-remove-area 
+                    :product="product"
+                    v-if="alertRemove"/></alert-remove-area> -->
+                        <!-- <alert-area 
+                        :product="product"
+                        :deleteInCartAlert="deleteInCartAlert"
+                        ></alert-area> -->
+                        <!-- <div class="alertArea"
+                        v-if="addAlert"
+                        >{{product.name}} {{product.quantity}} pcs 移出購物車</div>     -->
+
+                        
+                        <td><img :src="imgURL+product.image"></td>
                         <td>{{product.name}}</td>
                         <td>{{product.price}}</td>
                         <td>
                             <div class="counter">
                                 <button class="btn-minus" @click="product.quantity <=1?1:product.quantity--"></button>
-                                <input type="number" v-model.number="product.quantity">
-                                <button class="btn-plus" @click="product.quantity++"></button>
+                                <input type="number" 
+                               
+                                v-model.number="limit(product)">
+                                <button class="btn-plus" @click="product.quantity >= product.inventory ? product.inventory:product.quantity++"></button>
                             </div>
                         </td>
                         <td>NT$ {{product.price * product.quantity}}</td>
-                        <td></td>
+                        <td @click="deleteProduct(product)"></td>
                     </tr>
                 </tbody>
             </table>
             <div class="payInfo">
                 <span>
-                    <h4>合計：</h4>
-                    <div class="totalCost">NT$ 700</div>
+                    <h4>合計： </h4>
+                    <div class="totalCost">NT$ {{total}}</div>
                 </span>
 
             
@@ -72,7 +102,7 @@
             <div class="buttonArea">
                 <a href="./shopping_page.html" class="btn-1">返回購物</a>
                 <button class="btn-0"
-                @click="currentPage = 2"
+                @click="checkout"
                 >前往結帳</button>
             </div>
         </section>
@@ -97,14 +127,19 @@
                     </thead>
                     <tbody>
                         <tr v-for=" product in cart">
-                            <td><img :src="imgURL+product.imgList[0]"></td>
+<!-- 
+                            <div class="alertArea"
+                            v-if="addAlert"
+                            >{{product.name}} {{product.quantity}} pcs 移出購物車</div>     -->
+
+                            <td><img :src="imgURL+product.image"></td>
                             <td>{{product.name}}</td>
                             <td>{{product.price}}</td>
                             <td>
                                 <div class="counter">
                                     <button class="btn-minus" @click="product.quantity <=1?1:product.quantity--"></button>
-                                    <input type="number" v-model.number="product.quantity">
-                                    <button class="btn-plus" @click="product.quantity++"></button>
+                                    <input type="number" v-model.number="limit(product)">
+                                    <button class="btn-plus" @click="product.quantity >= product.inventory ? product.inventory:product.quantity++"></button>
                                 </div>
                             </td>
                             <td>NT$ {{product.price * product.quantity}}</td>
@@ -115,14 +150,26 @@
                 <div class="payInfo">
                     <span>
                         <h4>運送方式：</h4>
-                        <input type="radio" value="60" name="deliveryFee">超商取貨 NT$ 60
+                        
+                        <label for="deliveryFee_1">
+                        <input type="radio" 
+                        v-model.number="recipientInfo.deliveryFee"
+                        value="60" name="deliveryFee"
+                        id="deliveryFee_1">
+                        超商取貨 NT$ 60</label>
                     </span>
                     <span>
-                        <input type="radio" value="100" name="deliveryFee">常溫宅配送貨 NT$ 100
+                        <label for="deliveryFee_2">
+                        <input type="radio" 
+                        v-model.number="recipientInfo.deliveryFee"
+                        value="100" 
+                        name="deliveryFee"
+                        id="deliveryFee_2">
+                        常溫宅配送貨 NT$ 100</label>
                     </span>
                     <span>
                         <h4>合計：</h4>
-                        <div class="totalCost">NT$ 700</div>
+                        <div class="totalCost">NT$ {{totalPlusDeliveryFee}}</div>
                     </span>
 
                 
@@ -130,13 +177,28 @@
                 <span class="doubleLine"></span>
                 <div class="payWay">
                     <span>
-                        <input type="radio" name="payWay">綠界金流 - 第三方金流平台 (透過信用卡、WebATM、ATM轉帳付款)
+                        <input type="radio" 
+                        v-model="recipientInfo.payment"
+                        value="綠界金流"
+                        name="payment"
+                        id="payment_1">
+                        <label for="payment_1">綠界金流 - 第三方金流平台 (透過信用卡、WebATM、ATM轉帳付款)</label>
                     </span>
                     <span>
-                        <input type="radio" name="payWay">貨到付款 (收到貨時以現金付款)
+                        <input type="radio" 
+                        v-model="recipientInfo.payment"
+                        value="貨到付款"
+                        name="payment"
+                        id="payment_2">
+                        <label for="payment_2">貨到付款 (收到貨時以現金付款)</label>
                     </span>
                     <span>
-                        <input type="radio" name="payWay">超商取貨付款 (全家超商取貨付款)
+                        <input 
+                        v-model="recipientInfo.payment"
+                        value="超商取貨付款"
+                        type="radio" name="payment"
+                        id="payment_3">
+                        <label for="payment_3">超商取貨付款 (全家超商取貨付款)</label>
                     </span>
                 </div>
             </div>
@@ -312,8 +374,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for=" product in cart">
-                        <td><img :src="imgURL+product.imgList[0]"></td>
+                    <tr v-for=" product in theOrder">
+                        <td><img :src="imgURL+product.image"></td>
                         <td>{{product.name}}</td>
                         <td>{{product.price}}</td>
                         <td>{{product.quantity}}</td>
@@ -325,11 +387,11 @@
             <div class="payInfo">
                 <span>
                     <h4>運送方式：</h4>
-                    常溫宅配送貨 NT$ 100
+                    {{deliveryWayText}}
                 </span>
                 <span>
                     <h4>合計：</h4>
-                    <div class="totalCost">NT$ 700</div>
+                    <div class="totalCost">NT$ {{totalPlusDeliveryFee}}</div>
                 </span>
 
             
@@ -343,17 +405,18 @@
             <hr class="mainLine">
             <span>
                 <div>姓名：{{recipientInfo.name}}</div>
-                <div>取貨方式：宅配</div>
+                <div>取貨方式：{{recipientInfo.deliveryWay}}</div>
             </span>
             <span>
                 <div>電話：{{recipientInfo.phone}}</div>
                 <div>E-MAIL：{{recipientInfo.email}}</div>
             </span>
             <div>取貨地址：{{recipientInfo.address}}</div>
+            <div>備註: <br>{{recipientInfo.note}}</div>
         </div>
 
         <div class="buttonArea">
-            <a href="./shopping_page.html" class="btn-1">返回購物車</a>
+            <a href="./shopping_page.html" class="btn-1">返回商店</a>
         </div>
         </section>
 

@@ -41,14 +41,32 @@
 
     //表格
     #tbb{
-        a{
-            text-decoration: none;
-            color: black;
-        }
+        // a{
+        //     text-decoration: none;
+        //     color: black;
+        // }
 
         .list{
             background-color: $gray600;
             color: white;
+        }
+
+        input{
+            background-color: $primaryA11y;
+            color: white;
+            border: $primaryA11y;
+            border-radius: vw(5);
+            padding: vw(10), vw(15);
+            font-size: vw(20);
+            cursor: pointer;
+        }
+
+        span{
+            cursor: pointer;
+            margin-right: vw(10);
+            i{
+                font-size: vw(25);
+            }
         }
     }
 }
