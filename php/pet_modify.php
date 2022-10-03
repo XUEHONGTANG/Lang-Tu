@@ -6,7 +6,7 @@
     $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
     //建立SQL
-    $sql = " SELECT PNAME, PTYPE, PKIND, PGENDER, PTIME, PAGE, PHELP, PVAX, PFIX, PMICROCHIP FROM LangTu.pet WHERE PID = $modify ";
+    $sql = " SELECT PNAME, PTYPE, PKIND, PGENDER, PTIME, PAGE, PHELP, PVAX, PFIX, PMICROCHIP FROM pet WHERE PID = $modify ";
 
     $statement = $pdo->prepare($sql);
 

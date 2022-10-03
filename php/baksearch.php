@@ -5,7 +5,7 @@
     $search1 = "%$search%";
 
     //建立SQL語法
-    $sql = "SELECT * FROM LangTu.member WHERE NAME LIKE ? OR EMAIL LIKE ? OR PHONE LIKE ? OR BIRTHDAY LIKE ? OR GENDER LIKE ?";
+    $sql = "SELECT * FROM member WHERE NAME LIKE ? OR EMAIL LIKE ? OR PHONE LIKE ? OR BIRTHDAY LIKE ? OR GENDER LIKE ?";
 
     //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
     //    $statement = $pdo->query($sql);

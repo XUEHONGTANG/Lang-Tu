@@ -6,7 +6,7 @@ include("./DB.php");
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 $id = $_GET['id'];
 //建立SQL
-$sql = " SELECT PHELP as dest, PFIX as fix, PMICROCHIP as microchip , PID as pid  from LangTu.pet where pid = $id";
+$sql = " SELECT PHELP as dest, PFIX as fix, PMICROCHIP as microchip , PID as pid  from pet where pid = $id";
 
 $statement = $pdo->prepare($sql);
 $statement->execute();

@@ -8,7 +8,7 @@ include("./DB.php");
 
    //建立SQL
 //    $sql = " SELECT * from products ";
-   $sql = " SELECT NAME as name, EMAIL as email, PHONE as phone from LangTu.member ";
+   $sql = " SELECT NAME as name, EMAIL as email, PHONE as phone from member ";
 
    $statement = $pdo->prepare($sql);
    $statement->execute();

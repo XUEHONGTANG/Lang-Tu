@@ -42,6 +42,10 @@
                 font-size: $p;
                 padding: vw(24);
                 border-bottom: vw(1) solid $gray900;
+                @include m(){
+                    width: rwd(120);
+                    font-size: rwd(16);
+                }
             }
         }
         tbody{
@@ -49,27 +53,53 @@
                 .id-detail{
                     width: vw(150);
                     font-size: vw(20);
+                    @include m(){
+                        font-size: rwd(16);
+                        width: rwd(70);
+                    }
                 }
                 .date-detail{
                     width: vw(150);
                     font-size: vw(20);
+                    @include m(){
+                        font-size: rwd(16);
+                        width: rwd(70);
+
+                    }
                 }
                 .method-detail{
                     width: vw(150);
                     font-size: vw(20);
+                    @include m(){
+                        font-size: rwd(16);
+                        width: rwd(70);
 
+                    }
                 }
                 .amount-detail{
                     width: vw(140);
                     font-size: vw(20);
                     padding: vw(16);
+                    @include m(){
+                        font-size: rwd(16);
+                        width: rwd(70);
 
+                    }
                 }
                 .situation-detail{
                     width: vw(100);
                     font-size: vw(20);
                     padding: vw(16);
-
+                    @include m(){
+                        font-size: rwd(16);
+                        width: rwd(70);
+                    }
+                }
+                .num-detail{
+                    @include m(){
+                        font-size: rwd(20);
+                        width: rwd(70);
+                    }
                 }
             }
         }
