@@ -7,8 +7,8 @@ $data = json_decode(file_get_contents("php://input"), true); //接收前端傳�
 
 //建立SQL
 $sql = " select o.ODATETIME as date, o.OCARTLIST as list, o.ID as id, o.OPAYMENT as payment, o.OSTATUS as situation, o.OTOTAL as total
-from LangTu.order o 
-left join LangTu.member m on o.OEMAIL = m.EMAIL 
+from order o 
+left join member m on o.OEMAIL = m.EMAIL 
 where m.EMAIL = :account";
 
 

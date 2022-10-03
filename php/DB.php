@@ -1,19 +1,9 @@
 <?php
    //MySQL相關資訊
-   
-   // local_host
-    // $db_host = "127.0.0.1";
-   // $db_user = "root";
-   // $db_pass = "password";
-   // $db_select = "LangTu";
-
-
-
-   // other_host
-   $db_host = "192.168.0.220";
-   $db_user = "ff";
-   $db_pass = "liyuan0142";
-   $db_select = "LangTu";
+   $db_host = "127.0.0.1";
+   $db_user = "tibamefe_since2021";
+   $db_pass = "vwRBSb.j&K#E";
+   $db_select = "tibamefe_tgd102g3";
 
    //建立資料庫連線物件
    $dsn = "mysql:host=".$db_host.";dbname=".$db_select.";charset=utf8";

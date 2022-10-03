@@ -386,8 +386,8 @@ Vue.component('sponsor', {
         <div v-if="donor[0]" v-for= "(info, i) in donor">
             <table class="sponsor">
                 <tr v-if="i == 0">
-                    <td class="num">贊助編號</td>
-                    <td class="num">贊助時間</td>
+                    <td class="num">編號</td>
+                    <td class="num">時間</td>
                     <td class="num">方式</td>
                     <td class="num">金額</td>
                     <td class="num">狀態</td>

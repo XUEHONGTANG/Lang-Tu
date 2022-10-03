@@ -6,7 +6,7 @@ include("./DB.php");
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
 //建立SQL
-$sql = " INSERT INTO LangTu.adoption(ANAME, APHONE, APEOPLE, PID, ADATE, ATIME, SITUATION, AID, AEMAIL) values (:name, :phone, :people, :pid, :date, :time, :situation, :aid, :email)  ";
+$sql = " INSERT INTO adoption(ANAME, APHONE, APEOPLE, PID, ADATE, ATIME, SITUATION, AID, AEMAIL) values (:name, :phone, :people, :pid, :date, :time, :situation, :aid, :email)  ";
 
 
 $statement = $pdo->prepare($sql);

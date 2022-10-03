@@ -6,7 +6,7 @@ include("./DB.php");
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
 //建立SQL
-$sql = " INSERT INTO LangTu.project(fundContent, fundName, fundImg, fundDate, fundEndDate, fundTopContent, fundStatus, fundGoal) values (:note, :title, :image, :dateStart, :dateEnd, :content, :status, :targetAmount)  ";
+$sql = " INSERT INTO project(fundContent, fundName, fundImg, fundDate, fundEndDate, fundTopContent, fundStatus, fundGoal) values (:note, :title, :image, :dateStart, :dateEnd, :content, :status, :targetAmount)  ";
 
 
 $statement = $pdo->prepare($sql);
