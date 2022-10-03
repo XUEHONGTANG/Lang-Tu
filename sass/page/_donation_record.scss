@@ -1,6 +1,5 @@
 .donation_record{
     width: vw(840);
-    height: vw(850);
     background-color: #fff;
     border-radius: $r25;
     padding: vw(50);
@@ -72,11 +71,14 @@
         @include m(){
             flex-direction: column;
         }
-        .btn-0{
+        .btn0{
             width: vw(200);
+            @include btn($primaryDark, #fff, $primaryDark);
             font-size: font-size(12);
             padding: vw(10) vw(10);
-            background-color: $primaryA11y;
+            &:hover{
+                @include btn_hover($primaryA11y);
+            }
             @include m(){
                 font-size: rwd(16);
                 width: rwd(200);
@@ -84,10 +86,14 @@
                 margin: rwd(8) 0 rwd(8);
             }
         }
-        .btn-1{
+        .btn1{
             width: vw(200);
+            @include btn(#fff,$primaryDark, $primaryDark);
             font-size: font-size(12);
             padding: vw(10) vw(10);
+            &:hover{
+                @include btn_hover($primaryA11y,#fff,$primaryA11y);
+            }
             @include m(){
                 font-size: rwd(16);
                 width: rwd(200);
@@ -97,7 +103,7 @@
         }
     }
     .btn{
-        text-align: center;
+        text-align: right;
         margin-top: vw(64);
         .btn-0-1{
             @include btn($primaryDark, #fff, $primaryDark);
