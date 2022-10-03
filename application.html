@@ -40,14 +40,26 @@
             <h3>預約認養</h3>
             <div class="application-book-0">
                 <div class="application-book-1">
-                    <label class="application-label">
+                    <label 
+                        :class="{error: errors.name}"
+                        class="application-label">
                         <h1>姓名：</h1>
-                        <input v-model.trim="reserve.name" :disabled=isDisabled class="application-text" type="text" placeholder="請輸入您的姓名">
+                        <input 
+                            :class="{error: errors.name}"
+                            v-model.trim="reserve.name" 
+                            :disabled=isDisabled 
+                            class="application-text" 
+                            type="text" 
+                            placeholder="請輸入您的姓名">
                     </label>
                 </div>
                     <div class="application-book-2">
                         <h1>預約人數</h1>
-                        <select v-model.trim="reserve.people" :disabled=isDisabled name="" id="">
+                        <select 
+                            v-model.trim="reserve.people" 
+                            :disabled=isDisabled 
+                            :class="{error: errors.people}"
+                            >
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -56,14 +68,28 @@
                 <div class="application-book-3">
                     <label class="application-label">
                         <h1>手機號碼：</h1>
-                        <input v-model="reserve.number" :disabled=isDisabled class="application-text" type="text" placeholder="請輸入您手機號碼">
+                        <input
+                            :class="{error: errors.number}" 
+                            v-model="reserve.number" 
+                            :disabled=isDisabled 
+                            class="application-text" 
+                            type="text" 
+                            placeholder="請輸入您手機號碼">
                     </label>
                 </div>
                 <div class="application-book-4">
                     <h1>預約時間</h1>
-                    <input  v-model.trim="reserve.day" :disabled=isDisabled name="" id="" type="date">
+                    <input  
+                        :class="{error: errors.day}"
+                        v-model.trim="reserve.day" 
+                        :disabled=isDisabled
+                        type="date">
                     </input>
-                    <input v-model.trim="reserve.time" :disabled=isDisabled name="" id="" type="time">
+                    <input
+                        :class="{error: errors.time}" 
+                        v-model.trim="reserve.time" 
+                        :disabled=isDisabled
+                        type="time">
                     </input>
                 </div>
             </div>
@@ -74,7 +100,10 @@
                 <div class="application-lift">
                     <label class="application-label">
                         <h1>飼養地點：</h1>
-                        <input :disabled=isDisabled class="application-text" type="text" placeholder="">
+                        <input 
+                            :disabled=isDisabled 
+                            class="application-text" 
+                            type="text" placeholder="">
                     </label>
                     <label class="application-label">
                         <h1>空間大小：</h1>
@@ -88,23 +117,53 @@
                 <div class="application-right">
                     <label class="application-label">
                         <h1>姓名：</h1>
-                        <input v-model.trim="applications.appname" :disabled=isDisabled class="application-text" type="text" placeholder="請輸入您的姓名">
+                        <input 
+                            :class="{error: errors.appname}"
+                            v-model.trim="applications.appname" 
+                            :disabled=isDisabled 
+                            class="application-text" 
+                            type="text" 
+                            placeholder="請輸入您的姓名">
                     </label>
                     <label class="application-label">
                         <h1>身分證字號：</h1>
-                        <input v-model.trim="applications.appid" :disabled=isDisabled class="application-text" type="text" placeholder="請輸入您的身分證字號">
+                        <input 
+                            :class="{error: errors.appid}"
+                            v-model.trim="applications.appid" 
+                            :disabled=isDisabled 
+                            class="application-text" 
+                            type="text" 
+                            placeholder="請輸入您的身分證字號">
                     </label>
                     <label class="application-label">
                         <h1>出生日期：</h1>
-                        <input v-model.trim="applications.appbirthday" :disabled=isDisabled class="application-text" type="date" placeholder="範例: 1999-10-10">
+                        <input
+                            :class="{error: errors.appbirthday}" 
+                            v-model.trim="applications.appbirthday" 
+                            :disabled=isDisabled 
+                            class="application-text" 
+                            type="date" 
+                            placeholder="範例: 1999-10-10">
                     </label>
                     <label class="application-label">
                         <h1>手機號碼：</h1>
-                        <input v-model.trim="applications.appnumber" :disabled=isDisabled class="application-text" type="text" placeholder="請輸入您的手機號碼">
+                        <input
+                            :class="{error: errors.appnumber}" 
+                            v-model.trim="applications.appnumber" 
+                            :disabled=isDisabled 
+                            class="application-text" 
+                            type="text" 
+                            placeholder="請輸入您的手機號碼">
                     </label>
                     <label class="application-label">
                         <h1>電子信箱：</h1>
-                        <input v-model.lazy.trim="applications.appemail" :disabled=isDisabled class="application-text" type="text" placeholder="請輸入您的電子信箱">
+                        <input
+                            :class="{error: errors.appemail}" 
+                            v-model.lazy.trim="applications.appemail" 
+                            :disabled=isDisabled 
+                            class="application-text" 
+                            type="text" 
+                            placeholder="請輸入您的電子信箱">
                     </label>
                 </div>
             </div>

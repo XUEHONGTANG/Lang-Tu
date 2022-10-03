@@ -197,6 +197,9 @@
                 display: block;
                 margin: 0 auto;
             }
+            &.error {
+                outline: solid 1px $error;
+            }
         }
         .sponsor_information-label{
             display: flex;
@@ -227,6 +230,9 @@
                     @include m(){
                         font-size: rwd(12);
                     }
+                }
+                &.error {
+                    outline: solid 1px $error;
                 }
             }
             .sex-label{
