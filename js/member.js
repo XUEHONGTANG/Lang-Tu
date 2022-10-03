@@ -35,7 +35,7 @@ Vue.component('detail', {
     },
 
     template: `
-        <div class="member_detail">
+        <div class="member_detail" v-if="member[0]">
                 <h3>會員資料</h3>
                 <label class="text-label-1">
                     <input 
@@ -113,10 +113,22 @@ Vue.component('reservation', {
         return {
             adoption: [],
             account: "",
+            hide: true,
+            show: false,
+        }
+    },
+    methods: {
+        cancel(){
+            confirm("確定要取消?")
+            if(this.hide == true){
+                this.hide = false
+                this.show = true 
+            }
         }
     },
     template: `
         <div class="member_reservation">
+            <div v-if="hide">
                 <h3>預約領養紀錄</h3>
                 <table>
                     <thead>
@@ -132,11 +144,12 @@ Vue.component('reservation', {
                             <td>{{info.date}} {{info.time}}</td>
                             <td>PT00{{info.id}}</td>
                             <td>{{info.situation}}</td>
-                            <td><button class="btn-0">取消</button></td>
+                            <td><button class="btn-0" @click="cancel">取消</button></td>
                         </tr>
                     </tbody>
-                    
                 </table>
+            </div>
+                <div v-else-if="show" class="none-wrapper"><h3 class="none">尚無預約領養紀錄</h3></div>
             </div>
     `,
     mounted() {
@@ -164,71 +177,87 @@ Vue.component('order', {
             imgURL:'./images/ff/',
             account: "", 
             isShow: false,
+            currentOrder: -1,
+            icon: '<i class="fa-solid fa-plus"></i>',
         }
     },
     methods: {
-        show(){
-            if(this.isShow == false){
+        // i 值由 v-for 取得， isShow值為 false 預設是關閉的， currentOrder 值為 -1
+        // 目前有兩筆資料所以 i 值為 0 和 1，如資料增加也一樣
+        show(i){
+            if(this.isShow == false || this.currentOrder != i){
+                //這邊做判斷如果我的頁面是關閉 且 變數值不等於i值
+                //那頁面開啟 且 變數值 = i
                 this.isShow = true
-            }else if(this.isShow == true){
+                this.currentOrder = i
+                this.icon = '<i class="fa-solid fa-minus"></i>'
+            }else if(this.isShow == true || this.currentOrder != -1){
+                //如果頁面是開啟 且 變數值不等於 變數值預設數字
+                //頁面關閉 且 變數值恢復預設
+                this.currentOrder = -1
                 this.isShow = false
+                this.icon = '<i class="fa-solid fa-plus"></i>'
             }
+            //以上因為show是綁定每一次的click 
         }
     },
     template: `
-        <div class="order_detail">
-                <h3>訂單紀錄</h3>
-                <table>
-                    <thead>
-                            <th>編號</th>
-                            <th>時間</th>
-                            <th>方式</th>
-                            <th>金額</th>
-                            <th>狀態</th>
-                            <th></th>
-                    </thead>
-                    <tbody>
-                        <tr v-for='(info, i) in order'>
-                            <td>OD00{{info.id}}</td>
-                            <td>{{info.date}}</td>
-                            <td>{{info.payment}}</td>
-                            <td>{{info.total}}</td>
-                            <td>{{info.situation}}</td>
-                            <td @click="show"><i class="fa-solid fa-plus"></i></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div v-if="isShow">
-                <h3 class="detail-title">訂單明細</h3>
-                <table>
-                    <thead>
-                        <th></th>
-                        <th>商品</th>
-                        <th>價格</th>
-                        <th>數量</th>
-                        <th>小計</th>
-                    </thead>
-                    <tbody>
-                        <tr v-for='(info, i) in order'>
-                            <td><img class="pd" :src="imgURL+info.list[i].image" alt=""></td>
-                            <td>{{info.list[i].name}}</td>
-                            <td>{{info.list[i].price}}</td>
-                            <td>{{info.list[i].quantity}}</td>
-                            <td>{{info.list[i].price * info.list[i].quantity}}</td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td>合計:</td>
-                            <td></td>
-                            <td>{{order[0].total}}</td>
-                        </tr>
-                    </tfoot>
-                </table>
+    <div class="order_detail">
+    <h3>訂單紀錄</h3>
+    <div class="product" v-for="(info, i) in order">
+    <table class="top">
+            <tr v-if= "i == 0">
+                <td class="num">編號</td>
+                <td class="num">時間</td>
+                <td class="num">方式</td>
+                <td class="num">金額</td>
+                <td class="num">狀態</td>
+                <td class="num"></td>
+            </tr>
+        <tbody>
+            <tr>
+                <td class="orderDetail">OD00{{info.id}}</td>
+                <td class="dateDetail">{{info.date}}</td>
+                <td class="paymentDetail">{{info.payment}}</td>
+                <td class="totalDetail">{{info.total}}</td>
+                <td class="situationDetail">{{info.situation}}</td>
+                <td @click="show(i)" class="situationDetail" v-html="icon"></td>
+            </tr>
+        </tbody>
+    </table>
+    <transition name="fade" mode="in-out">
+    <div v-if="i == currentOrder">
+    <h3 class="detail-title">訂單明細</h3>
+    <table class="bottom">
+            <tr>
+                <td class="num"></td>
+                <td class="num">商品</td>
+                <td class="num">價格</td>
+                <td class="num">數量</td>
+                <td class="num">小計</td>
+            </tr>
+        <tbody>
+            <tr v-for="detail in info.list">
+                <td class="num-detail"><img class="pd" :src="imgURL+detail.image" alt=""></td>
+                <td class="num-detail">{{detail.name}}</td>
+                <td class="num-detail">{{detail.price}}</td>
+                <td class="num-detail">{{detail.quantity}}</td>
+                <td class="num-detail">{{detail.price * detail.quantity}}</td>
+            </tr>
+            <tr>
+                <td class="detail-bottom"></td>
+                <td class="detail-bottom"></td>
+                <td class="detail-bottom">合計:</td>
+                <td class="detail-bottom"></td>
+                <td v-if="order[0]" class="detail-bottom">{{order[0].total}}</td>
+            </tr>
+        </tbody>
+    </table>
                 </div>
+                </transition>
             </div>
+        </div>
+    </div>
     `,
     mounted() {
         let account = sessionStorage.getItem("account")
@@ -257,41 +286,140 @@ Vue.component('sponsor', {
         return {
             donor: [],
             account: "",
+            isDisabled: true,
+            revise: "修改",
+            hide: true,
+            classObj1:{
+                "btn1": false
+            },
+            classObj2:{
+                "btn1": true
+            },
+            classObj3:{
+                "btn1": true
+            },
+            currentSponsor: -1,
+            icon: '<i class="fa-solid fa-plus"></i>',
+        }
+    },
+    methods: {
+        changPlan(){
+            if(this.isDisabled == true){
+                this.isDisabled = false
+                this.revise = "確認"
+            }else if(this.isDisabled == false){
+                this.isDisabled = true
+                this.revise = "修改"
+            }
+        },
+        
+        cancel(){
+            alert("確定取消贊助?")
+            this.hide = false
+        },
+
+        planChange(val){
+            if(val == 1){
+                confirm("確認要修改為方案一?")
+                this.classObj1.btn1 = false
+                this.classObj2.btn1 = true
+                this.classObj3.btn1 = true
+                fetch('../php/updatePlan1.php',{
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        account: this.account, 
+                    })
+                })
+            }else if(val == 2){
+                confirm("確認要修改為方案二?")
+                this.classObj1.btn1 = true
+                this.classObj2.btn1 = false
+                this.classObj3.btn1 = true
+                fetch('../php/updatePlan2.php',{
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        account: this.account, 
+                    })
+                })
+            }else if(val == 3){
+                confirm("確認要修改為方案三?")
+                this.classObj1.btn1 = true
+                this.classObj2.btn1 = true
+                this.classObj3.btn1 = false
+                fetch('../php/updatePlan3.php',{
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        account: this.account, 
+                    })
+                })
+            }
+        },
+        show(i){
+            if(this.isShow == false || this.currentSponsor != i){
+                //這邊做判斷如果我的頁面是關閉 且 變數值不等於i值
+                //那頁面開啟 且 變數值 = i
+                this.isShow = true
+                this.currentSponsor = i
+                this.icon = '<i class="fa-solid fa-minus"></i>'
+            }else if(this.isShow == true || this.currentSponsor != -1){
+                //如果頁面是開啟 且 變數值不等於 變數值預設數字
+                //頁面關閉 且 變數值恢復預設
+                this.currentSponsor = -1
+                this.isShow = false
+                this.icon = '<i class="fa-solid fa-plus"></i>'
+            }
+            //以上因為show是綁定每一次的click 
         }
     },
     template: `
     <div class="donation_record">
-            <h3>贊助紀錄</h3>
-            <table>
-                <thead>
-                    <th>贊助編號</th>
-                    <th>贊助時間</th>
-                    <th>方式</th>
-                    <th>金額</th>
-                    <th>狀態</th>
-                </thead>
+    <h3>贊助紀錄</h3>
+        <div v-if="donor[0]" v-for= "(info, i) in donor">
+            <table class="sponsor">
+                <tr v-if="i == 0">
+                    <td class="num">贊助編號</td>
+                    <td class="num">贊助時間</td>
+                    <td class="num">方式</td>
+                    <td class="num">金額</td>
+                    <td class="num">狀態</td>
+                    <td class="num"></td>
+                </tr>
                 <tbody>
-                    <tr v-for= "info in donor">
-                        <td>OD00{{info.id}}</td>
-                        <td>{{info.date}}</td>
-                        <td>{{info.method}}</td>
-                        <td>NT $ {{info.amount}}</td>
-                        <td>{{info.situation}}</td>
+                    <tr>
+                        <td class="id-detail">OD00{{info.id}}</td>
+                        <td class="date-detail">{{info.date}}</td>
+                        <td class="method-detail">{{info.method}}</td>
+                        <td class="amount-detail">NT $ {{info.amount}}</td>
+                        <td class="situation-detail">{{info.situation}}</td>
+                        <td @click="show(i)" class="num-detail" v-html="icon"></td>    
                     </tr>
                 </tbody>
             </table>
-            <h3 class="bottom">贊助捐款</h3>
-            <h4>贊助專案：【I got you 浪我罩你】線上訂閱中途計畫</h4>
-            <div class="button">
-                <button class="btn-0">方案一：每月NT$300</button>
-                <button class="btn-1">方案二：每月NT$500</button>
-                <button class="btn-1">方案三：每月NT$800</button>
-            </div>
-            <div class="btn">
-                <button class="btn-0-1">修改</button>
-                <button class="btn-0-1">取消贊助</button>
-            </div>
+            <transition name="fade" mode="in-out">
+                <div v-if="i == currentSponsor">
+                    <h3 class="bottom">贊助捐款</h3>
+                    <h4>贊助專案：{{donor[i].fundName}}</h4>
+                    <div class="button">
+                        <button  @click="planChange(1)" class="btn0" :class="classObj1">方案一：每月NT$300</button>
+                        <button  @click="planChange(2)" class="btn0" :class="classObj2">方案二：每月NT$500</button>
+                        <button  @click="planChange(3)" class="btn0" :class="classObj3">方案三：每月NT$1000</button>
+                    </div>
+                    <div class="btn">
+                        <button v-if="info.situation == '定期'" @click="cancel" class="btn-0">取消贊助</button>
+                    </div>
+                </div>
+            </transition>
         </div>
+    </div>
     `,
     mounted() {
         let account = sessionStorage.getItem("account")
@@ -314,7 +442,7 @@ Vue.component('sponsor', {
 new Vue({
     el: '#memberCenterApp',
     data: {
-        content: 'detail',
+        content: 'sponsor',
         detail: true,
         reservation: false,
         order: false,

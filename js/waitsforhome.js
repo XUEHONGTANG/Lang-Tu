@@ -19,10 +19,12 @@ Vue.component('CatAndDog', {
             if(!this.animalType){
                 // return this.animals;
                 let _animals = [];
+                //給一個新的陣列 選取切割123,456,789 每頁三筆去做顯示的資料
                 _animals = this.animals.slice((this.currentPage-1)*3, (this.currentPage-1)*3+3);
                 return _animals;
             }
             let _animals = this.animals.filter((animal) => {
+                //filter 篩選pkind值要=變數
                 return animal.pkind  === this.animalType;
                })
             
@@ -75,9 +77,9 @@ new Vue({
         isOpen: false,
         reactArr: [],
         olClass: 'hide',
-        // pages: ['1','2', '3', '4'],
 
         pages:0,
+        //頁碼給個變數 撈取資料去改動
         
         currentPage: 1,
         //預設從第一頁開始
@@ -86,7 +88,6 @@ new Vue({
         animalType:null,
         // 為了點擊click事件所設定的變數
         animals:[],
-        
         // 接收資料的空陣列 擺出來放 為了可以做頁碼
         // animalType: ['brown','flower','black','white','smalldog','mediumdog','bigdog']
     },
@@ -131,28 +132,19 @@ new Vue({
             
         },
         left(){
+            //控制頁碼往前一頁 寫個判斷式讓頁碼不會小於0
             this.currentPage--
             if(this.currentPage <=0){
                 this.currentPage=1
             }
         },
         right(){
+            //控制頁碼往後一頁 判斷式讓頁碼切換不會大於頁碼最大值
             this.currentPage++
             if(this.currentPage >= this.pages){
                 this.currentPage = this.pages
             }
         },
-        // changeColor(){
-        //     if(this.currentPage == this.pages){
-        //         return true
-        //     }else{
-        //         return false
-        //     }
-        // },
-        // updateAnimals(newAnimals) {
-        //     this.pages = newAnimals.length/ 3;
-        //     this.currentPage = 1;
-        // },
         toggle(order) {
             let length = this.reactArr.length,
                 i = 0;

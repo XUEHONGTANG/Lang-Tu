@@ -43,51 +43,86 @@
                 <section class="sponsor_information-flex" v-if="currentPage == 1">
                     <label class="sponsor_information-label" for="username">
                         <h4>姓名</h4>
-                    <input v-model="donor.name" class="input-text" type="text" name="username" id="username" placeholder="請填寫真實姓名">
+                    <input
+                        :class="{error: errors.name}" 
+                        v-model="donor.name" 
+                        class="input-text" 
+                        type="text" 
+                        name="username" 
+                        id="username" 
+                        placeholder="請填寫真實姓名">
                     </label>
                     <br>
                     <div class="sponsor_information-label">
                         <h4>國籍別</h4>
                     <label class="nation-label" for="nationTW">
-                        <input v-model="donor.nationTW" id="nationTW" type="radio" name="nation" value="本國籍">
+                        <input
+                            :class="{error: errors.nationTW}" 
+                            v-model="donor.nationTW" 
+                            id="nationTW" 
+                            type="radio" 
+                            name="nation" 
+                            value="本國籍">
                         <p>本國籍</p>
                     </label>
                     <label class="nation-label" for="nationUS">
-                        <input v-model="donor.nationTW" id="nationUS" type="radio" name="nation" value="外國籍">
+                        <input 
+                            :class="{error: errors.nationTW}"
+                            v-model="donor.nationTW" 
+                            id="nationUS" 
+                            type="radio" 
+                            name="nation" 
+                            value="外國籍">
                         <p>外國籍</p>
                     </label>
                     </div>
                     <br>
                     <label class="sponsor_information-label" for="idname">
                         <h4>身份證字號</h4>
-                    <input v-model="donor.idname" class="input-text" type="text" id="idname" placeholder="境外人士請填寫護照號碼 Passport No.">
+                    <input
+                        :class="{error: errors.idname}"
+                        v-model="donor.idname" 
+                        class="input-text" 
+                        type="text" 
+                        id="idname" 
+                        placeholder="境外人士請填寫護照號碼 Passport No.">
                     </label>
                     <br>
                     <label class="sponsor_information-label" for="email">
                         <h4>E-mail</h4>
-                    <input v-model="donor.email" class="input-text" type="text" id="email">
+                    <input
+                        :class="{error: errors.email}"
+                        v-model="donor.email" class="input-text" type="text" id="email">
                     </label>
                     <br>
                     <label class="sponsor_information-label" for="sex">
                         <h4>性別</h4>
                     <label  class="sex-label" for="male">
-                        <input v-model="donor.gender" id="male" type="radio" name="sex" value="男">
+                        <input
+                            :class="{error: errors.male}"
+                            v-model="donor.gender" id="male" type="radio" name="sex" value="男">
                         <p>男</p>
                     </label>
                     <label class="sex-label" for="female">
-                        <input v-model="donor.gender" id="female" type="radio" name="sex" value="女">
+                        <input
+                            :class="{error: errors.male}"
+                            v-model="donor.gender" id="female" type="radio" name="sex" value="女">
                         <p>女</p>
                     </label>
                     </label>
                     <br>
                     <label class="sponsor_information-label" for="birthday">
                         <h4>生日</h4>
-                        <input v-model="donor.birthday" class="input-text" type="date" id="birthday" placeholder="範例: 1999-10-10">
+                        <input
+                            :class="{error: errors.birthday}"
+                            v-model="donor.birthday" class="input-text" type="date" id="birthday" placeholder="範例: 1999-10-10">
                     </label>
                     <br>
                     <label class="sponsor_information-label" for="number">
                         <h4>連絡電話</h4>
-                    <input v-model="donor.number" class="input-text" type="text" id="number">
+                    <input
+                        :class="{error: errors.number}"
+                        v-model="donor.number" class="input-text" type="text" id="number">
                     </label>
                     <br>
 
@@ -104,21 +139,25 @@
                         <input class="input-text2" type="text" id="address" placeholder="郵遞區號"> -->
                     </label>
                     <label class="sponsor_information-label3" for="address">
-                        <input v-model="donor.address" class="input-text" type="text" id="address" placeholder="範例: 路街樓號">
+                        <input
+                            :class="{error: errors.address}"
+                            v-model="donor.address" class="input-text" type="text" id="address" placeholder="範例: 路街樓號">
                     </label>    
                     <br>
                     <label class="sponsor_information-label" for="nation">
                         <h4>捐款方式</h4>
                     <label class="payment-label" for="creditcard">
-                        <input v-model="donor.creditcard" id="creditcard" type="radio" name="payment" value="Visa / Master / JCB">
+                        <input
+                            :class="{error: errors.creditcard}"
+                            v-model="donor.creditcard" id="creditcard" type="radio" name="payment" value="Visa / Master / JCB">
                         <p>Visa/Master/JCB</p>
                     </label>
                     <label class="payment-label" for="ATM">
-                        <input v-model="donor.creditcard" id="ATM" type="radio" name="payment" value="ATM轉帳">
+                        <input :class="{error: errors.creditcard}" v-model="donor.creditcard" id="ATM" type="radio" name="payment" value="ATM轉帳">
                         <p>ATM轉帳</p>
                     </label>
                     <label class="payment-label" for="shop">
-                        <input v-model="donor.creditcard" id="shop" type="radio" name="payment" value="超商繳款">
+                        <input :class="{error: errors.creditcard}" v-model="donor.creditcard" id="shop" type="radio" name="payment" value="超商繳款">
                         <p>超商繳款</p>
                     </label>
                     </label>
@@ -133,26 +172,26 @@
                         <h4>*是否需要收據</h4>
                         <div class="receiptMethod">
                             <label class="receipt-label" for="no">
-                                <input v-model="donor2.receipt" id="no" type="radio" name="receipt" value="不需要(無抵稅需求/不用寄收據給我)"><p>不需要(無抵稅需求/不用寄收據給我)</p>
+                                <input :class="{error: errors.receipt}" v-model="donor2.receipt" id="no" type="radio" name="receipt" value="不需要(無抵稅需求/不用寄收據給我)"><p>不需要(無抵稅需求/不用寄收據給我)</p>
                             </label>
                             <br>
                             <label class="receipt-label" for="onlypaper">
-                                <input v-model="donor2.receipt" id="onlypaper" type="radio" name="receipt" value="需要(請寄紙本收據給我)"><p>需要(請寄紙本收據給我)</p>
+                                <input :class="{error: errors.receipt}" v-model="donor2.receipt" id="onlypaper" type="radio" name="receipt" value="需要(請寄紙本收據給我)"><p>需要(請寄紙本收據給我)</p>
                             </label>
                             <br>
                             <label class="receipt-label" for="onlyelectronic">
-                                <input v-model="donor2.receipt" id="onlyelectronic" type="radio" name="receipt" value="需要(請寄電子收據給我)"><p>需要(請寄電子收據給我)</p>
+                                <input :class="{error: errors.receipt}" v-model="donor2.receipt" id="onlyelectronic" type="radio" name="receipt" value="需要(請寄電子收據給我)"><p>需要(請寄電子收據給我)</p>
                             </label>
                         </div>
                     </div>
                     <label class="text-label-1">
                         <h4>*收據抬頭</h4>
-                        <input v-model="donor2.header" class="input-text" type="text">
+                        <input :class="{error: errors.header}" v-model="donor2.header" class="input-text" type="text">
                         <button @click="headername" class="btn-1">同捐款人姓名</button>
                     </label>
                     <label class="text-label-2">
                         <h4>*身份證/統一編號</h4>
-                        <input v-model="donor2.usernumber" class="input-text" type="text">
+                        <input :class="{error: errors.usernumber}" v-model="donor2.usernumber" class="input-text" type="text">
                         <button @click="usernumberid" class="btn-1">同捐款人身分證</button>
                     </label>
                     
@@ -160,11 +199,11 @@
                         <h4>*公開徵信錄</h4>
                         <div class="receiptPublicOrnot">
                             <label class="receiptPublic-label" for="public">
-                                <input v-model="donor2.public" id="public" type="radio" name="public" value="公開"><p>公開</p>
+                                <input :class="{error: errors.public}" v-model="donor2.public" id="public" type="radio" name="public" value="公開"><p>公開</p>
                             </label>
                             <br>
                             <label class="receiptPublic-label" for="noPublic">
-                                <input v-model="donor2.public" id="noPublic" type="radio" name="public" value="不同意公開"><p>不同意公開</p>
+                                <input :class="{error: errors.public}" v-model="donor2.public" id="noPublic" type="radio" name="public" value="不同意公開"><p>不同意公開</p>
                             </label>
                         </div>
                     </div>

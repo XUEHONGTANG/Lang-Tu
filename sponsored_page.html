@@ -15,7 +15,7 @@
     "前頁面" : "浪浪募資" ,
     "此頁面" : "贊助頁面" ,
     })
-    <main id="sponsorPageApp" class="sponsored_page">
+    <main id="sponsorPageApp" class="sponsored_page" v-if="sponsor[0]">
         <div class="sponsored_page-top">
             <div class="sponsored_page-top-img">
                 <img :src="imgURL+sponsor[0].fundImg" alt="">
@@ -55,19 +55,19 @@
                             <div class="selection"><img src="./images/Meteor/selection1.jpg" alt=""></div>
                             <h5>方案一</h5>
                             <p>每月 NT$300</p>
-                            <p class="sponsorTime">已被贊助 {{fundPeople[3].total}} 次</p>
+                            <p class="sponsorTime" v-if="fundPeople[3]">已被贊助 {{fundPeople[3].total}} 次</p>
                         </a>
                         <a  class="sponsored_page-under-btnbig-in" @click="sponsorContent('每月方案二500'), sponsorPic('selection2.jpg'), nextpet()">
                             <div class="selection"><img src="./images/Meteor/selection2.jpg" alt=""></div>
                             <h5>方案二</h5>
                             <p>每月 NT$500</p>
-                            <p class="sponsorTime">已被贊助 {{fundPeople[4].total}} 次</p>
+                            <p class="sponsorTime" v-if="fundPeople[4]">已被贊助 {{fundPeople[4].total}} 次</p>
                         </a>
                         <a  class="sponsored_page-under-btnbig-in" @click="sponsorContent('每月方案三1000'), sponsorPic('selection3.jpg'), nextpet()">
                             <div class="selection"><img src="./images/Meteor/selection3.jpg" alt=""></div>
                             <h5>方案三</h5>
                             <p>每月 NT$1000</p>
-                            <p class="sponsorTime">已被贊助 {{fundPeople[5].total}} 次</p>
+                            <p class="sponsorTime" v-if="fundPeople[5]">已被贊助 {{fundPeople[5].total}} 次</p>
                         </a>
                     </section>
                     <section v-else-if="currentPlan == 2">
@@ -75,19 +75,19 @@
                             <div class="selection"><img src="./images/Meteor/selection4.jpg" alt=""></div>
                             <h5>方案一</h5>
                             <p>單筆 NT$300</p>
-                            <p class="sponsorTime">已被贊助 {{fundPeople[0].total}} 次</p>
+                            <p class="sponsorTime" v-if="fundPeople[0]">已被贊助 {{fundPeople[0].total}} 次</p>
                         </a>
                         <a  class="sponsored_page-under-btnbig-in" @click="sponsorContent('單筆方案二500'), sponsorPic('selection5.jpg'), nextpet()">
                             <div class="selection"><img src="./images/Meteor/selection5.jpg" alt=""></div>
                             <h5>方案二</h5>
                             <p>單筆 NT$500</p>
-                            <p class="sponsorTime">已被贊助 {{fundPeople[1].total}} 次</p>
+                            <p class="sponsorTime" v-if="fundPeople[1]">已被贊助 {{fundPeople[1].total}} 次</p>
                         </a>
                         <a  class="sponsored_page-under-btnbig-in" @click="sponsorContent('單筆方案三1000'), sponsorPic('selection6.jpg'), nextpet()">
                             <div class="selection"><img src="./images/Meteor/selection6.jpg" alt=""></div>
                             <h5>方案三</h5>
                             <p>單筆 NT$1000</p>
-                            <p class="sponsorTime">已被贊助 {{fundPeople[2].total}} 次</p>
+                            <p class="sponsorTime" v-if="fundPeople[2]">已被贊助 {{fundPeople[2].total}} 次</p>
                         </a>
                     </section>
             </div>
