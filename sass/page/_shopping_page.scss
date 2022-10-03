@@ -225,7 +225,7 @@ main.shoppingPageWrapper {
 
         @include m() {
           width: rwd(185);
-          
+
           border-radius: rwd(13);
           margin: rwd(12) rwd(6);
           &:hover {
@@ -335,7 +335,7 @@ main.shoppingPageWrapper {
     // transition: all 5s ease-in-out;
 
     @include m() {
-      height: auto;
+      // height: auto;
       // background-color: rgba(46, 46, 46, 0);
       // background-color: rgba(46, 46, 46, 0.6);
       // background-image: $bgi;
@@ -354,7 +354,7 @@ main.shoppingPageWrapper {
       top: calc(50% - vw(450));
 
       display: flex;
-      cursor:default;
+      cursor: default;
 
       @include m() {
         display: flex;
@@ -398,7 +398,7 @@ main.shoppingPageWrapper {
 
           img {
             width: 100%;
-            object-fit:contain;
+            object-fit: contain;
             // @include m() {
             //   width: 95%;
             // }
@@ -433,15 +433,13 @@ main.shoppingPageWrapper {
               -webkit-align-items: center;
               align-items: center;
 
-              border-radius:vw(8);
-            
+              border-radius: vw(8);
 
-              
               @include m() {
                 width: rwd(84);
                 height: rwd(84);
                 margin: 0 rwd(8);
-                border-radius:rwd(8);
+                border-radius: rwd(8);
               }
             }
             .swiper-slide img {
@@ -451,10 +449,10 @@ main.shoppingPageWrapper {
               margin: 0 auto;
               object-fit: cover;
               cursor: pointer;
-              border-radius:vw(5);
-            
-              @include m(){
-              border-radius:rwd(5);
+              border-radius: vw(5);
+
+              @include m() {
+                border-radius: rwd(5);
               }
 
               // @include m() {
@@ -777,11 +775,11 @@ main.shoppingPageWrapper {
     }
   }
 
-  .alertArea{
+  .alertArea {
     z-index: 55;
     position: fixed;
     right: vw(16);
-    bottom: vw(16);
+    top: vw(16);
     background-color: $primaryA11y;
     border-radius: vw(8);
     padding: $space2 $space4;
@@ -791,20 +789,31 @@ main.shoppingPageWrapper {
     font-weight: $bold;
     color: #fff;
 
-    transition: all .5s ease-in-out;
-    
+    // transition: all 0.5s ease-in-out;
+
     @include box-center();
-    @include m(){
-    border-radius: rwd(8);
-    padding: rwd(16) rwd(32);
-    box-shadow: $shadow;
-    font-size: rwd(16);
+    @include m() {
+      border-radius: rwd(8);
+      padding: rwd(16) rwd(32);
+      box-shadow: $shadow;
+      font-size: rwd(16);
 
-    right: rwd(10);
-    left: rwd(10);
-    bottom: rwd(16);
+      right: rwd(10);
+      left: rwd(10);
+      top: rwd(16);
     }
+  }
 
+  .v-enter-active, .v-leave-active {
+    transition: opacity .5s;
+  }
+  
+  .v-enter, .v-leave-to {
+    opacity: 0;
+  }
+  
+  .v-enter-to, .v-leave {
+    opacity: 1;
   }
   // main content end
 }

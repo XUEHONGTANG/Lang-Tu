@@ -35,7 +35,7 @@ Vue.component('detail', {
     },
 
     template: `
-        <div class="member_detail">
+        <div class="member_detail" v-if="member[0]">
                 <h3>會員資料</h3>
                 <label class="text-label-1">
                     <input 
@@ -113,10 +113,22 @@ Vue.component('reservation', {
         return {
             adoption: [],
             account: "",
+            hide: true,
+            show: false,
+        }
+    },
+    methods: {
+        cancel(){
+            confirm("確定要取消?")
+            if(this.hide == true){
+                this.hide = false
+                this.show = true 
+            }
         }
     },
     template: `
         <div class="member_reservation">
+            <div v-if="hide">
                 <h3>預約領養紀錄</h3>
                 <table>
                     <thead>
@@ -132,11 +144,12 @@ Vue.component('reservation', {
                             <td>{{info.date}} {{info.time}}</td>
                             <td>PT00{{info.id}}</td>
                             <td>{{info.situation}}</td>
-                            <td><button class="btn-0">取消</button></td>
+                            <td><button class="btn-0" @click="cancel">取消</button></td>
                         </tr>
                     </tbody>
-                    
                 </table>
+            </div>
+                <div v-else-if="show" class="none-wrapper"><h3 class="none">尚無預約領養紀錄</h3></div>
             </div>
     `,
     mounted() {
@@ -161,22 +174,19 @@ Vue.component('order', {
     data() {
         return {
             order: [],
-            imgURL:'./images/Derrick/',
-            orderDetail: [],
+            imgURL:'./images/ff/',
             account: "", 
+            isShow: false,
         }
     },
     methods: {
-        total(){
-            let total = 0;
-            for(let i = 0; i < this.order.length; i++){
-                total += this.order[i].price * this.order[i].quantity
+        show(){
+            if(this.isShow == false){
+                this.isShow = true
+            }else if(this.isShow == true){
+                this.isShow = false
             }
-            return total;
-        },
-    },
-    computed:{
-        
+        }
     },
     template: `
         <div class="order_detail">
@@ -191,16 +201,17 @@ Vue.component('order', {
                             <th></th>
                     </thead>
                     <tbody>
-                        <tr v-for='info in order'>
+                        <tr v-for='(info, i) in order'>
                             <td>OD00{{info.id}}</td>
                             <td>{{info.date}}</td>
-                            <td>{{info.method}}</td>
+                            <td>{{info.payment}}</td>
                             <td>{{info.total}}</td>
                             <td>{{info.situation}}</td>
-                            <td><i class="fa-solid fa-plus"></i></td>
+                            <td @click="show"><i class="fa-solid fa-plus"></i></td>
                         </tr>
                     </tbody>
                 </table>
+                <div v-if="isShow">
                 <h3 class="detail-title">訂單明細</h3>
                 <table>
                     <thead>
@@ -211,12 +222,12 @@ Vue.component('order', {
                         <th>小計</th>
                     </thead>
                     <tbody>
-                        <tr v-for='info in order'>
-                            <td><img :src="imgURL+info.image" alt=""></td>
-                            <td>{{info.name}}</td>
-                            <td>{{info.price}}</td>
-                            <td>{{info.quantity}}</td>
-                            <td>{{info.price * info.quantity}}</td>
+                        <tr v-for='(info, i) in order'>
+                            <td><img class="pd" :src="imgURL+info.list[i].image" alt=""></td>
+                            <td>{{info.list[i].name}}</td>
+                            <td>{{info.list[i].price}}</td>
+                            <td>{{info.list[i].quantity}}</td>
+                            <td>{{info.list[i].price * info.list[i].quantity}}</td>
                         </tr>
                     </tbody>
                     <tfoot>
@@ -225,10 +236,11 @@ Vue.component('order', {
                             <td></td>
                             <td>合計:</td>
                             <td></td>
-                            <td>{{total()}}</td>
+                            <td>{{order[0].total}}</td>
                         </tr>
                     </tfoot>
                 </table>
+                </div>
             </div>
     `,
     mounted() {
@@ -245,7 +257,11 @@ Vue.component('order', {
             })
         })
         .then(resp => resp.json())
-        .then(resp => this.order = resp);
+        .then(resp => {
+            resp.forEach((pd)=>{
+                pd.list = JSON.parse(pd.list);
+            });
+            this.order = resp})
     },
 })
 
@@ -254,10 +270,84 @@ Vue.component('sponsor', {
         return {
             donor: [],
             account: "",
+            isDisabled: true,
+            revise: "修改",
+            hide: true,
+            classObj1:{
+                "btn1": false
+            },
+            classObj2:{
+                "btn1": true
+            },
+            classObj3:{
+                "btn1": true
+            }
+        }
+    },
+    methods: {
+        changPlan(){
+            if(this.isDisabled == true){
+                this.isDisabled = false
+                this.revise = "確認"
+            }else if(this.isDisabled == false){
+                this.isDisabled = true
+                this.revise = "修改"
+            }
+        },
+        
+        cancel(){
+            alert("確定取消贊助?")
+            this.hide = false
+        },
+
+        planChange(val){
+            if(val == 1){
+                confirm("確認要修改為方案一?")
+                this.classObj1.btn1 = false
+                this.classObj2.btn1 = true
+                this.classObj3.btn1 = true
+                fetch('../php/updatePlan1.php',{
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        account: this.account, 
+                    })
+                })
+            }else if(val == 2){
+                confirm("確認要修改為方案二?")
+                this.classObj1.btn1 = true
+                this.classObj2.btn1 = false
+                this.classObj3.btn1 = true
+                fetch('../php/updatePlan2.php',{
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        account: this.account, 
+                    })
+                })
+            }else if(val == 3){
+                confirm("確認要修改為方案三?")
+                this.classObj1.btn1 = true
+                this.classObj2.btn1 = true
+                this.classObj3.btn1 = false
+                fetch('../php/updatePlan3.php',{
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        account: this.account, 
+                    })
+                })
+            }
         }
     },
     template: `
-    <div class="donation_record">
+    <div class="donation_record" v-if="donor[0]">
             <h3>贊助紀錄</h3>
             <table>
                 <thead>
@@ -277,17 +367,20 @@ Vue.component('sponsor', {
                     </tr>
                 </tbody>
             </table>
+            <div v-if="hide">
             <h3 class="bottom">贊助捐款</h3>
-            <h4>贊助專案：【I got you 浪我罩你】線上訂閱中途計畫</h4>
+            <h4>贊助專案：{{donor[0].fundName}}</h4>
             <div class="button">
-                <button class="btn-0">方案一：每月NT$300</button>
-                <button class="btn-1">方案二：每月NT$500</button>
-                <button class="btn-1">方案三：每月NT$800</button>
+                <button  @click="planChange(1)" class="btn0" :class="classObj1">方案一：每月NT$300</button>
+                <button  @click="planChange(2)" class="btn0" :class="classObj2">方案二：每月NT$500</button>
+                <button  @click="planChange(3)" class="btn0" :class="classObj3">方案三：每月NT$1000</button>
             </div>
             <div class="btn">
-                <button class="btn-0-1">修改</button>
-                <button class="btn-0-1">取消贊助</button>
+                <button @click="cancel" class="btn-0">取消贊助</button>
             </div>
+            <div>
+        </div>
+        </div>
         </div>
     `,
     mounted() {

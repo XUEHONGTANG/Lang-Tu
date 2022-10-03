@@ -27,7 +27,7 @@
                 v-on:click="setFilter('ANNOUNCE')">一般公告</span>
         </div>
        
-        <section id="">
+        <section>
             <div class="NewsGrid" name="posts">
               <div class="for" v-if="currentFilter === post.category || currentFilter === 'ALL'" v-for="post in posts" :style="{'animation-delay': pid/8 + 's'}"
               :key="id">

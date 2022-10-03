@@ -164,11 +164,16 @@ const productPage = {
   v-show="product.isShow"
   class="productPageDrop"
   @click="myToggleShow(product)">
-  <div class="alertArea"
- 
-  v-if="addAlert"
-  >{{product.name}} {{product.quantity}} pcs 加入購物車</div>
   
+  <transition>
+  <div class="alertArea"
+  @click="addAlert = false"
+  @touchend="addAlert = false"
+  v-if="addAlert"
+  key="alertArea"
+  >{{product.name}} {{product.quantity}} pcs 加入購物車</div>
+  </transition>
+
   <div
   @click.stop
   @touchend.stop.prevent="product.isShow = true"

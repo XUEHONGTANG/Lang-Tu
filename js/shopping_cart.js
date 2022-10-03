@@ -1,15 +1,73 @@
 import store from './store.js';
 
 
+// const alertArea = {
+//   props: ['cart', 'product', 'deleteincartalert'],
+//   data() {
+//     return {
+//       addAlert: null
+//     }
+//   },
+//   // methods(){
+//   //   deleteInCartAlert() {
+
+//   //     this.addAlert = true;
+//   //     setTimeout(() => { return this.addAlert = false }, 3000);
+//   //   }
+//   // },
+//   template: `
+//   <div class="alertArea"
+
+//     >
+//       {{product.name}} {{product.quantity}} pcs 移出購物車
+//   </div>
+//   `,
+// };
+const alertLoginArea = {
+  template: `
+  <transition>
+    <div class="alertText"
+    >請先登入會員</div>
+  </transition>
+  `,
+}
+
+const alertEmptyArea = {
+  template: `
+  <transition>
+    <div class="alertText"
+    >購物車內沒有商品</div>
+  </transition>
+  `,
+}
+
+// const alertRemoveArea = {
+//   props:['product'],
+//   template: `
+//   <transition>
+//     <div class="alertText"
+//     >{{product.name}} {{product.quantity}} pcs 移出購物車</div>
+//   </transition>
+//   `,
+// }
+
 new Vue({
   store,
   el: "#shoppingCartApp",
+  components: {
+    // alertRemoveArea,
+    alertLoginArea,
+    alertEmptyArea
+  },
   data: {
     // counter: 1,
     theOrder:[],
     currentPage: 1,
     changeAddressIsActive: false,
     imgURL: './images/ff/',
+    alertLogin: null,
+    alertEmpty:null,
+    // alertRemove:null,
     cartTitle: [
       { id: 1, name: "購物車" },
       { id: 2, name: "結帳頁面" },
@@ -33,7 +91,8 @@ new Vue({
       deliveryFee: null,
       deliveryWay:'',
       datetime: '',
-      total:null
+      total: null,
+      method:''
     },
     memberErrors: {
       name: false,
@@ -49,7 +108,7 @@ new Vue({
       email: false,
       invoce: false,
       payment:false,
-      deliveryFee:false
+      deliveryFee: false
     },
   },
   computed: {
@@ -87,12 +146,12 @@ new Vue({
       return total;
     },
     // deliveryWay() {
-      //   if (this.recipientInfo.deliveryFee === 60) {
-        //     return '超商取貨'
-        //   } else if((this.recipientInfo.deliveryFee === 100)) {
-          //     return '常溫宅配送貨'
-          //   }
-          // },
+    //     if (this.recipientInfo.deliveryFee === 60) {
+    //         return '超商取貨'
+    //       } else if((this.recipientInfo.deliveryFee === 100)) {
+    //           return '常溫宅配送貨'
+    //         }
+    //       },
         },
 methods: {
     limit(product) {
@@ -105,11 +164,34 @@ methods: {
     changeAddress() {
       this.changeAddressIsActive = !this.changeAddressIsActive;
     },
-    deleteProduct(product) {
+  deleteProduct(product) {
+      
+    // this.alertRemove = true;
+    // setTimeout(() => { return this.alertRemove = false }, 3000);
       // console.log(product);
+      
+      // this.deleteInCartAlert();
+      // setTimeout(this.$store.dispatch("deleteProductToCart", product), 3000);
       this.$store.dispatch("deleteProductToCart", product);
     },
-    
+  // deleteInCartAlert() {
+  //     this.addAlert = true;
+  //     setTimeout(() => { return this.addAlert = false }, 3000);
+  //   },
+  checkout() {
+    if(sessionStorage.getItem('account')){
+      if (this.$store.state.cart.length === 0) {
+        this.alertEmpty = true;
+        setTimeout(() => { return this.alertEmpty = false }, 3000);
+        return false;
+      }
+      this.currentPage = 2
+    } else {
+      this.alertLogin = true;
+      setTimeout(() => { return this.alertLogin = false }, 3000);
+      // return this.currentPage = 1
+    }
+    },
     sendOrder() {
       const memberCounty = $('.twzipcode1 > select[name="county"]').val();
       const memberDistrict = $('.twzipcode1 > select[name="district"]').val();
@@ -141,13 +223,15 @@ methods: {
             this.memberErrors.name = true;
           }
 
-          if (
-            !this.memberRec.address ||
-            !memberCounty ||
-            !memberDistrict ||
-            !memberZipcode
-          ) {
-            this.memberErrors.address = true;
+          if (this.recipientInfo.deliveryFee === 100) {
+            if (
+              !this.memberRec.address ||
+              !memberCounty ||
+              !memberDistrict ||
+              !memberZipcode
+            ) {
+              this.memberErrors.address = true;
+            }
           }
 
           if (
@@ -165,13 +249,15 @@ methods: {
             this.otherErrors.name = true;
           }
 
-          if (
-            !this.otherRec.address ||
-            !otherCounty ||
-            !otherDistrict ||
-            !otherZipcode
-          ) {
-            this.otherErrors.address = true;
+          if (this.recipientInfo.deliveryFee === 100) { 
+            if (
+              !this.otherRec.address ||
+              !otherCounty ||
+              !otherDistrict ||
+              !otherZipcode
+            ) {
+              this.otherErrors.address = true;
+            }
           }
 
           if (
@@ -253,7 +339,12 @@ methods: {
         } else if ((this.recipientInfo.deliveryFee === 100)) {
           this.recipientInfo.deliveryWay = '常溫宅配送貨';
         }
-
+        
+        if (this.recipientInfo.payment === '綠界金流') {
+          this.recipientInfo.method = '已付款'
+        } else {
+          this.recipientInfo.method = '待付款'
+        }
         // console.log(
         //   this.recipientInfo.datetime,
         //   this.recipientInfo.name, 
@@ -293,8 +384,9 @@ methods: {
               body: JSON.stringify({
                 datetime: this.recipientInfo.datetime,
                 consignee: this.recipientInfo.name, 
-                cartlist: JSON.stringify(this.$store.state.cart),
-                payment: this.recipientInfo.payment, 
+                cartlist: this.$store.state.cart,
+                payment: this.recipientInfo.payment,
+                method: this.recipientInfo.method,
                 deliveryWay: this.recipientInfo.deliveryWay,
                 deliveryFee: this.recipientInfo.deliveryFee,
                 total: this.totalPlusDeliveryFee,
@@ -303,6 +395,7 @@ methods: {
                 phone: this.recipientInfo.phone,
                 address: this.recipientInfo.address,
                 note: this.recipientInfo.note,
+                status: '處理中',
               })
           })
       })();
@@ -320,6 +413,18 @@ methods: {
     $(".twzipcode1").twzipcode();
     $(".twzipcode2").twzipcode();
     // this.$store.dispatch('getProducts');
+
+    fetch("../php/loading_info.php")
+      .then((resp) => resp.json())
+      .then((resp) => {
+        resp.forEach(user => {
+          if (user.email === sessionStorage.getItem('account')) {
+            this.recipientInfo.email = user.email;
+            this.memberRec.name = user.name;
+            this.memberRec.phone = user.phone;
+          }
+         });
+      });
     
   },
   updated() {
@@ -352,3 +457,6 @@ methods: {
 
 }
 });
+
+
+

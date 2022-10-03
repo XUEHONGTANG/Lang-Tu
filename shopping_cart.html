@@ -22,6 +22,19 @@
         <ul class="titleArea">
             <li v-for="title in cartTitle" :class="{'currentPage': currentPage === title.id}">{{title.name}}</li>
         </ul>
+
+        <alert-login-area 
+        v-if="alertLogin"/></alert-login-area>
+        <alert-empty-area 
+        v-if="alertEmpty"/></alert-empty-area>
+        <!-- <transition>
+            <div class="alertLogin"
+            @click="alertLogin = false"
+            @touchend="alertLogin = false"
+            v-if="alertLogin"
+            key="alertLogin"
+            >請先登入會員</div>
+        </transition> -->
         
 
         <!-- shopping cart page 1 -->
@@ -42,7 +55,21 @@
                 </thead>
                 <tbody>
                     <!-- :product="product" -->
-                    <tr v-for=" product in cart" :key="product.pdId" >
+                    <tr v-for=" product in cart" :key="product.pdId" 
+                    >
+                    
+                    <!-- <alert-remove-area 
+                    :product="product"
+                    v-if="alertRemove"/></alert-remove-area> -->
+                        <!-- <alert-area 
+                        :product="product"
+                        :deleteInCartAlert="deleteInCartAlert"
+                        ></alert-area> -->
+                        <!-- <div class="alertArea"
+                        v-if="addAlert"
+                        >{{product.name}} {{product.quantity}} pcs 移出購物車</div>     -->
+
+                        
                         <td><img :src="imgURL+product.image"></td>
                         <td>{{product.name}}</td>
                         <td>{{product.price}}</td>
@@ -75,7 +102,7 @@
             <div class="buttonArea">
                 <a href="./shopping_page.html" class="btn-1">返回購物</a>
                 <button class="btn-0"
-                @click="currentPage = 2"
+                @click="checkout"
                 >前往結帳</button>
             </div>
         </section>
@@ -100,6 +127,11 @@
                     </thead>
                     <tbody>
                         <tr v-for=" product in cart">
+<!-- 
+                            <div class="alertArea"
+                            v-if="addAlert"
+                            >{{product.name}} {{product.quantity}} pcs 移出購物車</div>     -->
+
                             <td><img :src="imgURL+product.image"></td>
                             <td>{{product.name}}</td>
                             <td>{{product.price}}</td>
@@ -118,15 +150,22 @@
                 <div class="payInfo">
                     <span>
                         <h4>運送方式：</h4>
+                        
+                        <label for="deliveryFee_1">
                         <input type="radio" 
                         v-model.number="recipientInfo.deliveryFee"
-                        value="60" name="deliveryFee">超商取貨 NT$ 60
+                        value="60" name="deliveryFee"
+                        id="deliveryFee_1">
+                        超商取貨 NT$ 60</label>
                     </span>
                     <span>
+                        <label for="deliveryFee_2">
                         <input type="radio" 
                         v-model.number="recipientInfo.deliveryFee"
                         value="100" 
-                        name="deliveryFee">常溫宅配送貨 NT$ 100
+                        name="deliveryFee"
+                        id="deliveryFee_2">
+                        常溫宅配送貨 NT$ 100</label>
                     </span>
                     <span>
                         <h4>合計：</h4>
@@ -141,19 +180,25 @@
                         <input type="radio" 
                         v-model="recipientInfo.payment"
                         value="綠界金流"
-                        name="payment">綠界金流 - 第三方金流平台 (透過信用卡、WebATM、ATM轉帳付款)
+                        name="payment"
+                        id="payment_1">
+                        <label for="payment_1">綠界金流 - 第三方金流平台 (透過信用卡、WebATM、ATM轉帳付款)</label>
                     </span>
                     <span>
                         <input type="radio" 
                         v-model="recipientInfo.payment"
                         value="貨到付款"
-                        name="payment">貨到付款 (收到貨時以現金付款)
+                        name="payment"
+                        id="payment_2">
+                        <label for="payment_2">貨到付款 (收到貨時以現金付款)</label>
                     </span>
                     <span>
                         <input 
                         v-model="recipientInfo.payment"
                         value="超商取貨付款"
-                        type="radio" name="payment">超商取貨付款 (全家超商取貨付款)
+                        type="radio" name="payment"
+                        id="payment_3">
+                        <label for="payment_3">超商取貨付款 (全家超商取貨付款)</label>
                     </span>
                 </div>
             </div>
@@ -303,7 +348,7 @@
             <div class="buttonArea">
                 <button class="btn-1"
                 @click="currentPage = 1"
-                >返回商店</button>
+                >返回購物車</button>
                 <button class="btn-0"
                 @click="sendOrder"
                 >提交訂單</button>
@@ -371,7 +416,7 @@
         </div>
 
         <div class="buttonArea">
-            <a href="./shopping_page.html" class="btn-1">返回購物車</a>
+            <a href="./shopping_page.html" class="btn-1">返回商店</a>
         </div>
         </section>
 

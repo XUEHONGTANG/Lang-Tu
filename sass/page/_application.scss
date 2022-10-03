@@ -107,6 +107,9 @@
                     display: block;
                     margin: 0 auto;
                 }
+                &.error {
+                    outline: solid 1px $error;
+                    }
             }
             
         }
@@ -130,6 +133,9 @@
                     font-size: rwd(16);
                     display: block;
                     margin: 0 auto;
+                }
+                &.error {
+                    outline: solid 1px $error;
                 }
             }
             option{
