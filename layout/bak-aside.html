@@ -29,7 +29,7 @@
             <button onclick="location.href='./bak_news.html'">新聞管理</button>
           </li>
           <li>
-            <button onclick="location.href='./bak.html'">登出</button>
+            <button @click="logout">登出</button>
           </li>
         </ul>
       </div>
@@ -91,6 +91,17 @@
                           this.reactArr[order].classList.add('hide'); this.reactArr[order].previousElementSibling.classList.remove('turnRight');
                           this.isOpen = false;
                       }
+                  },
+                  logout(){
+                    fetch("./php/bak_logout.php", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify({
+                        
+                      })
+                    })
                   },
               },
           });
