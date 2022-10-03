@@ -7,7 +7,7 @@ $data = json_decode(file_get_contents("php://input"), true); //接收前端傳�
 print_r($data);
 // exit();
 //建立SQL
-$sql = " INSERT INTO LangTu.order(ODATETIME, OCONSIGNEE, OCARTLIST, OPAYMENT, OMETHOD, ODELIVERYWAY, ODELIVERYFEE, OTOTAL, OINVOCE, OEMAIL, OPHONE, OADDRESS, ONOTE, OSTATUS) values (:odatetime, :consignee, :cartlist, :payment, :omethod, :deliveryWay, :deliveryFee, :total, :invoce, :email, :phone, :oaddress, :note, :ostatus)  ";
+$sql = " INSERT INTO order(ODATETIME, OCONSIGNEE, OCARTLIST, OPAYMENT, OMETHOD, ODELIVERYWAY, ODELIVERYFEE, OTOTAL, OINVOCE, OEMAIL, OPHONE, OADDRESS, ONOTE, OSTATUS) values (:odatetime, :consignee, :cartlist, :payment, :omethod, :deliveryWay, :deliveryFee, :total, :invoce, :email, :phone, :oaddress, :note, :ostatus)  ";
 // NOW()
 
 $statement = $pdo->prepare($sql);

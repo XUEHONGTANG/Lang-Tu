@@ -11,7 +11,7 @@
 
 
      //      2.將此物件中的資料，透過PDO新增(insert)至資料庫(DB)對應的資料表(Table)
-     $sql = "insert into LangTu.products(PDNAME, INFO, PRICE, INVENTORY) Values(?, ?, ?, ?)";
+     $sql = "insert into products(PDNAME, INFO, PRICE, INVENTORY) Values(?, ?, ?, ?)";
 
     $statement = $pdo->prepare($sql);
     $statement->bindValue(1, $PDNAME);

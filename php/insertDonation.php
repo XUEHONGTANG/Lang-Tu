@@ -6,7 +6,7 @@ include("./DB.php");
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
 //建立SQL
-$sql = " INSERT INTO LangTu.donate(DDATE, DNAME, DPHONE, DEMAIL, DMETHODS, DAMOUNT, DAUDIT, DTYPE, DNATIONALITY, DIDNUMBER, DGENDER, DBIRTHDAY, DADDRESS, DRECEIPT, DTITLE, DCREDIT, DID, PLAN, FUNDNAME) values (:date, :name, :phone, :email, :methods, :planPrice, :audit, :planMethod, :nationality, :idname, :gender, :birthday, :address, :receipt, :header, :public, :serialNum, :planName, :fundName) ";
+$sql = " INSERT INTO donate(DDATE, DNAME, DPHONE, DEMAIL, DMETHODS, DAMOUNT, DAUDIT, DTYPE, DNATIONALITY, DIDNUMBER, DGENDER, DBIRTHDAY, DADDRESS, DRECEIPT, DTITLE, DCREDIT, DID, PLAN, FUNDNAME) values (:date, :name, :phone, :email, :methods, :planPrice, :audit, :planMethod, :nationality, :idname, :gender, :birthday, :address, :receipt, :header, :public, :serialNum, :planName, :fundName) ";
 
 
 $statement = $pdo->prepare($sql);

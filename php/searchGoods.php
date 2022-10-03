@@ -6,7 +6,7 @@ include("./DB.php");
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
 //建立SQL
-$sql = " SELECT IMAGE as image, GNAME as name, PRICE as price, QUANTITY as quantity from LangTu.goods";
+$sql = " SELECT IMAGE as image, GNAME as name, PRICE as price, QUANTITY as quantity from goods";
 
 $statement = $pdo->prepare($sql);
 $statement->execute();

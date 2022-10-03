@@ -1,3 +1,5 @@
+import store from './store.js'
+
 
 $(document).ready(function () {
   WebFont.load({
@@ -11,6 +13,7 @@ $(document).ready(function () {
 
 
   new Vue({
+    store,
     el: '#customizedApp',
     data: {
       currentPage: 1,
@@ -33,15 +36,15 @@ $(document).ready(function () {
           step: "第一步",
           title: "挑選皮帶",
           product_images: [
-            "./images/customized/pd-501-01.png",
-            "./images/customized/pd-502-01.png",
-            "./images/customized/pd-503-01.png",
-            "./images/customized/pd-504-01.png",
-            "./images/customized/pd-505-01.png",
-            "./images/customized/pd-506-01.png",
+            "./images/ff/pd-501-01.png",
+            "./images/ff/pd-502-01.png",
+            "./images/ff/pd-503-01.png",
+            "./images/ff/pd-504-01.png",
+            "./images/ff/pd-505-01.png",
+            "./images/ff/pd-506-01.png",
        
           ],
-          pdId:[
+          id:[
             "pd-501",
             "pd-502",
             "pd-503",
@@ -89,14 +92,14 @@ $(document).ready(function () {
           step: "第二步",
           title: "挑選吊牌",
           product_images: [
-            "./images/customized/pd-507-Tags.jpg",
-            "./images/customized/pd-508-Tags.jpg",
-            "./images/customized/pd-509-Tags.jpg",
-            "./images/customized/pd-510-Tags.jpg",
-            "./images/customized/pd-511-Tags.jpg",
-            "./images/customized/pd-512-Tags.jpg",
+            "./images/ff/pd-507-Tags.jpg",
+            "./images/ff/pd-508-Tags.jpg",
+            "./images/ff/pd-509-Tags.jpg",
+            "./images/ff/pd-510-Tags.jpg",
+            "./images/ff/pd-511-Tags.jpg",
+            "./images/ff/pd-512-Tags.jpg",
           ],
-          pdId:[
+          id:[
             "pd-507",
             "pd-508",
             "pd-509",
@@ -206,18 +209,20 @@ $(document).ready(function () {
         console.log(collar);
    
 
-        // let tags = {
-        //   pdId: this.schemas[1].id[chooseTags],
-        //   name: this.schemas[1].name[chooseTags],
-        //   image: this.schemas[1].product_images[chooseTags],
-        //   price: this.schemas[1].price[chooseTags],
-        //   inventory: this.schemas[1].inventory[chooseTags],
-        //   quantity: 1,
+        let tags = {
+          pdId: this.schemas[2].id[this.chooseTags],
+          name: this.schemas[2].name[this.chooseTags],
+          image: this.schemas[2].product_images[this.chooseTags],
+          price: this.schemas[2].price[this.chooseTags],
+          inventory: this.schemas[2].inventory[this.chooseTags],
+          quantity: 1,
 
-        // };
-        // console.log(tags);
+        };
+        console.log(tags);
 
-        // this.$store.dispatch("addProductToCart", { ...collar });
+        this.$store.dispatch("addProductToCart", { ...collar });
+        this.$store.dispatch("addProductToCart", { ...tags });
+
         // this.putInCart();
 
       },
