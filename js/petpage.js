@@ -34,30 +34,26 @@ new Vue({
     data: {
         petimg: 0,
         imgURL:'./images/Meteor/',
-        imgList:[
-            // "./images/Meteor/sdog2.png",
-            // "./images/Meteor/sdog2-1.png",
-            // "./images/Meteor/sdog2-2.png",
-            // "./images/Meteor/sdog2-3.png",
-            // "./images/Meteor/sdog2-4.png",
-            // "./images/Meteor/sdog2-5.png",
-        ],
+        imgList:[],
+        //裝圖片的陣列
         fakeList:[0,1,2,3,4,5],
+        //讓圖片可以做顯示 所以給他預設值
         content:'pettext',
         textnames:[],
+        //資料取值的陣列 傳值到子層
         
     },
     mounted(){
         var getUrlString = location.href;
         var url = new URL(getUrlString);
         var id = url.searchParams.get('id');
+        //上面三段可以從php取得我們要的值 去做網頁篩選
             
             fetch(`../php/searchCatAndDog-content.php?id=`+id,{
                 method: "GET",
             })
             .then(resp => resp.json())
             .then(resp => {this.textnames = resp;});
-            // .then(resp => {this.imgList = resp;});
             
            
             fetch(`../php/searchCatAndDog-image.php?id=`+id,{
@@ -67,7 +63,7 @@ new Vue({
             .then(resp => {
                 // console.log(resp);
                 this.imgList = resp[0].image2.substr(0,resp[0].image2.length-1).split(",");
-                // this.imgList = resp;
+                // 資料室放在一起的陣列 所以需要從第二筆選取 且篩選掉，
             
             });
             // console.log(imgList);
@@ -79,17 +75,13 @@ new Vue({
             loop: false,
             loopFillGroupWithBlank: false,
             pagination: {
-            //   el: ".swiper-pagination",
                 clickable: true
             },
-            // navigation: {
-            // nextEl: ".swiper-button-next",
-            // prevEl: ".swiper-button-prev",
-            // },
           })
     },
     methods: {
         nextpet(){
+            //這邊判斷有沒有登入會員 sessionStorage裡面有沒有資料 去決定頁面導向
             if(sessionStorage.account){
                 sessionStorage.setItem("pid",this.textnames[0].pid)
                 window.location.href = "./precautions.html";
