@@ -61,20 +61,20 @@
     </div>
 
     <script>
-        let getUrlString = location.href;
-        let url = new URL(getUrlString);
-        let modify = url.searchParams.get('modify');
-        let news = [];
-        let title = document.getElementsByClassName('title')[0]
+        // let getUrlString = location.href;
+        // let url = new URL(getUrlString);
+        // let modify = url.searchParams.get('modify');
+        // let news = [];
+        // let title = document.getElementsByClassName('title')[0]
 
-        fetch(`./php/news_modify.php?modify=`+modify, {
-            method: "GET"
-        })
-        .then(resp => resp.json())
-        .then(resp => {
-            news = resp;
-            title.value = news[0].title;
-        })
+        // fetch(`./php/news_modify.php?modify=`+modify, {
+        //     method: "GET"
+        // })
+        // .then(resp => resp.json())
+        // .then(resp => {
+        //     news = resp;
+        //     title.value = news[0].title;
+        // })
     </script>
     
 </body>
