@@ -29,11 +29,18 @@
     .start{
         display: flex;
         height: vw(800);
+        @include m(){
+            height: rwd(500);
+            flex-direction: column;
+        }
         .quizpic{
             flex: 1;
             height: vw(800);
             img{
                 width: 100%;
+            }
+            @include m(){
+                display: none;
             }
         }
         .quiz_start{
@@ -42,17 +49,17 @@
                 text-align: center;
                 margin-top: vw(120);
                 @include m(){
-                    margin-top: rwd(24);
+                    margin-top: rwd(80);
                 }
                 h2{
                     margin-bottom: vw(10);
                     @include m(){
-                        font-size: rwd(16);
+                        font-size: rwd(32);
                     }
                 }
                 .btn-0{
                     @include m(){
-                        font-size: rwd(12);
+                        font-size: rwd(20);
                     }
                 }
             }
@@ -60,7 +67,7 @@
                 margin-left: auto;
                 width: vw(300);
                 @include m(){
-                    margin-left: rwd(16);
+                    margin-left: rwd(280);
                     width: rwd(100);
                     img{
                         width: rwd(100);
@@ -68,10 +75,10 @@
                 }
             }
             .start2{
-                margin-top: vw(120);
+                margin-top: vw(130);
                 width: vw(170);
                 @include m(){
-                    margin-top: rwd(16);
+                    margin-top: rwd(100);
                     width: rwd(100);
                     img{
                         width: rwd(70);

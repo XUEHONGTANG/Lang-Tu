@@ -76,4 +76,12 @@
             }
         }
     }
+    .none-wrapper{
+        text-align: center;
+        margin-top: vw(56);
+        .none{
+            border-bottom: none;
+            color: $primaryA11y;
+        }
+    }
 }

@@ -33,6 +33,7 @@ new Vue({
             sessionStorage.setItem("planPic", val)
             sessionStorage.setItem('amount', this.sponsor[0].fundNow)
             sessionStorage.setItem('people', this.sponsor[0].Amount)
+            sessionStorage.setItem('sponsorName', this.sponsor[0].fundName)
         },
         nextpet(){
             if(sessionStorage.account){
