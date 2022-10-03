@@ -93,13 +93,16 @@ const productPage = {
       selected: 1,
       currentSrc: 0,
       imgURL: "./images/ff/",
-      addAlert:null
+      addAlert: null,
     };
   },
   methods: {
-    myToggleShow(product) {
+    toggleShow(product) {
       this.currentSrc = 0;
       product.isShow = !product.isShow;
+    },
+    closeShow(product) {
+      product.isShow = false;
     },
     addToCart(product) {
       // let { isShow, info, ...newProduct } = { ...product };
@@ -126,17 +129,33 @@ const productPage = {
     },
     putInCart() {
       this.addAlert = true;
-      setTimeout(() => { return this.addAlert = false }, 3000);
-    }
+      setTimeout(() => {
+        return (this.addAlert = false);
+      }, 3000);
+    },
   },
   // computed: {
-    
+
   // },
   mounted() {
-    const swiper = new Swiper(".mySwiper", {
-      slidesPerView: 4,
+    // const swiper = new Swiper(".mySwiper", {
+    //   slidesPerView: 4,
+    //   spaceBetween: 16,
+    //   slidesPerGroup: 4,
+    //   loop: false,
+    //   loopFillGroupWithBlank: false,
+    //   // pagination: {
+    //   //   el: ".swiper-pagination",
+    //   //   clickable: true,
+    //   // },
+    // });
+
+    const swiper_element = this.$el.querySelector(".mySwiper");
+    // console.log(swiper_element);
+    const swiper = new Swiper(swiper_element, {
+      slidesPerView: 'auto',
       spaceBetween: 16,
-      slidesPerGroup: 4,
+      // slidesPerGroup: 4,
       loop: false,
       loopFillGroupWithBlank: false,
       // pagination: {
@@ -145,38 +164,23 @@ const productPage = {
       // },
     });
   },
-  updated() {
-    const swiper = new Swiper(".mySwiper", {
-      slidesPerView: 4,
-      spaceBetween: 16,
-      slidesPerGroup: 4,
-      loop: false,
-      loopFillGroupWithBlank: false,
-      // pagination: {
-      //   el: ".swiper-pagination",
-      //   clickable: true,
-      // },
-    });
-  },
+  updated() {},
 
   template: `
-  <div
-  v-show="product.isShow"
-  class="productPageDrop"
-  @click="myToggleShow(product)">
+  <div 
   
-  <transition>
-  <div class="alertArea"
-  @click="addAlert = false"
-  @touchend="addAlert = false"
-  v-if="addAlert"
-  key="alertArea"
-  >{{product.name}} {{product.quantity}} pcs 加入購物車</div>
-  </transition>
+  class="productPageDrop">
+  
+    <transition>
+    <div class="alertArea"
+    @click="addAlert = false"
+    v-if="addAlert"
+    key="alertArea"
+    >{{product.name}} {{product.quantity}} pcs 加入購物車</div>
+    </transition>
 
-  <div
-  @click.stop
-  @touchend.stop.prevent="product.isShow = true"
+    <div
+    @click.stop
     class="productPageWrapper" 
     >
       <div class="productImageArea">
@@ -192,7 +196,7 @@ const productPage = {
               class="swiper-slide"
             >
               <img :src="imgURL+pic" 
-              @touchend.stop.prevent="currentSrc=picIndex"
+         
               @click="currentSrc=picIndex" />
             </div>
           </div>
@@ -200,26 +204,26 @@ const productPage = {
       </div>
 
       <div class="productInfo">
-      <div class="pageClose" @click="myToggleShow(product)"></div>
+      <div class="pageClose" @click="closeShow(product)"></div>
         <h3>{{product.name}}</h3>
         <ul class="changePageButton">
           <li
             @click="content='productContent', selected = 1"
-            @touchend="content='productContent', selected = 1"
+        
             :class="{'highlight':selected === 1}"
           >
             商品資訊
           </li>
           <li
             @click="content='shoppingInfo', selected = 2"
-            @touchend="content='shoppingInfo', selected = 2"
+
             :class="{'highlight':selected === 2}"
           >
             購物須知
           </li>
           <li
             @click="content='deliveryMethod', selected = 3"
-            @touchend="content='deliveryMethod', selected = 3"
+  
             :class="{'highlight':selected === 3}"
           >
             寄送方式
@@ -233,16 +237,16 @@ const productPage = {
         <div>
           <div class="counter">
             <button class="btn-minus" @click="product.quantity <=1?1:product.quantity--"
-            @touchend="product.quantity <=1?1:product.quantity--"
+        
             ></button>
             <input type="number" v-model.number="limit(product)" />
             <button class="btn-plus" @click="product.quantity >= product.inventory ? product.inventory:product.quantity++"
-            @touchend="product.quantity >= product.inventory ? product.inventory:product.quantity++"
+     
             ></button>
           </div>
           <button 
           @click="addToCart(product)"
-          @touchend="addToCart(product)"
+   
           class="btn-0 btn-shopping">
             <iconify-icon icon="eva:shopping-cart-fill"></iconify-icon>
             加入購物車
@@ -251,8 +255,7 @@ const productPage = {
       </div>
 
       <button class="btn-1"
-      @touchend.stop.prevent="myToggleShow(product)"
-      @click="myToggleShow(product)">返回上一頁</button>
+      @click="closeShow(product)">返回上一頁</button>
     </div>
   </div>
   `,
