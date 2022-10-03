@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('./layout/head.html', {
+    "title" : "會員專區"
+    })
+</head>
+
+<body>
+    @@include('./layout/header_3.html',{
+    "大標題" : "會員中心" ,
+    "英文標題" : "MEMBER CENTER" ,
+    "前頁面" : "會員登入" ,
+    "此頁面" : "會員專區" ,
+    })
+    <main id="testApp" >
+        <div v-for="info in orders">
+            <h3>訂單紀錄</h3>
+            <table>
+                <th>
+                    <tr>
+                        <td>編號</td>
+                        <td>時間</td>
+                        <td>方式</td>
+                        <td>金額</td>
+                        <td>狀態</td>
+                        <td></td>
+                    </tr>
+                </th>
+                <tbody>
+                    <tr v-for='info in order'>
+                        <td>OD00{{info.id}}</td>
+                        <td>{{info.date}}</td>
+                        <td>{{info.payment}}</td>
+                        <td>{{info.total}}</td>
+                        <td>{{info.situation}}</td>
+                        <td @click="show"><i class="fa-solid fa-plus"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 class="detail-title">訂單明細</h3>
+            <table>
+                <th>
+                    <tr>
+                        <td>商品</td>
+                        <td>價格</td>
+                        <td>數量</td>
+                        <td>小計</td>
+                    </tr>
+                </th>
+                <tbody>
+                    <tr v-for="orderDetail in order.list">
+                        <td><img class="pd" :src="imgURL+info.list[i].image" alt=""></td>
+                        <td>{{orderDetail.name}}</td>
+                        <td>{{orderDetail.price}}</td>
+                        <td>{{orderDetail.quantity}}</td>
+                        <td>{{orderDetail.price * orderDetail.quantity}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>合計:</td>
+                        <td></td>
+                        <td>{{order[0].total}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+    @@include('layout/footer.html')
+    <script>
+        new Vue({
+            el:testApp,
+            data:
+            {}
+        })
+
+    </script>
+</body>
+
+</html>
