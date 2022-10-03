@@ -220,8 +220,8 @@ $(document).ready(function () {
         };
         console.log(tags);
 
-        this.$store.dispatch("addProductToCart", { ...collar });
-        this.$store.dispatch("addProductToCart", { ...tags });
+        // this.$store.dispatch("addProductToCart", { ...collar });
+        // this.$store.dispatch("addProductToCart", { ...tags });
 
         // this.putInCart();
 
@@ -338,7 +338,24 @@ $(document).ready(function () {
 
       mounted(){
    
+    },
+    created() {
+       //在頁面刷新時將vuex裏的信息保存到sessionStorage裏
+      window.addEventListener("beforeunload", () => {
+        sessionStorage.setItem("store", JSON.stringify(this.$store.state));
+      });
+
+      // 在頁面加載時讀取sessionStorage裏的狀態信息
+      if (sessionStorage.getItem("store")) {
+        this.$store.replaceState(
+          Object.assign(
+            {},
+            this.$store.state,
+            JSON.parse(sessionStorage.getItem("store"))
+          )
+        );
       }
+    },
 
 
     })
