@@ -78,7 +78,7 @@ const deliveryMethod = {
 };
 
 const productPage = {
-  props: ["product", "toggleShow"],
+  props: ["product"],
   components: {
     productContent,
     shoppingInfo,
