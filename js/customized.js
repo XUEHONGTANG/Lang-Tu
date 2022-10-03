@@ -5,24 +5,23 @@ $(document).ready(function () {
       families: ['DFKai-sb','Arial', 'Pacifico', 'Quicksand', 'Inconsolata']
   }
   });
-  // const prevbtn = document.getElementById("prev-btn");
-  // const nextbtn = document.getElementById("next-btn");
+
   const circles = document.querySelectorAll(".circle");
   const defaultColor = 'rgba(0,0,0,1)';
 
-  // const progress = document.getElementById("progress");
-  // const actives = document.querySelectorAll(".active");
+
   new Vue({
     el: '#customizedApp',
     data: {
       currentPage: 1,
       content: 'customBtn',
       message: "",
-      choosePet: -1,
+      choosCollar: -1,
       chooseTags: -1,
       strokeWidth: '-1',
       textFontFamily: 'default',
       strokeColor:defaultColor,
+      imgURL: "./images/customized/",
       // noActivated: false,
  
       schemas: [
@@ -34,13 +33,31 @@ $(document).ready(function () {
           step: "第一步",
           title: "挑選皮帶",
           product_images: [
-            "./images/customized/collar01.png",
-            "./images/customized/collar02.png",
-            "./images/customized/collar03.png",
-            "./images/customized/collar04.png",
-            "./images/customized/collar05.png",
-            "./images/customized/collar06.png",
+            "./images/customized/pd-501-01.png",
+            "./images/customized/pd-502-01.png",
+            "./images/customized/pd-503-01.png",
+            "./images/customized/pd-504-01.png",
+            "./images/customized/pd-505-01.png",
+            "./images/customized/pd-506-01.png",
+       
           ],
+          pdId:[
+            "pd-501",
+            "pd-502",
+            "pd-503",
+            "pd-504",
+            "pd-505",
+            "pd-506",
+          ],
+          name: [
+            "紅色項圈",
+            "黃色項圈",
+            "深藍項圈",
+            "淺藍項圈",
+            "銀色項圈",
+            "咖啡項圈",
+          ],
+
           price: [
             "NT 400",
             "NT 450",
@@ -49,7 +66,7 @@ $(document).ready(function () {
             "NT 600",
             "NT 550",
           ],
-          chooscollar: [
+          collar: [
             "./images/customized/custom-dog_red.png",
             "./images/customized/custom-dog-yellow.png",
             "./images/customized/custom-dog-blue.png",
@@ -57,32 +74,53 @@ $(document).ready(function () {
             "./images/customized/custom-dog-gray.png",
             "./images/customized/custom-dog-coffee.jpg",
           ],
-          tags: []
+          tags: [],
           // "./images/customized/custom-dogb1.png"
-
+          inventory:[
+            "12",
+            "15",
+            "13",
+            "16",
+            "14",
+            "11",
+          ]
         },
         {
           step: "第二步",
           title: "挑選吊牌",
           product_images: [
-            "./images/customized/custom- tag01.png",
-            "./images/customized/custom- tag02.png",
-            "./images/customized/custom- tag03.png",
-            "./images/customized/custom- tag04.png",
-            "./images/customized/custom- tag05.png",
-            "./images/customized/custom- tag06.png",
-
+            "./images/customized/pd-507-Tags.jpg",
+            "./images/customized/pd-508-Tags.jpg",
+            "./images/customized/pd-509-Tags.jpg",
+            "./images/customized/pd-510-Tags.jpg",
+            "./images/customized/pd-511-Tags.jpg",
+            "./images/customized/pd-512-Tags.jpg",
+          ],
+          pdId:[
+            "pd-507",
+            "pd-508",
+            "pd-509",
+            "pd-510",
+            "pd-511",
+            "pd-512",
+          ],
+          name: [
+            "骨頭吊牌(大)",
+            "蝴蝶吊牌",
+            "貓咪吊牌",
+            "愛心吊牌",
+            "骨頭吊牌(小)",
+            "星星吊牌",
           ],
           price: [
+            "NT 120",
             "NT 100",
-            "NT 150",
-            "NT 100",
-            "NT 150",
-            "NT 100",
-            "NT 150",
-
+            "NT 80",
+            "NT 80",
+            "NT 90",
+            "NT 130",
           ],
-          chooscollar: [
+          collar: [
             "./images/customized/custom-dog_red.png",
             "./images/customized/custom-dog-yellow.png",
             "./images/customized/custom-dog-blue.png",
@@ -91,26 +129,35 @@ $(document).ready(function () {
             "./images/customized/custom-dog-coffee.jpg",
           ],
           tags: [
-            "../images/customized/bbon_original-01.png",
-            "../images/customized/tie_original-02.png",
-            "../images/customized/cat_original-03.png",
-            "../images/customized/heart_original-04.png",
-            "../images/customized/sbon_original-05.png",
-            "../images/customized/star_original-06.png",
+            "./images/customized/bbon_original-01.png",
+            "./images/customized/tie_original-02.png",
+            "./images/customized/cat_original-03.png",
+            "./images/customized/heart_original-04.png",
+            "./images/customized/sbon_original-05.png",
+            "./images/customized/star_original-06.png",
 
           ],
+          inventory:[
+            "12",
+            "15",
+            "13",
+            "16",
+            "14",
+            "11",
+          ]
         },
         {
           step: "第三步",
           title: "吊牌刻字",
-          chooscollar: [],
+          collar: [],
           tags: [
-            "./images/customized/custom-tag1-big.png",
-            "./images/customized/custom-tag2-big.png",
-            "./images/customized/custom-tag3-big.png",
-            "./images/customized/custom-tag4-big.png",
-            "./images/customized/custom-tag5-big.png",
-            "./images/customized/custom-tag6-big.png",
+            "./images/customized/pd-507-BigTags.png",
+            "./images/customized/pd-508-BigTags.png",
+            "./images/customized/pd-509-BigTags.png",
+            "./images/customized/pd-510-BigTags.png",
+            "./images/customized/pd-511-BigTags.png",
+            "./images/customized/pd-512-BigTags.png",
+
           ],
           textFontFamily:['', 'NotoSans', 'DFKai-sb', 'Arial', 'Pacifico', 'Quicksand', 'Inconsolata']
 
@@ -118,36 +165,73 @@ $(document).ready(function () {
         {
           step: "訂購完成",
           title: "您的商品已添加至購物車",
-          chooscollar: [
+          collar: [
             "./images/customized/custom-dog_red.png",
             "./images/customized/custom-dog-yellow.png",
             "./images/customized/custom-dog-blue.png",
             "./images/customized/custom-dog_lightbliue.png",
             "./images/customized/custom-dog-gray.png",
-            "../images/customized/custom-dog-coffee.png",
+            "./images/customized/custom-dog-coffee.png",
           ],
           tags: [
-            "../images/customized/bbon_original-01.png",
-            "../images/customized/tie_original-02.png",
-            "../images/customized/cat_original-03.png",
-            "../images/customized/heart_original-04.png",
-            "../images/customized/sbon_original-05.png",
-            "../images/customized/star_original-06.png",
+            "./images/customized/bbon_original-01.png",
+            "./images/customized/tie_original-02.png",
+            "./images/customized/cat_original-03.png",
+            "./images/customized/heart_original-04.png",
+            "./images/customized/sbon_original-05.png",
+            "./images/customized/star_original-06.png",
 
           ],
 
         },
 
         {
-          chooscollar: ["./images/customized/custom-dogb1.png"]
+          collar: ["./images/customized/custom-dogb1.png"]
         },
       ]
     },
     methods: {
 
+      addToCart() {
+        // let { isShow, info, ...newProduct } = { ...product };
+        let collar = {
+          pdId:  this.schemas[1].id[this.choosCollar],
+          name:  this.schemas[1].name[this.choosCollar],
+          image:  this.schemas[1].product_images[this.choosCollar],
+          price:  this.schemas[1].price[this.choosCollar],
+          inventory:  this.schemas[1].inventory[this.choosCollar],
+          quantity: 1,
+
+        };
+        console.log(collar);
    
+
+        // let tags = {
+        //   pdId: this.schemas[1].id[chooseTags],
+        //   name: this.schemas[1].name[chooseTags],
+        //   image: this.schemas[1].product_images[chooseTags],
+        //   price: this.schemas[1].price[chooseTags],
+        //   inventory: this.schemas[1].inventory[chooseTags],
+        //   quantity: 1,
+
+        // };
+        // console.log(tags);
+
+        // this.$store.dispatch("addProductToCart", { ...collar });
+        // this.putInCart();
+
+      },
+    //   var customized= {
+    //     "id": '',
+    //     // "pet":"", 貓 狗
+    //     "collatName": this.choosCollar,
+    //     "productId":this,
+    //     "price": '',
+    //     'img': './images/cart/customized_collor.png',      
+    // };
+
       next() {
-        if (this.choosePet > -1 ) {
+        if (this.choosCollar > -1 ) {
         this.currentPage++;
         
         if (this.currentPage > circles.length) {
@@ -155,22 +239,11 @@ $(document).ready(function () {
         };
         this.update()
       }else {
-        alert("請選擇一種文字風格");
+        alert("請選擇項圈");
       }
       },
 
-      pag2next(){
-        if (this.chooseTags > -1 ) {
-          this.currentPage++;
-          
-          if (this.currentPage > circles.length) {
-            this.currentPage = circles.length;
-          };
-          this.update()
-        }else {
-          alert("請選擇一種文字風格");
-        }
-      },
+  
 
       prev() {
 
@@ -206,7 +279,7 @@ $(document).ready(function () {
           nextbtn.disabled = false;
         }
       },
-      addText(e) {
+      addText() {
         if (this.strokeWidth == -1) {
           alert("請選擇一種文字風格");
           return;
@@ -252,11 +325,15 @@ $(document).ready(function () {
         },
         // addPetclick(e){
         //   this.noActivated = true,
-        //   this.choosePet = pid
+        //   this.choosCollar = pid
         // },
 
         
       },
+
+      mounted(){
+   
+      }
 
 
     })
@@ -297,8 +374,6 @@ $(document).ready(function () {
   })
 
 
-
-
   var HideControls = {
     'tl': true, //左上   top left
     'tr': true, //右上   top right          
@@ -309,7 +384,9 @@ $(document).ready(function () {
     'mr': true, //中右   middle right
     'mb': true, //中下   middle bottom
     'mtr': true, //中上控制角度     middle top rotate 
-  };
+};
+
+
   // var previewArea = document.getElementById('preview_area');
   var canvas = new fabric.Canvas('canvas');
   var context = canvas.getContext('2d');

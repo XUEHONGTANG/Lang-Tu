@@ -35,8 +35,8 @@
                 <picture class="big_dog" v-if="currentPage!=0 && currentPage!=3" key="1">
                     <div class="PetTag"  key="2"><img style="z-index:2" :src="schemas[currentPage].tags[chooseTags]"></div>
           
-                    <img class="currentPet" :src="schemas[currentPage].chooscollar[choosePet]" style="z-index:0" key="3">
-                    <img class="presetPet" :src="schemas[5].chooscollar[0]" style="z-index:-1" key="4">
+                    <img class="currentPet" :src="schemas[currentPage].collar[choosCollar]" style="z-index:0" key="3">
+                    <img class="presetPet" :src="schemas[5].collar[0]" style="z-index:-1" key="4">
                 </picture>
                 <section class="canvas_frame" key="5"  v-show="currentPage === 3">
                     <canvas class="cover-fit" id="canvas"></canvas>
@@ -82,18 +82,28 @@
                 <!-- 1 挑選皮帶 -->
                 <transition-group name="fade">
                     <div class="cus_step2_content" v-if="currentPage === 1" key="currentPage">
-                        <div class="cus_step_txt">
+                       <a  @click="addToCart"> <div class="cus_step_txt">
                             <h3>{{schemas[currentPage].step}}</h3>
                             <h2>{{schemas[currentPage].title}}</h2>
-                        </div>
-
+                        </div></a>
+                        
                         <div container-id="product-grid" class="product-grid">
-                            <div class="product1" v-for="(collar,pid) in schemas" @click="choosePet = pid ">
+                            <div class="product1" v-for="(collar,pid) in schemas" @click="choosCollar = pid">
                                 <div class="prd"><img :src="schemas[currentPage].product_images[pid]" alt="">
                                     <div class="price">{{schemas[currentPage].price[pid]}}</div>
                                 </div>
                             </div>
                         </div>
+                
+                        
+                        <!-- <div container-id="product-grid" class="product-grid">
+                            <div class="product1" v-for="(collar,pid) in all_data" @click="choosCollar=pid" >
+                                <div class="prd">
+                                    <img :src="imgURL+ collar.product_images" alt="">
+                                    <div class="price">{{all_data[currentPage].price[pid]}}</div>
+                                </div>
+                            </div>
+                        </div> -->
                     </div>
 
                 </transition-group>
@@ -106,7 +116,7 @@
                         </div>
 
                         <div container-id="product-grid" class="product-grid">
-                            <div class="product1" v-for="(tags,id) in schemas" @click.stop="chooseTags = id ">
+                            <div class="product1" v-for="(tags,id) in schemas" @click="chooseTags = id ">
                                 <div class="prd tag "><img :src="schemas[currentPage].product_images[id]" alt="">
                                     <div class="price">{{schemas[currentPage].price[id]}}</div>
                                 </div>
@@ -126,11 +136,6 @@
 
 
                         <div container-id="product-input" class="product-input">
-                            <!-- <form action method="post" >
-                                <textarea name="" id="custom_cardText" placeholder="請輸入吊牌內容..." v-model="message"></textarea>
-                            </form> -->
-
-
                             <div class="addText">
                                 <div id="textStyle">
                                     <span class="collarTextTitles">選擇文字風格： </span>

@@ -61,6 +61,11 @@ $(document).ready(function () {
     })
   });
 
+ 
+//滑鼠滾動判斷navbar出現/消失
+
+
+
 
 
 });
