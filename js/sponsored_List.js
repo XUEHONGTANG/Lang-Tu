@@ -4,17 +4,6 @@ Vue.component('listli', {
         return{
             htmlURL:'./sponsored_page.html?id=',
             imgURL:'./images/Meteor/',
-            // lists:[
-            //     // {
-            //     //     pet:'sponsored_page.html',
-            //     //     image: 'dogeat.png', 
-            //     //     title:'與浪共食｜浪毛孩不再飢餓',
-            //     //     lowTime:'剩下11小時',
-            //     //     lowMoney:'222,345',
-            //     // },
-            // ] 
-            // 
-            // (list.Now/list.goal)*100,
         }
     },
     computed: {
@@ -22,10 +11,12 @@ Vue.component('listli', {
         filterAnimals() {
                 // return this.animals;
                 let _lists = [];
+                //給一個新的陣列 選取切割 每頁六筆去做顯示的資料
                 _lists = this.lists.slice((this.currentPage-1)*6, (this.currentPage-1)*6+6);
                 return _lists;
             }
     },
+    // 以下動態列 28行 設定寬度 讓資料帶著去做變動 寬度值(list.Now/list.goal)*100+'%'
     template: `
     <ul class="sponsored_List-ul">
         <li v-for="list in filterAnimals" :key="fid" class="sponsored_List-li">
@@ -54,9 +45,12 @@ new Vue({
     el:'#sponsored_ListApp',
     data:{
         pages:0,
+        //頁碼給個變數 撈取資料去改動
         currentPage: 1,
+        //預設從第一頁開始
         content: 'listli',
         lists:[],
+        // 接收資料的空陣列 擺出來放 為了可以做頁碼
     },
     mounted() {
         fetch('../php/sponsored_List.php')
@@ -75,12 +69,14 @@ new Vue({
             
         },
         left(){
+            //控制頁碼往前一頁 寫個判斷式讓頁碼不會小於0
             this.currentPage--
             if(this.currentPage <=0){
                 this.currentPage=1
             }
         },
         right(){
+            //控制頁碼往後一頁 判斷式讓頁碼切換不會大於頁碼最大值
             this.currentPage++
             if(this.currentPage >= this.pages){
                 this.currentPage = this.pages

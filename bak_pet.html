@@ -114,7 +114,8 @@
 
                     modify[i].addEventListener('click', () => {
                         console.log(`${user.PID}`);
-                        location = `./bak_pet_add.html?modify=${user.PID}`
+                        sessionStorage.setItem('xxx',`${user.PID}`)
+                        location = `./bak_pet_modify.html?modify=${user.PID}`
                     })
                         
                 }

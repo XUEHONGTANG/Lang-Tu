@@ -36,7 +36,7 @@ new Vue({
         },
     },
     mounted() {
-        this.email = sessionStorage.getItem('account')
+        this.email = sessionStorage.getItem('donorEmail')
         fetch('../php/payerCheck.php', {
             method: 'POST',
                 headers: {

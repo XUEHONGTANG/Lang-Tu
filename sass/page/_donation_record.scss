@@ -1,6 +1,5 @@
 .donation_record{
     width: vw(840);
-    height: vw(850);
     background-color: #fff;
     border-radius: $r25;
     padding: vw(50);
@@ -9,6 +8,20 @@
         height: rwd(600);
         margin: rwd(40) auto 0;
         border-radius: rwd(25);
+    }
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 0.75s;
+    }
+    
+    .fade-enter-from,
+    .fade-leave-to {
+        opacity: 0;
+    }
+    
+    .fade-enter-to,
+    .fade-leave-from {
+        opacity: 1;
     }
     h3{
         text-align: center;
@@ -20,37 +33,49 @@
         }
     }
 
-    table{
-        margin-top: vw(32);
-        thead{
-            th{
-                width: vw(300);
-                border-bottom: vw(1) solid $gray900;
-                padding-bottom: vw(24);
+    .sponsor{
+        width: 100%;
+        text-align: center;
+        vertical-align: middle;
+        tr{
+            .num{
                 font-size: $p;
-                @include m(){
-                    font-size: rwd(18);
-                    width: rwd(100);
-                }
+                padding: vw(24);
+                border-bottom: vw(1) solid $gray900;
             }
         }
         tbody{
             tr{
-                td{
-                    text-align: center;
-                    padding-top: vw(24);
-                    font-size: $p;
-                    @include m(){
-                        font-size: rwd(18);
-                        padding: rwd(16) 0;
-                    }
+                .id-detail{
+                    width: vw(150);
+                    font-size: vw(20);
                 }
-                .btn-0{
-                    font-size: font-size(18);
+                .date-detail{
+                    width: vw(150);
+                    font-size: vw(20);
+                }
+                .method-detail{
+                    width: vw(150);
+                    font-size: vw(20);
+
+                }
+                .amount-detail{
+                    width: vw(140);
+                    font-size: vw(20);
+                    padding: vw(16);
+
+                }
+                .situation-detail{
+                    width: vw(100);
+                    font-size: vw(20);
+                    padding: vw(16);
+
                 }
             }
         }
     }
+
+
     .bottom{
         margin-top: vw(50);
         @include m(){
@@ -72,11 +97,14 @@
         @include m(){
             flex-direction: column;
         }
-        .btn-0{
+        .btn0{
             width: vw(200);
+            @include btn($primaryDark, #fff, $primaryDark);
             font-size: font-size(12);
             padding: vw(10) vw(10);
-            background-color: $primaryA11y;
+            &:hover{
+                @include btn_hover($primaryA11y);
+            }
             @include m(){
                 font-size: rwd(16);
                 width: rwd(200);
@@ -84,10 +112,14 @@
                 margin: rwd(8) 0 rwd(8);
             }
         }
-        .btn-1{
+        .btn1{
             width: vw(200);
+            @include btn(#fff,$primaryDark, $primaryDark);
             font-size: font-size(12);
             padding: vw(10) vw(10);
+            &:hover{
+                @include btn_hover($primaryA11y,#fff,$primaryA11y);
+            }
             @include m(){
                 font-size: rwd(16);
                 width: rwd(200);
@@ -97,8 +129,8 @@
         }
     }
     .btn{
-        text-align: center;
-        margin-top: vw(64);
+        text-align: right;
+        margin: vw(64) 0;
         .btn-0-1{
             @include btn($primaryDark, #fff, $primaryDark);
             font-size: font-size(12);

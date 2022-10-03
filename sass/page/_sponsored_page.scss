@@ -40,7 +40,7 @@
             }
         }
         p{
-            font-size: font-size(1);
+            font-size: font-size(16);
             margin-bottom: vw(10);
             font-weight: $bold;
             @include m(){
@@ -51,7 +51,7 @@
         .acc{
             text-align: right;
             color: $gray700;
-            font-size: vw(8);
+            font-size: vw(14);
             margin-bottom: 0;
             @include m(){
                 font-size: rwd(14);

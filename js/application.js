@@ -38,6 +38,7 @@ new Vue({
 
     },
     mounted() {
+        //去接收頁面傳值得PID
         let petpid = sessionStorage.getItem("pid")
         this.petpid = petpid
         console.log(petpid);
@@ -46,6 +47,7 @@ new Vue({
         forpet(){
             window.location.href = `./petpage.html?id=${this.petpid}`;
         },
+        //以下為input的判斷式
         revise(){
             if(this.ischeckbox == false){
                 this.isDisabled = false
@@ -95,7 +97,7 @@ new Vue({
                     return false;
                 }
             }
-
+            //這邊需要做資料匯入PHP後端 傳值完後導向下一頁
             fetch('../php/InsertReservation.php', {
                 method: 'POST',
                 headers: {

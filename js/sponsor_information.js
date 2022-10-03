@@ -9,6 +9,7 @@ new Vue({
             id: "",
             imgURL:'./images/Meteor/',
             planPic: "",
+            fundName: "",
             cartTitle:[
                 {id:1,name:'捐款人資料'},
                 {id:2,name:'收據資訊'},
@@ -188,6 +189,7 @@ new Vue({
                     planMethod: this.planMethod,
                     planName: this.planName,
                     planPrice: this.planPrice,
+                    fundName: this.fundName,
                 })
             })
 
@@ -205,7 +207,7 @@ new Vue({
                     id: this.id,
                 })
             })
-            sessionStorage.setItem('account', this.donor.email)
+            sessionStorage.setItem('donorEmail', this.donor.email)
             location.href ="./payer_information.html"
         }
 
@@ -227,6 +229,9 @@ new Vue({
 
         let people = sessionStorage.getItem('people')
         this.fundPeople = people
+
+        let fundName = sessionStorage.getItem("sponsorName")
+        this.fundName = fundName
 
 
     },
