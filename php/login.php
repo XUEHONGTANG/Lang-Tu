@@ -6,7 +6,7 @@ include("./DB.php");
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
 //建立SQL
-$sql = " SELECT EMAIL, PASSWORD from LangTu.member WHERE EMAIL = :email and PASSWORD = :password  ";
+$sql = " SELECT EMAIL, PASSWORD from member WHERE EMAIL = :email and PASSWORD = :password  ";
 
 
 $statement = $pdo->prepare($sql);

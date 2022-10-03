@@ -10,7 +10,7 @@
         return;
     }
     
-    $SQL = " select * from LangTu.MEMBER ";
+    $SQL = " select * from MEMBER ";
     $stmt = $pdo->prepare($SQL);
     // $stmt->bindValue(1, $member["registerEmail"]);
     $stmt->execute();
@@ -24,7 +24,7 @@
     }
     
     $SQL = "
-        insert into LangTu.MEMBER(NAME, EMAIL, PASSWORD, BIRTHDAY, GENDER)
+        insert into MEMBER(NAME, EMAIL, PASSWORD, BIRTHDAY, GENDER)
         values(?, ?, ?, ?, ?)
     ";
     $stmt = $pdo->prepare($SQL);

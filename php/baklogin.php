@@ -6,7 +6,7 @@
     $password = isset($_POST["password"]) ? $_POST["password"] : "";
     
     //建立SQL
-    $sql = " SELECT musername, mpassword from LangTu.manager where musername = ? and mpassword = ? ";
+    $sql = " SELECT musername, mpassword from manager where musername = ? and mpassword = ? ";
 
     $statement = $pdo->prepare($sql);
     $statement->bindValue(1, $username);

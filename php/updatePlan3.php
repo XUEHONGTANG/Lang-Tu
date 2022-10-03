@@ -6,7 +6,7 @@ include("./DB.php");
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
 //建立SQL
-$sql = " UPDATE LangTu.donate SET PLAN = '方案三' where DEMAIL = :account ";
+$sql = " UPDATE donate SET PLAN = '方案三' where DEMAIL = :account ";
 
 
 $statement = $pdo->prepare($sql);
