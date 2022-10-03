@@ -1,8 +1,6 @@
 import store from "./store.js";
 import productPage from "./product_page.js";
 
-
-
 // let productContent = {
 //   props: ['pdInfo'],
 
@@ -179,6 +177,11 @@ new Vue({
       this.currentSrc = 0;
       product.isShow = !product.isShow;
     },
+
+    // openProduct(product) {
+    //   // this.currentSrc = 0;
+    //   // product.isShow = true;
+    // },
     changeType() {
       this.productType = [];
       this.productType = this.products.filter((pd) => {
@@ -250,21 +253,24 @@ new Vue({
     fetch("../php/shopping_page.php")
       .then((resp) => resp.json())
       .then((resp) => {
-  
-        this.products = resp.filter(pd => {
-          return !(pd.pdId.includes('pd-5'));
+        let products = resp.filter((pd) => {
+          return !pd.pdId.includes("pd-5");
         });
-        // console.log(this.products);
-        // this.products = resp;
+        // console.log(products);
+        // products = resp;
 
-        this.products.forEach((pd, i) => {
-          this.products[i].imgList = this.products[i].imgList.split(",");
-          this.products[i] = {
-            ...this.products[i],
+        products.forEach((pd, i) => {
+          products[i].imgList = products[i].imgList.split(",");
+          products[i] = {
+            ...products[i],
             isShow: false,
             quantity: 1,
           };
         });
+
+        this.products = products;
+
+        console.log(this.products);
 
         // 方法一
         // this.products = this.products.filter((pd) => { return pd.type === 'pd-0' })
