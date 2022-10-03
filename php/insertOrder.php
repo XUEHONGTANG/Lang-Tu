@@ -13,7 +13,7 @@ $sql = " INSERT INTO LangTu.order(ODATETIME, OCONSIGNEE, OCARTLIST, OPAYMENT, OM
 $statement = $pdo->prepare($sql);
 $statement->bindValue(":odatetime", $data["datetime"]);
 $statement->bindValue(":consignee", $data["consignee"]);
-$statement->bindValue(":cartlist", json_encode($data["cartlist"]));
+$statement->bindValue(":cartlist", $data["cartlist"]);
 // JSON stringify兩次 在前端處理或後端處理都可以
 $statement->bindValue(":payment", $data["payment"]);
 $statement->bindValue(":omethod", $data["method"]);

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"> -->
+    
     @@include('./layout/head.html', { "title" : "浪浪商店" })
     <link
       rel="stylesheet"
@@ -29,7 +31,11 @@
                   汪汪找伙食
                 </button>
               </li>
-              <li><button @click="filterCondition ='pd-2',changeType()">汪汪用品</button></li>
+              <li>
+                <button @click="filterCondition ='pd-2',changeType()">
+                  汪汪用品
+                </button>
+              </li>
             </ol>
           </li>
           <li>
@@ -40,11 +46,17 @@
                   喵喵找伙食
                 </button>
               </li>
-              <li><button @click="filterCondition ='pd-4',changeType()">喵喵用品</button></li>
+              <li>
+                <button @click="filterCondition ='pd-4',changeType()">
+                  喵喵用品
+                </button>
+              </li>
             </ol>
           </li>
           <li>
-            <button @click="filterCondition ='pd-0',changeType()">浪浪周邊</button>
+            <button @click="filterCondition ='pd-0',changeType()">
+              浪浪周邊
+            </button>
           </li>
         </ul>
         <img
@@ -55,9 +67,8 @@
       </div>
       <!-- sidebar -->
 
-      <div
-       class="search-wrapper">
-       <input
+      <div class="search-wrapper">
+        <input
           @change="searching"
           v-model.trim.laze="searchCondition"
           type="search"
@@ -75,7 +86,7 @@
             v-for="(product,pdIndex) in productInPage"
             :key="product.pdId"
             class="pd-itembox"
-            @click="toggleShow(product)"
+            @click.stop.prevent="toggleShow(product)"
             @touchend.stop.prevent="toggleShow(product)"
           >
             <!-- <img src="./images/ff/pd-001-1.jpg" alt="pd-001" /> -->
@@ -195,7 +206,6 @@ class="productPageDrop"
       </div>
 
       <!-- main content end -->
-     
     </main>
     <!-- </main> -->
     @@include('layout/footer.html')
@@ -203,5 +213,3 @@ class="productPageDrop"
     <script type="module" src="./js/shopping_page.js"></script>
   </body>
 </html>
-
-

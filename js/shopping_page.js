@@ -1,6 +1,8 @@
 import store from "./store.js";
 import productPage from "./product_page.js";
 
+
+
 // let productContent = {
 //   props: ['pdInfo'],
 
@@ -248,8 +250,12 @@ new Vue({
     fetch("../php/shopping_page.php")
       .then((resp) => resp.json())
       .then((resp) => {
-        this.products = resp;
-        // console.log(resp);
+  
+        this.products = resp.filter(pd => {
+          return !(pd.pdId.includes('pd-5'));
+        });
+        // console.log(this.products);
+        // this.products = resp;
 
         this.products.forEach((pd, i) => {
           this.products[i].imgList = this.products[i].imgList.split(",");
