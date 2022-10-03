@@ -3,11 +3,27 @@
     background-color: #fff;
     border-radius: $r25;
     padding: vw(50);
+    display: flex;
+    flex-direction: column;
     @include m(){
         width: rwd(394);
         margin: rwd(40) auto 0;
         border-radius: rwd(25);
         padding: rwd(4);
+    }
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 0.75s;
+    }
+    
+    .fade-enter-from,
+    .fade-leave-to {
+        opacity: 0;
+    }
+    
+    .fade-enter-to,
+    .fade-leave-from {
+        opacity: 1;
     }
     h3{
         text-align: center;
@@ -27,51 +43,80 @@
             font-size: rwd(18);
         }
     }
-    table{
-        margin-top: vw(32);
-        thead{
-            th{
-                width: vw(300);
-                border-bottom: vw(1) solid $gray900;
-                padding-bottom: vw(32);
-                font-size: $p;
-                @include m(){
-                    font-size: rwd(18);
+    .product{
+        .top{
+            width: 100%;
+            vertical-align: middle;
+            text-align: center;
+            tr{
+                .num{
+                    font-size: $p;
+                    padding: vw(24) 0;
+                    border-bottom: vw(1) solid $gray900;
+
+                }
+                .num-detail{
+                    font-size: vw(20);
+                    padding: vw(16);
+
+                }
+                .detail-bottom{
+                    font-size: vw(20);
+                    padding: vw(32) 0;
+                }
+                .orderDetail{
+                    width: vw(143);
+                    font-size: vw(20);
+                    padding: vw(16);
+
+                }
+                .dateDetail{
+                    width: vw(230);
+                    font-size: vw(20);
+
+                }
+                .paymentDetail{
+                    width: vw(160);
+                    font-size: vw(20);
+                    padding: vw(16);
+
+                }
+                .totalDetail{
+                    width: vw(96);
+                    font-size: vw(20);
+                    padding: vw(16);
+
+                }
+                .situationDetail{
+                    width: vw(120);
+                    font-size: vw(20);
+                    padding: vw(16);
+
                 }
             }
         }
-        tbody{
+        .bottom{
+            width: 100%;
+            vertical-align: middle;
+            text-align: center;
             tr{
-                td{
-                    text-align: center;
-                    padding: vw(16) 0;
+                .num{
+                    font-size: vw(24);
+                    padding: vw(16);
+                }
+                .num-detail{
+                    font-size: vw(20);
                     vertical-align: middle;
-                    font-size: $p;
-                    @include m(){
-                        font-size: rwd(18);
-                        width: rwd(90);
-                        padding: rwd(16) 0;
+                    .pd{
+                        width: vw(70);
                     }
                 }
-                .pd{
-                    width: 70%;
-                }
-            }
-        }
-        tfoot{
-        margin-top: vw(32);
-            tr{
-                td{
-                    text-align: center;
-                    padding-top: vw(24);
+                .detail-bottom{
+                    font-size: vw(20);
+                    padding: vw(32) 0;
                     border-top: vw(1) solid $gray900;
-                    font-size: $p;
-                    @include m(){
-                        font-size: rwd(18);
-                    }
                 }
             }
         }
     }
-    
 }
