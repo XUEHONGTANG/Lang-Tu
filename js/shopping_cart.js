@@ -384,7 +384,7 @@ methods: {
               body: JSON.stringify({
                 datetime: this.recipientInfo.datetime,
                 consignee: this.recipientInfo.name, 
-                cartlist: this.$store.state.cart,
+                cartlist: JSON.stringify(this.$store.state.cart),
                 payment: this.recipientInfo.payment,
                 method: this.recipientInfo.method,
                 deliveryWay: this.recipientInfo.deliveryWay,
