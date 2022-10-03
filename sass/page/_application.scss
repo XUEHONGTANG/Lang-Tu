@@ -75,6 +75,7 @@
             font-size: $h5;
             color: $primaryDark;
             line-height: 2;
+            margin: vw(16) auto vw(0);
         }
         @include m(){
             h3{
@@ -152,6 +153,7 @@
         .application-book-4{
             margin-bottom: vw(40);
             input {
+                
                 margin-right: vw(16);
                 width: vw(180);
                 font-size: $p;
@@ -211,6 +213,7 @@
         h1{
             font-size: $h5;
             color: $primaryDark;
+            margin: vw(16) auto vw(0);
         }
         @include m(){
             h1{
@@ -237,6 +240,7 @@
         h1{
             font-size: $h5;
             color: $primaryDark;
+            margin: vw(16) auto vw(0);
         }
         @include m(){
             h1{
@@ -260,6 +264,7 @@
 
     .application-under{
         text-align: center;
+        margin-top: vw(20);
         .btn-1{
             margin: vw(20);
         }
