@@ -113,12 +113,13 @@
     top: -18vw;
     background-image: url("../images/index/index-bg.png");
     height: 262vw;
+    background-size: 101vw;
 
     @include m() {
         background-image: url("../images/index/rwdbg.png");
         height: 791vw;
         top: 20px;
-
+        background-size: 123vw;
     }
 
     // &-bg{

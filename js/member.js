@@ -263,7 +263,7 @@ Vue.component('order', {
         let account = sessionStorage.getItem("account")
         this.account = account
 
-        fetch('../php/searchOrder.php',{
+        fetch('./php/searchOrder.php',{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -424,7 +424,7 @@ Vue.component('sponsor', {
         let account = sessionStorage.getItem("account")
         this.account = account
 
-        fetch('../php/searchDonation.php',{
+        fetch('./php/searchDonation.php',{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -441,7 +441,7 @@ Vue.component('sponsor', {
 new Vue({
     el: '#memberCenterApp',
     data: {
-        content: 'sponsor',
+        content: 'detail',
         detail: true,
         reservation: false,
         order: false,
