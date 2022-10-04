@@ -13,36 +13,36 @@ $(document).ready(function () {
   $('.nav_logout-text').click(function () {
     sessionStorage.removeItem('account');
     $('.nav_logout-text').hide();
-    location.href="../dist/login_page.html"
+    location.href="./login_page.html"
   })
 
   if(sessionStorage.account){
     $('#icon_login').click(()=>{
-      window.location.href = "../dist/member_detail.html"
+      window.location.href = "./member_detail.html"
     })
   }else {
     $('#icon_login').click(()=>{
-      window.location.href = "../dist/login_page.html"
+      window.location.href = "./login_page.html"
     })
   }
 
   if(sessionStorage.account){
     $('#nav_login').click(()=>{
-      window.location.href = "../dist/member_detail.html"
+      window.location.href = "./member_detail.html"
     })
   }else {
     $('#nav_login').click(()=>{
-      window.location.href = "../dist/login_page.html"
+      window.location.href = "./login_page.html"
     })
   }
 
   if(sessionStorage.account){
     $('#footer_login').click(()=>{
-      window.location.href = "../dist/member_detail.html"
+      window.location.href = "./member_detail.html"
     })
   }else {
     $('#footer_login').click(()=>{
-      window.location.href = "../dist/login_page.html"
+      window.location.href = "./login_page.html"
     })
   }
 

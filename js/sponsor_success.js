@@ -13,7 +13,7 @@ new Vue({
     },
     mounted() {
         this.account = sessionStorage.getItem('account')
-        fetch('../php/sponsorSuccess.php', {
+        fetch('./php/sponsorSuccess.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

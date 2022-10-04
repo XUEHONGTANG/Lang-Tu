@@ -47,13 +47,13 @@ new Vue({
         var getUrlString = location.href;
         var url = new URL(getUrlString);
         var id = url.searchParams.get('id');
-            fetch(`../php/searchSponsor.php?id=`+id,{
+            fetch(`./php/searchSponsor.php?id=`+id,{
                 method: "GET",
             })
             .then(resp => resp.json())
             .then(resp => this.sponsor = resp)
 
-            fetch('../php/searchfundPeople.php')
+            fetch('./php/searchfundPeople.php')
             .then(resp => resp.json())
             .then(resp => this.fundPeople = resp)
 

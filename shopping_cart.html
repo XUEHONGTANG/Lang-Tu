@@ -143,7 +143,7 @@
                                 </div>
                             </td>
                             <td>NT$ {{product.price * product.quantity}}</td>
-                            <td></td>
+                            <td @click="deleteProduct(product)"></td>
                         </tr>
                     </tbody>
                 </table>

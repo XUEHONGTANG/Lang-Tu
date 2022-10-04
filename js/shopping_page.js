@@ -90,10 +90,8 @@ new Vue({
     olClass: "hide",
     pages: 0,
     currentPage: 1,
-    // content: 'productContent',
-    // selected: 1,
-    // counter: 1,
-    // currentSrc: 0,
+
+    // current_popup:null, //老師建議以後作法
     products: [],
     productType: [],
     productInPage: [],
@@ -250,7 +248,7 @@ new Vue({
     //   // },
     // });
 
-    fetch("../php/shopping_page.php")
+    fetch("./php/shopping_page.php")
       .then((resp) => resp.json())
       .then((resp) => {
         let products = resp.filter((pd) => {

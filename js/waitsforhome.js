@@ -101,7 +101,7 @@ new Vue({
         });
         
         // PHP也由外面接收 去跑陣列
-        fetch('../php/searchCatAndDog.php')
+        fetch('./php/searchCatAndDog.php')
         .then(resp => resp.json())
         .then(resp => {
             this.animals = resp;

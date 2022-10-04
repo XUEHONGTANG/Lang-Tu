@@ -18,11 +18,9 @@ new Vue({
         }
     },
     mounted() {
-        fetch(`../php/news_content.php`,{
+        fetch(`./php/news_content.php`,{
             method: "GET",
         })
-        // fetch(`./php/news_content.php?getNews=`)
-  
             .then(resp => resp.json())
             .then(resp => this.posts = resp)
     }
@@ -43,7 +41,7 @@ var news = new Vue({
         var url = new URL(getUrlString);
         var News = url.searchParams.get('getNews');
 
-        fetch(`../php/news_content_box.php?getNews=`+ News,{
+        fetch(`./php/news_content_box.php?getNews=`+ News,{
             method: "GET",
         })
             .then(resp => resp.json())

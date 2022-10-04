@@ -14,7 +14,7 @@
         border-bottom: vw(1) solid $gray900;
         padding-bottom: vw(24);
         @include m(){
-            font-size: rwd(18);
+            font-size: rwd(20);
         }
     }
     table{
@@ -26,8 +26,10 @@
                 padding-bottom: vw(24);
                 font-size: $p;
                 @include m(){
-                    font-size: rwd(18);
+                    font-size: rwd(16);
                     width: rwd(130);
+                    font-weight: $bold;
+                    border-bottom: rwd(1) solid $gray900;
                 }
             }
             .person{

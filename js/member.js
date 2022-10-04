@@ -15,7 +15,7 @@ Vue.component('detail', {
             }else if(this.text == '確認'){
                 this.text = '修改',
                 this.isDisabled = true
-                fetch('../php/updateMember.php', {
+                fetch('./php/updateMember.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -94,7 +94,7 @@ Vue.component('detail', {
             let account = sessionStorage.getItem("account")
             this.account = account
 
-            fetch('../php/searchMember.php',{
+            fetch('./php/searchMember.php',{
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
@@ -156,7 +156,7 @@ Vue.component('reservation', {
         let account = sessionStorage.getItem("account")
         this.account = account
 
-        fetch('../php/searchAdoption.php',{
+        fetch('./php/searchAdoption.php',{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -220,7 +220,7 @@ Vue.component('order', {
                 <td class="dateDetail">{{info.date}}</td>
                 <td class="paymentDetail">{{info.payment}}</td>
                 <td class="totalDetail">{{info.total}}</td>
-                <td class="situationDetail">{{info.situation}}</td>
+                <td class="priceDetail">{{info.situation}}</td>
                 <td @click="show(i)" class="situationDetail" v-html="icon"></td>
             </tr>
         </tbody>
@@ -324,7 +324,7 @@ Vue.component('sponsor', {
                 this.classObj1.btn1 = false
                 this.classObj2.btn1 = true
                 this.classObj3.btn1 = true
-                fetch('../php/updatePlan1.php',{
+                fetch('./php/updatePlan1.php',{
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
@@ -338,7 +338,7 @@ Vue.component('sponsor', {
                 this.classObj1.btn1 = true
                 this.classObj2.btn1 = false
                 this.classObj3.btn1 = true
-                fetch('../php/updatePlan2.php',{
+                fetch('./php/updatePlan2.php',{
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
@@ -352,7 +352,7 @@ Vue.component('sponsor', {
                 this.classObj1.btn1 = true
                 this.classObj2.btn1 = true
                 this.classObj3.btn1 = false
-                fetch('../php/updatePlan3.php',{
+                fetch('./php/updatePlan3.php',{
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
@@ -395,10 +395,10 @@ Vue.component('sponsor', {
                 </tr>
                 <tbody>
                     <tr>
-                        <td class="id-detail">OD00{{info.id}}</td>
+                        <td class="id-detail">OD{{info.id}}</td>
                         <td class="date-detail">{{info.date}}</td>
                         <td class="method-detail">{{info.method}}</td>
-                        <td class="amount-detail">NT $ {{info.amount}}</td>
+                        <td class="amount-detail">{{info.amount}}</td>
                         <td class="situation-detail">{{info.situation}}</td>
                         <td @click="show(i)" class="num-detail" v-html="icon"></td>    
                     </tr>
@@ -406,7 +406,6 @@ Vue.component('sponsor', {
             </table>
             <transition name="fade" mode="in-out">
                 <div v-if="i == currentSponsor">
-                    <h3 class="bottom">贊助捐款</h3>
                     <h4>贊助專案：{{donor[i].fundName}}</h4>
                     <div class="button">
                         <button  @click="planChange(1)" class="btn0" :class="classObj1">方案一：每月NT$300</button>

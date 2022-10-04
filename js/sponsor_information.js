@@ -163,7 +163,7 @@ new Vue({
             this.fundNow = Number(this.planPrice) + Number(this.fundNow)
             this.fundPeople++
         
-            fetch('../php/insertDonation.php',{
+            fetch('./php/insertDonation.php',{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -196,7 +196,7 @@ new Vue({
                 let id = sessionStorage.getItem('id');
                 this.id = id;
 
-            fetch('../php/addfundingMoneyandPeople.php',{
+            fetch('./php/addfundingMoneyandPeople.php',{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
