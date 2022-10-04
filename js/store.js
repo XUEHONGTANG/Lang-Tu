@@ -40,7 +40,7 @@ const store = new Vuex.Store({
                 //  不同產品新增
                 state.cart.push(product)
             }
-
+            sessionStorage.setItem("store", JSON.stringify(store.state))
         },
         DELETE_TO_CART(state, product) { 
             // let index = state.cart.indexOf(product);
