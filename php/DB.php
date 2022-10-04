@@ -13,9 +13,9 @@
 
 
    // other_host
-   $db_host = "192.168.0.220";
-   $db_user = "ff";
-   $db_pass = "liyuan0142";
+   $db_host = "192.168.0.185";
+   $db_user = "Rose";
+   $db_pass = "password";
    $db_select = "LangTu";
 
    //建立資料庫連線物件

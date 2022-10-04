@@ -19,16 +19,28 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        position: relative;
+        top: 13vw;
+        @include m(){
+            top: 35vw;
+        }
+
 
         h3 {
             color: $secondaryA11y;
             font-weight: $bold;
             padding: 5vw;
+            @include m(){
+                font-size: rwd(23);
+            }
         }
 
         &-btn {
             display: flex;
             gap: 8vw;
+            &:hover{
+                
+            }
         }
     }
     .startBtn {
@@ -55,7 +67,7 @@
 
     img {
         width: 100%;
-        position: absolute;
+        // position: absolute;
     }
     
     
@@ -196,6 +208,7 @@ button{
     width: 12vw;
     height: auto;
     font-size: vw(20);
+    z-index: 20;
   
 
     &-prev {
@@ -468,19 +481,42 @@ button{
     }
 
 }
-
+// .big_tag {
+//     top: 7vw;
+//     left: 4vw;
+//     width: 49vw;
+//     @include m(){
+//         top: -82vw;
+//         left: -85px;
+//         width: 137vw;
+//     }
+// }
 .big_tag {
-    top: 7vw;
-    left: 4vw;
-    width: 49vw;
+    position: inherit; 
+    top: 0; 
+    width: 100vw;
     @include m(){
-        top: -65vw;
-        left: 0;
-        width: 98vw;
+        top: -86vw;
+        width: 102.4vw;
+
+        height: 417px;
+        z-index: 2;
+        left: -36px;
     }
 }
 
-
+.big_tag_select{
+    top: 1vw;
+    left: -59vw;
+    width: 52vw;
+    position: absolute;
+    @include m(){
+        left: -56px;
+        width: 124vw;
+        overflow: hidden;
+    }
+}
+ 
 .cus_step4_btn {
     display: flex;
     justify-content: center;
@@ -511,24 +547,28 @@ button{
 
 
 .canvas_frame{
-    // transition: all 0.5s ease-in-out;
+
     position: fixed;
-    width: 35vw;
-    height: 30vw;
-    top: 17vw;
-    left: 12vw;
+    // width: calc(100% - 600px);
+    top: 14vw;
+    left: 8vw;
+
     z-index: 10;
     @include m(){
-        top: 78vw;
-        position: absolute;
+        top: 40vw;
+        position: absolute;     
+        left: 0;
+        width: 96vw;
+        // border: 1px solid;
+ 
     }
-}
-.cover-fit{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border:  0px solid #B18042;
+       
+    }
 
+#canvas{
+    width: 100%;
+ 
+    // border:  1px solid #B18042;
 }
 
 
@@ -552,11 +592,11 @@ button{
 }
 .addText .collarTextTitles {
     margin: 0  vw(20);
-    color: #555555;
+    color: #7C8C38;
     font-weight: $medium;
-    font-size: 1.2vw;
+    font-size: 18px;
     @include m(){
-        font-size: 15px;
+        font-size: 16px;
     }
 }
 
@@ -624,31 +664,25 @@ button{
     justify-content: flex-start;
     align-items: center;
     margin-top: 30px;
-}
-@media screen and (max-width: 415px) {
-    .addText #textFontFamily {
+    @include m(){
         margin-top: 10px;
     }
 }
+ 
 .addText #textFontFamily #fontFamilySelect {
-    width: 150px;
-    height: 30px;
-}
-@media screen and (max-width: 375px) {
-    .addText #textFontFamily #fontFamilySelect {
-        width: 130px;
+    width: vw(240);
+    height: vw(40);
+    color: #7c8b38;
+    border: #bb866a;
+    font-size: 16px;
+    @include m(){
+        height: rwd(40);
+        width: rwd(240);
     }
-}
-.addText #textFontFamily #fontFamilySelect .fontFamilys {
-    font-size: 20px;
-}
-@media screen and (max-width: 415px) {
-    .addText #textFontFamily #fontFamilySelect .fontFamilys {
-        font-size: 16px;
-    }
-}
+ 
 
-
+}
+ 
 
 .addText #textContent {
     width: 100%;
@@ -673,23 +707,16 @@ button{
     background-color: transparent;
     width: 150px;
     height: 30px;
+    font-size: 16px;
 }
-@media screen and (max-width: 375px) {
-    .addText #textContent #textContent1 {
-        width: 130px;
-    }
-}
-.addText #textContent #addTextBtn .plusTextImg {
-    width: 18px;
-    height: 18px;
-    opacity: 0.8;
-}
+
+ 
 .textbtn {
     border:0px;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     border-radius: 38%;
-    margin: 0 10px 0 20px;
+    margin: 0 0px 0 16px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -699,20 +726,16 @@ button{
     background: #fff;
     color: #7c8b38;
     box-shadow: 0px 0px 14px 0px rgba(174, 174, 174, 0.3);
+    font-size:  vw(19);
     @include m(){
         margin: 0 10px 0 9px;
-        font-size: rwd(18);
+        font-size: rwd(19);
     }
     &:hover{
         transform:translate(1px,1px);
         background: rgb(244, 244, 244);
         box-shadow: 0px 0px 10px 0px rgba(174, 174, 174, 0.5);
     }
-}
-.addText #textContent #delTextBtn .delTextImg {
-    width: 18px;
-    height: 18px;
-    opacity: 0.8;
 }
 
 

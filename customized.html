@@ -5,25 +5,15 @@
     @@include('./layout/head.html', {
     "title" : "領養知識問答"
     })
-    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="https://unpkg.com/vuex@3"></script>
-
 </head>
 
 <body>
 
     <main id="customizedApp" class="customized">
         @@include('./layout/nav.html')
-        <article v-if="currentPage === 0" key="page1" class="custom_start">
-            <h3>今天想幫誰挑項圈呢？</h3>
-            <div class="custom_start-btn">
-                <button @click="next" class="startBtn"><img src="./images/customized/custom-Dog.png" alt=""></button>
-                <button @click="next" class="startBtn"><img src="./images/customized/custom-Cat.png" alt=""></button>
-            </div>
-        </article>
 
         <section class="cus_step">
         
@@ -34,20 +24,22 @@
                 </div>
                 <!-- 背景狗狗 -->
                 <transition-group name="scale" tag="section">
+    
                 <picture class="big_dog" v-if="currentPage!=0 && currentPage!=3" key="1">
                     <div class="PetTag"  key="2"><img style="z-index:2" :src="schemas[currentPage].tags[chooseTags]"></div>
-          
-                    <img class="currentPet" :src="schemas[currentPage].collar[choosCollar]" style="z-index:0" key="3">
-                    <img class="presetPet" :src="schemas[5].collar[0]" style="z-index:-1" key="4">
+                    <img class="currentPet" :src="schemas[currentPage].collar[choosCollar]" style="z-index:0" key="3" v-if="current_animal === 'dog'">
+                    <img class="currentPet" :src="schemas[currentPage].cat_collar[choosCollar]" style="z-index:0" key="3" v-if="current_animal === 'cat'">
+                    <img class="presetPet" :src="schemas[5].collar[0]" style="z-index:-1" key="4" v-if="current_animal === 'dog'"  v-show="currentPage === 1">
+                    <img class="presetPet" :src="schemas[5].collar[1]" style="z-index:-1" key="4" v-if="current_animal === 'cat'"  v-show="currentPage === 1">
                 </picture>
                 <section class="canvas_frame" key="5"  v-show="currentPage === 3">
-                    <canvas class="cover-fit" id="canvas"></canvas>
+                    <canvas id="canvas" ></canvas>
                 </section>
                 </transition-group>
 
                 <!-- progress -->
 
-                <div class="progress-content " v-if="currentPage!=0 ">
+                <div class="progress-content " v-if="currentPage != 0 ">
                     <!-- <div :class="[{ progress-content4: isActive }, progress-content]" v-if="currentPage!=0 "> -->
                     <div class="cus_step-select">
             
@@ -59,8 +51,9 @@
                         <span class="custom_btn-text">上一步</span>
                     </button>
                  
-                        
-                    <button id="next-btn" class="custom_btn" @click="next"  style="z-index:10">
+                    <!-- <button id="next-btn next-btn" class="custom_btn" @click="next();addToCart()"  style="z-index:10;display: none;"  > -->    
+                    <button id="next-btn" class="custom_btn" @click="next();addToCart()"  style="z-index:10;display: none;" >
+                    
                         <span class="custom_btn_circle" aria-hidden="true">
                         <span class="custom_btn_circle_icon custom_btn_circle_arrow"></span>
                         </span>
@@ -81,31 +74,31 @@
                     </div>
                 </div>
 
+             <!--  挑選狗貓 -->
+                <article v-if="currentPage === 0" key="page1" class="custom_start">
+                    <h3>今天想幫誰挑項圈呢？</h3>
+                    <div class="custom_start-btn">
+                        <button @click.stop="DogNext" class="startBtn"><img src="./images/customized/custom-Dog.png" alt=""></button>
+                        <button @click.stop="CatNext" class="startBtn"><img src="./images/customized/custom-Cat.png" alt=""></button>
+                    </div>
+                </article>
                 <!-- 1 挑選皮帶 -->
                 <transition-group name="fade">
                     <div class="cus_step2_content" v-if="currentPage === 1" key="currentPage">
-                       <a  @click="addToCart"> <div class="cus_step_txt">
+                      <div class="cus_step_txt">
                             <h3>{{schemas[currentPage].step}}</h3>
                             <h2>{{schemas[currentPage].title}}</h2>
-                        </div></a>
+                        </div>
                         
                         <div container-id="product-grid" class="product-grid">
-                            <div class="product1" v-for="(collar,pid) in schemas" @click="choosCollar = pid">
-                                <div class="prd"><img :src="schemas[currentPage].product_images[pid]" alt="">
-                                    <div class="price">{{schemas[currentPage].price[pid]}}</div>
+                            <div class="product1" v-for="(collar,pid) in schemas" @click.stop="choosCollar = pid">
+                                <div class="prd" @click="prdClickfirst">
+                                    <img :src="imgURL+schemas[currentPage].product_images[pid]" alt="">
+                                    <!-- <img :src="schemas[currentPage].cat_collar[pid]" alt="" v-if="current_animal === 'cat'"> -->
+                                    <div class="price">NT {{schemas[currentPage].price[pid]}}</div>
                                 </div>
                             </div>
                         </div>
-                
-                        
-                        <!-- <div container-id="product-grid" class="product-grid">
-                            <div class="product1" v-for="(collar,pid) in all_data" @click="choosCollar=pid" >
-                                <div class="prd">
-                                    <img :src="imgURL+ collar.product_images" alt="">
-                                    <div class="price">{{all_data[currentPage].price[pid]}}</div>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
 
                 </transition-group>
@@ -119,8 +112,9 @@
 
                         <div container-id="product-grid" class="product-grid">
                             <div class="product1" v-for="(tags,id) in schemas" @click="chooseTags = id ">
-                                <div class="prd tag "><img :src="schemas[currentPage].product_images[id]" alt="">
-                                    <div class="price">{{schemas[currentPage].price[id]}}</div>
+                                <div class="prd tag "  @click="prdClick">
+                                    <img :src="imgURL+schemas[currentPage].product_images[id]" alt="">
+                                    <div class="price">NT {{schemas[currentPage].price[id]}}</div>
                                 </div>
                             </div>
                         </div>
@@ -130,7 +124,7 @@
                 <!-- 3 吊牌刻字 -->
                 <transition-group name="fade">
 
-                    <div id="cus_step3" class="cus_step2_content" v-if="currentPage === 3" key="currentPage">
+                    <div id="cus_step3" class="cus_step2_content" v-if="currentPage === 3" key="currentPage" @click="prdClick">
                         <div class="cus_step_txt">
                             <h3>{{schemas[currentPage].step}}</h3>
                             <h2>{{schemas[currentPage].title}}</h2>
@@ -209,9 +203,12 @@
 
 
     </main>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js" ></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.2.4/fabric.js" crossorigin="anonymous"
         referrerpolicy="no-referrer"></script>
-    <script type="module" src="./js/customized.js"></script>
-    <script src="./js/header.js"></script>
+    <script type="module" src="./js/customized.js" defer></script>
+    <script src="https://unpkg.com/vuex@3"></script>
+    <script src="./js/header.js"  defer></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
 
 </body>
