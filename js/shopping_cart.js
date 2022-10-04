@@ -192,7 +192,13 @@ methods: {
       // return this.currentPage = 1
     }
     },
-    sendOrder() {
+  sendOrder() {
+      if (this.$store.state.cart.length === 0) {
+        this.alertEmpty = true;
+        setTimeout(() => { return this.alertEmpty = false }, 3000);
+        return false;
+      }  
+
       const memberCounty = $('.twzipcode1 > select[name="county"]').val();
       const memberDistrict = $('.twzipcode1 > select[name="district"]').val();
       const memberZipcode = $('.twzipcode1 > input[name="zipcode"]').val();
@@ -406,7 +412,9 @@ methods: {
       // console.log(this.$store.state.cart);
       this.$store.dispatch("clearCart");
       this.currentPage = 3;
-    },
+  }
+    
+ 
   },
   mounted() {
     this.currentPage = 1;
@@ -425,6 +433,15 @@ methods: {
           }
          });
       });
+      if (sessionStorage.getItem("store")) {
+        // console.log("讀取sessionstorage前的數據")
+        // console.log(this.$store.state,JSON.parse(sessionStorage.getItem("store")))
+    
+        this.$store.replaceState(Object.assign({}, this.$store.state, JSON.parse(sessionStorage.getItem("store"))))
+    
+        // console.log("讀取sessionstorage後的數據")
+        // console.log(this.$store.state,JSON.parse(sessionStorage.getItem("store")))
+      };
     
   },
   updated() {
@@ -442,7 +459,7 @@ methods: {
 
       // console.log("存vuex後的數據")
       // console.log(this.$store.state,JSON.parse(sessionStorage.getItem("store")))
-    })
+    });
 
   // 在頁面加載時讀取sessionStorage裏的狀態信息
   if (sessionStorage.getItem("store")) {
@@ -453,7 +470,7 @@ methods: {
 
     // console.log("讀取sessionstorage後的數據")
     // console.log(this.$store.state,JSON.parse(sessionStorage.getItem("store")))
-  }
+    };
 
 }
 });

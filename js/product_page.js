@@ -1,3 +1,5 @@
+// import store from "./store.js";
+
 let productContent = {
   props: ["pdInfo"],
 
@@ -78,14 +80,12 @@ const deliveryMethod = {
 };
 
 const productPage = {
-  props: ["product"],
+  // store,
+  props: ["product", "toggleShow"],
   components: {
     productContent,
     shoppingInfo,
     deliveryMethod,
-    // productContent: productContent,
-    // shoppingInfo: shoppingInfo,
-    // deliveryMethod: deliveryMethod
   },
   data() {
     return {
@@ -97,15 +97,16 @@ const productPage = {
     };
   },
   methods: {
-    toggleShow(product) {
-      this.currentSrc = 0;
-      product.isShow = !product.isShow;
-    },
+    // toggleShow(product) {
+    //   this.currentSrc = 0;
+    //   product.isShow = !product.isShow;
+    // },
     closeShow(product) {
       product.isShow = false;
     },
     addToCart(product) {
       // let { isShow, info, ...newProduct } = { ...product };
+      // console.log(product);
       let newProduct = {
         pdId: product.pdId,
         name: product.name,
@@ -120,14 +121,14 @@ const productPage = {
       // console.log(newProduct);
 
       this.$store.dispatch("addProductToCart", { ...newProduct });
-      this.putInCart();
+      this.putInCartAlert();
     },
     limit(product) {
       return product.quantity >= product.inventory
         ? (product.quantity = product.inventory)
         : product.quantity;
     },
-    putInCart() {
+    putInCartAlert() {
       this.addAlert = true;
       setTimeout(() => {
         return (this.addAlert = false);
@@ -246,7 +247,6 @@ const productPage = {
           </div>
           <button 
           @click="addToCart(product)"
-   
           class="btn-0 btn-shopping">
             <iconify-icon icon="eva:shopping-cart-fill"></iconify-icon>
             加入購物車
