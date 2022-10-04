@@ -1,310 +1,285 @@
-
-
 header {
-    overflow-x: clip;
-  
-    .header_container {
-        width: 100%;
-        height: 53vw;
-        position: relative;
+  overflow-x: clip;
 
-        @include m() {
-            height: 100vh;
-            overflow: hidden;
-
-
-        }
-        &2 {
-            width: 100%;
-            height:31vw;
-            position: relative;
-            @include m(){
-                overflow: hidden;
-                height: 137vw;
-                margin-bottom: -62vw;
-            
-            }
-        }
-
-        &3{
-            height: 35vw;
-            @include m() {
-                height:43vh;
-                overflow: hidden;
-            }
-        }
-    
-    }
-
-    .top_kv {
-
-  
-        &_bg {
-            z-index: -4;
-            width: 100%;
-            position: absolute;
-            top: 0;
-
-        }
-
-      
-        &_city {
-            position: relative;
-            z-index: -1;
-            top: 7vw;
-            &_l1 {
-                position: absolute;
-                top: 0.7vw;
-                left: 0;
-                width: vw(1035);
-                @include m() {
-                    display: none;
-                }
-            }
-            &_r1 {
-                position: absolute;
-                top: -4.25vw;
-                width: 55vw;
-                left: 46vw;
-                @include m() {
-                    width: 151.7vw;
-                    left: -33.7vw;
-                    top: 59.4vw;
-                }
-
-                &-2{
-                    @include m(){
-                        top: 20.7vw;
-                    }
-                }
-            }
-          
-
-
-            &_r2 {
-                position: absolute;
-                right: 0;
-                width: 50.7vw;
-                top: -1.8125vw;
-                @include m() {
-                    display: none;
-                }
-
-            }
-            &_l2 {
-                position: absolute;
-                left: 0;
-                width: vw(1383);
-                top: -8.48vw;
-                @include m() {
-                    width: rwd(723);
-                    top: 44.7vw;
-                    // left: rwd(-231);
-                }
-
-            &-2{
-                @include m(){
-                    top: 1.7vw;
-                }
-            }
-
-                
-            }
-            &_road {
-                position: absolute;
-                width: vw(1025);
-                left: vw(319);
-                top:32.71875vw;
-            }
-            &_or3 {
-                z-index: 3;
-                width: 100%;
-                top: vw(330);
-                position: absolute;
-            }
-            &_or3p {
-                top: vw(19);
-                width: 100%;
-                position: absolute;
-
-            }
-        }
-        &_a {
-            position: relative;
-            top: 2vw;
-            @include m() {
-                position: relative;
-                top: 76vw;
-            }
-            // position: absolute;
-            &_cat {
-                position: absolute;
-                left:55vw;
-                top: 31.5vw;
-                width: vw(340);
-                z-index: 2;
-                @include m() {
-                    width: 254px;
-                    left: 38vw;
-                    top: 40.8vw;
-                }
-            }
-            &_dog {
-                position: absolute;
-                left: vw(1169);
-                top: vw(487);
-                width: vw(300);
-
-                @include m() {
-                    width: 203px;
-                    left: 55.26vw;
-                }
-            }
-        }
-
-        // &_t {
-        //     position: relative;
-        //     z-index: 5;
-
-        //     &-title {
-
-     
-    }
-
-   
-}
-
-
-
-.top_kv_t {
+  .header_container {
+    width: 100%;
+    height: 53vw;
     position: relative;
-    z-index: 5;
 
-    @include m(){
-        z-index: -1;
+    @include m() {
+      height: 100vh;
+      overflow: hidden;
+    }
+    &2 {
+      width: 100%;
+      height: 31vw;
+      position: relative;
+
+      @include m() {
+        overflow: hidden;
+        height: 137vw;
+        margin-bottom: -44vw;
+      }
     }
 
-    &_cir {
+    &3 {
+      height: 35vw;
+      @include m() {
+        height: 43vh;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .top_kv {
+    &_bg {
+      z-index: -4;
+      width: 100%;
+      position: absolute;
+      top: 0;
+    }
+
+    &_city {
+      position: relative;
+      z-index: -1;
+      top: 7vw;
+      &_l1 {
         position: absolute;
-        z-index: -1;
-        width: vw(541);
-        top: -9vw;
+        top: 0.7vw;
+        left: 0;
+        width: vw(1035);
         @include m() {
-            width: rwd(400);
-            top: -19.7vw;
+          display: none;
         }
-    }
-
-    &-title {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 13px;
-        @include m() {
-            position: relative;
-            top: 103px;
-        }
-
-        h1 {
-            color: $primaryA11y;
-            font-weight: $bold;
-            font-size: $h2;
-            font-family:  'jf open 粉圓 1.1';
-            @include m() {
-                font-size: 32px;
-
-            }
-        }
-
-        p {
-            font-size: font-size(18);
-            color: $primaryDefault;
-            text-transform: uppercase;
-            @include m() {
-                font-size: 20px;
-            }
-
-        }
-
-        &2 {
-            h1 {
-                color: $secondaryA11y;
-            }
-
-            p {
-                color: $secondaryA11y;
-            }
-        }
-    }
-}
-
-.top_kv_crumbs-frame {
-    display: flex;
-    justify-content: center;
-
-
-    .top_kv_crumbs {
-        z-index: 3;
+      }
+      &_r1 {
         position: absolute;
-        margin: auto 0;
-        display: flex;
-        align-items: center;
-        color: $primaryA11y;
-        top: 45.5vw;
-        right: 7vw;
+        top: -4.25vw;
+        width: 55vw;
+        left: 46vw;
         @include m() {
-            width: 63vw;
-            height: 47.37px;
-            left: 19.6vw;
-            top: 651px;
+          z-index: -1;
+          width: 151.7vw;
+          left: -33.7vw;
+          top: 59.4vw;
         }
 
         &-2 {
-            z-index: 4;
-            position: absolute;
-            display: flex;
-            align-items: center;
-            color: $primaryA11y;
-            top: 19vw;
+          @include m() {
+            z-index: -1;
+            top: 20.7vw;
+          }
+        }
+      }
 
-            @include m(){
-                top: 44vw;
-            }
+      &_r2 {
+        position: absolute;
+        right: 0;
+        width: 50.7vw;
+        top: -1.8125vw;
+        @include m() {
+          display: none;
+        }
+      }
+      &_l2 {
+        position: absolute;
+        left: 0;
+        width: vw(1383);
+        top: -8.48vw;
+        @include m() {
+          width: rwd(723);
+          top: 44.7vw;
+          z-index: -1;
+          // left: rwd(-231);
         }
 
-        &_img {
-            width: vw(65.65);
-            margin-right: $space1;
-            @include m() {
-                width: 59.39px;
-            }
+        &-2 {
+          @include m() {
+            top: 1.7vw;
+          }
         }
-
-        &-text {
-            border-radius: vw(27);
-            padding: 0 vw(25);
-            background-color: #fff;
-            font-size: $p;
-            align-items: center;
-            display: flex;
-            @include m(){
-                font-size: 15px;
-
-            }
-
-            // &_1{
-
-            // }
-            span {
-                margin: $space1;
-
-            }
-            &_2 {
-                font-weight: $bold;
-            }
-
+      }
+      &_road {
+        position: absolute;
+        width: vw(1025);
+        left: vw(319);
+        top: 32.71875vw;
+      }
+      &_or3 {
+        z-index: 3;
+        width: 100%;
+        top: vw(330);
+        position: absolute;
+      }
+      &_or3p {
+        top: vw(19);
+        width: 100%;
+        position: absolute;
+      }
+    }
+    &_a {
+      position: relative;
+      top: 2vw;
+      @include m() {
+        position: relative;
+        top: 76vw;
+      }
+      // position: absolute;
+      &_cat {
+        position: absolute;
+        left: 55vw;
+        top: 31.5vw;
+        width: vw(340);
+        z-index: 2;
+        @include m() {
+          width: 254px;
+          left: 38vw;
+          top: 40.8vw;
         }
-    
+      }
+      &_dog {
+        position: absolute;
+        left: vw(1169);
+        top: vw(487);
+        width: vw(300);
+
+        @include m() {
+          width: 203px;
+          left: 55.26vw;
+        }
+      }
+    }
+
+    // &_t {
+    //     position: relative;
+    //     z-index: 5;
+
+    //     &-title {
+  }
 }
+
+.top_kv_t {
+  position: relative;
+  z-index: 5;
+
+  @include m() {
+    z-index: -1;
+  }
+
+  &_cir {
+    position: absolute;
+    z-index: -1;
+    width: vw(541);
+    top: -9vw;
+    @include m() {
+      width: rwd(400);
+      top: -19.7vw;
+    }
+  }
+
+  &-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    @include m() {
+      position: relative;
+      top: 103px;
+    }
+
+    h1 {
+      color: $primaryA11y;
+      font-weight: $bold;
+      font-size: $h2;
+      font-family: "jf open 粉圓 1.1";
+      @include m() {
+        font-size: 32px;
+      }
+    }
+
+    p {
+      font-size: font-size(18);
+      color: $primaryDefault;
+      text-transform: uppercase;
+      @include m() {
+        font-size: 20px;
+      }
+    }
+
+    &2 {
+      h1 {
+        color: $secondaryA11y;
+      }
+
+      p {
+        color: $secondaryA11y;
+      }
+    }
+  }
+}
+
+.top_kv_crumbs-frame {
+  display: flex;
+  justify-content: center;
+
+  .top_kv_crumbs {
+    z-index: 3;
+    position: absolute;
+    margin: auto 0;
+    display: flex;
+    align-items: center;
+    color: $primaryA11y;
+    top: 45.5vw;
+    right: 7vw;
+    @include m() {
+      width: 63vw;
+      height: 47.37px;
+      left: 19.6vw;
+      top: 651px;
+    }
+
+    &-2 {
+      z-index: 4;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      color: $primaryA11y;
+      top: 19vw;
+
+      @include m() {
+        top: 44vw;
+      }
+    }
+
+    &_img {
+      width: vw(65.65);
+      margin-right: $space1;
+      @include m() {
+        width: 59.39px;
+      }
+    }
+
+    &-text {
+      border-radius: vw(27);
+      padding: 0 vw(25);
+      background-color: #fff;
+      font-size: $p;
+      align-items: center;
+      display: flex;
+      @include m() {
+        font-size: 15px;
+      }
+
+      // &_1{
+
+      // }
+      span {
+        margin: $space1;
+      }
+      &_2 {
+        font-weight: $bold;
+      }
+    }
+  }
 }
