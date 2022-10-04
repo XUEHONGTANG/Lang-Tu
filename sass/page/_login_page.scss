@@ -1,336 +1,356 @@
-.loginPageWrapper{
-    margin: 0 auto;
-    width: vw(800);
-    border-radius: $r25;
-    box-shadow: $shadow;
-    background-color: #fff;
+.loginPageWrapper {
+  margin: 0 auto;
+  width: vw(800);
+  border-radius: $r25;
+  box-shadow: $shadow;
+  background-color: #fff;
 
-    @include m(){
-        width: rwd(394);
-        border-radius: rwd(10);
+  @include m() {
+    width: rwd(394);
+    border-radius: rwd(10);
+  }
+
+  hr.mainLine {
+    border: solid vw(1) $primaryDark;
+    margin: $space3 0;
+
+    @include m() {
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: solid rwd(1) $primaryA11y;
+      margin: rwd(20) 0;
+    }
+  }
+
+  ul {
+    display: flex;
+    background-color: $primaryDark;
+    border-radius: $r25 $r25 0 0;
+
+    @include m() {
+      border-radius: rwd(10) rwd(10) 0 0;
     }
 
-    hr.mainLine{
-        border: solid vw(1) $primaryDark;
-        margin: $space3 0;
+    li {
+      z-index: 2;
+      width: 50%;
+      border-radius: $r25 $r25 0 0;
+      padding: $space3 0;
+      text-align: center;
 
-        @include m(){
-            border-top:none;
-            border-left: none;
-            border-right: none;
-            border-bottom: solid rwd(1) $primaryA11y;
-            margin: rwd(20) 0;
-        }
+      font-size: $h3;
+      font-weight: $bold;
+      color: #fff;
+      background-color: $primaryDark;
+
+      @include m() {
+        border-radius: rwd(10) rwd(10) 0 0;
+        padding: rwd(12) 0;
+        font-size: rwd(18);
+      }
+
+      cursor: pointer;
+      &.currentPage {
+        // z-index: 5;
+        color: $primaryDark;
+        background-color: #fff;
+      }
     }
+  }
+  section {
+    padding: $space6 $space4;
 
-     ul{
-        display: flex;
-        background-color: $primaryDark;
-        border-radius: $r25 $r25 0 0;
-
-        @include m(){
-            border-radius: rwd(10) rwd(10) 0 0;
-        }
-
-        li{
-            z-index: 2;
-            width: 50%;
-            border-radius: $r25 $r25 0 0;
-            padding: $space3 0;
-            text-align: center;
-            
-            font-size: $h3;
-            font-weight: $bold;
-            color: #fff;
-            background-color: $primaryDark;
-            
-            @include m(){
-                border-radius: rwd(10) rwd(10) 0 0;
-                padding: rwd(12) 0;
-                font-size: rwd(18);
-            }
-
-            cursor: pointer;
-            &.currentPage{
-                // z-index: 5;
-                color: $primaryDark;
-                background-color: #fff;
-            }
-        }
-     }
-     section{
-        padding: $space6 $space4;
-
-        @include m(){
-            padding: rwd(24) rwd(16);
-        }
-        span{
-            display: flex;
-            justify-content: center;
-            align-content: center;
-            button{
-                font-size: $p;
-                line-height: vw(40);
-                // width: vw(236);
-                padding: $space1 $space3;
-                margin: 0 $space2;
-                border: none;
-                border-radius: vw(6);
-                color: #fff;
-                background-color: $primaryDark;
-                cursor: pointer;
-
-                @include box-center();
-                position: relative;
-                left: vw(-10);
-
-                @include m(){
-                    font-size: rwd(13);
-                    line-height: rwd(24);
-                    padding: rwd(8) rwd(24);
-                    margin: 0 rwd(8);
-                    border-radius: rwd(6);
-                    left: rwd(-6);
-                }
-
-                &:hover{
-                 background-color: $primaryA11y;
-                }
-                &:first-child {
-                    &::before{
-                        // position: absolute;
-                        // left: vw(40);
-                        font-family: FontAwesome;
-                        content: '\f3c0';
-                        color: #fff;
-                        font-size: vw(40);
-                        margin-right: $space1;
-
-                        @include m(){
-                            font-size: rwd(24);
-                            margin-right: rwd(8);
-                        }
-                    }
-                }
-                &:nth-child(2) {
-                    &::before{
-                        // position: absolute;
-                        // left: vw(40);
-                        font-family: FontAwesome;
-                        content: '\f082';
-                        font-size: vw(40);
-                        margin-right: $space1;
-
-                        @include m(){
-                            font-size: rwd(24);
-                            margin-right: rwd(8);
-                        }
-
-                    }
-                }
-            }
-        }
-        div{
-            display: flex;
-            flex-direction: column;
-            width: vw(496);       
-            margin: 0 auto;
-
-            @include m(){
-                width: rwd(362);    
-            }
-
-            h3{
-                text-align: center;
-                font-weight: $bold;
-                color: $gray900;
-                margin-bottom: $space3;
-
-                @include m(){
-                    font-size: rwd(18); 
-                    margin-bottom: rwd(20);
-                }
-    
-            }
-
-            .loginAccountLabel{
-                @include inputLabel(100%, "","請輸入正確的註冊e-mail")
-            }
-            
-            .loginPasswordLabel{
-                @include inputLabel(100%, "","請輸入正確的密碼")
-            }
-
-            // 註冊頁面
-
-            .registerNameLabel{
-                @include inputLabel(100%, "","請輸入姓名")
-            }
-
-      
-            .registerEmailLabel{
-                @include inputLabel(100%, "","請輸入正確格式的e-mail註冊帳號");
-                
-                &::after{
-                    // color: $gray800;
-                    content: attr(data-email);
-                  }
-            }
-
-            .registerPasswordLabel{
-                @include inputLabel(100%, "","請核對輸入的密碼是否有誤");
-
-                &::after{
-                    content: attr(data-password);
-                  }
-            }
-
-            .checkPasswordLabel{
-                @include inputLabel(100%, "","請核對再次輸入的確認密碼是否有誤")
-            }
-
-            .registerPhoneLabel{
-                @include inputLabel(100%, "","請核對輸入的手機號碼是否有誤");
-
-                &::after{
-                    content: attr(data-phone);
-                  }
-            }
-
-            span{
-                display: flex;
-                select{
-                    width: 40%;
-                    margin-right: $space2;
-
-                    font-size: $p;
-                    border: 0;
-                    outline: solid 1px $primaryDefault;
-                    border-radius: vw(6);
-                    padding: vw(5) vw(7);
-                    color: $gray500;
-
-                    @include m(){
-                        margin-right: rwd(8);
-                        font-size: rwd(16);
-                        border-radius: rwd(6);
-                      padding: rwd(5) rwd(7);
-                    }
-
-                    option{
-                        color: $gray900;
-                    }
-                    &.error {
-                    outline: solid 1px $error;
-                    }
-                }
-                input[type=date]{
-                    width: 100%;
-
-                    font-size: $p;
-                    border: 0;
-                    outline: solid 1px $primaryDefault;
-                    border-radius: vw(6);
-                    padding: vw(5) vw(7);
-                    color: $gray500;
-
-                    @include m(){
-                        font-size: rwd(16);
-                        border-radius: rwd(6);
-                      padding: rwd(5) rwd(7);
-                    }
-                    &.error {
-                    outline: solid 1px $error;
-                    }
-                }
-            }
-            
-        }
-
-        div{
-            div{
-                display: flex;
-                flex-direction: row;
-                justify-content: start;
-                margin: 0 $space1;
-                font-size: $h5;
-                color: $gray900;
-                font-weight: $bold;
-
-                @include m(){
-                    margin: 0;
-                    font-size: rwd(16);
-                }
-                input{
-                    margin-right: $space1;
-
-                    @include m(){
-                        margin-right: rwd(8);
-                    }
-                }
-            }
-
-            button{
-                margin: $space2 0;
-
-                @include m(){
-                    margin: rwd(12) 0;
-                }
-
-                &:last-child{
-                    margin-bottom: 0;
-                }
-            }
-            // a{
-            //     text-decoration:none;
-            // }
-        }
+    @include m() {
+      padding: rwd(24) rwd(16);
     }
-
-
-
-    .alertText {
-        position: fixed;
-        right: vw(16);
-        bottom: vw(16);
-        margin: 0 auto;
-        background-color: $primaryA11y;
-        border-radius: vw(8);
-        padding: $space2 $space4;
-        box-shadow: $shadow;
-        font-size: font-size(16);
-        border: solid 2px #fff;
-        z-index: 10;
-    
-        font-weight: $bold;
+    span {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      button {
+        font-size: $p;
+        line-height: vw(40);
+        // width: vw(236);
+        padding: $space1 $space3;
+        margin: 0 $space2;
+        border: none;
+        border-radius: vw(6);
         color: #fff;
-    
-        // transition: all 0.5s ease-in-out;
-    
+        background-color: $primaryDark;
+        cursor: pointer;
+
         @include box-center();
+        position: relative;
+        left: vw(-10);
+
         @include m() {
-    
-          border-radius: rwd(8);
-          padding: rwd(16) rwd(32);
-          box-shadow: $shadow;
-          font-size: rwd(16);
-    
-    
-          right: rwd(10);
-          left: rwd(10);
-          bottom: rwd(16);
+          font-size: rwd(13);
+          line-height: rwd(24);
+          padding: rwd(8) rwd(24);
+          margin: 0 rwd(8);
+          border-radius: rwd(6);
+          left: rwd(-6);
+        }
+
+        &:hover {
+          background-color: $primaryA11y;
+        }
+        &:first-child {
+          &::before {
+            // position: absolute;
+            // left: vw(40);
+            font-family: FontAwesome;
+            content: "\f3c0";
+            color: #fff;
+            font-size: vw(40);
+            margin-right: $space1;
+
+            @include m() {
+              font-size: rwd(24);
+              margin-right: rwd(8);
+            }
+          }
+        }
+        &:nth-child(2) {
+          &::before {
+            // position: absolute;
+            // left: vw(40);
+            font-family: FontAwesome;
+            content: "\f082";
+            font-size: vw(40);
+            margin-right: $space1;
+
+            @include m() {
+              font-size: rwd(24);
+              margin-right: rwd(8);
+            }
+          }
         }
       }
-    
-      .v-enter-active, .v-leave-active {
-        transition: opacity .5s;
+    }
+    div {
+      display: flex;
+      flex-direction: column;
+      width: vw(496);
+      margin: 0 auto;
+
+      @include m() {
+        width: rwd(362);
       }
-      
-      .v-enter, .v-leave-to {
-        opacity: 0;
+
+      h3 {
+        text-align: center;
+        font-weight: $bold;
+        color: $gray900;
+        margin-bottom: $space3;
+
+        @include m() {
+          font-size: rwd(18);
+          margin-bottom: rwd(20);
+        }
       }
-      
-      .v-enter-to, .v-leave {
-        opacity: 1;
+
+      .loginAccountLabel {
+        @include inputLabel(100%, "", "請輸入正確的註冊e-mail");
       }
+
+      .loginPasswordLabel {
+        @include inputLabel(100%, "", "請輸入正確的密碼");
+      }
+
+      // 註冊頁面
+
+      .registerNameLabel {
+        @include inputLabel(100%, "", "請輸入姓名");
+      }
+
+      .registerEmailLabel {
+        @include inputLabel(100%, "", "請輸入正確格式的e-mail註冊帳號");
+
+        &::after {
+          // color: $gray800;
+          content: attr(data-email);
+        }
+      }
+
+      .registerPasswordLabel {
+        @include inputLabel(100%, "", "請核對輸入的密碼是否有誤");
+
+        &::after {
+          content: attr(data-password);
+        }
+      }
+
+      .checkPasswordLabel {
+        @include inputLabel(100%, "", "請核對再次輸入的確認密碼是否有誤");
+      }
+
+      .registerPhoneLabel {
+        @include inputLabel(100%, "", "請核對輸入的手機號碼是否有誤");
+
+        &::after {
+          content: attr(data-phone);
+        }
+      }
+
+      span {
+        display: flex;
+        // @include m() {
+        //   justify-content: space-between;
+        // }
+        select {
+          width: 40%;
+          margin-right: $space2;
+
+          font-size: $p;
+          border: 0;
+          outline: solid 1px $primaryDefault;
+          border-radius: vw(6);
+          padding: vw(5) vw(7);
+          color: $gray800;
+          background-color: #fff;
+
+          @include m() {
+            margin-right: rwd(8);
+            // width: (50% - rwd(8));
+
+            font-size: rwd(16);
+            border-radius: rwd(6);
+            padding: rwd(5) rwd(7);
+
+            outline: 0;
+            border: solid 1px $primaryDefault;
+          }
+
+          option {
+            color: $gray900;
+          }
+          &.error {
+            outline: solid 1px $error;
+            @include m() {
+              outline: 0;
+              border: solid 1px $error;
+            }
+          }
+        }
+        input[type="date"] {
+          width: 100%;
+
+          font-size: $p;
+          border: 0;
+          outline: solid 1px $primaryDefault;
+          border-radius: vw(6);
+          padding: vw(5) vw(7);
+          color: $gray800;
+          background-color: #fff;
+
+          @include m() {
+            width: 100%;
+
+            font-size: rwd(16);
+            border-radius: rwd(6);
+            padding: rwd(5) rwd(7);
+
+            outline: 0;
+            border: solid 1px $primaryDefault;
+
+            flex-grow: 2;
+          }
+          &.error {
+            outline: solid 1px $error;
+            @include m() {
+              outline: 0;
+              border: solid 1px $error;
+            }
+          }
+        }
+      }
+    }
+
+    div {
+      div {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        margin: 0 $space1;
+        font-size: $h5;
+        color: $gray900;
+        font-weight: $bold;
+
+        @include m() {
+          margin: 0;
+          font-size: rwd(16);
+        }
+        input {
+          margin-right: $space1;
+
+          @include m() {
+            margin-right: rwd(8);
+          }
+        }
+      }
+
+      button {
+        margin: $space2 0;
+
+        @include m() {
+          margin: rwd(12) 0;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      // a{
+      //     text-decoration:none;
+      // }
+    }
+  }
+
+  .alertText {
+    position: fixed;
+    right: vw(16);
+    bottom: vw(16);
+    margin: 0 auto;
+    background-color: $primaryA11y;
+    border-radius: vw(8);
+    padding: $space2 $space4;
+    box-shadow: $shadow;
+    font-size: font-size(16);
+    border: solid 2px #fff;
+    z-index: 10;
+
+    font-weight: $bold;
+    color: #fff;
+
+    // transition: all 0.5s ease-in-out;
+
+    @include box-center();
+    @include m() {
+      border-radius: rwd(8);
+      padding: rwd(16) rwd(32);
+      box-shadow: $shadow;
+      font-size: rwd(16);
+
+      right: rwd(10);
+      left: rwd(10);
+      bottom: rwd(16);
+    }
+  }
+
+  .v-enter-active,
+  .v-leave-active {
+    transition: opacity 0.5s;
+  }
+
+  .v-enter,
+  .v-leave-to {
+    opacity: 0;
+  }
+
+  .v-enter-to,
+  .v-leave {
+    opacity: 1;
+  }
 }

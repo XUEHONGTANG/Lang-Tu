@@ -28,14 +28,22 @@ main.shoppingCartWrapper {
     border-radius: vw(6);
     padding: vw(5) vw(7);
     color: $gray500;
+    background-color: #fff;
 
     @include m() {
       border-radius: rwd(6);
       padding: rwd(5) rwd(7);
       font-size: rwd(16);
+
+      outline: 0;
+      border: solid 1px $primaryDefault;
     }
     &.error {
       outline: solid 1px $error;
+      @include m() {
+        outline: 0;
+        border: solid 1px $error;
+      }
     }
 
     option {
@@ -43,6 +51,10 @@ main.shoppingCartWrapper {
     }
     &:disabled {
       outline: solid 1px $gray600;
+      @include m() {
+        outline: 0;
+        border: solid 1px $gray600;
+      }
     }
     // &:optional{
     //     color: $gray900;
@@ -500,6 +512,10 @@ main.shoppingCartWrapper {
           select,
           input[type="text"] {
             outline: solid 1px $error;
+            @include m() {
+              outline: 0;
+              border: solid 1px $error;
+            }
           }
         }
 
@@ -507,6 +523,11 @@ main.shoppingCartWrapper {
           input[type="text"] {
             outline: solid 1px $gray600;
             color: $gray500;
+            @include m() {
+              outline: 0;
+              border: solid 1px $gray600;
+            }
+
             &::placeholder {
               color: $gray500;
             }
@@ -517,6 +538,11 @@ main.shoppingCartWrapper {
 
           select {
             outline: solid 1px $gray600;
+
+            @include m() {
+              outline: 0;
+              border: solid 1px $gray600;
+            }
             &::placeholder {
               color: $gray600;
             }
@@ -678,6 +704,10 @@ main.shoppingCartWrapper {
           select,
           input[type="text"] {
             outline: solid 1px $error;
+            @include m() {
+              outline: 0;
+              border: solid 1px $error;
+            }
           }
         }
 
@@ -685,6 +715,12 @@ main.shoppingCartWrapper {
           input[type="text"] {
             outline: solid 1px $gray600;
             color: $gray500;
+
+            @include m() {
+              outline: 0;
+              border: solid 1px $gray600;
+            }
+
             &::placeholder {
               color: $gray500;
             }
@@ -695,6 +731,12 @@ main.shoppingCartWrapper {
 
           select {
             outline: solid 1px $gray600;
+
+            @include m() {
+              outline: 0;
+              border: solid 1px $gray600;
+            }
+
             &::placeholder {
               color: $gray600;
             }
@@ -753,11 +795,22 @@ main.shoppingCartWrapper {
 
           border: 0;
           outline: solid 1px $primaryDefault;
+
+          @include m() {
+            outline: 0;
+            border: solid 1px $primaryDefault;
+          }
+
           &:hover {
             outline: solid vw(2) $primaryDefault;
           }
           &:disabled {
             outline: solid 1px $gray600;
+
+            @include m() {
+              outline: 0;
+              border: solid 1px $gray600;
+            }
           }
 
           /* 滾動卷軸 */
@@ -858,7 +911,7 @@ main.shoppingCartWrapper {
     padding: $space2 $space4;
     box-shadow: $shadow;
     font-size: font-size(16);
-    border: solid 2px #fff;
+    border: solid 3px #fff;
     z-index: 10;
 
     font-weight: $bold;
@@ -868,28 +921,29 @@ main.shoppingCartWrapper {
 
     @include box-center();
     @include m() {
-
       border-radius: rwd(8);
       padding: rwd(16) rwd(32);
       box-shadow: $shadow;
       font-size: rwd(16);
 
-
       right: rwd(10);
       left: rwd(10);
-      bottom: rwd(16);
+      bottom: rwd(24);
     }
   }
 
-  .v-enter-active, .v-leave-active {
-    transition: opacity .5s;
+  .v-enter-active,
+  .v-leave-active {
+    transition: opacity 0.5s;
   }
-  
-  .v-enter, .v-leave-to {
+
+  .v-enter,
+  .v-leave-to {
     opacity: 0;
   }
-  
-  .v-enter-to, .v-leave {
+
+  .v-enter-to,
+  .v-leave {
     opacity: 1;
   }
 }
