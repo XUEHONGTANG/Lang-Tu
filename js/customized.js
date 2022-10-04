@@ -220,10 +220,8 @@ $(document).ready(function () {
         };
         console.log(tags);
 
-        // this.$store.dispatch("addProductToCart", { ...collar });
-        // this.$store.dispatch("addProductToCart", { ...tags });
-
-        // this.putInCart();
+        this.$store.dispatch("addProductToCart", { ...collar });
+        this.$store.dispatch("addProductToCart", { ...tags });
 
       },
     //   var customized= {
