@@ -382,7 +382,7 @@ methods: {
         // );
 
 
-        fetch('../php/insertOrder.php', {
+        fetch('./php/insertOrder.php', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
@@ -422,7 +422,7 @@ methods: {
     $(".twzipcode2").twzipcode();
     // this.$store.dispatch('getProducts');
 
-    fetch("../php/loading_info.php")
+    fetch("./php/loading_info.php")
       .then((resp) => resp.json())
       .then((resp) => {
         resp.forEach(user => {

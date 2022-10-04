@@ -5,7 +5,6 @@
     padding: vw(50);
     @include m(){
         width: rwd(394);
-        height: rwd(600);
         margin: rwd(40) auto 0;
         border-radius: rwd(25);
     }
@@ -26,10 +25,10 @@
     h3{
         text-align: center;
         color: $primaryA11y;
-        border-bottom: vw(1) solid $gray900;
         padding-bottom: vw(24);
+        border-bottom: vw(1) solid $gray900;
         @include m(){
-            font-size: rwd(18);
+            font-size: rwd(20);
         }
     }
 
@@ -45,6 +44,9 @@
                 @include m(){
                     width: rwd(120);
                     font-size: rwd(16);
+                    border-bottom: rwd(1) solid $gray900;
+                    border-top: rwd(1) solid $gray900;
+                    font-weight: $bold;
                 }
             }
         }
@@ -53,27 +55,28 @@
                 .id-detail{
                     width: vw(150);
                     font-size: vw(20);
+                    padding: vw(16);
                     @include m(){
                         font-size: rwd(16);
-                        width: rwd(70);
+                        width: rwd(90);
                     }
                 }
                 .date-detail{
                     width: vw(150);
                     font-size: vw(20);
+                    padding: vw(16);
                     @include m(){
                         font-size: rwd(16);
-                        width: rwd(70);
-
+                        width: rwd(90);
                     }
                 }
                 .method-detail{
                     width: vw(150);
                     font-size: vw(20);
+                    padding: vw(16);
                     @include m(){
                         font-size: rwd(16);
                         width: rwd(70);
-
                     }
                 }
                 .amount-detail{
@@ -82,8 +85,7 @@
                     padding: vw(16);
                     @include m(){
                         font-size: rwd(16);
-                        width: rwd(70);
-
+                        width: rwd(80);
                     }
                 }
                 .situation-detail{

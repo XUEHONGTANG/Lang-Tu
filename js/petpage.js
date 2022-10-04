@@ -49,14 +49,14 @@ new Vue({
         var id = url.searchParams.get('id');
         //上面三段可以從php取得我們要的值 去做網頁篩選
             
-            fetch(`../php/searchCatAndDog-content.php?id=`+id,{
+            fetch(`./php/searchCatAndDog-content.php?id=`+id,{
                 method: "GET",
             })
             .then(resp => resp.json())
             .then(resp => {this.textnames = resp;});
             
            
-            fetch(`../php/searchCatAndDog-image.php?id=`+id,{
+            fetch(`./php/searchCatAndDog-image.php?id=`+id,{
                 method: "GET",
             })
             .then(resp => resp.json())

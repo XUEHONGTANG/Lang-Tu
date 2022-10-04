@@ -18,6 +18,7 @@
    $db_pass = "password";
    $db_select = "LangTu";
 
+
    //建立資料庫連線物件
    $dsn = "mysql:host=".$db_host.";dbname=".$db_select.";charset=utf8";
 

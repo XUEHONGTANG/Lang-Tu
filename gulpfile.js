@@ -120,5 +120,5 @@ function min_images(){
 
 //執行
 exports.default = series(parallel(includeHTML , sassstyle ,img_move , Jsminify , php_move) ,browser)
-exports.online = series(clear, parallel(includeHTML, sassstyle, min_images, babel5))
+exports.online = series(clear, parallel(includeHTML, sassstyle, min_images, php_move,img_move, babel5))
 
