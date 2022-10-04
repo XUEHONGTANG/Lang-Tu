@@ -5,6 +5,7 @@
    $db_pass = "vwRBSb.j&K#E";
    $db_select = "tibamefe_tgd102g3";
 
+
    //建立資料庫連線物件
    $dsn = "mysql:host=".$db_host.";dbname=".$db_select.";charset=utf8";
 

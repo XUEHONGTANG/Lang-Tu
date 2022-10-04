@@ -38,7 +38,7 @@
                         width: rwd(100);
                         line-height: rwd(40);
                         border-bottom: none;
-                        font-size: rwd(18);
+                        font-size: rwd(20);
                     }
                 }
                 .choose{
@@ -68,7 +68,7 @@
             color: $primaryA11y;
             text-align: center;
             @include m(){
-                font-size: rwd(24);
+                font-size: rwd(20);
             }
         }
         .text-label{

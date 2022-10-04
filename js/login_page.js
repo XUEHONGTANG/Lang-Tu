@@ -76,7 +76,7 @@ new Vue({
         return false;
       }
 
-      fetch('../php/login.php', {
+      fetch('./php/login.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -96,7 +96,7 @@ new Vue({
                       history.back()
                     } else {
                       sessionStorage.setItem("account",this.loginForm.account)
-                      location = '../dist/member_detail.html';
+                      window.location.href = './member_detail.html';
                     }
                 }else{
                   // alert("登入失敗");
@@ -163,7 +163,7 @@ new Vue({
       this.alert = true;
             setTimeout(() => { return this.alert = false,this.alertContent = '' }, 3000);
 
-      fetch('../php/login_page.php', {
+      fetch('./php/login_page.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({

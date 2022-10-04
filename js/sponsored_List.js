@@ -53,7 +53,7 @@ new Vue({
         // 接收資料的空陣列 擺出來放 為了可以做頁碼
     },
     mounted() {
-        fetch('../php/sponsored_List.php')
+        fetch('./php/sponsored_List.php')
         .then(resp => resp.json())
         .then(resp => {
             this.lists = resp;

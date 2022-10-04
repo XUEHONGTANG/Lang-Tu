@@ -37,7 +37,7 @@ new Vue({
     },
     mounted() {
         this.email = sessionStorage.getItem('donorEmail')
-        fetch('../php/payerCheck.php', {
+        fetch('./php/payerCheck.php', {
             method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

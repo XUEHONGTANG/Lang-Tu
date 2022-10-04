@@ -250,7 +250,7 @@ new Vue({
     //   // },
     // });
 
-    fetch("../php/shopping_page.php")
+    fetch("./php/shopping_page.php")
       .then((resp) => resp.json())
       .then((resp) => {
         let products = resp.filter((pd) => {
