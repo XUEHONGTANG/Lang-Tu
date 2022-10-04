@@ -1,5 +1,279 @@
-import store from './store.js';
+import store from "./store.js";
 
+// codepen https://codepen.io/JavaScriptJunkie/pen/YzzNGeR?editors=0010
+const creditCard = {
+  // props:["sendOrder"],
+  data() {
+    return {
+      currentCardBackground: Math.floor(Math.random() * 25 + 1),
+      cardName: "",
+      cardNumber: "",
+      cardMonth: "",
+      cardYear: "",
+      cardCvv: "",
+      minCardYear: new Date().getFullYear(),
+      amexCardMask: "#### ###### #####",
+      otherCardMask: "#### #### #### ####",
+      cardNumberTemp: "",
+      isCardFlipped: false,
+      focusElementStyle: null,
+      isInputFocused: false,
+    };
+  },
+  mounted() {
+    this.cardNumberTemp = this.otherCardMask;
+    document.getElementById("cardNumber").focus();
+  },
+  computed: {
+    getCardType() {
+      let number = this.cardNumber;
+      let re = new RegExp("^4");
+      if (number.match(re) != null) return "visa";
+
+      re = new RegExp("^(34|37)");
+      if (number.match(re) != null) return "amex";
+
+      re = new RegExp("^5[1-5]");
+      if (number.match(re) != null) return "mastercard";
+
+      re = new RegExp("^6011");
+      if (number.match(re) != null) return "discover";
+
+      re = new RegExp("^9792");
+      if (number.match(re) != null) return "troy";
+
+      return "visa"; // default type
+    },
+    generateCardNumberMask() {
+      return this.getCardType === "amex"
+        ? this.amexCardMask
+        : this.otherCardMask;
+    },
+    minCardMonth() {
+      if (this.cardYear === this.minCardYear) return new Date().getMonth() + 1;
+      return 1;
+    },
+  },
+  watch: {
+    cardYear() {
+      if (this.cardMonth < this.minCardMonth) {
+        this.cardMonth = "";
+      }
+    },
+  },
+  methods: {
+    close() {
+      this.$emit("close");
+    },
+    checkCard() {
+      // this.$emit('check-card',true);
+      if (
+        this.cardName &&
+        this.cardNumber &&
+        this.cardMonth &&
+        this.cardYear &&
+        this.cardCvv
+      ) {
+        this.$emit("check-card", true);
+      } else {
+        // this.$emit('close');
+        this.$emit("check-card", false);
+      }
+    },
+
+    flipCard(status) {
+      this.isCardFlipped = status;
+    },
+    focusInput(e) {
+      this.isInputFocused = true;
+      let targetRef = e.target.dataset.ref;
+      let target = this.$refs[targetRef];
+      this.focusElementStyle = {
+        width: `${target.offsetWidth}px`,
+        height: `${target.offsetHeight}px`,
+        transform: `translateX(${target.offsetLeft}px) translateY(${target.offsetTop}px)`,
+      };
+    },
+    blurInput() {
+      let vm = this;
+      setTimeout(() => {
+        if (!vm.isInputFocused) {
+          vm.focusElementStyle = null;
+        }
+      }, 300);
+      vm.isInputFocused = false;
+    },
+  },
+  template: `
+  <div
+  @click="close"
+  class="cardWrapperDrop">
+    <div 
+    @click.stop
+    class="cardWrapper">
+          <div class="card-form">
+            <div class="card-list">
+              <div class="card-item" v-bind:class="{ '-active' : isCardFlipped }">
+                <div class="card-item__side -front">
+                  <div class="card-item__focus" v-bind:class="{'-active' : focusElementStyle }" v-bind:style="focusElementStyle" ref="focusElement"></div>
+                  <div class="card-item__cover">
+                    <img
+                    v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + currentCardBackground + '.jpeg'" class="card-item__bg">
+                  </div>
+                  
+                  <div class="card-item__wrapper">
+                    <div class="card-item__top">
+                      <img src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png" class="card-item__chip">
+                      <div class="card-item__type">
+                        <transition name="slide-fade-up">
+                          <img v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + getCardType + '.png'" v-if="getCardType" v-bind:key="getCardType" alt="" class="card-item__typeImg">
+                        </transition>
+                      </div>
+                    </div>
+                    <label for="cardNumber" class="card-item__number" ref="cardNumber">
+                      <template v-if="getCardType === 'amex'">
+                      <span v-for="(n, $index) in amexCardMask" :key="$index">
+                        <transition name="slide-fade-up">
+                          <div
+                            class="card-item__numberItem"
+                            v-if="$index > 4 && $index < 14 && cardNumber.length > $index && n.trim() !== ''"
+                          >*</div>
+                          <div class="card-item__numberItem"
+                            :class="{ '-active' : n.trim() === '' }"
+                            :key="$index" v-else-if="cardNumber.length > $index">
+                            {{cardNumber[$index]}}
+                          </div>
+                          <div
+                            class="card-item__numberItem"
+                            :class="{ '-active' : n.trim() === '' }"
+                            v-else
+                            :key="$index + 1"
+                          >{{n}}</div>
+                        </transition>
+                      </span>
+                      </template>
+      
+                      <template v-else>
+                        <span v-for="(n, $index) in otherCardMask" :key="$index">
+                          <transition name="slide-fade-up">
+                            <div
+                              class="card-item__numberItem"
+                              v-if="$index > 4 && $index < 15 && cardNumber.length > $index && n.trim() !== ''"
+                            >*</div>
+                            <div class="card-item__numberItem"
+                              :class="{ '-active' : n.trim() === '' }"
+                              :key="$index" v-else-if="cardNumber.length > $index">
+                              {{cardNumber[$index]}}
+                            </div>
+                            <div
+                              class="card-item__numberItem"
+                              :class="{ '-active' : n.trim() === '' }"
+                              v-else
+                              :key="$index + 1"
+                            >{{n}}</div>
+                          </transition>
+                        </span>
+                      </template>
+                    </label>
+                    <div class="card-item__content">
+                      <label for="cardName" class="card-item__info" ref="cardName">
+                        <div class="card-item__holder">持卡人姓名</div>
+                        <transition name="slide-fade-up">
+                          <div class="card-item__name" v-if="cardName.length" key="1">
+                            <transition-group name="slide-fade-right">
+                              <span class="card-item__nameItem" v-for="(n, $index) in cardName.replace(/\s\s+/g, ' ')" v-if="$index === $index" v-bind:key="$index + 1">{{n}}</span>
+                            </transition-group>
+                          </div>
+                          <div class="card-item__name" v-else key="2">Full Name</div>
+                        </transition>
+                      </label>
+                      <div class="card-item__date" ref="cardDate">
+                        <label for="cardMonth" class="card-item__dateTitle">有效期限</label>
+                        <label for="cardMonth" class="card-item__dateItem">
+                          <transition name="slide-fade-up">
+                            <span v-if="cardMonth" v-bind:key="cardMonth">{{cardMonth}}</span>
+                            <span v-else key="2">MM</span>
+                          </transition>
+                        </label>
+                        /
+                        <label for="cardYear" class="card-item__dateItem">
+                          <transition name="slide-fade-up">
+                            <span v-if="cardYear" v-bind:key="cardYear">{{String(cardYear).slice(2,4)}}</span>
+                            <span v-else key="2">YY</span>
+                          </transition>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-item__side -back">
+                  <div class="card-item__cover">
+                    <img
+                    v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + currentCardBackground + '.jpeg'" class="card-item__bg">
+                  </div>
+                  <div class="card-item__band"></div>
+                  <div class="card-item__cvv">
+                      <div class="card-item__cvvTitle">卡片背面末三碼</div>
+                      <div class="card-item__cvvBand">
+                        <span v-for="(n, $index) in cardCvv" :key="$index">
+                          *
+                        </span>
+      
+                    </div>
+                      <div class="card-item__type">
+                          <img v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + getCardType + '.png'" v-if="getCardType" class="card-item__typeImg">
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-form__inner">
+              <div class="card-input">
+                <label for="cardNumber" class="card-input__label">信用卡卡號</label>
+                <input type="text" id="cardNumber" class="card-input__input" v-mask="generateCardNumberMask" v-model="cardNumber" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardNumber" autocomplete="off">
+              </div>
+              <div class="card-input">
+                <label for="cardName" class="card-input__label">持卡人姓名</label>
+                <input type="text" id="cardName" class="card-input__input" v-model="cardName" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardName" autocomplete="off">
+              </div>
+              <div class="card-form__row">
+                <div class="card-form__col">
+                  <div class="card-form__group">
+                    <label for="cardMonth" class="card-input__label">有效期限</label>
+                    <select class="card-input__input -select" id="cardMonth" v-model="cardMonth" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardDate">
+                      <option value="" disabled selected>Month</option>
+                      <option v-bind:value="n < 10 ? '0' + n : n" v-for="n in 12" v-bind:disabled="n < minCardMonth" v-bind:key="n">
+                          {{n < 10 ? '0' + n : n}}
+                      </option>
+                    </select>
+                    <select class="card-input__input -select" id="cardYear" v-model="cardYear" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardDate">
+                      <option value="" disabled selected>Year</option>
+                      <option v-bind:value="$index + minCardYear" v-for="(n, $index) in 12" v-bind:key="n">
+                          {{$index + minCardYear}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="card-form__col -cvv">
+                  <div class="card-input">
+                    <label for="cardCvv" class="card-input__label">卡片背面末三碼</label>
+                    <input type="text" class="card-input__input" id="cardCvv" v-mask="'####'" maxlength="4" v-model="cardCvv" v-on:focus="flipCard(true)" v-on:blur="flipCard(false)" autocomplete="off">
+                  </div>
+                </div>
+              </div>
+      
+              <button 
+              @click="checkCard"
+              class="card-form__button">
+                Submit
+              </button>
+          </div>
+        </div>
+    </div>
+  </div>  
+
+  `,
+};
 
 // const alertArea = {
 //   props: ['cart', 'product', 'deleteincartalert'],
@@ -23,23 +297,25 @@ import store from './store.js';
 //   </div>
 //   `,
 // };
-const alertLoginArea = {
-  template: `
-  <transition>
-    <div class="alertText"
-    >請先登入會員</div>
-  </transition>
-  `,
-}
 
-const alertEmptyArea = {
+const alertArea = {
+  props: ["alert-text"],
   template: `
   <transition>
-    <div class="alertText"
-    >購物車內沒有商品</div>
+    <div class="alertArea"
+    >{{alertText}}</div>
   </transition>
   `,
-}
+};
+
+// const alertLoginArea = {
+//   template: `
+//   <transition>
+//     <div class="alertText"
+//     >請先登入會員</div>
+//   </transition>
+//   `,
+// }
 
 // const alertRemoveArea = {
 //   props:['product'],
@@ -56,18 +332,18 @@ new Vue({
   el: "#shoppingCartApp",
   components: {
     // alertRemoveArea,
-    alertLoginArea,
-    alertEmptyArea
+    alertArea,
+    creditCard,
   },
   data: {
-    // counter: 1,
-    theOrder:[],
+    theOrder: [],
     currentPage: 1,
     changeAddressIsActive: false,
-    imgURL: './images/ff/',
-    alertLogin: null,
-    alertEmpty:null,
-    // alertRemove:null,
+    imgURL: "./images/ff/",
+    alertText: "",
+    alert: null,
+    cardShow: false,
+    isChecked: false,
     cartTitle: [
       { id: 1, name: "購物車" },
       { id: 2, name: "結帳頁面" },
@@ -75,24 +351,24 @@ new Vue({
     ],
     memberRec: {
       name: null,
-      address: null,
+      address: "",
       phone: null,
     },
     otherRec: {
       name: null,
-      address: null,
+      address: "",
       phone: null,
     },
     recipientInfo: {
       email: null,
       invoce: null,
-      note: '',
-      payment:'',
+      note: "",
+      payment: "",
       deliveryFee: null,
-      deliveryWay:'',
-      datetime: '',
+      deliveryWay: "",
+      datetime: "",
       total: null,
-      method:''
+      method: "",
     },
     memberErrors: {
       name: false,
@@ -107,55 +383,53 @@ new Vue({
     recipientErrors: {
       email: false,
       invoce: false,
-      payment:false,
-      deliveryFee: false
+      payment: false,
+      deliveryFee: false,
     },
   },
   computed: {
     cart() {
       return this.$store.state.cart;
     },
-    total(){
+    total() {
       let total = 0;
       // console.log(this.$store.state.cart);
 
-      this.$store.state.cart.forEach(pd => {
-        total+= pd.price * pd.quantity
-      })
+      this.$store.state.cart.forEach((pd) => {
+        total += pd.price * pd.quantity;
+      });
 
       return total;
     },
     deliveryWayText() {
       if (this.recipientInfo.deliveryFee === 60) {
-        this.recipientInfo.deliveryWay = '超商取貨';
-        return '超商取貨 NT$ 60'
-      } else if ((this.recipientInfo.deliveryFee === 100)) {
-        this.recipientInfo.deliveryWay = '常溫宅配送貨';
-        return '常溫宅配送貨 NT$ 100'
+        this.recipientInfo.deliveryWay = "超商取貨";
+        return "超商取貨 NT$ 60";
+      } else if (this.recipientInfo.deliveryFee === 100) {
+        this.recipientInfo.deliveryWay = "常溫宅配送貨";
+        return "常溫宅配送貨 NT$ 100";
       }
     },
-    totalPlusDeliveryFee(){
+    totalPlusDeliveryFee() {
       let total = 0;
       // console.log(this.$store.state.cart);
 
-      this.$store.state.cart.forEach(pd => {
-        total += pd.price * pd.quantity
+      this.$store.state.cart.forEach((pd) => {
+        total += pd.price * pd.quantity;
       });
       total += this.recipientInfo.deliveryFee;
       this.recipientInfo.total = total;
       return total;
     },
-    // deliveryWay() {
-    //     if (this.recipientInfo.deliveryFee === 60) {
-    //         return '超商取貨'
-    //       } else if((this.recipientInfo.deliveryFee === 100)) {
-    //           return '常溫宅配送貨'
-    //         }
-    //       },
-        },
-methods: {
+  },
+  methods: {
+    closeCardShow() {
+      this.cardShow = false;
+    },
     limit(product) {
-      return product.quantity >= product.inventory ? product.quantity = product.inventory :product.quantity
+      return product.quantity >= product.inventory
+        ? (product.quantity = product.inventory)
+        : product.quantity;
     },
     changeCounter(num) {
       this.counter += num;
@@ -164,40 +438,49 @@ methods: {
     changeAddress() {
       this.changeAddressIsActive = !this.changeAddressIsActive;
     },
-  deleteProduct(product) {
-      
-    // this.alertRemove = true;
-    // setTimeout(() => { return this.alertRemove = false }, 3000);
+    deleteProduct(product) {
+      // this.alertRemove = true;
+      // setTimeout(() => { return this.alertRemove = false }, 3000);
       // console.log(product);
-      
+
       // this.deleteInCartAlert();
       // setTimeout(this.$store.dispatch("deleteProductToCart", product), 3000);
       this.$store.dispatch("deleteProductToCart", product);
     },
-  // deleteInCartAlert() {
-  //     this.addAlert = true;
-  //     setTimeout(() => { return this.addAlert = false }, 3000);
-  //   },
-  checkout() {
-    if(sessionStorage.getItem('account')){
-      if (this.$store.state.cart.length === 0) {
-        this.alertEmpty = true;
-        setTimeout(() => { return this.alertEmpty = false }, 3000);
+    // deleteInCartAlert() {
+    //     this.addAlert = true;
+    //     setTimeout(() => { return this.addAlert = false }, 3000);
+    //   },
+    checkout() {
+      if (sessionStorage.getItem("account")) {
+        if (this.$store.state.cart.length === 0) {
+          this.alertText = "購物車內沒有商品";
+          this.alert = true;
+          setTimeout(() => {
+            return (this.alert = false);
+          }, 3000);
+          return false;
+        }
+        this.currentPage = 2;
+      } else {
+        this.alertText = "請先登入會員";
+        this.alert = true;
+        setTimeout(() => {
+          return (this.alert = false);
+        }, 3000);
         return false;
       }
-      this.currentPage = 2
-    } else {
-      this.alertLogin = true;
-      setTimeout(() => { return this.alertLogin = false }, 3000);
-      // return this.currentPage = 1
-    }
+      this.currentPage = 2;
     },
-  sendOrder() {
+    sendOrder(isChecked) {
       if (this.$store.state.cart.length === 0) {
-        this.alertEmpty = true;
-        setTimeout(() => { return this.alertEmpty = false }, 3000);
+        this.alertText = "購物車內沒有商品";
+        this.alert = true;
+        setTimeout(() => {
+          return (this.alert = false);
+        }, 3000);
         return false;
-      }  
+      }
 
       const memberCounty = $('.twzipcode1 > select[name="county"]').val();
       const memberDistrict = $('.twzipcode1 > select[name="district"]').val();
@@ -255,7 +538,7 @@ methods: {
             this.otherErrors.name = true;
           }
 
-          if (this.recipientInfo.deliveryFee === 100) { 
+          if (this.recipientInfo.deliveryFee === 100) {
             if (
               !this.otherRec.address ||
               !otherCounty ||
@@ -336,26 +619,54 @@ methods: {
         // console.log(this.recipientInfo);
       })();
 
+      if (this.recipientInfo.payment === "信用卡付款") {
+        if (isChecked === true) {
+          // console.log(isChecked);
+          this.alertText = "信用卡付款成功";
+          this.alert = true;
+          setTimeout(() => {
+            return (this.alert = false);
+          }, 3000);
+          this.recipientInfo.method = "已付款";
+          this.cardShow = false;
+        } else if (isChecked === false) {
+          this.alertText = "信用卡付款失敗";
+          this.alert = true;
+          setTimeout(() => {
+            return (this.alert = false);
+          }, 3000);
+          this.cardShow = false;
+          return false;
+        } else {
+          this.cardShow = true;
+          return false;
+        }
+      } else {
+        this.recipientInfo.method = "待付款";
+      }
+
       (() => {
         const dt = new Date();
-        this.recipientInfo.datetime = `${dt.getFullYear()}-${dt.getMonth() + 1}-${dt.getDate()} ${dt.getHours()}:${dt.getMinutes()}:${dt.getSeconds()}`
-        
+        this.recipientInfo.datetime = `${dt.getFullYear()}-${
+          dt.getMonth() + 1
+        }-${dt.getDate()} ${dt.getHours()}:${dt.getMinutes()}:${dt.getSeconds()}`;
+
         if (this.recipientInfo.deliveryFee === 60) {
-          this.recipientInfo.deliveryWay = '超商取貨';
-        } else if ((this.recipientInfo.deliveryFee === 100)) {
-          this.recipientInfo.deliveryWay = '常溫宅配送貨';
+          this.recipientInfo.deliveryWay = "超商取貨";
+        } else if (this.recipientInfo.deliveryFee === 100) {
+          this.recipientInfo.deliveryWay = "常溫宅配送貨";
         }
-        
-        if (this.recipientInfo.payment === '綠界金流') {
-          this.recipientInfo.method = '已付款'
-        } else {
-          this.recipientInfo.method = '待付款'
-        }
+
+        // if (this.recipientInfo.payment === '信用卡付款') {
+        //   this.recipientInfo.method = '已付款'
+        // } else {
+        //   this.recipientInfo.method = '待付款'
+        // }
         // console.log(
         //   this.recipientInfo.datetime,
-        //   this.recipientInfo.name, 
+        //   this.recipientInfo.name,
         //   this.$store.state.cart,
-        //   this.recipientInfo.payment, 
+        //   this.recipientInfo.payment,
         //   this.recipientInfo.deliveryWay,
         //   this.recipientInfo.deliveryFee,
         //   this.totalPlusDeliveryFee,
@@ -367,9 +678,9 @@ methods: {
         // console.log(
         //   JSON.stringify({
         //     // datetime: this.recipientInfo.datetime,
-        //     consignee: this.recipientInfo.name, 
+        //     consignee: this.recipientInfo.name,
         //     cartlist: this.$store.state.cart,
-        //     payment: this.recipientInfo.payment, 
+        //     payment: this.recipientInfo.payment,
         //     deliveryWay: this.recipientInfo.deliveryWay,
         //     deliveryFee: this.recipientInfo.deliveryFee,
         //     total: this.totalPlusDeliveryFee,
@@ -381,7 +692,6 @@ methods: {
         //   })
         // );
 
-
         fetch('./php/insertOrder.php', {
           method: 'POST',
           headers: {
@@ -389,7 +699,7 @@ methods: {
           },
               body: JSON.stringify({
                 datetime: this.recipientInfo.datetime,
-                consignee: this.recipientInfo.name, 
+                consignee: this.recipientInfo.name,
                 cartlist: JSON.stringify(this.$store.state.cart),
                 payment: this.recipientInfo.payment,
                 method: this.recipientInfo.method,
@@ -405,16 +715,13 @@ methods: {
               })
           })
       })();
-      
 
       this.theOrder = [];
       this.theOrder = [...this.$store.state.cart];
       // console.log(this.$store.state.cart);
       this.$store.dispatch("clearCart");
       this.currentPage = 3;
-  }
-    
- 
+    },
   },
   mounted() {
     this.currentPage = 1;
@@ -425,55 +732,62 @@ methods: {
     fetch("./php/loading_info.php")
       .then((resp) => resp.json())
       .then((resp) => {
-        resp.forEach(user => {
-          if (user.email === sessionStorage.getItem('account')) {
+        resp.forEach((user) => {
+          if (user.email === sessionStorage.getItem("account")) {
             this.recipientInfo.email = user.email;
             this.memberRec.name = user.name;
             this.memberRec.phone = user.phone;
           }
-         });
+        });
       });
-      if (sessionStorage.getItem("store")) {
-        // console.log("讀取sessionstorage前的數據")
-        // console.log(this.$store.state,JSON.parse(sessionStorage.getItem("store")))
-    
-        this.$store.replaceState(Object.assign({}, this.$store.state, JSON.parse(sessionStorage.getItem("store"))))
-    
-        // console.log("讀取sessionstorage後的數據")
-        // console.log(this.$store.state,JSON.parse(sessionStorage.getItem("store")))
-      };
-    
+    if (sessionStorage.getItem("store")) {
+      // console.log("讀取sessionstorage前的數據")
+      // console.log(this.$store.state,JSON.parse(sessionStorage.getItem("store")))
+
+      this.$store.replaceState(
+        Object.assign(
+          {},
+          this.$store.state,
+          JSON.parse(sessionStorage.getItem("store"))
+        )
+      );
+
+      // console.log("讀取sessionstorage後的數據")
+      // console.log(this.$store.state,JSON.parse(sessionStorage.getItem("store")))
+    }
   },
   updated() {
     $(".twzipcode1").twzipcode();
     $(".twzipcode2").twzipcode();
   },
-  created () {
+  created() {
     // https://www.twblogs.net/a/5f01bf025352062f754e96c2
     //在頁面刷新時將vuex裏的信息保存到sessionStorage裏
     window.addEventListener("beforeunload", () => {
       // console.log("存vuex前的數據")
       // console.log(this.$store.state,JSON.parse(sessionStorage.getItem("store")))
-      
-      sessionStorage.setItem("store", JSON.stringify(this.$store.state))
+
+      sessionStorage.setItem("store", JSON.stringify(this.$store.state));
 
       // console.log("存vuex後的數據")
       // console.log(this.$store.state,JSON.parse(sessionStorage.getItem("store")))
     });
 
-  // 在頁面加載時讀取sessionStorage裏的狀態信息
-  if (sessionStorage.getItem("store")) {
-    // console.log("讀取sessionstorage前的數據")
-    // console.log(this.$store.state,JSON.parse(sessionStorage.getItem("store")))
+    // 在頁面加載時讀取sessionStorage裏的狀態信息
+    if (sessionStorage.getItem("store")) {
+      // console.log("讀取sessionstorage前的數據")
+      // console.log(this.$store.state,JSON.parse(sessionStorage.getItem("store")))
 
-    this.$store.replaceState(Object.assign({}, this.$store.state, JSON.parse(sessionStorage.getItem("store"))))
+      this.$store.replaceState(
+        Object.assign(
+          {},
+          this.$store.state,
+          JSON.parse(sessionStorage.getItem("store"))
+        )
+      );
 
-    // console.log("讀取sessionstorage後的數據")
-    // console.log(this.$store.state,JSON.parse(sessionStorage.getItem("store")))
-    };
-
-}
+      // console.log("讀取sessionstorage後的數據")
+      // console.log(this.$store.state,JSON.parse(sessionStorage.getItem("store")))
+    }
+  },
 });
-
-
-
