@@ -64,6 +64,9 @@
         font-size: rwd(16);
          border-radius: rwd(6);
          padding: rwd(5) rwd(7);
+         outline: 0;
+         border: solid 1px $primaryDefault;
+
       }
 
     &::placeholder{
@@ -80,9 +83,18 @@
     }
     &.error{
         outline: solid 1px $error;
+        @include m(){
+        outline: 0;
+         border: solid 1px $error;
+        }
+        
     }
     &:disabled{
         outline: solid 1px $gray600;
+        @include m(){
+            outline: 0;
+             border: solid 1px $gray600;
+            }
         &::placeholder{
             color: $gray600;
         }
@@ -242,6 +254,10 @@
 
             // padding: rwd(4) rwd(8);
             padding: rwd(4) rwd(12) rwd(8) rwd(32);
+            
+            outline: 0;
+            border: solid 1px $primaryDefault;
+
         }
         &::placeholder{
             color: $gray500;
@@ -250,6 +266,10 @@
         }
         &:hover{
             outline: solid 2px $primaryDefault;
+            @include m(){
+                outline: 0;
+
+            }
         }
     }
 }
