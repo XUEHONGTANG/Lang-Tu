@@ -100,7 +100,9 @@ $menu-font-size: 20px;
             }
             @include m() {
                 justify-content: flex-end;
-                margin-bottom: 6px;
+                width: 30vw;
+                margin: 14vw 6px 0 9vw;
+        
             }
         }
 
@@ -187,7 +189,7 @@ $menu-font-size: 20px;
             justify-content: center;
 
             @include m() {
-                margin-top: 20px;
+                margin-top: 63px;
             }
 
         }

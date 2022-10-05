@@ -83,7 +83,7 @@
     width: 19vw;
 }
 .News_cont {
-    animation: fadeIn 1s both;
+
     box-shadow: 0 2px 8px lightgrey;
     border-radius: 3px;
     height: 100%;
@@ -95,6 +95,7 @@
     }
 
     .News_pic {
+        animation: fadeIn 1s both;
         overflow: hidden;
         // height: 17vw;
         height: 17vw;

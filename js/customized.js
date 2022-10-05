@@ -67,7 +67,7 @@ new Vue({
           "./images/customized/custom-dog-blue.png",
           "./images/customized/custom-dog_lightbliue.png",
           "./images/customized/custom-dog-gray.png",
-          "./images/customized/custom-dog-coffee.jpg",
+          "./images/customized/custom-dog-coffee.png",
         ],
         tags: [],
         // "./images/customized/custom-dogb1.png"
@@ -228,14 +228,17 @@ new Vue({
     },
 
     prev() {
+
+      if(this.currentPage = 1){
+        this.currentPage = 0
+      }else{
       this.currentPage--;
-
       $("#next-btn").fadeOut();
-
       if (this.currentPage < 1) {
         this.currentPage = 1;
       }
       this.update();
+    }
     },
     prdClickfirst() {
       $("#next-btn").fadeIn();
@@ -298,7 +301,7 @@ new Vue({
           fontSize: 24,
           left: 100,
           top: 100,
-          stroke: defaultColor,
+          fill:defaultColor,
           strokeWidth: this.strokeWidth,
         }).setControlsVisibility(HideControls);
         canvas.add(text);
@@ -343,9 +346,29 @@ new Vue({
 
 // ============================= js =========================
 
+
+      //hover
+      $('#dogbtn').mouseenter(function(){
+        $('.dogbtn_dog').fadeIn();
+        $('.dogbtn_dog').css('bottom','-20vw');
+    }).mouseleave(function(){
+        $('.dogbtn_dog').css('bottom','-50vw');
+        $('.dogbtn_dog').fadeOut();
+    })
+
+
+      $('#catbtn').mouseenter(function(){
+        $('.catbtn_cat').fadeIn();
+        $('.catbtn_cat').css('bottom','-20vw');
+    }).mouseleave(function(){
+        $('.catbtn_cat').css('bottom','-50vw');
+        $('.catbtn_cat').fadeOut();
+    })
+
+
 var canvas = document.getElementById("canvas");
-var heightRatio = 2.8;
-var widthRatio = 1.8;
+var heightRatio = 4.3;
+var widthRatio = 2.8;
 canvas.width = canvas.width * widthRatio;
 canvas.height = canvas.height * heightRatio;
 var canvas = new fabric.Canvas("canvas");
