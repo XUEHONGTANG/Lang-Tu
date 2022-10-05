@@ -2,7 +2,31 @@
     include("./DB.php");
 
     $member = json_decode(file_get_contents("php://input"), true);
+    // print_r($data);
     
+    
+    
+    $SQL = "
+        insert into MEMBER(NAME, EMAIL, PASSWORD, PHONE, BIRTHDAY, GENDER)
+        values(?, ?, ?, ?, ?, ?)
+    ";
+    $stmt = $pdo->prepare($SQL);
+    $stmt->bindValue(1, $member["name"]);
+    $stmt->bindValue(2, $member["email"]);
+    $stmt->bindValue(3, $member["password"]);
+    $stmt->bindValue(4, $member["phone"]);
+    $stmt->bindValue(5, $member["birth"]);
+    $stmt->bindValue(6, $member["gender"]);
+    $stmt->execute();
+    
+    $result_count = $stmt->rowCount();
+    echo "$result_count";
+    
+    $member["message"] = $result_count != 0 ? "註冊成功" : "註冊錯誤，請聯絡管理員!";
+    $member["successful"] = $result_count != 0;
+    echo json_encode($member);
+
+
     if ($member == null) {
         $member["message"] = "無會員資訊";
         $member["successful"] = false;
@@ -22,23 +46,4 @@
         echo json_encode($member);
         return;
     }
-    
-    $SQL = "
-        insert into MEMBER(NAME, EMAIL, PASSWORD, BIRTHDAY, GENDER)
-        values(?, ?, ?, ?, ?)
-    ";
-    $stmt = $pdo->prepare($SQL);
-    $stmt->bindValue(1, $member["registerName"]);
-    $stmt->bindValue(2, $member["registerEmail"]);
-    $stmt->bindValue(3, $member["registerPassword"]);
-    $stmt->bindValue(4, $member["date"]);
-    $stmt->bindValue(5, $member["gender"]);
-    $stmt->execute();
-    
-    $result_count = $stmt->rowCount();
-    echo "$result_count";
-    
-    $member["message"] = $result_count != 0 ? "註冊成功" : "註冊錯誤，請聯絡管理員!";
-    $member["successful"] = $result_count != 0;
-    echo json_encode($member);
 ?>
