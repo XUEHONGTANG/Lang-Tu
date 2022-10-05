@@ -12,7 +12,7 @@ new Vue({
         // }
     },
     mounted() {
-        this.account = sessionStorage.getItem('account')
+        this.account = sessionStorage.getItem('donorEmail')
         fetch('./php/sponsorSuccess.php', {
             method: 'POST',
             headers: {
