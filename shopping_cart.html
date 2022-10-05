@@ -10,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
     <!-- <script src="https://unpkg.com/vue@2"></script> -->
     <script src="https://unpkg.com/vuex@3"></script>
+    <script src="https://unpkg.com/vue-the-mask@0.11.1/dist/vue-the-mask.js"></script>
   </head>
 
   <body>
@@ -23,10 +24,15 @@
             <li v-for="title in cartTitle" :class="{'currentPage': currentPage === title.id}">{{title.name}}</li>
         </ul>
 
-        <alert-login-area 
+
+        <alert-area 
+        v-if="alert"
+        :alert-text="alertText"/></alert-area>
+        <!-- <alert-login-area 
         v-if="alertLogin"/></alert-login-area>
         <alert-empty-area 
-        v-if="alertEmpty"/></alert-empty-area>
+        v-if="alertEmpty"/></alert-empty-area> -->
+
         <!-- <transition>
             <div class="alertLogin"
             @click="alertLogin = false"
@@ -176,15 +182,17 @@
                 </div>
                 <span class="doubleLine"></span>
                 <div class="payWay">
-                    <span>
+                    <span 
+                    v-show="recipientInfo.deliveryFee !== null">
                         <input type="radio" 
                         v-model="recipientInfo.payment"
-                        value="綠界金流"
+                        value="信用卡付款"
                         name="payment"
                         id="payment_1">
-                        <label for="payment_1">綠界金流 - 第三方金流平台 (透過信用卡、WebATM、ATM轉帳付款)</label>
+                        <label for="payment_1">線上刷信用卡付款</label>
                     </span>
-                    <span>
+                    <span
+                    v-show="recipientInfo.deliveryFee === 100">
                         <input type="radio" 
                         v-model="recipientInfo.payment"
                         value="貨到付款"
@@ -192,7 +200,8 @@
                         id="payment_2">
                         <label for="payment_2">貨到付款 (收到貨時以現金付款)</label>
                     </span>
-                    <span>
+                    <span
+                    v-show="recipientInfo.deliveryFee === 60">
                         <input 
                         v-model="recipientInfo.payment"
                         value="超商取貨付款"
@@ -419,6 +428,11 @@
             <a href="./shopping_page.html" class="btn-1">返回商店</a>
         </div>
         </section>
+
+        <credit-card v-show="cardShow"
+        @close="closeCardShow"
+        @check-card="sendOrder"
+        ></credit-card>
 
     </main>
     <!-- </main> -->
