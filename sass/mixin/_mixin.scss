@@ -225,11 +225,12 @@
     color: grey;
     font-size: font-size(12);
     font-weight: $regular;
-    z-index: 20;
+    z-index: 30;
 
 
     @include m() {
       content: "";
+      // z-index: -1;
       top: rwd(4);
       left: rwd(12);
       font-size: rwd(13);
