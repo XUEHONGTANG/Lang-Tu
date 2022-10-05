@@ -6,7 +6,7 @@ include("./DB.php");
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
 //建立SQL
-$sql = " SELECT PID as pid, IMAGE1 as image, PNAME as name, PGENDER as gender, PHELP as dest, PVAX as vax, PTIME as date, PKIND as pkind from pet ";
+$sql = " SELECT PID as pid, IMAGE1 as image, PNAME as name, PGENDER as gender, PHELP as dest, PVAX as vax, PTIME as date, PKIND as pkind, PSTATE as pstate from pet where PSTATE = 1 ";
 
 $statement = $pdo->prepare($sql);
 $statement->execute();
