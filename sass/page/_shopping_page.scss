@@ -61,7 +61,7 @@ main.shoppingPageWrapper {
       @include m() {
         width: calc(rwd(394) / 3);
         padding: rwd(8) rwd(16);
-        font-size: rwd(13);
+        font-size: rwd(16);
       }
 
       &::after {
@@ -75,7 +75,7 @@ main.shoppingPageWrapper {
         @include m() {
           font-size: rwd(13);
           right: rwd(16);
-          top: rwd(11);
+          top: rwd(14);
         }
       }
     }
@@ -132,12 +132,12 @@ main.shoppingPageWrapper {
       li ol li button {
         background-color: #ebebeb;
         color: $gray600;
-        @include m(){
-          // position: absolute;
-          &:hover{
-            border: solid 1px $gray600;
-          }
-          }
+        // @include m(){
+        //   // position: absolute;
+        //   &:hover{
+        //     border: none;
+        //   }
+        //   }
 
         &:hover {
           background-color: darken(#ebebeb, 10);
@@ -275,6 +275,10 @@ main.shoppingPageWrapper {
           height: vw(77);
           font-weight: $bold;
           color: $primaryA11y;
+          padding: 0 vw(40);
+          word-wrap:break-word; 
+          // max-width: vw(200);
+          // @include box-center();
 
           // justify-self: center;
           // display: -webkit-box;
@@ -289,6 +293,8 @@ main.shoppingPageWrapper {
             // height: rwd(40);
             height: rwd(52);
             font-size: rwd(16);
+            padding: 0 rwd(24);
+
           }
         }
         h4 {

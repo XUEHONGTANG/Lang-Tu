@@ -265,7 +265,7 @@ const creditCard = {
               <button 
               @click="checkCard"
               class="card-form__button">
-                Submit
+                確認付款
               </button>
           </div>
         </div>
