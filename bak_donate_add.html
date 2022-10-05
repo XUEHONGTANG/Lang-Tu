@@ -104,7 +104,7 @@
                         dateEnd: "",
                         image: "",
                         note: "",
-                        status: "進行中",
+                        status: "",
                         targetAmount: "",
                     },
             },
@@ -144,7 +144,11 @@
                             image: vm.sponsor.image,
                             note: vm.sponsor.note,
                             status: vm.sponsor.status,
-                            status: vm.sponsor.targetAmount
+                            targetAmount: vm.sponsor.targetAmount,
+                            fundNow: 0,
+                            state: 1,
+                            amount:0
+
                         }),
                     })
                 },
