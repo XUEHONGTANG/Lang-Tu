@@ -1,291 +1,290 @@
 // === 物件置中 ===
-@mixin box-center(){
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@mixin box-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 
 //  *** 手機板 ***
 @mixin m() {
-    @media screen and (max-width: 576px) {
-        @content;
-    }
+  @media screen and (max-width: 576px) {
+    @content;
+  }
 }
 @mixin t() {
-    @media screen and (max-width:$t){
-        @content;
-    }    
+  @media screen and (max-width: $t) {
+    @content;
+  }
 }
-
 
 // ===  按鈕樣式 btn ===
 
-@mixin btn($bgc, $color:#fff, $border:null, $padding:$space1 $space6, $br:$space3){
-    background-color: $bgc;
-    color: $color;
-    border: solid 1px $border;
-    padding: $padding;
-    border-radius: $br;
-    font-size: $p;
-    font-weight: $bold;
-    text-align: center;
-    transition: all .3s ease;
-    cursor: pointer;
-
+@mixin btn(
+  $bgc,
+  $color: #fff,
+  $border: null,
+  $padding: $space1 $space6,
+  $br: $space3
+) {
+  background-color: $bgc;
+  color: $color;
+  border: solid 1px $border;
+  padding: $padding;
+  border-radius: $br;
+  font-size: $p;
+  font-weight: $bold;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-@mixin btn_hover($bgc, $color:#fff, $border:null){
-    background-color: $bgc; 
-    color: $color;
-    border: solid 1px $border;
+@mixin btn_hover($bgc, $color: #fff, $border: null) {
+  background-color: $bgc;
+  color: $color;
+  border: solid 1px $border;
 }
-@mixin btn_disabled($bgc, $color:#fff, $border:null){
-    background-color: $bgc; 
-    color: $color;
-    border: solid 1px $border;
+@mixin btn_disabled($bgc, $color: #fff, $border: null) {
+  background-color: $bgc;
+  color: $color;
+  border: solid 1px $border;
 }
-
-
 
 // === input ===
 // 無標題文字輸入框 input-text
 
-@mixin input-text($w:null){
-    width:$w;
-    font-size: $p;
+@mixin input-text($w: null) {
+  width: $w;
+  font-size: $p;
+  font-weight: $regular;
+  border: 0;
+  outline: solid 1px $primaryDefault;
+  border-radius: vw(6);
+  padding: vw(5) vw(7);
+
+  @include m() {
+    font-size: rwd(16);
+    border-radius: rwd(6);
+    padding: rwd(5) rwd(7);
+    outline: 0;
+    border: solid 1px $primaryDefault;
+  }
+
+  &::placeholder {
+    color: $gray500;
     font-weight: $regular;
-    border: 0;
-    outline: solid 1px $primaryDefault;
-    border-radius: vw(6);
-    padding: vw(5) vw(7);
-    
-    @include m(){
-        font-size: rwd(16);
-         border-radius: rwd(6);
-         padding: rwd(5) rwd(7);
-         outline: 0;
-         border: solid 1px $primaryDefault;
+    font-size: $p;
 
-      }
-
-    &::placeholder{
-        color: $gray500;
-        font-weight: $regular;
-        font-size: $p;
-
-        @include m(){
-            font-size: rwd(16);
-          }
+    @include m() {
+      font-size: rwd(16);
     }
-    &:hover{
-        outline: solid vw(2) $primaryDefault;
+  }
+  &:hover {
+    outline: solid vw(2) $primaryDefault;
+  }
+  &.error {
+    outline: solid 1px $error;
+    @include m() {
+      outline: 0;
+      border: solid 1px $error;
     }
-    &.error{
-        outline: solid 1px $error;
-        @include m(){
-        outline: 0;
-         border: solid 1px $error;
-        }
-        
+  }
+  &:disabled {
+    outline: solid 1px $gray600;
+    @include m() {
+      outline: 0;
+      border: solid 1px $gray600;
     }
-    &:disabled{
-        outline: solid 1px $gray600;
-        @include m(){
-            outline: 0;
-             border: solid 1px $gray600;
-            }
-        &::placeholder{
-            color: $gray600;
-        }
-        &:hover{
-            outline: solid vw(2) $gray600;
-        }
+    &::placeholder {
+      color: $gray600;
     }
-    // @include m(){
-    //     font-size: rwd(16);
-    //     padding: rwd(4) rwd(4);
-    // }
+    &:hover {
+      outline: solid vw(2) $gray600;
+    }
+  }
+  // @include m(){
+  //     font-size: rwd(16);
+  //     padding: rwd(4) rwd(4);
+  // }
 }
 
 // 第一版 label 版本
 // 文字輸入框 input-text + label
 // rwd 待修改
-@mixin text-label($w:null,$title:'',$helptext:''){
-    @if ($title != '' and $helptext != ''){
-        height: vw(95);
-    }@else if($title != ''){
-        height: vw(74);
-    }@else if($helptext != ''){
-        height: vw(66);
-    }
-    width: $w;
-    display: inline-block;
+@mixin text-label($w: null, $title: "", $helptext: "") {
+  @if ($title != "" and $helptext != "") {
+    height: vw(95);
+  } @else if($title != "") {
+    height: vw(74);
+  } @else if($helptext != "") {
+    height: vw(66);
+  }
+  width: $w;
+  display: inline-block;
+  margin: vw(8) 0;
+  .input-textLabel[type="text"] {
+    @include input-text($w);
     margin: vw(8) 0;
-    .input-textLabel[type=text]{
-        @include input-text($w);
-        margin: vw(8) 0;
-    }
-    &::before{
-        content: $title;
-        color: $primaryA11y;
-        font-size: $h5;
-    }
-    &::after{
-        content: $helptext;
-        font-size: font-size(13);
-        color: $gray800;
-    }
-    &.error{
+  }
+  &::before {
+    content: $title;
+    color: $primaryA11y;
+    font-size: $h5;
+  }
+  &::after {
+    content: $helptext;
+    font-size: font-size(13);
+    color: $gray800;
+  }
+  &.error {
     //    outline: solid vw(1) $error;
-        &::after {
-            content: "輸入錯誤";
-            font-size: font-size(13);
-            color: $error;
-      }
+    &::after {
+      content: "輸入錯誤";
+      font-size: font-size(13);
+      color: $error;
     }
+  }
 }
 
 // 修正版 label 版本
-@mixin inputLabel($w: null, $title: "",$errortext:"", $helptext: "") {
-
-    @if ($title != '' and $errortext!= '' or $helptext != ''){
-        height: vw(128);
-        @include m(){
-            height: rwd(88);
-        }
+@mixin inputLabel($w: null, $title: "", $errortext: "", $helptext: "") {
+  @if ($title != "" and $errortext!= "" or $helptext != "") {
+    height: vw(128);
+    @include m() {
+      height: rwd(88);
     }
-    @else if($title != ''){
-        height: vw(35);
-    @include m(){
-                height: rwd(28);
-            }
+  } @else if($title != "") {
+    height: vw(35);
+    @include m() {
+      height: rwd(28);
     }
-    @else if($helptext $errortext!= '' or $helptext != ''){
-        height: vw(90);
-        @include m(){
-            height: rwd(62);
-        }
-    }
-
-    width: $w;
-    // height: vw(117);
-    // margin: $space4 0;
-    display: inline-block;
-    // margin: vw(8) 0;
-    .input-textLabel {
-      @include input-text($w);
-      margin: vw(8) 0;
-
-      @include m(){
-        margin: rwd(4) 0;
-      }
-    }
-    &::before {
-      content: $title;
-      color: $primaryA11y;
-      font-size: $h5;
-
-      @include m(){
-        font-size: rwd(16);
-      }
-    }
-    &::after {
-      content: $helptext;
-      font-size: font-size(13);
-      color: $gray800;
-
-      @include m(){
-        font-size: rwd(13);
-      }
-    }
-    &.error::after {
-        content: $errortext;
-        font-size: font-size(13);
-        color: $error;
-
-        @include m(){
-            font-size: rwd(13);
-          }
-    }
-    &.disabled {
-      &::before {
-        color: $gray600;
-      }
+  } @else if($helptext $errortext!= "" or $helptext != "") {
+    height: vw(90);
+    @include m() {
+      height: rwd(62);
     }
   }
 
-// 搜尋欄 input-search
-// rwd 待修改
-@mixin search-wrapper($w:null){
-    position: relative;
-    width: $w;
-    &:after {
-        position: absolute;
-        top: vw(5);
-        left: vw(12);
-        font-family: FontAwesome;
-        content: "\f002";
-        color: grey;
-        font-size: font-size(12);  
-        font-weight: $regular;
+  width: $w;
+  // height: vw(117);
+  // margin: $space4 0;
+  display: inline-block;
+  // margin: vw(8) 0;
+  .input-textLabel {
+    @include input-text($w);
+    margin: vw(8) 0;
 
-        @include m(){
-            top: rwd(4);
-            left: rwd(12);
-            font-size: rwd(13);  
-        }
+    @include m() {
+      margin: rwd(4) 0;
     }
-    .input-search[type=search]{
-        width:$w;
-        font-size: $p;
-        font-weight: $regular;
-        border: 0;
-        outline: solid 1px $primaryDefault;
-        border-radius: vw(18);
-        padding: vw(5) vw(12) vw(5) vw(32);
-    
-        position: relative;
-        @include m(){
-            // top: rwd(4);
-            // left: rwd(8);
-            font-size: rwd(16);  
-            border-radius: rwd(18);
+  }
+  &::before {
+    content: $title;
+    color: $primaryA11y;
+    font-size: $h5;
 
-            // padding: rwd(4) rwd(8);
-            padding: rwd(4) rwd(12) rwd(8) rwd(32);
-            
-            outline: 0;
-            border: solid 1px $primaryDefault;
-
-        }
-        &::placeholder{
-            color: $gray500;
-            font-weight: $regular;
-            font-size: $p;
-        }
-        &:hover{
-            outline: solid 2px $primaryDefault;
-            @include m(){
-                outline: 0;
-
-            }
-        }
+    @include m() {
+      font-size: rwd(16);
     }
+  }
+  &::after {
+    content: $helptext;
+    font-size: font-size(13);
+    color: $gray800;
+
+    @include m() {
+      font-size: rwd(13);
+    }
+  }
+  &.error::after {
+    content: $errortext;
+    font-size: font-size(13);
+    color: $error;
+
+    @include m() {
+      font-size: rwd(13);
+    }
+  }
+  &.disabled {
+    &::before {
+      color: $gray600;
+    }
+  }
 }
 
+// 搜尋欄 input-search
+// rwd 待修改
+@mixin search-wrapper($w: null) {
+  position: relative;
+  width: $w;
+  &:after {
+    position: absolute;
+    top: vw(5);
+    left: vw(12);
+    font-family: FontAwesome;
+    content: "\f002";
+    color: grey;
+    font-size: font-size(12);
+    font-weight: $regular;
+
+    @include m() {
+      content: "";
+
+      top: rwd(4);
+      left: rwd(12);
+      font-size: rwd(13);
+    }
+  }
+  .input-search[type="search"] {
+    width: $w;
+    font-size: $p;
+    font-weight: $regular;
+    border: 0;
+    outline: solid 1px $primaryDefault;
+    border-radius: vw(18);
+    padding: vw(5) vw(12) vw(5) vw(32);
+    background-color: #fff;
+
+    position: relative;
+    @include m() {
+      // top: rwd(4);
+      // left: rwd(8);
+      font-size: rwd(16);
+      border-radius: rwd(18);
+
+      // padding: rwd(4) rwd(8);
+    //   padding: rwd(4) rwd(12) rwd(8) rwd(32);
+      padding: rwd(4) rwd(12) rwd(8) rwd(16);
+
+
+      outline: 0;
+      border: solid 1px $primaryDefault;
+    }
+    &::placeholder {
+    
+      color: $gray500;
+      font-weight: $regular;
+      font-size: $p;
+      @include m() {
+        font-size: rwd(16);
+      }
+    }
+    &:hover {
+      outline: solid 2px $primaryDefault;
+      @include m() {
+        outline: 0;
+      }
+    }
+  }
+}
 
 // === from 表單 ===
 
-
 // === card 卡片 ===
 
-@mixin card ($w, $s, $r ){
-    width: $w;
-    box-shadow: $s;
-    border-radius: $r;
-    background: #FFFFFF;
-    text-decoration: none;
-
+@mixin card($w, $s, $r) {
+  width: $w;
+  box-shadow: $s;
+  border-radius: $r;
+  background: #ffffff;
+  text-decoration: none;
 }
-
