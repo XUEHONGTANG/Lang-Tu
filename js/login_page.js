@@ -119,7 +119,7 @@ new Vue({
           this.registerErrors.name = true;
         }
 
-        if (!this.registerForm.email || !/^\b[A-Z0-9-]+@[A-Z0-9]+\.com\b/i.test(this.registerForm.email)) {
+        if (!this.registerForm.email || !/^\b[A-Z0-9-_]+@[A-Z0-9_]+\.com\b/i.test(this.registerForm.email)) {
           this.registerErrors.email = true;
         }
 
@@ -161,17 +161,29 @@ new Vue({
       // alert("註冊成功");
       this.alertContent = '註冊成功';
       this.alert = true;
-            setTimeout(() => { return this.alert = false,this.alertContent = '' }, 3000);
+      setTimeout(() => { return this.alert = false, this.alertContent = '' }, 3000);
+      
+      console.log(
+          JSON.stringify({
+            registerName: this.registerForm.name,
+            registerEmail: this.registerForm.email,
+            registerPassword: this.registerForm.password,
+            registerPhone: this.registerForm.phone,
+            birth: this.registerForm.birth,
+            gender: this.registerForm.gender,
+          })
+      )
 
       fetch('./php/login_page.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({
-          registerName: this.registerForm.name,
-          registerEmail: this.registerForm.email,
-          registerPassword: this.registerForm.password,
+          name: this.registerForm.name,
+          email: this.registerForm.email,
+          password: this.registerForm.password,
+          phone: this.registerForm.phone,
+          birth: this.registerForm.birth,
           gender: this.registerForm.gender,
-          date: this.registerForm.birth,
         })
       })
     },
@@ -192,7 +204,7 @@ new Vue({
 
         // mail
         if (newVal.email) {
-          let pattern = /^\b[A-Z0-9-]+@[A-Z0-9]+\.com\b/i;
+          let pattern = /^\b[A-Z0-9-_]+@[A-Z0-9_]+\.com\b/i;
           if (newVal.email && !pattern.test(newVal.email)) {
             this.warningText.email = "請輸入正確的e-mail格式 ex: example@gmail.com";
           } else if (newVal.email && pattern.test(newVal.email)) {
