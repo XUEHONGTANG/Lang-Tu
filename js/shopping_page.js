@@ -172,10 +172,15 @@ new Vue({
     fetch("./php/shopping_page.php")
       .then((resp) => resp.json())
       .then((resp) => {
-        let products = resp.filter((pd) => {
-          return !pd.pdId.includes("pd-5");
+        // resp = resp.filter((pd) => {
+        //   return !pd.state.includes("0");
+        // });
+        console.log(resp[0].state);
+        let products = resp.filter(pd => {
+          return !pd.pdId.includes("pd-5") && pd.state !== 0;
+          // return !pd.pdId.includes("pd-5") && !pd.state.includes(false);
         });
-        // console.log(products);
+        console.log(products);
         // products = resp;
 
         products.forEach((pd, i) => {

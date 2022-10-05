@@ -8,7 +8,7 @@ include("./DB.php");
 
    //建立SQL
 //    $sql = " SELECT * from products ";
-   $sql = " SELECT ID as id, PDID as pdId, PDNAME as name, PRICE as price, INVENTORY as inventory, INFO as info, IMAGE as imgList from products ";
+   $sql = " SELECT ID as id, PDID as pdId, PDNAME as name, PRICE as price, INVENTORY as inventory, INFO as info, IMAGE as imgList, STATE as state from products ";
 
    $statement = $pdo->prepare($sql);
    $statement->execute();
