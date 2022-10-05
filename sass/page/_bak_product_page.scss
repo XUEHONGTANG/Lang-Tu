@@ -30,32 +30,56 @@
         height: vw(550);
         background-color: $gray500;
       }
-      input[type="file"] {
-        width: vw(250);
-        margin: vw(8) vw(16) vw(8) auto;
+      span {
+        display: flex;
+        button.btn-1{
+          padding: vw(4) vw(8);
+          border-radius: vw(4);
+          margin-left: auto;
+        }
+        input[type="file"] {
+          width: vw(250);
+          margin: vw(8) vw(16) vw(8) auto;
+        }
       }
     }
-    ul.imgSmall {
+    .swiper {
       margin-top: vw(24);
       width: 100%;
-      height: vw(140);
-      display: flex;
-      overflow: hidden;
+      cursor: grab;
 
-      li {
-        width: vw(140);
+      .swiper-wrapper {
         height: vw(140);
-        border: 1px solid $gray500;
-        margin: 0 vw(12);
-        flex-shrink: 0;
-        background-color: $gray500;
+        width: vw(140);
+        .swiper-slide {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          -webkit-justify-content: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          align-items: center;
 
-        &:first-child {
-          margin-left: 0;
+          border-radius: vw(8);
+        }
+        .swiper-slide img {
+          display: block;
+          width: 100%;
+          // height: 100%;
+          margin: 0 auto;
+          object-fit: cover;
+          cursor: pointer;
+          border-radius: vw(5);
         }
       }
     }
   }
+
   .productInfo {
     margin: $space4 $space4 $space4 $space2;
     //   border: 1px solid $gray500;
@@ -64,8 +88,14 @@
     padding: 0 $space4;
     position: relative;
 
+    label.bak-pd-info-id {
+      @include inputLabel(100%, "請輸入商品編號*");
+      height: vw(100);
+    }
+
     label.bak-pd-info-name {
       @include inputLabel(100%, "請輸入商品名稱*");
+      height: vw(100);
     }
     // .bak-pd-info-name {
     //   @include input-text(60%);
@@ -111,7 +141,7 @@
 
     textarea {
       width: 100%;
-      height: vw(450);
+      height: vw(350);
       resize: none;
       margin-top: $space1;
       border-radius: vw(6);

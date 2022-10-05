@@ -4,7 +4,7 @@ include("./DB.php");
 
 // $pdo->exec('');
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
-print_r($data);
+// print_r($data);
 // exit();
 //建立SQL
 $sql = " INSERT INTO `order` (ODATETIME, OCONSIGNEE, OCARTLIST, OPAYMENT, OMETHOD, ODELIVERYWAY, ODELIVERYFEE, OTOTAL, OINVOCE, OEMAIL, OPHONE, OADDRESS, ONOTE, OSTATUS) values (:odatetime, :consignee, :cartlist, :payment, :omethod, :deliveryWay, :deliveryFee, :total, :invoce, :email, :phone, :oaddress, :note, :ostatus)  ";
@@ -25,7 +25,7 @@ $statement->bindValue(":email", $data["email"]);
 $statement->bindValue(":phone", $data["phone"]);
 $statement->bindValue(":oaddress", $data["address"]);
 $statement->bindValue(":note", $data["note"]);
-$statement->bindValue(":note", $data["note"]);
+// $statement->bindValue(":note", $data["note"]);
 $statement->bindValue(":ostatus", $data["status"]);
 $statement->execute();
 
