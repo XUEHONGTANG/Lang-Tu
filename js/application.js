@@ -116,7 +116,7 @@ new Vue({
                     pid: this.pid,
                 })
             })
-            window.location.href = "./finish.html";
+            // window.location.href = "./finish.html";
             
         },
     },
