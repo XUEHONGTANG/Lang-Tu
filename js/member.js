@@ -249,7 +249,7 @@ Vue.component('order', {
                 <td class="detail-bottom"></td>
                 <td class="detail-bottom">合計:</td>
                 <td class="detail-bottom"></td>
-                <td v-if="order[0]" class="detail-bottom">{{order[0].total}}</td>
+                <td v-if="order[0]" class="detail-bottom">{{order[i].total}}</td>
             </tr>
         </tbody>
     </table>

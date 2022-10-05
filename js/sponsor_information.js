@@ -151,7 +151,7 @@ new Vue({
             this.currentPage = 3
         },
 
-        finish(){
+        next(){
             let date = new Date();
             dateValues = [date.getFullYear(), date.getMonth()+1, date.getDate()];
             this.donor.date = dateValues.join('-')
@@ -208,7 +208,7 @@ new Vue({
                 })
             })
             sessionStorage.setItem('donorEmail', this.donor.email)
-            location.href ="./payer_information.html"
+            window.location.href ='./payer_information.html'
         }
 
 

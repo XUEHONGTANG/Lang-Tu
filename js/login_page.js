@@ -90,19 +90,19 @@ new Vue({
             .then(body => {
                 if (body.successful){
                     alert("登入成功");
+                    sessionStorage.setItem("account", this.loginForm.account)
                     let pid = sessionStorage.getItem('pid');
                     let id = sessionStorage.getItem('id');
                     if( sessionStorage.pid || sessionStorage.id){
                       history.back()
                     } else {
-                      sessionStorage.setItem("account",this.loginForm.account)
                       window.location.href = './member_detail.html';
                     }
                 }else{
                   // alert("登入失敗");
                   this.alertContent = '登入失敗'
                   this.alert = true;
-                   setTimeout(() => { return this.alert = false,this.alertContent = '' }, 3000);
+                    setTimeout(() => { return this.alert = false,this.alertContent = '' }, 3000);
                 }
             });
       // alert("登入成功");

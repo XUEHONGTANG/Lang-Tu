@@ -3,7 +3,7 @@
 
 <head>
     @@include('./layout/head.html', {
-    "title" : "浪浪等家"
+        "title" : "浪浪等家"
     })
     <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
 </head>
@@ -231,14 +231,14 @@
 
                     <div class="sponsor_information-under">
                         <button class="btn-0" @click="currentPage = 2">上一步</button>
-                        <button class="btn-0" :disabled=isDisabled @click="finish">下一步</button>
+                        <button class="btn-0" :disabled=isDisabled @click="next">下一步</button>
                     </div>
                 </section>
             </div>
         </div>
         
     </main>
-    <script src="js/sponsor_information.js"></script>
+    <script src="./js/sponsor_information.js"></script>
     @@include('layout/footer.html')
 </body>
 
