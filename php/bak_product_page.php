@@ -3,7 +3,7 @@
 
     //      1. 接收前端傳來的JSON格式的字串，並轉成PHP中的物件
     $member = json_decode(file_get_contents("php://input"), true);
-
+    
     $PDNAME = htmlspecialchars(isset($_POST["PDNAME"]) ? $_POST["PDNAME"] : "");
     $INFO = htmlspecialchars(isset($_POST["INFO"]) ? $_POST["INFO"] : "");
     $PRICE = htmlspecialchars(isset($_POST["PRICE"]) ? $_POST["PRICE"] : "");
