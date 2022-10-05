@@ -29,8 +29,8 @@
                     <div class="PetTag"  key="2"><img style="z-index:2" :src="schemas[currentPage].tags[chooseTags]"></div>
                     <img class="currentPet" :src="schemas[currentPage].collar[choosCollar]" style="z-index:0" key="3" v-if="current_animal === 'dog'">
                     <img class="currentPet" :src="schemas[currentPage].cat_collar[choosCollar]" style="z-index:0" key="3" v-if="current_animal === 'cat'">
-                    <img class="presetPet" :src="schemas[5].collar[0]" style="z-index:-1" key="4" v-if="current_animal === 'dog'"  v-show="currentPage === 1">
-                    <img class="presetPet" :src="schemas[5].collar[1]" style="z-index:-1" key="4" v-if="current_animal === 'cat'"  v-show="currentPage === 1">
+                    <img class="presetPet" :src="schemas[5].collar[0]" style="z-index:-1" key="4" v-if="current_animal === 'dog'"  v-show="currentPage === 1 ">
+                    <img class="presetPet" :src="schemas[5].collar[1]" style="z-index:-1" key="4" v-if="current_animal === 'cat'"  v-show="currentPage === 1 ">
                 </picture>
                 <section class="canvas_frame" key="5"  v-show="currentPage === 3">
                     <canvas id="canvas" ></canvas>
@@ -60,7 +60,7 @@
                         <span class="custom_btn-text">下一步</span>
                     </button>
                 
-             
+
                     </div>
                     <!-- progress-cont4 -->
                     <div class="progress-cont progress-cont4">
@@ -78,9 +78,13 @@
                 <article v-if="currentPage === 0" key="page1" class="custom_start">
                     <h3>今天想幫誰挑項圈呢？</h3>
                     <div class="custom_start-btn">
-                        <button @click.stop="DogNext" class="startBtn"><img src="./images/customized/custom-Dog.png" alt=""></button>
-                        <button @click.stop="CatNext" class="startBtn"><img src="./images/customized/custom-Cat.png" alt=""></button>
+                        <button id="dogbtn" @click.stop="DogNext" class="startBtn"><img class="custom-Dog" src="./images/customized/custom-Dog.png" alt="" style="animation-delay: 1s"></button>
+                        <button id="catbtn" @click.stop="CatNext" class="startBtn"><img  class="custom-Cat" src="./images/customized/custom-Cat.png" alt="" style="animation-delay: 2s"></button>
                     </div>
+                    <img class="dogbtn_dog" :src="schemas[5].collar[0]" style="z-index:-1" key="4"   v-show="currentPage === 0 " >
+                    <img class="catbtn_cat" :src="schemas[5].collar[1]" style="z-index:-1" key="4"   v-show="currentPage === 0 " >
+
+
                 </article>
                 <!-- 1 挑選皮帶 -->
                 <transition-group name="fade">
@@ -191,8 +195,8 @@
                         </div>
 
                         <div class="cus_step4_btn">
-                            <button class="btn-1 step4_btn" href="./index.html">回首頁</button>
-                            <button class="btn-0 step4_btn"  href="./member_detail.html">查看歷史訂單</button>
+                            <button class="btn-1 step4_btn"  onclick="window.location.href='./index.html'">回首頁</button>
+                            <button class="btn-0 step4_btn" onclick="window.location.href='./member_detail.html'" >查看歷史訂單</button>
                         </div>
                     </div>
                 </transition-group>

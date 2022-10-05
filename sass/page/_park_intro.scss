@@ -436,7 +436,7 @@
                 width: 11.8vw;
                 @include m(){
                     width: calc(20 / var(--rwd-width) * 100vw);
-                    top: 46.8 vw;
+                    top: 46.8vw;
                     left: 84px;
                 }
 
@@ -688,6 +688,9 @@
         top: 21vw;
         img{
             width: 60vw;
+            @include m(){
+                width:86vw;
+            }
         }
         @include m(){
             top: -10vw;
