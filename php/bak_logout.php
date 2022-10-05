@@ -3,7 +3,7 @@
     session_unset();
     session_destroy();
 
-    header("Location: ../bak.html");
+    header("Location: ./bak.html");
 
 
 

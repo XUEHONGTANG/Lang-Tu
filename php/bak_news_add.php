@@ -33,7 +33,7 @@
         $_SESSION["password"] = $password;
 
         // 登入成功後跳轉會員管理頁
-        header("Location: ../dist/bak_member.html");
+        header("Location: ../bak_member.html");
 
        }else{
            // 登入失敗
@@ -42,7 +42,7 @@
            // echo "<script>alert('帳號或密碼錯誤')</script>";
 
         //    點擊alert跳轉燈入頁
-           echo "<script> {window.alert('帳號或密碼錯誤');location.href='../dist/bak.html'} </script>";
+           echo "<script> {window.alert('帳號或密碼錯誤');location.href='../bak.html'} </script>";
        }
 
 ?>
