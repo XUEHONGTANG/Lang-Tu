@@ -148,6 +148,7 @@ $menu-font-size: 20px;
                 @include m() {
                     padding-right: 20px;
                     width: 30vw;
+                    left:0;
                 }
             }
         }
