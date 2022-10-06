@@ -177,8 +177,8 @@ new Vue({
         // });
         // console.log(resp[0].state);
         let products = resp.filter(pd => {
-          return !pd.pdId.includes("pd-5") && pd.state !== 0;
-          // return !pd.pdId.includes("pd-5") && !pd.state.includes(false);
+          // return !pd.pdId.includes("pd-5") && pd.state !== 0;
+          return !pd.pdId.includes("pd-5");
         });
         // console.log(products);
         // products = resp;
