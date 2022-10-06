@@ -41,7 +41,7 @@
               <img :src="images[currentSrc]" >
               <span>
                 <p>{{picText}}</p>
-                <button class="btn-1" @click.prevent="deleteImage">刪除</button>
+                <div class="button" @click.prevent="deleteImage">刪除</div>
     
                   <input type="file" @change="onChange" 
                   accept="image/png, image/jpeg"

@@ -32,10 +32,17 @@
       }
       span {
         display: flex;
-        button.btn-1{
-          padding: vw(4) vw(8);
-          border-radius: vw(4);
-          margin-left: auto;
+        .button{
+          border: solid 1px #333;
+          background-color: #eee;
+          font-size: vw(18);
+          height: vw(32);
+          line-height: vw(32);
+          padding: 0 vw(8);
+          border-radius: vw(2);
+          // padding: 0;
+          margin: vw(8) 0 vw(8) auto;
+          cursor: pointer;
         }
         input[type="file"] {
           width: vw(250);
@@ -143,7 +150,7 @@
       width: 100%;
       height: vw(350);
       resize: none;
-      margin-top: $space1;
+      // margin-top: $space1;
       border-radius: vw(6);
 
       border: 0;
