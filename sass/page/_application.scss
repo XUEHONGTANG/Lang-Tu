@@ -258,6 +258,25 @@
                 margin: 0 auto;
             }
         }
+        select {
+            width: vw(350);
+            font-size: $p;
+            border: 0;
+            outline: solid 1px $primaryDefault;
+            border-radius: vw(6);
+            padding: vw(5) vw(7);
+            @include m(){
+                width: rwd(350);
+                border-radius: rwd(6);
+                padding: rwd(5) rwd(7);
+                font-size: rwd(16);
+                display: block;
+                margin: 0 auto;
+            }
+            &.error {
+                outline: solid 1px $error;
+            }
+        }
     }
     .application-right{
         // width: vw(500);

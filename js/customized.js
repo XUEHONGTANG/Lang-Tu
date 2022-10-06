@@ -98,17 +98,17 @@ new Vue({
           "./images/customized/custom-cat_red.png",
           "./images/customized/custom-cat_yellow.png",
           "./images/customized/custom-cat_blue.png",
-          "./images/customized/custom-cat_lightbliue.png",
+          "./images/customized/custom-cat_lightblue.png",
           "./images/customized/custom-cat_gray.png",
           "./images/customized/custom-cat_coffee.png",
         ],
         collar: [
           "./images/customized/custom-dog_red.png",
-          "./images/customized/custom-dog-yellow.png",
-          "./images/customized/custom-dog-blue.png",
-          "./images/customized/custom-dog_lightbliue.png",
-          "./images/customized/custom-dog-gray.png",
-          "./images/customized/custom-dog-coffee.jpg",
+          "./images/customized/custom-dog_yellow.png",
+          "./images/customized/custom-dog_blue.png",
+          "./images/customized/custom-dog_lightblue.png",
+          "./images/customized/custom-dog_gray.png",
+          "./images/customized/custom-dog_coffee.png",
         ],
         tags: [
           "./images/customized/bbon_original-01.png",
@@ -147,11 +147,11 @@ new Vue({
         title: "您的商品已添加至購物車",
         collar: [
           "./images/customized/custom-dog_red.png",
-          "./images/customized/custom-dog-yellow.png",
-          "./images/customized/custom-dog-blue.png",
-          "./images/customized/custom-dog_lightbliue.png",
-          "./images/customized/custom-dog-gray.png",
-          "./images/customized/custom-dog-coffee.png",
+          "./images/customized/custom-dog_yellow.png",
+          "./images/customized/custom-dog_blue.png",
+          "./images/customized/custom-dog_lightblue.png",
+          "./images/customized/custom-dog_gray.png",
+          "./images/customized/custom-dog_coffee.png",
         ],
         tags: [
           "./images/customized/bbon_original-01.png",
@@ -165,7 +165,7 @@ new Vue({
           "./images/customized/custom-cat_red.png",
           "./images/customized/custom-cat_yellow.png",
           "./images/customized/custom-cat_blue.png",
-          "./images/customized/custom-cat_lightbliue.png",
+          "./images/customized/custom-cat_lightblue.png",
           "./images/customized/custom-cat_gray.png",
           "./images/customized/custom-cat_coffee.png",
         ],
@@ -228,17 +228,15 @@ new Vue({
     },
 
     prev() {
+        this.currentPage--;
+  
+        if(this.currentPage <= 0){
+          this.currentPage = 0
+        $("#next-btn").fadeOut();
+        this.update();
+        }
 
-      if(this.currentPage = 1){
-        this.currentPage = 0
-      }else{
-      this.currentPage--;
-      $("#next-btn").fadeOut();
-      if (this.currentPage < 1) {
-        this.currentPage = 1;
-      }
-      this.update();
-    }
+    
     },
     prdClickfirst() {
       $("#next-btn").fadeIn();
