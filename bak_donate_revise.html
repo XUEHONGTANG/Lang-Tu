@@ -5,7 +5,7 @@
         "title" : "贊助專案管理"
     })
 <!-- include libraries(jQuery, bootstrap) -->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 </head>
@@ -19,7 +19,7 @@
             </aside>
 
             <div class="d_info">
-                <div id="app" class="right" v-if="sponsor[0]">
+                <div id="app1" class="right" v-if="sponsor[0]">
                     <h2>贊助修改</h2>
                     <div class="d_info">
                         <div class="dtitle">
@@ -50,6 +50,8 @@
                         </div>
 
                         <div class="pic">
+                            <span class="title">&nbsp&nbsp&nbsp&nbsp封面圖片</span>
+                            <input type="file" value="瀏覽" @change="filesList">
                             <span class="title">&nbsp&nbsp&nbsp&nbsp主題圖片</span>
                             <input type="file" value="瀏覽" @change="files">
                         </div>
@@ -71,13 +73,19 @@
 
 
         let vm = new Vue({
-            el: "#app",
+            el: "#app1",
             data: {
                 sponsor:[],
                 summer: "",
                 image: "",
+                imageList: "",
+                markupStr:"",
+                id: null,
             },
             methods:{
+                filesList(e){
+                    this.imageList = e.target.files[0].name;
+                },
                 files(e){
                     this.image = e.target.files[0].name;
                 },
@@ -96,86 +104,58 @@
                             fundEndDate: this.sponsor[0].fundEndDate,
                             fundGoal: this.sponsor[0].fundGoal,
                             fundImg: this.image,
-                            fundContent: this.sponsor[0].status,
+                            fundContent: this.summer,
+                            fundlistImg: this.imageList,
+                            id: this.id,
                         }),
                     })
                 },
             },
 
-            mounted() {
+            created() {
                 $('#summernote').summernote({
                         lang: 'zh-CN',
                         tabsize: 2,
                         width: 900,
                         height: 300,
                 });
-
-                let self = this
+                
+                
+                // $('#summernote').on('summernote.change',function(){
+                //         self.markupStr = $('#summernote').summernote('code');
+                //         self.summer = self.markupStr;
+                //         console.log(self.summer);  
+                // })
+                    
+                    // this.markupStr = $('#summernote').summernote('code');
+                    // vm.summer = this.markupStr;
+                    
+            },
+            mounted() {
+                
+                    let getUrlString = location.href;
+                    let url = new URL(getUrlString);
+                    let modify = url.searchParams.get('modify');
+                    this.id = modify;
+                    fetch(`./php/donate_modify.php?modify=`+modify)
+                    .then(resp => resp.json())
+                    .then(resp => this.sponsor = resp)
+                    .then(resp => {
+                        this.summer = resp[0].fundContent;
+                        let e = $('.note-editable').html(this.summer);
+                    });
+                    let self = this
 
                 $('#summernote').on('summernote.change',function(){
-                    let markupStr
-                    this.markupStr = $('#summernote').summernote('code');
-                    vm.summer = markupStr;
-                    console.log(vm.summer);  
-                })
+                        self.markupStr = $('#summernote').summernote('code');
+                        self.summer = self.markupStr;
+                        console.log(self.summer);  
+                    })
+            },
+            updated() {
 
-                // this.markupStr = $('#summernote').summernote('code');
-                // vm.summer = this.markupStr;
-                    
-
-                let getUrlString = location.href;
-                let url = new URL(getUrlString);
-                let modify = url.searchParams.get('modify');
-                fetch(`./php/donate_modify.php?modify=`+modify)
-                .then(resp => resp.json())
-                .then(resp => this.sponsor = resp)
             },
         })
-    
-        // let vm2 = new Vue({
-        //     el: "#app2",
-        //     date: {
-        //         donate: [],
-        //     },
-        //     methods: {
-        //         reset(){
-        //             vm.sponsor.title = ""
-        //             vm.sponsor.content = ""
-        //             vm.sponsor.dateStart = ""
-        //             vm.sponsor.dateEnd = ""
-        //             vm.sponsor.image = ""
-        //             vm.sponsor.note = ""
-        //             vm.sponsor.targetAmount = ""
-        //         },
-        //         submit(){
-        //             fetch('./php/insertSponsor.php', {
-        //                 method: 'POST',
-        //                 headers: {
-        //                     'Content-Type': 'application/json'
-        //                 },
-        //                 body: JSON.stringify({
-        //                     title: vm.sponsor.title, 
-        //                     content: vm.sponsor.content, 
-        //                     dateStart: vm.sponsor.dateStart, 
-        //                     dateEnd: vm.sponsor.dateEnd,
-        //                     image: vm.sponsor.image,
-        //                     note: vm.sponsor.note,
-        //                     status: vm.sponsor.status,
-        //                     status: vm.sponsor.targetAmount
-        //                 }),
-        //             })
-        //         },
-        //     },
-        //     computed: {
-        //         isDisabled(){
-        //             if(vm.sponsor.note !== ""){
-        //                 return false
-        //             }else{
-        //                 return true
-        //             }
-        //         },
-        //     },
-        // })
     </script>
 </body>
 </html>
