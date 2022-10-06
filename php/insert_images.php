@@ -19,8 +19,11 @@
         //Server上的暫存檔路徑含檔名
         $filePath_Temp = $fileTmpName_arr[$i];
         
-        //檔案最終存放位置
-        $filePath = $ServerRoot."/tgd102_g3/images/ff/".$fileName_arr[$i];
+        // 檔案最終存放位置
+        // 緯育serve
+        $filePath = $ServerRoot."/tgd102/g3/dist/images/ff/".$fileName_arr[$i];
+        // 本地端
+        // $filePath = $ServerRoot."/tgd102_g3/images/ff/".$fileName_arr[$i];
 
         //判斷是否上傳成功
         if($error_arr[$i] > 0){
