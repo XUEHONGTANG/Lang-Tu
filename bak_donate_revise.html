@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html', {
+        "title" : "贊助專案管理"
+    })
+<!-- include libraries(jQuery, bootstrap) -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        @@include('./layout/bak-head.html')
+
+        <main class="bm">
+            <aside>
+                @@include('./layout/bak-aside.html')
+            </aside>
+
+            <div class="d_info">
+                <div id="app" class="right" v-if="sponsor[0]">
+                    <h2>贊助修改</h2>
+                    <div class="d_info">
+                        <div class="dtitle">
+                            <span class="title">&nbsp&nbsp&nbsp&nbsp贊助標題</span>
+                            <input type="text" v-model="sponsor[0].fundName">
+                        </div>
+                        
+                        <div class="copywriting">
+                            <span class="title">&nbsp&nbsp&nbsp&nbsp標題文案</span>
+                            <input type="text" v-model="sponsor[0].fundTopContent">
+                        </div>
+
+                        <div class="sedate">
+                            <div class="start">
+                                <span class="title">&nbsp&nbsp&nbsp&nbsp開始日期</span>
+                                <input type="date" v-model="sponsor[0].fundDate">
+                            </div>
+
+                            <div class="end">
+                                <span class="title in">結束日期</span>
+                                <input type="date" v-model="sponsor[0].fundEndDate">
+                            </div>
+                        </div>
+
+                        <div class="copywriting">
+                            <span class="title">&nbsp&nbsp&nbsp&nbsp目標金額</span>
+                            <input type="text" v-model="sponsor[0].fundGoal">
+                        </div>
+
+                        <div class="pic">
+                            <span class="title">&nbsp&nbsp&nbsp&nbsp主題圖片</span>
+                            <input type="file" value="瀏覽" @change="files">
+                        </div>
+                    </div>
+                    
+                    <div class="summernote_wrapper">
+                        <textarea id="summernote"></textarea>
+                    </div>
+                    
+                    
+                    <div class="button">
+                        <button class="btn-0" @click="submit">送出</button>      
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    <script>
+
+
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                sponsor:[],
+                summer: "",
+                image: "",
+            },
+            methods:{
+                files(e){
+                    this.image = e.target.files[0].name;
+                },
+
+                submit(){
+                    confirm('確認修改?')
+                    fetch('./php/reviseSponsor.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            fundName: this.sponsor[0].fundName, 
+                            fundTopContent: this.sponsor[0].fundTopContent, 
+                            fundDate: this.sponsor[0].fundDate, 
+                            fundEndDate: this.sponsor[0].fundEndDate,
+                            fundGoal: this.sponsor[0].fundGoal,
+                            fundImg: this.image,
+                            fundContent: this.sponsor[0].status,
+                        }),
+                    })
+                },
+            },
+
+            mounted() {
+                $('#summernote').summernote({
+                        lang: 'zh-CN',
+                        tabsize: 2,
+                        width: 900,
+                        height: 300,
+                });
+
+                let self = this
+
+                $('#summernote').on('summernote.change',function(){
+                    let markupStr
+                    this.markupStr = $('#summernote').summernote('code');
+                    vm.summer = markupStr;
+                    console.log(vm.summer);  
+                })
+
+                // this.markupStr = $('#summernote').summernote('code');
+                // vm.summer = this.markupStr;
+                    
+
+                let getUrlString = location.href;
+                let url = new URL(getUrlString);
+                let modify = url.searchParams.get('modify');
+                fetch(`./php/donate_modify.php?modify=`+modify)
+                .then(resp => resp.json())
+                .then(resp => this.sponsor = resp)
+            },
+        })
+    
+        // let vm2 = new Vue({
+        //     el: "#app2",
+        //     date: {
+        //         donate: [],
+        //     },
+        //     methods: {
+        //         reset(){
+        //             vm.sponsor.title = ""
+        //             vm.sponsor.content = ""
+        //             vm.sponsor.dateStart = ""
+        //             vm.sponsor.dateEnd = ""
+        //             vm.sponsor.image = ""
+        //             vm.sponsor.note = ""
+        //             vm.sponsor.targetAmount = ""
+        //         },
+        //         submit(){
+        //             fetch('./php/insertSponsor.php', {
+        //                 method: 'POST',
+        //                 headers: {
+        //                     'Content-Type': 'application/json'
+        //                 },
+        //                 body: JSON.stringify({
+        //                     title: vm.sponsor.title, 
+        //                     content: vm.sponsor.content, 
+        //                     dateStart: vm.sponsor.dateStart, 
+        //                     dateEnd: vm.sponsor.dateEnd,
+        //                     image: vm.sponsor.image,
+        //                     note: vm.sponsor.note,
+        //                     status: vm.sponsor.status,
+        //                     status: vm.sponsor.targetAmount
+        //                 }),
+        //             })
+        //         },
+        //     },
+        //     computed: {
+        //         isDisabled(){
+        //             if(vm.sponsor.note !== ""){
+        //                 return false
+        //             }else{
+        //                 return true
+        //             }
+        //         },
+        //     },
+        // })
+    </script>
+</body>
+</html>

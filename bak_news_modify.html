@@ -37,7 +37,7 @@
                     <div class="pic">
                         <span class="title">新聞圖片</span>
                         <!-- <textarea name="" id="" cols="50" rows="10"></textarea> -->
-                        <input type="file" name="profile[]" multiple />
+                        <input type="file" name="profile[]" multiple id="files"/>
                     </div>
 
                     <div class="date">
@@ -84,28 +84,36 @@
             content.value = news[0].content
         });
 
+
+
         const revise = document.querySelector('.revise');
+        const files = document.querySelector('#files');
+        let a;
+
+        files.addEventListener('change', (e) =>{
+            a = e.target.files[0].name;
+        })
+
         revise.addEventListener('click', () => {
-        //    console.log(pName.value);
-        //    console.log(PTYPE.value);
-           
-            fetch("./php/news_revise.php", {
+            console.log(a);
+            fetch(`../php/news_revise.php`, {
                 method: "POST",
                 headers: { 'Content-Type': 'application/json'},
                 body: JSON.stringify({
-                    modify: sessionStorage.getItem('xxx'),
+                    modify: url.searchParams.get('modify'),
                     title: title.value,
                     category: category.value,
                     year: year.value,
                     date: date.value,
-                    content: content.value
+                    content: content.value,
+                    pic: a,
                 })
             })
             .then(resp => resp.json())
             .then(body = {})
-            
             alert('修改成功');
         })
+
     </script>
     
 </body>

@@ -99,12 +99,22 @@
                     }
                 }
                 margin-left: vw(20);
-                .input-text[type=text]{
-                    @include input-text(vw(360));
+                select{
+                    margin-right: vw(16);
+                    width: vw(362);
+                    font-size: $p;
+                    border: 0;
+                    outline: solid 1px $primaryDefault;
+                    border-radius: vw(6);
+                    padding: vw(5) vw(7);
                     @include m(){
-                        @include input-text(rwd(180));
+                        width: rwd(350);
                         border-radius: rwd(6);
-                        line-height: rwd(10);
+                        padding: rwd(5) rwd(7);
+                        font-size: rwd(16);
+                        display: block;
+                        margin: 0 auto;
+                        margin-bottom: rwd(20);
                     }
                 }
             }

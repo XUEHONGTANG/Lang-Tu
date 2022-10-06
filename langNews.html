@@ -33,7 +33,7 @@
               :key="id">
                 <a :href="'./langNews-cont.html?getNews='+post.id" class="News_cont">
                  <div class="News_pic">
-                 <img :src="post.image"  alt=""></div>
+                 <img :src="imgURL+post.image"  alt=""></div>
                     <p>{{ post.title }}</p>
                      <div class="date_box">
                          <span class="year">{{ post.year }}</span>
@@ -46,7 +46,37 @@
     </main>
 
     @@include('layout/footer.html')
-    <script src="./js/langNews.js"></script>
+
+    <script>
+        new Vue({
+    el: '#app',
+    data: {
+        imgURL: './images/Derrick/',
+        currentFilter: 'ALL',
+        posts: [
+
+            {
+                // views: ' ', title: '', image: ' ', year: ' ', date: ' ', category: ' ',
+                // collet: '', content: '',
+
+            }
+        ]
+    },
+
+    methods: {
+        setFilter: function (filter) {
+            this.currentFilter = filter;
+        }
+    },
+    mounted() {
+        fetch(`./php/news_content.php`,{
+            method: "GET",
+        })
+            .then(resp => resp.json())
+            .then(resp => this.posts = resp)
+    }
+})
+    </script>
 
 </body>
 
