@@ -98,7 +98,7 @@ new Vue({
                 }
             }
             //這邊需要做資料匯入PHP後端 傳值完後導向下一頁
-            fetch('./php/InsertReservation.php', {
+            fetch('../php/insertreservation.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -116,7 +116,7 @@ new Vue({
                     pid: this.pid,
                 })
             })
-            // window.location.href = "./finish.html";
+            window.location.href = "./finish.html";
             
         },
     },

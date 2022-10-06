@@ -79,21 +79,12 @@
                 </div>
                 <div class="application-book-4">
                     <h1>預約時間</h1>
-                    <select 
-                            v-model.trim="reserve.day" 
-                            :disabled=isDisabled 
-                            :class="{error: errors.day}"
-                            >
-                            <option value="公寓">公寓</option>
-                            <option value="電梯大樓">電梯大樓</option>
-                            <option value="透天厝">透天厝</option>
-                        </select>
-                    <!-- <input  
+                    <input  
                         :class="{error: errors.day}"
                         v-model.trim="reserve.day" 
                         :disabled=isDisabled
                         type="date">
-                    </input> -->
+                    </input>
                     <input
                         :class="{error: errors.time}" 
                         v-model.trim="reserve.time" 
@@ -109,10 +100,14 @@
                 <div class="application-lift">
                     <label class="application-label">
                         <h1>飼養地點：</h1>
-                        <input 
-                            :disabled=isDisabled 
-                            class="application-text" 
-                            type="text" placeholder="">
+                        <select 
+                        :disabled=isDisabled 
+                        :class="{error: errors.day}"
+                        >
+                        <option value="公寓">公寓</option>
+                        <option value="電梯大樓">電梯大樓</option>
+                        <option value="透天厝">透天厝</option>
+                    </select>
                     </label>
                     <label class="application-label">
                         <h1>空間大小：</h1>
