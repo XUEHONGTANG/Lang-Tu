@@ -113,7 +113,7 @@
             },
             methods:{
                 filesList(e){
-                    this.sponsor.image = e.target.files[0].name;
+                    this.sponsor.imageList = e.target.files[0].name;
                 },
                 files(e){
                     this.sponsor.image = e.target.files[0].name;
@@ -151,11 +151,11 @@
                             image: vm.sponsor.image,
                             note: vm.sponsor.note,
                             status: vm.sponsor.status,
+                            imageList: vm.sponsor.imageList,
                             targetAmount: vm.sponsor.targetAmount,
                             fundNow: 0,
                             state: 1,
                             amount:0,
-                            imageList: vm.sponsor.imageList,
                         }),
                     })
                 },

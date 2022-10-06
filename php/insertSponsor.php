@@ -6,7 +6,7 @@ include("./DB.php");
 $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
 //建立SQL
-$sql = " INSERT INTO project(fundContent, fundName, fundImg, fundDate, fundEndDate, fundTopContent, fundStatus, fundGoal, fundlistImg, fundNow, STATE, Amount) values (:note, :title, :image, :dateStart, :dateEnd, :content, :status, :targetAmount, :image, :fundNow, :state, :amount)  ";
+$sql = " INSERT INTO project(fundContent, fundName, fundImg, fundDate, fundEndDate, fundTopContent, fundStatus, fundGoal, fundlistImg, fundNow, STATE, Amount) values (:note, :title, :image, :dateStart, :dateEnd, :content, :status, :targetAmount, :imageList, :fundNow, :state, :amount)  ";
 
 
 $statement = $pdo->prepare($sql);
@@ -21,6 +21,7 @@ $statement->bindValue(":status", $data["status"]);
 $statement->bindValue(":fundNow", $data["fundNow"]);
 $statement->bindValue(":state", $data["state"]);
 $statement->bindValue(":amount", $data["amount"]);
+$statement->bindValue(":imageList", $data["imageList"]);
 
 $statement->execute();
 
