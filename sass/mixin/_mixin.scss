@@ -225,7 +225,7 @@
     color: grey;
     font-size: font-size(12);
     font-weight: $regular;
-    z-index: 30;
+    z-index: 10;
 
 
     @include m() {
