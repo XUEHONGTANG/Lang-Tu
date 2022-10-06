@@ -4,7 +4,6 @@
 //   }
 
 main.shoppingPageWrapper {
-  
   margin: 0 auto;
   width: vw(1314);
   display: grid;
@@ -132,12 +131,13 @@ main.shoppingPageWrapper {
       li ol li button {
         background-color: #ebebeb;
         color: $gray600;
-        // @include m(){
-        //   // position: absolute;
-        //   &:hover{
-        //     border: none;
-        //   }
-        //   }
+        @include m() {
+          margin: 0;
+          // position: absolute;
+          // &:hover{
+          //   border: none;
+          // }
+        }
 
         &:hover {
           background-color: darken(#ebebeb, 10);
@@ -155,7 +155,7 @@ main.shoppingPageWrapper {
       @include m() {
         border-radius: rwd(10) 0 0 rwd(10);
         &:hover {
-          border-radius: rwd(10)  0 0 rwd(10);
+          border-radius: rwd(10) 0 0 rwd(10);
         }
       }
     }
@@ -166,7 +166,7 @@ main.shoppingPageWrapper {
       @include m() {
         border-radius: 0 rwd(10) rwd(10) 0;
         &:hover {
-          border-radius:0 rwd(10) rwd(10) 0;
+          border-radius: 0 rwd(10) rwd(10) 0;
         }
       }
     }
@@ -276,7 +276,7 @@ main.shoppingPageWrapper {
           font-weight: $bold;
           color: $primaryA11y;
           padding: 0 vw(40);
-          word-wrap:break-word; 
+          word-wrap: break-word;
           // max-width: vw(200);
           // @include box-center();
 
@@ -294,7 +294,6 @@ main.shoppingPageWrapper {
             height: rwd(52);
             font-size: rwd(16);
             padding: 0 rwd(24);
-
           }
         }
         h4 {
@@ -834,15 +833,18 @@ main.shoppingPageWrapper {
     }
   }
 
-  .v-enter-active, .v-leave-active {
-    transition: opacity .5s;
+  .v-enter-active,
+  .v-leave-active {
+    transition: opacity 0.5s;
   }
-  
-  .v-enter, .v-leave-to {
+
+  .v-enter,
+  .v-leave-to {
     opacity: 0;
   }
-  
-  .v-enter-to, .v-leave {
+
+  .v-enter-to,
+  .v-leave {
     opacity: 1;
   }
   // main content end
