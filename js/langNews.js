@@ -35,6 +35,7 @@ var news = new Vue({
     el: '#news_cont',
     data: {
         posts: [],
+        imgURL: './images/Derrick/',
     },
     mounted() {
         var getUrlString = location.href;

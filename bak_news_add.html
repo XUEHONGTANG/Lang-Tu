@@ -4,6 +4,7 @@
     @@include('./layout/head.html', {
         "title" : "新增新聞"
     })
+<script src="https://unpkg.com/vue@2"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -14,19 +15,18 @@
             @@include('./layout/bak-aside.html')
         </aside>
         
-        <div class="right">
+        <div class="right" id="newsAdd">
             <h2>新聞新增</h2>
 
-            <form method="post" action="./php/bak_news_add.php">
                 <div class="info">
                     <div class="name">
                         <span class="title">新聞標題</span>
-                        <input class="title" name="title" type="text">
+                        <input class="title" name="title" type="text" v-model="title">
                     </div>
                     
                     <div class="type">
                         <span class="title">新聞分類</span>
-                        <select name="category" id="" class="pet">
+                        <select name="category" id="" class="pet" v-model="category">
                             <option value="ANNOUNCE">ANNOUNCE</option>
                             <option value="NEWS">NEWS</option>
                             <option value="ACTIVITY">ACTIVITY</option>
@@ -37,44 +37,63 @@
                     <div class="pic">
                         <span class="title">新聞圖片</span>
                         <!-- <textarea name="" id="" cols="50" rows="10"></textarea> -->
-                        <input type="file" name="profile[]" multiple />
+                        <input type="file" name="profile[]" multiple @change="files"/>
                     </div>
 
                     <div class="date">
                         <span class="title">發布日期</span>
-                        <input type="text" placeholder="年分" name="year">
-                        <input type="text" placeholder="月-日" name="date">
+                        <input type="text" placeholder="年分" name="year" v-model="year">
+                        <input type="text" placeholder="月-日" name="date" v-model="date">
                     </div>
 
                     <div class="content">
                         <span class="title">新聞內容</span>
-                        <textarea name="content" id="" cols="62" rows="10"></textarea>
+                        <textarea name="content" id="" cols="62" rows="10" v-model="content"></textarea>
                     </div>
 
                     <div class="send">
-                        <input type="submit" value="送出">
+                        <input type="submit" value="送出" @click="send">
                     </div>
                 </div>
-            </form>
         </div>
       </main>
     </div>
 
     <script>
-        // let getUrlString = location.href;
-        // let url = new URL(getUrlString);
-        // let modify = url.searchParams.get('modify');
-        // let news = [];
-        // let title = document.getElementsByClassName('title')[0]
 
-        // fetch(`./php/news_modify.php?modify=`+modify, {
-        //     method: "GET"
-        // })
-        // .then(resp => resp.json())
-        // .then(resp => {
-        //     news = resp;
-        //     title.value = news[0].title;
-        // })
+        new Vue({
+            el: "#newsAdd",
+            data:{
+                title: null,
+                category: null,
+                pic: null,
+                year: null,
+                date: null,
+                content: null,
+            },
+            methods: {
+                files(e){
+                    this.pic = e.target.files[0].name;
+                },
+                send(){
+                    fetch('../php/bak_news_add.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            title: this.title, 
+                            category: this.category, 
+                            year: this.year,
+                            date: this.date,
+                            content: this.content,
+                            pic: this.pic, 
+                        })
+                    })
+                }
+            },
+        })
+
     </script>
     
 </body>

@@ -6,7 +6,7 @@
     $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
     //建立SQL
-    $sql = "update news set title = ?,  category = ?, year = ?, date = ?, content = ? where id = ? ";
+    $sql = "update news set title = ?,  category = ?, year = ?, date = ?, content = ?, image = ? where id = ? ";
 
     $statement = $pdo->prepare($sql);
     $statement->bindValue(1, $data['title']);
@@ -14,7 +14,8 @@
     $statement->bindValue(3, $data['year']);
     $statement->bindValue(4, $data['date']);
     $statement->bindValue(5, $data['content']);
-    $statement->bindValue(6, $data['modify']);
+    $statement->bindValue(6, $data['pic']);
+    $statement->bindValue(7, $data['modify']);
     $statement->execute();
 
     //抓出全部且依照順序封裝成一個二維陣列

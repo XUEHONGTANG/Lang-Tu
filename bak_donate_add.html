@@ -20,7 +20,7 @@
 
             <div class="d_info">
                 <div id="app" class="right">
-                    <h2>贊助新增與修改</h2>
+                    <h2>贊助修改</h2>
                     <div class="d_info">
                         <div class="dtitle">
                             <span class="title">&nbsp&nbsp&nbsp&nbsp贊助標題</span>
@@ -50,6 +50,8 @@
                         </div>
 
                         <div class="pic">
+                            <span class="title">&nbsp&nbsp&nbsp&nbsp封面圖片</span>
+                            <input type="file" value="瀏覽" @change="filesList">
                             <span class="title">&nbsp&nbsp&nbsp&nbsp主題圖片</span>
                             <input type="file" value="瀏覽" @change="files">
                         </div>
@@ -102,6 +104,7 @@
                         content: "",
                         dateStart: "",
                         dateEnd: "",
+                        imageList: "",
                         image: "",
                         note: "",
                         status: "",
@@ -109,6 +112,9 @@
                     },
             },
             methods:{
+                filesList(e){
+                    this.sponsor.image = e.target.files[0].name;
+                },
                 files(e){
                     this.sponsor.image = e.target.files[0].name;
                 },
@@ -127,6 +133,7 @@
                     vm.sponsor.dateStart = ""
                     vm.sponsor.dateEnd = ""
                     vm.sponsor.image = ""
+                    vm.sponsor.imageList = ""
                     vm.sponsor.note = ""
                     vm.sponsor.targetAmount = ""
                 },
@@ -147,8 +154,8 @@
                             targetAmount: vm.sponsor.targetAmount,
                             fundNow: 0,
                             state: 1,
-                            amount:0
-
+                            amount:0,
+                            imageList: vm.sponsor.imageList,
                         }),
                     })
                 },

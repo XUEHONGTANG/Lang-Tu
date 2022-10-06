@@ -29,7 +29,7 @@
                     </div>
                     <div class="langNews-content_text">
 
-                        <img class="langNews-content_cover" :src="post.image">
+                        <img class="langNews-content_cover" :src="imgURL + post.image">
                         <div v-html="post.content">
                             {{ post.content }}
                         </div>
@@ -74,7 +74,7 @@
                 <div class="for" v-for="(post,pid) in posts" v-show="pid!=0">
                     <a :href="'./langNews-cont.html?getNews='+post.id" class="News_cont">
                         <div class="News_pic">
-                            <img :src="post.image" alt="">
+                            <img :src="imgURL+post.image" alt="">
                         </div>
                         <p>{{ post.title }}</p>
                     </a>
@@ -87,7 +87,31 @@
 
 
     @@include('layout/footer.html')
-    <script src="./js/langNews.js"></script>
+    
+    <script>
+        var news = new Vue({
+    el: '#news_cont',
+    data: {
+        posts: [],
+        imgURL: './images/Derrick/',
+    },
+    mounted() {
+        var getUrlString = location.href;
+        var url = new URL(getUrlString);
+        var News = url.searchParams.get('getNews');
+
+        fetch(`./php/news_content_box.php?getNews=`+ News,{
+            method: "GET",
+        })
+            .then(resp => resp.json())
+            .then(resp => {
+                this.posts = resp
+                // console.log(this.posts)
+            })
+
+    }
+})
+    </script>
 
 </body>
 

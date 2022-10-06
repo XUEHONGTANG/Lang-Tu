@@ -45,11 +45,14 @@ Vue.component('detail', {
                         :disabled=isDisabled>
                 </label>
                 <label class="text-label-2">
-                    <input 
-                    class="input-text" 
-                    type="text"
-                    v-model="member[0].gender"
-                    :disabled=isDisabled>
+                    <select 
+                            v-model="member[0].gender" 
+                            :disabled=isDisabled 
+                            >
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                            <option value="不方便透漏">不方便透漏</option>
+                        </select>
                 </label>
                 <label class="text-label-3">
                     <input 

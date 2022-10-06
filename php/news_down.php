@@ -6,7 +6,7 @@
    $data = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
    //建立SQL
-   $sql = " update news set state = 0 WHERE state = 1 AND id = :id";
+   $sql = " delete from news WHERE id = :id ";
 
    $statement = $pdo->prepare($sql);
    $statement -> bindValue(':id', $home);
