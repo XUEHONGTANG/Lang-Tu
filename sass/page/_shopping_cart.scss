@@ -252,6 +252,7 @@ main.shoppingCartWrapper {
                 }
 
                 input[type="number"] {
+                  font-size: font-size(16);
                   width: vw(40);
                   border: none;
                   outline: none;
@@ -495,12 +496,20 @@ main.shoppingCartWrapper {
         }
         input[type="text"] {
           @include input-text(vw(162));
+          &::placeholder {
+            color: $gray900;
+          }
+
           @include m() {
             width: rwd(116);
             font-size: rwd(16);
           }
         }
         select {
+       
+            color: $gray900;
+       
+
           width: vw(162);
           @include m() {
             width: rwd(116);
@@ -522,7 +531,7 @@ main.shoppingCartWrapper {
         &.disabled {
           input[type="text"] {
             outline: solid 1px $gray600;
-            color: $gray500;
+            color: $gray600;
             @include m() {
               outline: 0;
               border: solid 1px $gray600;
@@ -538,14 +547,14 @@ main.shoppingCartWrapper {
 
           select {
             outline: solid 1px $gray600;
+            color: $gray600;
+
 
             @include m() {
               outline: 0;
               border: solid 1px $gray600;
             }
-            &::placeholder {
-              color: $gray600;
-            }
+    
             &:hover {
               outline: solid vw(2) $gray600;
             }
@@ -687,13 +696,21 @@ main.shoppingCartWrapper {
         }
         input[type="text"] {
           @include input-text(vw(162));
+          &::placeholder {
+            color: $gray900;
+          }
+
           @include m() {
             width: rwd(116);
             font-size: rwd(16);
           }
         }
         select {
+          color: $gray900;
           width: vw(162);
+
+ 
+
           @include m() {
             width: rwd(116);
             font-size: rwd(16);
@@ -731,15 +748,14 @@ main.shoppingCartWrapper {
 
           select {
             outline: solid 1px $gray600;
+            color: $gray600;
+
 
             @include m() {
               outline: 0;
               border: solid 1px $gray600;
             }
 
-            &::placeholder {
-              color: $gray600;
-            }
             &:hover {
               outline: solid vw(2) $gray600;
             }
@@ -792,6 +808,7 @@ main.shoppingCartWrapper {
           resize: none;
           margin-top: $space1;
           border-radius: vw(6);
+          font-size: font-size(16);
 
           border: 0;
           outline: solid 1px $primaryDefault;
