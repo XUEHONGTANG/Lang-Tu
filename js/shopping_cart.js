@@ -561,7 +561,7 @@ new Vue({
 
         if (
           !this.recipientInfo.email ||
-          !/^\b[A-Z0-9-]+@[A-Z0-9]+\.com\b/i.test(this.recipientInfo.email)
+          !/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/.test(this.recipientInfo.email)
         ) {
           this.recipientErrors.email = true;
         }
