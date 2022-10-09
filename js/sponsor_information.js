@@ -153,16 +153,18 @@ new Vue({
 
         next(){
             let date = new Date();
-            dateValues = [date.getFullYear(), date.getMonth()+1, date.getDate()];
+            let dateValues = [date.getFullYear(), date.getMonth()+1, date.getDate()];
             this.donor.date = dateValues.join('-')
+
             
             let num = new Date();
-            numValues = [num.getFullYear(), num.getMonth()+1, num.getDate(), num.getHours(), num.getMinutes()]
+            let numValues = [num.getFullYear(), num.getMonth()+1, num.getDate(), num.getHours(), num.getMinutes()]
             this.donor.serialNum = numValues.join('')
         
             this.fundNow = Number(this.planPrice) + Number(this.fundNow)
             this.fundPeople++
-        
+ 
+
             fetch('./php/insertDonation.php',{
                 method: 'POST',
                 headers: {

@@ -1,5 +1,3 @@
-// import store from "./store.js";
-
 let productContent = {
   props: ["pdInfo"],
 
@@ -80,7 +78,6 @@ const deliveryMethod = {
 };
 
 const productPage = {
-  // store,
   props: ["product", "toggleShow"],
   components: {
     productContent,
@@ -118,8 +115,6 @@ const productPage = {
       // newProduct = { image: newProduct.imgList[0], ...newProduct };
       // delete newProduct.imgList;
 
-      // console.log(newProduct);
-
       this.$store.dispatch("addProductToCart", { ...newProduct });
       this.putInCartAlert();
     },
@@ -152,17 +147,11 @@ const productPage = {
     // });
 
     const swiper_element = this.$el.querySelector(".mySwiper");
-    // console.log(swiper_element);
     const swiper = new Swiper(swiper_element, {
       slidesPerView: 'auto',
       spaceBetween: 16,
-      // slidesPerGroup: 4,
       loop: false,
       loopFillGroupWithBlank: false,
-      // pagination: {
-      //   el: ".swiper-pagination",
-      //   clickable: true,
-      // },
     });
   },
   updated() {},

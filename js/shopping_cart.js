@@ -647,9 +647,7 @@ new Vue({
 
       (() => {
         const dt = new Date();
-        this.recipientInfo.datetime = `${dt.getFullYear()}-${
-          dt.getMonth() + 1
-        }-${dt.getDate()} ${dt.getHours()}:${dt.getMinutes()}:${dt.getSeconds()}`;
+        this.recipientInfo.datetime = `${dt.getFullYear()}-${dt.getMonth() + 1}-${dt.getDate()} ${dt.getHours()}:${dt.getMinutes()}:${dt.getSeconds()}`;
 
         if (this.recipientInfo.deliveryFee === 60) {
           this.recipientInfo.deliveryWay = "超商取貨";

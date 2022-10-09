@@ -158,34 +158,43 @@ new Vue({
         }
       }
 
-      // alert("註冊成功");
-      this.alertContent = '註冊成功';
-      this.alert = true;
-      setTimeout(() => { return this.alert = false, this.alertContent = '' }, 3000);
-      
-      console.log(
-          JSON.stringify({
-            registerName: this.registerForm.name,
-            registerEmail: this.registerForm.email,
-            registerPassword: this.registerForm.password,
-            registerPhone: this.registerForm.phone,
+      (() => {
+        
+        fetch('./php/login_page.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            name: this.registerForm.name,
+            email: this.registerForm.email,
+            password: this.registerForm.password,
+            phone: this.registerForm.phone,
             birth: this.registerForm.birth,
             gender: this.registerForm.gender,
           })
-      )
-
-      fetch('./php/login_page.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify({
-          name: this.registerForm.name,
-          email: this.registerForm.email,
-          password: this.registerForm.password,
-          phone: this.registerForm.phone,
-          birth: this.registerForm.birth,
-          gender: this.registerForm.gender,
         })
-      })
+        .then(resp => resp.json())
+        .then(body => {
+
+            if (body.successful){
+              
+              this.alertContent = '註冊成功';
+              this.alert = true;
+              setTimeout(() => { return this.alert = false, this.alertContent = '' }, 3000);
+              
+              this.selected = 1;
+            } else {
+              this.alertContent = '註冊失敗'
+              this.alert = true;
+                setTimeout(() => { return this.alert = false,this.alertContent = '' }, 3000);
+              return false;
+
+          }
+          
+        });
+        
+      })();
+
+
     },
   },
   computed: {
@@ -248,111 +257,3 @@ new Vue({
     },
   },
 });
-
-/*
-// 舊 component 寫法
-
-const loginContent ={
-    template:`
-    <section>
-    <span>
-      <button>使用 LINE 登入</button>
-      <button>使用 FB 登入</button>
-    </span>
-      <hr class="mainLine">
-      <div>
-        <h3>請輸入您的登入資訊</h3>
-
-        <label class="loginAccountLabel" name="loginAccount">
-          <input class="input-textLabel" type="text" placeholder="請輸入您的註冊e-mail" name="loginAccount">
-      </label>
-
-        <label class="loginPasswordLabel" name="loginPassword">
-          <input class="input-textLabel" type="text" placeholder="請輸入您的密碼" name="loginPassword">
-      </label>
-
-    </div>
-    <div>
-    <a href="./member_detail.html" class="btn-0">登入會員</a>
-      <button class="btn-1">忘記密碼</button>
-    </div>
-  </section>
-    `
-};
-  
-const registerContent ={
-    template:`
-    <section>
-          <span>
-            <button>使用 LINE 註冊</button>
-            <button>使用 FB 註冊</button>
-          </span>
-            <hr class="mainLine">
-            <div>
-              <h3>請輸入註冊會員資訊</h3>
-
-
-              <label class="
-              registerNameLabel" name="
-              registerName">
-                <input class="input-textLabel" type="text" placeholder="請輸入您的姓名" name="
-              registerName">
-              </label>
-
-              <label class="
-              registerEmailLabel" name="
-              registerEmail">
-                <input class="input-textLabel" type="text" placeholder="請輸入您的E-MAIL註冊帳號" name="
-              registerEmail">
-              </label>
-
-              <label class="
-              registerPasswordLabel" name="
-              registerPassword">
-                <input class="input-textLabel" type="text" placeholder="請輸入您的密碼(至少8個字元)" name="
-              registerPassword">
-              </label>
-
-              <label class="
-              checkPasswordLabel" name="
-              checkPassword">
-                <input class="input-textLabel" type="text" placeholder="請再次輸入您的密碼" name="
-              checkPassword">
-              </label>
-
-              <span>
-                <select name="gender">
-                  <option hidden>性別</option>
-                  <option value="men">男</option>
-                  <option value="women">女</option>
-                </select>
-                <input type="date">
-              </span>
-
-            </div>
-            <hr class="mainLine">
-            
-            <div>
-              <div>
-                <input type="checkbox">我同意 網站服務條款及隱私政策
-              </div>
-              <button class="btn-0">加入浪途之家吧!</button>
-            </div>
-
-        </section>
-    `
-  };
-
-
-new Vue({
-    el: '#loginPageApp',
-    data: {
-        content:'loginContent',
-        selected: 1
-    },
-    components:{
-        'loginContent': loginContent,
-        'registerContent': registerContent
-  }
-})
-*/

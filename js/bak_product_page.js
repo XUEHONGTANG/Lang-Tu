@@ -52,8 +52,8 @@ new Vue({
         this.dataList.push(datas[i]);
         this.imgList.push(datas[i].name);
         }
-        console.log(this.dataList);
-        console.log(this.imgList);
+        // console.log(this.dataList);
+        // console.log(this.imgList);
 
       this.readFile(datas);
 
@@ -66,6 +66,12 @@ new Vue({
       this.images.splice(0, 1);
       this.imgList.splice(0, 1);
       this.dataList.splice(0, 1);
+      // this.filename.splice(0, 1);
+      let fileData = $("input[name='attachment[]']");
+      fileData.splice(0, 1);
+      console.log(fileData);
+      // this.fileName=fileData.name;
+      
 
       if (this.images.length === 0) {
         this.text = "Pls put image...";

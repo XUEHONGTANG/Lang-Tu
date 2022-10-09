@@ -258,7 +258,7 @@ main.shoppingCartWrapper {
                   outline: none;
                   text-align: center;
                   -moz-appearance: textfield;
-
+     
                   @include m() {
                     width: rwd(20);
                     font-size: rwd(13);
