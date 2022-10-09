@@ -119,7 +119,7 @@ new Vue({
           this.registerErrors.name = true;
         }
 
-        if (!this.registerForm.email || !/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/.test(this.registerForm.email)) {
+        if (!this.registerForm.email || !/^\w+([-+.]\w+)*@\w+\.com\b/i.test(this.registerForm.email)) {
           this.registerErrors.email = true;
         }
 
@@ -213,7 +213,7 @@ new Vue({
 
         // mail
         if (newVal.email) {
-          let pattern = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+          let pattern = /^\w+([-+.]\w+)*@\w+\.com\b/i;
           if (newVal.email && !pattern.test(newVal.email)) {
             this.warningText.email = "請輸入正確的e-mail格式 ex: example@gmail.com";
           } else if (newVal.email && pattern.test(newVal.email)) {
