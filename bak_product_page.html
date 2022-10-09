@@ -21,15 +21,13 @@
           @@include('./layout/bak-aside.html')
         </aside>
         
-        <!-- <form method="post" action="./php/bak_product_page.php" class="bakProductPageWrapper"> -->
 
         <form
-        method="post" action="./php/insert_images.php" enctype="multipart/form-data"
-        
+        method="post" action="./php/insert_images.php" enctype="multipart/form-data"        
         class="bakProductPageWrapper" id="bakProductApp">
-          <!-- <form 
-                method="post" action="./php/insert_images.php" enctype="multipart/form-data">  -->
+    
           <div class="productImageArea">
+            <!-- 拖拉圖片 -->
             <!-- <div 
             draggable="true"
              @dragover.prevent="none"
@@ -41,20 +39,17 @@
               <img :src="images[currentSrc]" >
               <span>
                 <p>{{picText}}</p>
-                <div class="button" @click.prevent="deleteImage">刪除</div>
+                <!-- <div class="button" @click.prevent="deleteImage">刪除</div> -->
     
-                  <input type="file" @change="onChange" 
+                  <input type="file" 
+                  ref="myFiles"
+                  @change="onChange" 
                   accept="image/png, image/jpeg"
                   name="profile[]"
                   multiple="multiple"
                   />
-
-                <!-- <input 
-                  type="submit" value="上傳檔案" /> -->
-                  <!-- <button type="submit">上傳檔案</button> -->
                 
               </span>
-              <!-- <button class="btn-0 uploadImg">上傳圖片</button> -->
             </div>
 
             <div class="swiper mySwiper">
@@ -128,9 +123,9 @@
             </div>
           </div>
 
-        <!-- </form> -->
+
       </form>
-        <!-- </form> -->
+
 
 
       </main>

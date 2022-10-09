@@ -28,6 +28,7 @@ new Vue({
         reader.readAsDataURL(files[i]);
       }
     },
+    // 拖拉圖片,操控input[type=file]失敗放棄
     // drop(e) {
     //   let datas = e.target.files || e.dataTransfer.files;
 
@@ -45,6 +46,10 @@ new Vue({
     //   this.picText = "上載完成,請傳新圖片";
     // },
     onChange(e) {
+      this.dataList = [];
+      this.imgList = [];
+      this.images = [];
+
       let datas = e.target.files;
 
       let i;
@@ -52,31 +57,23 @@ new Vue({
         this.dataList.push(datas[i]);
         this.imgList.push(datas[i].name);
         }
-        // console.log(this.dataList);
-        // console.log(this.imgList);
 
       this.readFile(datas);
-
-      this.picText = "上載完成,請傳新圖片";
+      this.picText = "預覽成功";
     },
-    // none(e) {
-    //   this.picText = "";
+    // 刪除圖片,操控input[type=file]失敗放棄
+    // deleteImage() {
+    //   this.images.splice(0, 1);
+    //   this.imgList.splice(0, 1);
+    //   this.dataList.splice(0, 1);
+
+    //   //   this.$refs.myFiles.files = {};
+    //   console.log(this.$refs.myFiles.files);
+
+    //   if (this.images.length === 0) {
+    //     this.text = "Pls put image...";
+    //   }
     // },
-    deleteImage() {
-      this.images.splice(0, 1);
-      this.imgList.splice(0, 1);
-      this.dataList.splice(0, 1);
-      // this.filename.splice(0, 1);
-      let fileData = $("input[name='attachment[]']");
-      fileData.splice(0, 1);
-      console.log(fileData);
-      // this.fileName=fileData.name;
-      
-
-      if (this.images.length === 0) {
-        this.text = "Pls put image...";
-      }
-    },
     saveProduct() {
       fetch("./php/insertProduct.php", {
         method: "POST",
@@ -103,7 +100,7 @@ new Vue({
     //     headers: {
     //       "Content-Type": "multipart/form-data",
     //     },
-    //     body: this.images
+    //     body: this.dataList
     //   });
     // this.$refs.form.$el.submit()
 
