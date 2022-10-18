@@ -4,14 +4,14 @@
     $member = json_decode(file_get_contents("php://input"), true);
     // print_r($data);
 
-    if ($member == null) {
-        $member["message"] = "無會員資訊";
-        $member["successful"] = false;
-        echo json_encode($member);
-        return;
-    }
+    // if ($member == null) {
+    //     $member["message"] = "無會員資訊";
+    //     $member["successful"] = false;
+    //     echo json_encode($member);
+    //     return;
+    // }
     
-    $SQL = " select * from LangTu.MEMBER where EMAIL = :email ";
+    $SQL = " select * from LangTu.member where EMAIL = :email ";
     $stmt = $pdo->prepare($SQL);
     $stmt->bindValue(":email", $member["email"]);
     $stmt->execute();
@@ -25,7 +25,7 @@
     }     
     
     $SQL = "
-        insert into MEMBER(NAME, EMAIL, PASSWORD, PHONE, BIRTHDAY, GENDER)
+        insert into member(NAME, EMAIL, PASSWORD, PHONE, BIRTHDAY, GENDER)
         values(:name, :email, :password, :phone, :birth, :gender)
     ";
     $stmt = $pdo->prepare($SQL);
